@@ -1,0 +1,16 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>,
+    <sa href="Clusterer"/>, <sa href="ClusterPlacemark"/>, <sa href="templateLayoutFactory"/>,
+    <sa href="Placemark"/>
+</div>
+    В данном примере создается собственный макет контента балуна кластера.<br/>
+    Макет задается опцией 'clusterBalloonContentLayout'.
+<br/>
+    <a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Макеты</a>
+    объектов можно создавать с помощью фабрики <sa href="templateLayoutFactory"/>,
+    используя текcтовые шаблоны. <br/>
+    Текстовые шаблоны формируют html-содержимое макета на основе хэша с данными,
+    передаваемого в конструктор макета.<br/>
+    В данном примере поставщиком данных является кластер, у которого был открыт балун.<br/>
+<br/>
+    В макете происходит перечисление и вывод полей 'placemarkId' и 'balloonContentHeader' всех геообъектов кластера при помощи конструкции 'for'.

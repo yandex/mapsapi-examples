@@ -1,0 +1,28 @@
+testCallback_tile_x_618_y_320_z_10({
+    "data": {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {
+                "hintContent": "полигон над Москвой",
+                "balloonContentBody": "Полигон",
+                "balloonContentHeader": "над москвой",
+                "balloonContentFooter": "У этого полигона 7 вершин.",
+
+                "HotspotMetaData": {
+                   "id": 2,
+                   "RenderedGeometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [170, 172], [279, 155], [356, 201], [375, 256],
+                                [378, 273], [323, 393], [205, 391],
+                                [114, 295], [170, 172]
+                            ]
+                        ]
+                    }
+                }
+            }
+        }]
+    }
+});

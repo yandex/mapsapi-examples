@@ -1,0 +1,32 @@
+<div id="references">
+    <a href="/maps/doc/jsapi/2.1/ref/reference/ready.xml">ready</a>,
+    <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml">Map</a>
+    <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">control.Manager</a>
+</div>
+<p>
+    Каждый элемент управления реализуется отдельным классом из пространства имен control
+    (например, <a href="/maps/doc/jsapi/2.1/ref/reference/control.TrafficControl.xml">control.TrafficControl</a>). Ссылка на элементы управления содержится в поле
+    <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">controls</a> карты. Для добавления или удаления элемента управления используются методы add и remove соответственно.
+</p>
+<p>
+    В API 2.1 добавлять элементы управления на карту можно также через ее <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml#constructor-summary">параметры</a>.
+    Это означает, что при инициализации карты в поле controls можно указать ключ соответствующего элемента управления.
+</p>
+ <p>
+     Добавлять можно как отдельные элементы управления, так и сразу их набор. В API 2.1 встроено три стандартных набора элементов управления, доступные
+     по следующим ключам:
+    <ul>
+        <li>'smallMapDefaultSet';</li>
+        <li>'mediumMapDefaultSet' (по умолчанию);</li>
+        <li>'largeMapDefaultSet'.</li>
+    </ul>
+ </p>
+<p>
+    Наборы отличаются количеством входящих в них элементов управления, а также размером соответствующих кнопок. В зависимости от размеров карты может быть добавлен тот или иной набор.
+При создании карты автоматически добавляется набор 'mediumMapDefault'. Однако, если карта достаточно больших размеров,
+то целесообразно добавить 'largeMapDefaultSet'. Если при изменении размеров карты элементы управления
+не будут помещаться на карте, API автоматически уменьшит их иконки.
+</p>
+<p>
+    Подробнее о доступных наборах элементов управления см. в <a href="/maps/doc/jsapi/2.1/ref/reference/control.Button.xml">справочнике</a>.
+</p>

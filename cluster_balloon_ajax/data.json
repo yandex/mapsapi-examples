@@ -1,0 +1,247 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.746584, 37.646785]
+            },
+            "properties": {
+                "id": 1,
+                "clusterCaption": "Москва"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.737575, 37.196345]
+            },
+            "properties": {
+                "id": 2,
+                "clusterCaption": "Дубна"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates":  [56.858139, 35.899959]
+            },
+            "properties": {
+                "id": 3,
+                "clusterCaption": "Тверь"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.343047, 36.723933]
+            },
+            "properties": {
+                "id": 4,
+                "clusterCaption": "Клин"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.306421, 38.130183]
+            },
+            "properties": {
+                "id": 5,
+                "clusterCaption": "Сергиев Посад"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.919711, 37.855525]
+            },
+            "properties": {
+                "id": 6,
+                "clusterCaption": "Королёв"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.547777, 37.712703]
+            },
+            "properties": {
+                "id": 7,
+                "clusterCaption": "Видное"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [54.512898, 36.273494]
+            },
+            "properties": {
+                "id": 8,
+                "clusterCaption": "Калуга"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [54.634170, 39.767146]
+            },
+            "properties": {
+                "id": 9,
+                "clusterCaption": "Рязань"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [54.634170, 39.767146]
+            },
+            "properties": {
+                "id": 10,
+                "clusterCaption": "Владимир"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.610318, 40.673661]
+            },
+            "properties": {
+                "id": 11,
+                "clusterCaption": "Гусь-Хрустальный"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.990604, 40.981278]
+            },
+            "properties": {
+                "id": 12,
+                "clusterCaption": "Иваново"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [57.750314, 40.915360]
+            },
+            "properties": {
+                "id": 13,
+                "clusterCaption": "Кострома"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [57.620862, 39.915604]
+            },
+            "properties": {
+                "id": 14,
+                "clusterCaption": "Ярославль"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [54.774449, 32.038407]
+            },
+            "properties": {
+                "id": 15,
+                "clusterCaption": "Смоленск"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.065540, 32.719559]
+            },
+            "properties": {
+                "id": 16,
+                "clusterCaption": "Ярцево"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.251715, 34.334550]
+            },
+            "properties": {
+                "id": 17,
+                "clusterCaption": "Ржев"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [54.185900, 37.630448]
+            },
+            "properties": {
+                "id": 18,
+                "clusterCaption": "Тула"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.575155, 42.055137]
+            },
+            "properties": {
+                "id": 19,
+                "clusterCaption": "Муром"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [56.836449, 41.384971]
+            },
+            "properties": {
+                "id": 20,
+                "clusterCaption": "Шуя"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [55.143320, 37.473838]
+            },
+            "properties": {
+                "id": 21,
+                "clusterCaption": "Чехов"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [57.581629, 34.562461]
+            },
+            "properties": {
+                "id": 22,
+                "clusterCaption": "Вышний Волочёк"
+            }
+        }
+    ]
+}
