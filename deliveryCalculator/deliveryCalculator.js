@@ -67,6 +67,8 @@ function DeliveryCalculator(map, finish) {
     this._map = map;
     this._start = null;
     this._route = null;
+    this._startBalloon;
+    this._finishBalloon;
 
     map.events.add('click', this._onClick, this);
 }
@@ -81,8 +83,14 @@ ptp._onClick= function (e) {
     }
 };
 
-ptp._onDragEnd = function (e) {
-    this.getDirection();
+ptp._onStartDragEnd = function (e) {
+    var coords = this._start.geometry.getCoordinates();
+    this.geocode("start", coords);
+}
+
+ptp._onFinishDragEnd = function (e) {
+    var coords = this._finish.geometry.getCoordinates();
+    this.geocode("finish", coords);
 }
 
 ptp.getDirection = function () {
@@ -93,27 +101,26 @@ ptp.getDirection = function () {
     if (this._start && this._finish) {
         var self = this,
             start = this._start.geometry.getCoordinates(),
-            finish = this._finish.geometry.getCoordinates();
+            finish = this._finish.geometry.getCoordinates(),
+            startBalloon = this._startBalloon,
+            finishBalloon = this._finishBalloon;
 
-        ymaps.geocode(start, { results: 1 })
-            .then(function (geocode) {
-                var address = geocode.geoObjects.get(0) &&
-                    geocode.geoObjects.get(0).properties.get('balloonContentBody') || '';
 
-                ymaps.route([start, finish])
-                    .then(function (router) {
-                        var distance = Math.round(router.getLength() / 1000),
-                            message = '<span>Расстояние: ' + distance + 'км.</span><br/>' +
-                                '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
+        ymaps.route([start, finish])
+            .then(function (router) {
+                var distance = Math.round(router.getLength() / 1000),
+                    message = '<span>Расстояние: ' + distance + 'км.</span><br/>' +
+                        '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
 
-                        self._route = router.getPaths();
+                self._route = router.getPaths();
 
-                        self._route.options.set({ strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5 });
-                        self._map.geoObjects.add(self._route);
-                        self._start.properties.set('balloonContentBody', address + message.replace('%s', self.calculate(distance)));
+                self._route.options.set({ strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5 });
+                self._map.geoObjects.add(self._route);
+                self._start.properties.set('balloonContentBody', startBalloon + message.replace('%s', self.calculate(distance)));
+                self._finish.properties.set('balloonContentBody', finishBalloon + message.replace('%s', self.calculate(distance)));
 
-                    });
             });
+
         self._map.setBounds(self._map.geoObjects.getBounds())
     }
 };
@@ -124,12 +131,10 @@ ptp.setStartPoint = function (position) {
     }
     else {
         this._start = new ymaps.Placemark(position, { iconContent: 'А' }, { draggable: true });
-        this._start.events.add('dragend', this._onDragEnd, this);
+        this._start.events.add('dragend', this._onStartDragEnd, this);
         this._map.geoObjects.add(this._start);
     }
-    if (this._finish) {
-        this.getDirection();
-    }
+    this.geocode("start", position);
 };
 
 ptp.setFinishPoint = function (position) {
@@ -138,14 +143,29 @@ ptp.setFinishPoint = function (position) {
     }
     else {
         this._finish = new ymaps.Placemark(position, { iconContent: 'Б' }, { draggable: true });
-        this._finish.events.add('dragend', this._onDragEnd, this);
+        this._finish.events.add('dragend', this._onFinishDragEnd, this);
         this._map.geoObjects.add(this._finish);
     }
     if (this._start) {
-        this.getDirection();
+        this.geocode("finish", position);
     }
 };
 
+ptp.geocode = function (str, point) {
+    ymaps.geocode(point).then(function(geocode) {
+        if (str == "start") {
+            this._startBalloon = geocode.geoObjects.get(0) &&
+                geocode.geoObjects.get(0).properties.get('balloonContentBody') || '';
+            console.log(str + " " + this._startBalloon);
+        } else {
+            this._finishBalloon = geocode.geoObjects.get(0) &&
+                geocode.geoObjects.get(0).properties.get('balloonContentBody') || '';
+            console.log(str + " " + this._finishBalloon);
+        }
+        this.getDirection();
+    }, this);
+
+}
 ptp.calculate = function (len) {
     // Константы.
     var DELIVERY_TARIF = 20,
@@ -155,4 +175,3 @@ ptp.calculate = function (len) {
 };
 
 ymaps.ready(init);
-
