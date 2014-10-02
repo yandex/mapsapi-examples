@@ -18,7 +18,7 @@ function init () {
 
     /**
      * Макет элемента управления.
-     * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
+     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
      * @class
      * @name ControlLayout
      */
@@ -31,7 +31,7 @@ function init () {
 
                 /**
                  * Добавляем обработчик клика по элементу управления.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/domEvent.manager.xml
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/domEvent.manager.xml
                  */
                 this._layoutListeners = ymaps.domEvent.manager.group(this.getElement())
                     .add('click', this._onClick, this);
@@ -115,7 +115,7 @@ function init () {
 
         /**
          * Создаем макет элемента управления.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#constructor-summary
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#constructor-summary
          */
         this._layout = new ControlLayout({
             options: this.options,
@@ -154,7 +154,7 @@ function init () {
                     /**
                      * Получаем от родителя контейнер, в который должен быть добавлен элемент управления, 
                      * и выставляем макету родительский элемент.
-                     * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml#getChildElement
+                     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml#getChildElement
                      */
                     parent.getChildElement(this).then(callback, this);
                 } else {

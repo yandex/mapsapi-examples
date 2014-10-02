@@ -7,7 +7,7 @@ function init() {
         }),
         /**
          * Создание мультимаршрута.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
             multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
@@ -54,7 +54,7 @@ function init() {
                 routingMode: 'masstransit'
             /**
              *  true - не изменять значение непереданных параметров.
-             *  @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
+             *  @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
              */
             }, true);
         } else if (state == 'masstransit') {
@@ -69,7 +69,7 @@ function init() {
     buttonTraffic.events.add('select', function () {
         /**
          * Устанавливает параметры маршрутизации.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
          */
         multiRoute.model.setParams({
             // Прокладывать мультимаршрут с учетом

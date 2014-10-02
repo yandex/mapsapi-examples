@@ -10,7 +10,7 @@ function init() {
     ymaps.geocode('Нижний Новгород', {
         /**
          * Опции запроса
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
          */
         // boundedBy: myMap.getBounds(), // Сортировка результатов от центра окна карты
         // strictBounds: true, // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy
@@ -36,22 +36,22 @@ function init() {
             console.log('Все данные геообъекта: ', firstGeoObject.properties.getAll());
             /**
              * Метаданные запроса и ответа геокодера.
-             * @see http://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
              */
             console.log('Метаданные ответа геокодера: ', res.metaData);
             /**
              * Метаданные геокодера, возвращаемые для найденного объекта.
-             * @see http://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
              */
             console.log('Метаданные геокодера: ', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'));
             /**
              * Точность ответа (precision) возвращается только для домов.
-             * @see http://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
              */
             console.log('precision', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.precision'));
             /**
              * Тип найденного объекта (kind).
-             * @see http://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
+             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
              */
             console.log('Тип геообъекта: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
             console.log('Название объекта: %s', firstGeoObject.properties.get('name'));

@@ -14,7 +14,7 @@ ymaps.ready(function () {
             '<br/>',
             'Адрес: 119021, Москва, ул. Льва Толстого, 16',
             '<br/>',
-            'Подробнее: <a href="http://company.yandex.ru/">http://company.yandex.ru</a>',
+            'Подробнее: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>',
             '</address>'
         ].join('')
     }, {

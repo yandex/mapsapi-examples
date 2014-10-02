@@ -10,7 +10,7 @@ function init() {
          * referencePoints - описание опорных точек мультимаршрута (обязательное поле);
          * params - параметры мультимаршрута.
          * @param {Object} [options] Опции маршрута.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
         multiRoute1 = new ymaps.multiRouter.MultiRoute({
             referencePoints: [

@@ -14,7 +14,7 @@ function init () {
      * @name CustomSearchProvider
      * @param {Object[]} points Массив с точками.
      *
-     * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IGeocodeProvider.xml
+     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IGeocodeProvider.xml
      */
     function CustomSearchProvider (points) {
         this._points = points;
@@ -133,7 +133,7 @@ function init () {
 
     /**
      * Создаем экземпляр класса ymaps.control.SearchControl
-     * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.SearchControl.xml
+     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.SearchControl.xml
      */
     var mySearchControl = new ymaps.control.SearchControl({
         options: {

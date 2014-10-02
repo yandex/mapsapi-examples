@@ -6,7 +6,7 @@ function init() {
         }),
         /**
          * Создание мультимаршрута.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
             multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
@@ -16,7 +16,7 @@ function init() {
         }, {
             /**
              * Макет геообъекта.
-             * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#param-options
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#param-options
              */
             wayPointStartIconLayout: "default#image",
             wayPointStartIconImageHref: 'images/start_point.png',

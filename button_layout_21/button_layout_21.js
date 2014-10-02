@@ -10,7 +10,7 @@ function init () {
          * Макет кнопки должен отображать поле data.content
          * и изменяться в зависимости от того, нажата ли кнопка или нет.
          * Текущий размер (small, medium, large) рассчитывается исходя из значения опции maxWidth
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
          */
         ButtonLayout = ymaps.templateLayoutFactory.createClass([
             '<div alt="{{ data.title }}" class="my-button ',

@@ -6,7 +6,7 @@ function init() {
         }),
         /**
          * Создание мультимаршрута.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
         multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: ["Москва", "Тверь"]
@@ -35,7 +35,7 @@ function init() {
          * dragViaPoints - разрешает перетаскивание уже существующих транзитных точек. Значение по умолчанию: true.
          * removeViaPoints - разрешает удаление транзитных точек при двойном клике по ним. Значение по умолчанию: true.
          * addMidPoints - разрешает добавление промежуточных транзитных или путевых точек посредством перетаскивания маркера, появляющегося при наведении курсора мыши на активный маршрут. Тип добавляемых точек задается опцией midPointsType. Значение по умолчанию: true
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml#editor
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml#editor
          */
         multiRoute.editor.start({
             addWayPoints: true,

@@ -10,7 +10,7 @@ ymaps.ready(function () {
             .setOptions("preset", "islands#darkGreenDotIcon"),
         /**
          * Функция кластеризует объекты и возвращает ссылку на кластер.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml#clusterize
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml#clusterize
          */
         clusterer = geoObjects.clusterize({
             "preset": "islands#invertedDarkGreenClusterIcons",

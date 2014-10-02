@@ -7,7 +7,7 @@ ymaps.ready()
 
         jQuery.getJSON('data.json', function (json) {
             /** Сохраним ссылку на геообъекты на случай, если понадобится какая-либо постобработка.
-             * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoQueryResult.xml
              */
             var geoObjects = ym.geoQuery(json)
                 .addToMap(myMap)

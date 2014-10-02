@@ -10,7 +10,7 @@ function init() {
          * referencePoints - описание опорных точек мультимаршрута (обязательное поле);
          * params - параметры маршрутизации.
          * @param {Object} [options] Опции маршрута.
-         * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
         multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
@@ -35,7 +35,7 @@ function init() {
             state = 'masstransit';
             /**
              * Функция устанавливает параметры маршрутизации.
-             * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
+             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
              */
             multiRoute.model.setParams({
                 // Тип маршрутизации - на общественном транспорте.

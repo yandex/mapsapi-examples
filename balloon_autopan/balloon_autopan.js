@@ -17,7 +17,7 @@ ymaps.ready(function () {
                 '</div>', {
                 /**
                  * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
                  * @function
                  * @name build
                  */
@@ -34,7 +34,7 @@ ymaps.ready(function () {
 
                 /**
                  * Удаляет содержимое макета из DOM.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
                  * @function
                  * @name clear
                  */
@@ -47,7 +47,7 @@ ymaps.ready(function () {
 
                 /**
                  * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onSublayoutSizeChange
                  */
@@ -65,7 +65,7 @@ ymaps.ready(function () {
 
                 /**
                  * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name applyElementOffset
                  */
@@ -78,7 +78,7 @@ ymaps.ready(function () {
 
                 /**
                  * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onCloseClick
                  */
@@ -90,7 +90,7 @@ ymaps.ready(function () {
 
                 /**
                  * Используется для автопозиционирования (balloonAutoPan).
-                 * @see http://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
                  * @function
                  * @name getClientBounds
                  * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.

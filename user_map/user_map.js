@@ -15,7 +15,7 @@ function init () {
                 // Зададим функцию, преобразующую номер тайла
                 // и уровень масштабировая в URL тайла на сервере.
                 function (tile, zoom) {
-                    return "http://mt.gmapuploader.com/tiles/FVSH1JsvdT/tile-" + zoom + "-" +
+                    return "https://mt.gmapuploader.com/tiles/FVSH1JsvdT/tile-" + zoom + "-" +
                         (tile[1] * Math.pow(2, zoom) + tile[0]) + ".jpg";
                 }
             );
