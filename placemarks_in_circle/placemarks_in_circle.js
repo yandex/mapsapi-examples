@@ -24,9 +24,9 @@ function init() {
     circle.events.add('drag', function () {
         // Объекты, попадающие в круг, будут становиться красными.
         var objectsInsideCircle = objects.searchInside(circle);
-        objectsInsideCircle.setOptions('preset', 'islands#redIcon');
+        objectsInsideCircle.setOptions('preset', 'twirl#redIcon');
         // Оставшиеся объекты - синими.
-        objects.remove(objectsInsideCircle).setOptions('preset', 'islands#blueIcon');
+        objects.remove(objectsInsideCircle).setOptions('preset', 'twirl#blueIcon');
     });
     myMap.geoObjects.add(circle);
 }

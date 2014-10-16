@@ -1,4 +1,5 @@
 var myMap;
+
 ymaps.ready(init);
 
 function init () {
@@ -15,7 +16,7 @@ function init () {
                 // Зададим функцию, преобразующую номер тайла
                 // и уровень масштабировая в URL тайла на сервере.
                 function (tile, zoom) {
-                    return "https://mt.gmapuploader.com/tiles/FVSH1JsvdT/tile-" + zoom + "-" +
+                    return "http://mt.gmapuploader.com/tiles/FVSH1JsvdT/tile-" + zoom + "-" +
                         (tile[1] * Math.pow(2, zoom) + tile[0]) + ".jpg";
                 }
             );
@@ -32,16 +33,19 @@ function init () {
 
     // Создадим карту в заданной системе координат.
     myMap = new ymaps.Map('map', {
-        center: [0, 0],
-        zoom: 2,
-        type: 'my#type',
-        controls: ['zoomControl']
+        center:[0, 0],
+        zoom:2,
+        type:'my#type'
     }, {
-        maxZoom: 4, // Максимальный коэффициент масштабирования для заданной проекции.
-        minZoom: 2, // Минимальный коэффициент масштабирования.
-        projection: myProjection,
-        // Выставим опцию, чтобы зум-контрол был минимального размера
-        // независимо от размеров карты.
-        zoomControlSize: 'small'
+        maxZoom:4, // Максимальный коэффициент масштабирования для заданной проекции.
+        minZoom:2, // Минимальный коэффициент масштабирования.
+        projection:myProjection
     });
+
+    // Добавим миникарту и кнопку изменения масштаба на нашу карту.
+    myMap.controls
+        .add(new ymaps.control.MiniMap({
+            type:'my#type'
+        }))
+        .add('smallZoomControl', { right:5, top:5 });
 }

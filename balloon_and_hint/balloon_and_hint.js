@@ -22,7 +22,7 @@ function init () {
     });
 
     // Показываем хинт на карте (без привязки к геообъекту).
-    myMap.hint.open(myMap.getCenter(), "Одинокий хинт без метки", {
+    myMap.hint.show(myMap.getCenter(), "Содержимое хинта", {
         // Опция: задержка перед открытием.
         showTimeout: 1500
     });

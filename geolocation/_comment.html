@@ -1,10 +1,13 @@
+<div id="doc">
 <div id="references">
-    <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="Placemark"/>, <sa href="geolocation"/>
+    <a href="https://github.com/dimik/ymaps/blob/gh-pages/examples/geolocation-service/geolocation-service.js">GeolocationService</a>,
+    <a href="http://www.w3.org/TR/geolocation-API/">Geolocation API</a>, <sa href="geocode"/>,
+    <sa href="geolocation">ymaps.geolocation</sa>
 </div>
 <p>
-    API позволяет <a href="/maps/doc/jsapi/2.1/dg/concepts/geolocation.xml">получить информацию
-    о предполагаемом местоположении пользователя</a> по IP-адресу.
-</p>
+  Данный пример демонстрирует, как создать карту, изначально отцентрированную по местоположению пользователя.</p>
 <p>
-    Доступ к этим данным предоставляет статический объект <sa href="geolocation"/>.
+  В примере используется класс <a href="https://github.com/dimik/ymaps/blob/gh-pages/examples/geolocation-service/geolocation-service.js">GeolocationService</a>, который определяет местоположение пользовтаеля с помощью <a href="http://www.w3.org/TR/geolocation-API/">Geolocation API</a>.
+  Если сервис не поддерживается браузером, или при определении местоположения возникает ошибка, то используется <sa href="geolocation">ymaps.geolocation</sa> (по IP).
 </p>
+</div>

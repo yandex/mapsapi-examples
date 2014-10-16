@@ -4,30 +4,20 @@
 <head>
     <title>Примеры. Контекстное меню геообъекта</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script src="//yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-    <script src="geoobject_contextmenu.js" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+    <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <style type="text/css">
-        html, body {
+        html, body, #map {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: Arial;
-            font-size: 14px;
         }
-
-        #map {
-            width: 100%;
-            height: 80%;
-        }
-
         #menu {
             position: absolute;
             width: 12em;
-            background: white;
-            border: 1px solid #ccc;
+            background: #FFFFCC;
+            border: 3px solid #006600;
             border-radius: 12px;
             padding-bottom: 10px;
             z-index: 2
@@ -40,16 +30,13 @@
         input {
             width: 10em;
         }
-
-        .header {
-            padding: 5px;
-        }
     </style>
+
+	<script src="geoobject_contextmenu.js" type="text/javascript"></script>
 </head>
 
 <body>
-<p class="header">Вызовите контекстное меню на метке</p>
-<div id="map"></div>
+    <div id="map"></div>
 </body>
 
 </html>

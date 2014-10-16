@@ -1,19 +1,22 @@
+<div id="doc">
 <div id="references">
     <sa href="ready"/>,
     <sa href="Map"/>
 </div>
 <p>
-    Ссылка на редактор маршрута находится в поле <a href="/maps/doc/jsapi/2.1/ref/reference/router.Route.xml#editor">editor</a> экземпляра класса router.Route, который будет передан в качестве параметра объекту <sa href="util.Promise"/> после того, как выполнится построение маршрута.
+Ссылка на редактор маршрута находится в поле <a href="/maps/doc/jsapi/2.0/ref/reference/router.Route.xml#editor">editor</a> экземпляра класса router.Route, который будет передан в качестве параметра объекту <sa href="util.Promise"/> после того, как выполнится построение маршрута.
 </p>
 <p>
-    Включать (выключать) редактор можно только внутри функции, которая выполнится, когда от сервера придет результат.
-    <pre>
-    ymaps.route(...) // возвращает объект util.Promise
-        .then(
-            function (route) {
-                route.editor.start();
-                ...
-            })
-        )
-    </pre>
+Включать (выключать) редактор можно только внутри функции, которая выполнится, когда от сервера придет результат.
+<pre>
+ymaps.route(...) // возвращает объект util.Promise
+    .then(
+        function (route) {
+            route.editor.start();
+            ...
+        })
+    )
+</pre>
 </p>
+</div>
+

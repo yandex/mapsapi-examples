@@ -2,7 +2,7 @@
 var groups = [
         {
             name: "Известные памятники",
-            style: "islands#redIcon",
+            style: "twirl#redIcon",
             items: [
                 {
                     center: [50.426472, 30.563022],
@@ -19,7 +19,7 @@ var groups = [
             ]},
         {
             name: "Покушайки",
-            style: "islands#greenIcon",
+            style: "twirl#greenIcon",
             items: [
                 {
                     center: [50.50955, 30.60791],
@@ -40,7 +40,7 @@ var groups = [
             ]},
         {
             name: "Оригинальные музейчики",
-            style: "islands#orangeIcon",
+            style: "twirl#orangeIcon",
             items: [
                 {
                     center: [50.443334, 30.520163],
@@ -57,7 +57,7 @@ var groups = [
             ]},
         {
             name: "Красивости",
-            style: "islands#blueIcon",
+            style: "twirl#blueIcon",
             items: [
                 {
                     center: [50.45987, 30.516174],

@@ -3,16 +3,16 @@ ymaps.ready(init);
 function init () {
     // Создаем карту.
     var myMap = new ymaps.Map("map", {
-        center: [47.60, 41.8],
-        zoom: 9
+        center: [47.534306, 42.162536],
+        zoom: 10
     });
 
     // Создаем метку.
     var myPlacemark = new ymaps.Placemark([47.60, 42.10], {
-        iconContent: 'Щелкни по мне правой кнопкой мыши!'
+        hintContent: 'Щелкни по мне правой кнопкой мыши!'
     }, {
         // Красная иконка, растягивающаяся под содержимое.
-        preset: "islands#redStretchyIcon"
+        preset: "twirl#redStretchyIcon"
     });
 
     // Контекстное меню, позволяющее изменить параметры метки.
@@ -38,8 +38,8 @@ function init () {
 
             // Задаем позицию меню.
             $('#menu').css({
-                left: e.get('pagePixels')[0],
-                top: e.get('pagePixels')[1]
+                left: e.get('position')[0],
+                top: e.get('position')[1]
             });
 
             // Заполняем поля контекстного меню текущими значениями свойств метки.

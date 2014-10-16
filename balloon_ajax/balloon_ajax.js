@@ -10,10 +10,8 @@ function init () {
             iconContent: "Узнать адрес",
             hintContent: "Перетащите метку и кликните, чтобы узнать адрес"
         }, {
-            // Запретим замену обычного балуна на балун-панель.
-            balloonPanelMaxMapArea: 0,
             draggable: "true",
-            preset: "islands#blueStretchyIcon",
+            preset: "twirl#blueStretchyIcon",
             // Заставляем балун открываться даже если в нем нет содержимого.
             openEmptyBalloon: true
         });

@@ -9,8 +9,8 @@ function init () {
     myMap = new ymaps.Map('map', {
         // При инициализации карты обязательно нужно указать
         // её центр и коэффициент масштабирования.
-        center: [55.76, 37.64], // Москва
-        zoom: 10
+        center:[55.76, 37.64], // Москва
+        zoom:10
     });
 
     document.getElementById('destroyButton').onclick = function () {

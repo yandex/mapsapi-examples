@@ -13,7 +13,7 @@ function init() {
         .add('mouseenter', function (e) {
             // Ссылку на объект, вызвавший событие,
             // можно получить из поля 'target'.
-            e.get('target').options.set('preset', 'islands#greenIcon');
+            e.get('target').options.set('preset', 'twirl#greenIcon');
         })
         .add('mouseleave', function (e) {
             e.get('target').options.unset('preset');

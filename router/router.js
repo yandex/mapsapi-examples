@@ -30,7 +30,7 @@ function init() {
             lastPoint = points.getLength() - 1;
         // Задаем стиль метки - иконки будут красного цвета, и
         // их изображения будут растягиваться под контент.
-        points.options.set('preset', 'islands#redStretchyIcon');
+        points.options.set('preset', 'twirl#redStretchyIcon');
         // Задаем контент меток в начальной и конечной точках.
         points.get(0).properties.set('iconContent', 'Точка отправления');
         points.get(lastPoint).properties.set('iconContent', 'Точка прибытия');

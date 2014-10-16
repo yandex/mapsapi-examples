@@ -3,8 +3,7 @@ ymaps.ready(init);
 function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.76, 37.64],// Москва
-            zoom: 2,
-            controls: ['zoomControl']
+            zoom: 2
         }),
         ymapsmlButton = $('.load-ymapsml'),
         kmlButton = $('.load-kml');
@@ -13,15 +12,17 @@ function init() {
     ymapsmlButton.get(0).disabled = false;
     kmlButton.get(0).disabled = false;
 
+    myMap.controls.add('smallZoomControl');
+
     // При нажатии на кнопку загружаем соответствующий XML-файл.
     // и отображаем его данные на карте.
     ymapsmlButton.click(function (e) {
-        ymaps.geoXml.load('https://maps.yandex.ru/export/usermaps/93jfWjoXws37exPmKH-OFIuj3IQduHal/')
+        ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/93jfWjoXws37exPmKH-OFIuj3IQduHal/')
             .then(onGeoXmlLoad);
         e.target.disabled = true;
     });
     kmlButton.click(function (e) {
-        ymaps.geoXml.load('https://openflights.org/demo/openflights-sample.kml')
+        ymaps.geoXml.load('http://openflights.org/demo/openflights-sample.kml')
             .then(onGeoXmlLoad);
         e.target.disabled = true;
     });

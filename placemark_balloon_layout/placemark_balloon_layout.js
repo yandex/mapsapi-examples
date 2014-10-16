@@ -5,13 +5,14 @@ function init () {
             center: [55.650625, 37.62708],
             zoom: 10
         }),
+
         counter = 0,
 
         // Создание макета содержимого балуна.
         // Макет создается с помощью фабрики макетов с помощью текстового шаблона.
         BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
             '<div style="margin: 10px;">' +
-                '<b>{{properties.name}}</b><br />' +
+                '<b>$[properties.name]</b><br />' +
                 '<i id="count"></i> ' +
                 '<button id="counter-button"> +1 </button>' +
             '</div>', {
@@ -48,10 +49,7 @@ function init () {
     var placemark = new ymaps.Placemark([55.650625, 37.62708], {
             name: 'Считаем'
         }, {
-            balloonContentLayout: BalloonContentLayout,
-            // Запретим замену обычного балуна на балун-панель.
-            // Если не указывать эту опцию, на картах маленького размера откроется балун-панель.
-            balloonPanelMaxMapArea: 0
+            balloonContentLayout: BalloonContentLayout
         });
 
     map.geoObjects.add(placemark);

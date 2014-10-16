@@ -5,38 +5,21 @@
 <head>
     <title>Примеры. Использование кластеризатора</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.clusters&lang=ru-RU" type="text/javascript"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-    <script src="clusterer_gridSize.js" type="text/javascript"></script>
-	<style>
-        body, html {
-            font-family: Arial;
-            font-size: 14px;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
 
-        #map {
-            width: 100%;
-            height: 70%;
-        }
-        .inputs {
-            padding: 5px;
-        }
-    </style>
+	<script src="clusterer_gridSize.js" type="text/javascript"></script>
 </head>
 
 <body>
-<div class="inputs">Количество меток:
-    <input type="text" size="6" id="count" value="100"/> <br/>
-    <input type="checkbox" id="useClusterer"> Использовать кластеризатор<br>
-    <input type="button" value="Добавить на карту" id="addMarkers"/>
-    <input type="button" value="Удалить все метки" id="removeMarkers"/></div>
+ <div class="inputs">Количество меток:
+     <input type="text" size="6" id="count" value="100"/> <br/>
+    <input type="checkbox" id="useClusterer"> Использовать кластеризатор
+</div>
+<p><input type="button" value="Добавить на карту" id="addMarkers"/>
+    <input type="button" value="Удалить все метки" id="removeMarkers"/></p>
 
-<div id="map"></div>
+<div id="map" style="width: 400px; height: 300px"></div>
 </body>
 
 </html>

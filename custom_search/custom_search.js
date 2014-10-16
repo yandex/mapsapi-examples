@@ -2,11 +2,11 @@ function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.7, 37.5],
             zoom: 9,
-            controls: ['zoomControl']
+            behaviors: ['default', 'scrollZoom']
         }),
-    // Создаем коллекцию.
+        // Создаем коллекцию.
         myCollection = new ymaps.GeoObjectCollection(),
-    // Создаем массив с данными.
+        // Создаем массив с данными.
         myPoints = [
             { coords: [55.77, 37.46], text: 'Трактир' },
             { coords: [55.66, 37.48], text: 'Кафе' },
@@ -47,18 +47,18 @@ function init() {
 
     // Создаем экземпляр класса ymaps.control.SearchControl
     var mySearchControl = new ymaps.control.SearchControl({
-        options: {
             // Заменяем стандартный провайдер данных (геокодер) нашим собственным.
             provider: new CustomSearchProvider(myPoints),
             // Не будем показывать еще одну метку при выборе результата поиска,
             // т.к. метки коллекции myCollection уже добавлены на карту.
             noPlacemark: true,
             resultsPerPage: 5
-        }});
+        });
 
     // Добавляем контрол в верхний правый угол,
     myMap.controls
-        .add(mySearchControl, { right: 10, top: 10 });
+        .add(mySearchControl, { right: 10, top: 10 })
+        .add('smallZoomControl');
 }
 
 
@@ -71,13 +71,13 @@ function CustomSearchProvider(points) {
 
 // Провайдер ищет по полю text стандартным методом String.ptototype.indexOf.
 CustomSearchProvider.prototype.geocode = function (request, options) {
-    var deferred = new ymaps.vow.defer(),
-        geoObjects = new ymaps.GeoObjectCollection(),
-    // Сколько результатов нужно пропустить.
+    var promise = new ymaps.util.Promise(),
+        geoObjects = new ymaps.GeoObjectArray(),
+        // Сколько результатов нужно пропустить.
         offset = options.skip || 0,
-    // Количество возвращаемых результатов.
+        // Количество возвращаемых результатов.
         limit = options.results || 20;
-        
+
     var points = [];
     // Ищем в свойстве text каждого элемента массива.
     for (var i = 0, l = this.points.length; i < l; i++) {
@@ -102,7 +102,7 @@ CustomSearchProvider.prototype.geocode = function (request, options) {
         }));
     }
 
-    deferred.resolve({
+    promise.resolve({
         // Геообъекты поисковой выдачи.
         geoObjects: geoObjects,
         // Метаинформация ответа.
@@ -121,7 +121,7 @@ CustomSearchProvider.prototype.geocode = function (request, options) {
     });
 
     // Возвращаем объект-обещание.
-    return deferred.promise();
+    return promise;
 };
 
 ymaps.ready(init);

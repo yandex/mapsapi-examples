@@ -5,8 +5,11 @@ ymaps.ready(init);
 function init () {
     myMap = new ymaps.Map('map', {
         // Санкт-Петербург
-        center: [59.93772, 30.313622],
-        zoom: 10
+        center:[59.93772, 30.313622],
+        zoom:10,
+        // Включим поведения по умолчанию (default)
+        // и добавим масштабирование колесом мыши.
+        behaviors:['default', 'scrollZoom']
     });
 
     myMap.behaviors

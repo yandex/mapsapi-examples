@@ -3,21 +3,20 @@ ymaps.ready(init);
 function init () {
     var myMap = new ymaps.Map('map', {
             center: [55.751574, 37.573856],
-            zoom: 9,
-            controls: []
+            zoom: 9
         }),
 
         // Создадим собственный макет выпадающего списка.
         ListBoxLayout = ymaps.templateLayoutFactory.createClass(
             "<button id='my-listbox-header' class='btn btn-success dropdown-toggle' data-toggle='dropdown'>" +
-                "{{data.title}} <span class='caret'></span>" +
+                "$[data.title] <span class='caret'></span>" +
             "</button>" +
             // Этот элемент будет служить контейнером для элементов списка.
             // В зависимости от того, свернут или развернут список, этот контейнер будет
             // скрываться или показываться вместе с дочерними элементами.
             "<ul id='my-listbox'" +
                 " class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu'" +
-                " style='display: {% if state.expanded %}block{% else %}none{% endif %};'></ul>", {
+                " style='display: [if state.expanded]block[else]none[endif];'></ul>", {
 
             build: function() {
                 // Вызываем метод build родительского класса перед выполнением
@@ -57,7 +56,7 @@ function init () {
 
         // Также создадим макет для отдельного элемента списка.
         ListBoxItemLayout = ymaps.templateLayoutFactory.createClass(
-            "<li><a>{{data.content}}</a></li>"
+            "<li><a>$[data.content]</a></li>"
         ),
 
         // Создадим 2 пункта выпадающего списка
@@ -80,19 +79,18 @@ function init () {
 
         // Теперь создадим список, содержащий 2 пунтка.
         listBox = new ymaps.control.ListBox({
-                items: listBoxItems,
-                data: {
-                    title: 'Выберите пункт'
-                },
-                options: {
-                    // С помощью опций можно задать как макет непосредственно для списка,
-                    layout: ListBoxLayout,
-                    // так и макет для дочерних элементов списка. Для задания опций дочерних
-                    // элементов через родительский элемент необходимо добавлять префикс
-                    // 'item' к названиям опций.
-                    itemLayout: ListBoxItemLayout
-                }
-            });
+            items: listBoxItems,
+            data: {
+                title: 'Выберите пункт'
+            }
+        },{
+            // С помощью опций можно задать как макет непосредственно для списка,
+            layout: ListBoxLayout,
+            // так и макет для дочерних элементов списка. Для задания опций дочерних
+            // элементов через родительский элемент необходимо добавлять префикс
+            // 'item' к названиям опций.
+            itemLayout: ListBoxItemLayout
+        });
 
         listBox.events.add('click', function (e) {
             // Получаем ссылку на объект, по которому кликнули.
@@ -108,5 +106,5 @@ function init () {
             }
         });
 
-    myMap.controls.add(listBox, {float: 'left'});
+    myMap.controls.add(listBox, { left: 5, top: 5 });
 }

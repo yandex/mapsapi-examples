@@ -3,8 +3,7 @@ ymaps.ready(init);
 function init () {
     var myMap = new ymaps.Map('map', {
             center: [56.136, 40.390],
-            zoom: 10,
-            controls: []
+            zoom: 10
         });
     
     // Создадим провайдер пробок "Сейчас" с включенным слоем инфоточек.

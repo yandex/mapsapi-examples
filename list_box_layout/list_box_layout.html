@@ -5,25 +5,15 @@
 <head>
     <title>Примеры. Пользовательский макет выпадающего списка.</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script src="//yandex.st/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-    <script src="list_box_layout.js" type="text/javascript"></script>
-    <link href="//yandex.st/bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-        html, body, #map {
-            width: 100%; height: 100%; padding: 0; margin: 0;
-        }
+    <script src="//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+    <link href="http://yandex.st/bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://yandex.st/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
 
-        #my-listbox {
-            top: auto;
-            left: auto;
-        }
-    </style>
+	<script src="list_box_layout.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <div id="map"></div>
+    <div id="map" style="width:400px; height:300px"></div>
 </body>
 
 </html>

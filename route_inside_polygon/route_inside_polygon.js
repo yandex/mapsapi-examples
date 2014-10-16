@@ -48,17 +48,17 @@ function init() {
                 // Раскрасим в разные цвета объекты внутри, снаружи и пересекающие МКАД.
                 boundaryObjects.setOptions({
                     strokeColor: '#06ff00',
-                    preset: 'islands#greenIcon'
+                    preset: 'twirl#greenIcon'
                 });
                 objectsInMoscow.setOptions({
                     strokeColor: '#ff0005',
-                    preset: 'islands#redIcon'
+                    preset: 'twirl#redIcon'
                 });
                 // Объекты за пределами МКАД получим исключением полученных выборок из
                 // исходной.
                 routeObjects.remove(objectsInMoscow).remove(boundaryObjects).setOptions({
                     strokeColor: '#0010ff',
-                    preset: 'islands#blueIcon'
+                    preset: 'twirl#blueIcon'
                 });
             }
         );
@@ -67,6 +67,6 @@ function init() {
     $.ajax({
         url: 'moscow.json',
         dataType: 'json',
-        success: onPolygonLoad
+        success: $.proxy(onPolygonLoad)
     });
 }

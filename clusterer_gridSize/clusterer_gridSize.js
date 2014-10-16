@@ -3,14 +3,18 @@ ymaps.ready(init);
 function init () {
     var myMap = new ymaps.Map('map', {
             center: [63.369315, 105.440191],
-            zoom: 3
+            zoom: 3,
+            // Добавим к стандартным поведениям карты зум колесом мыши.
+            behaviors: ['default', 'scrollZoom']
         });
 
-    // Создаем кластеризатор c красной иконкой (по умолчанию используются синяя).
-    var clusterer = new ymaps.Clusterer({preset: 'islands#redClusterIcons'}),
-    // Создаем коллекцию геообъектов.
+    myMap.controls.add('smallZoomControl', { top: 5 });
+
+    // Создаем кластеризатор c красной иконкой (по умолчанию используются синия).
+    var clusterer = new ymaps.Clusterer({preset: 'twirl#redClusterIcons'}),
+        // Создаем коллекцию геообъектов.
         collection = new ymaps.GeoObjectCollection(),
-    // Дополнительное поле ввода при включенном режиме кластеризации.
+        // Дополнительное поле ввода при включенном режиме кластеризации.
         gridSizeField = $('<div class="field" style="display: none">Размер ячейки кластера в пикселях: <input type="text" size="6" id ="gridSize" value="64"/></div>')
             .appendTo('.inputs');
 

@@ -19,18 +19,18 @@ function init() {
             // - для точечных объектов по полю preset;
             // - для контурных объектов по цвету заливки.
             byColor = myObjects.search('options.fillColor = "#ff1000"')
-                .add(myObjects.search('options.preset = "islands#redIcon"'));
+                .add(myObjects.search('options.preset = "twirl#redIcon"'));
         }
         if ($('#green').prop('checked')) {
             byColor = myObjects.search('options.fillColor = "#00ff00"')
-                .add(myObjects.search('options.preset = "islands#greenIcon"'))
+                .add(myObjects.search('options.preset = "twirl#greenIcon"'))
                 // После того, как мы нашли все зеленые объекты, добавим к ним
                 // объекты, найденные на предыдущей итерации.
                 .add(byColor);
         }
         if ($('#yellow').prop('checked')) {
             byColor = myObjects.search('options.fillColor = "#ffcc00"')
-                .add(myObjects.search('options.preset = "islands#yellowIcon"'))
+                .add(myObjects.search('options.preset = "twirl#yellowIcon"'))
                 .add(byColor);
         }
         // Отберем объекты по форме.
@@ -69,7 +69,7 @@ function init() {
                     coordinates: [55.34954, 37.721587]
                 },
                 options: {
-                    preset: 'islands#yellowIcon'
+                    preset: 'twirl#yellowIcon'
                 }
             },
             {
@@ -100,7 +100,7 @@ function init() {
                     coordinates: [55.24954, 37.4]
                 },
                 options: {
-                    preset: 'islands#greenIcon'
+                    preset: 'twirl#greenIcon'
                 }
             },
             {
@@ -122,7 +122,7 @@ function init() {
                     radius: 10000
                 },
                 options: {
-                    preset: 'islands#redIcon'
+                    preset: 'twirl#redIcon'
                 }
             }
         ]

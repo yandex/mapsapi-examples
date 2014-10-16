@@ -14,7 +14,7 @@ function init() {
         
         // Будем открывать балун кафе, который ближе всего к месту клика
         myMap.events.add('click', function (event) {
-            cafe.getClosestTo(event.get('coords')).balloon.open();
+            cafe.getClosestTo(event.get('coordPosition')).balloon.open();
         });
     }
     
@@ -53,9 +53,9 @@ function init() {
         ]
     // Сразу добавим точки на карту.
     }).addToMap(myMap);
-
-    // С помощью обратного геокодирования найдем метро "Кропоткинская".
-    metro = ymaps.geoQuery(ymaps.geocode([55.744828, 37.603423], {kind: 'metro'}))
+    
+    // Координаты станции метро получим через геокодер.
+    metro = ymaps.geoQuery(ymaps.geocode('Москва, Кропоткинская', {kind: 'metro'}))
     // Нужно дождаться ответа от сервера и только потом обрабатывать полученные результаты.
         .then(findClosestObjects);
 }

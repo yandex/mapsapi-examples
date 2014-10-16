@@ -9,7 +9,8 @@ function init() {
         }),
         // Контейнер для меню.
         menu = $('<ul class="menu"/>');
-        
+
+    // Перебираем все группы.
     for (var i = 0, l = groups.length; i < l; i++) {
         createMenuGroup(groups[i]);
     }
@@ -39,6 +40,8 @@ function init() {
                 myMap.geoObjects.add(collection);
                 submenu.show();
             });
+
+        // Перебираем элементы группы.
         for (var j = 0, m = group.items.length; j < m; j++) {
             createSubMenu(group.items[j], collection, submenu);
         }
@@ -62,6 +65,7 @@ function init() {
             }, function () {
                 placemark.balloon.close();
             });
+
     }
 
     // Добавляем меню в тэг BODY.

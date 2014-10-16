@@ -1,33 +1,29 @@
-ymaps.ready(init);
-
-function init() {
-    var geolocation = ymaps.geolocation,
-        myMap = new ymaps.Map('map', {
-            center: [55, 34],
-            zoom: 10
+ymaps.ready(function () {
+    var myMap,
+        service = new GeolocationService(),
+        myLocation = service.getLocation({
+            // Режим получения наиболее точных данных.
+            enableHighAccuracy: true,
+            // Максимальное время ожидания ответа (в миллисекундах).
+            timeout: 10000,
+            // Максимальное время жизни полученных данных (в миллисекундах).
+            maximumAge: 1000
         });
 
-    // Сравним положение, вычисленное по ip пользователя и
-    // положение, вычисленное средствами браузера.
-    geolocation.get({
-        provider: 'yandex',
-        mapStateAutoApply: true
-    }).then(function (result) {
-        // Красным цветом пометим положение, вычисленное через ip.
-        result.geoObjects.options.set('preset', 'islands#redCircleIcon');
-        result.geoObjects.get(0).properties.set({
-            balloonContentBody: 'Мое местоположение'
-        });
-        myMap.geoObjects.add(result.geoObjects);
-    });
+    myLocation.then(function (loc) {
+        var myCoords = [loc.latitude, loc.longitude],
+            myPlacemark = new ymaps.Placemark(myCoords, {}, {
+                iconImageHref: 'images/geolocation.png',
+                iconImageSize: [24, 24],
+                iconImageOffset: [-12, -12]
+            });
 
-    geolocation.get({
-        provider: 'browser',
-        mapStateAutoApply: true
-    }).then(function (result) {
-        // Синим цветом пометим положение, полученное через браузер.
-        // Если браузер не поддерживает эту функциональность, метка не будет добавлена на карту.
-        result.geoObjects.options.set('preset', 'islands#blueCircleIcon');
-        myMap.geoObjects.add(result.geoObjects);
+        myMap = new ymaps.Map('YMapsID', {
+            center: myCoords,
+            zoom: loc.zoom || 9,
+            behaviors: ['default', 'scrollZoom']
+        });
+
+        myMap.geoObjects.add(myPlacemark);
     });
-}
+});

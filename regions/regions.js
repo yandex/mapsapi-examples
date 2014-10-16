@@ -24,6 +24,10 @@ ymaps.ready(function () {
         type: "yandex#map",
         zoom: 3
     });
+    geoMap.controls
+        .add('zoomControl')
+        .add('mapTools')
+        .add('typeSelector');
 
     var lastCollection = 0,
         lastActiveRegion = 0;
