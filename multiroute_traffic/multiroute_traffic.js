@@ -1,4 +1,4 @@
-function init() {
+function init () {
     var myMap = new ymaps.Map('map', {
             center: [37.54120, 55.729625],
             zoom: 11,
@@ -9,7 +9,7 @@ function init() {
          * Создание мультимаршрута.
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
-            multiRoute = new ymaps.multiRouter.MultiRoute({
+        multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
                 "метро Арбатская",
                 "метро Курская"
@@ -52,10 +52,10 @@ function init() {
             state = 'masstransit';
             multiRoute.model.setParams({
                 routingMode: 'masstransit'
-            /**
-             *  true - не изменять значение непереданных параметров.
-             *  @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
-             */
+                /**
+                 *  true - не изменять значение непереданных параметров.
+                 *  @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setParams
+                 */
             }, true);
         } else if (state == 'masstransit') {
             buttonMassTransit.data.set('content', 'Переключить на общественный транспорт');

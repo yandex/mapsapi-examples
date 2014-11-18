@@ -1,4 +1,4 @@
-function init() {
+function init () {
     var myMap = new ymaps.Map('map', {
             center: [55.752625, 37.59810],
             zoom: 14,
@@ -8,8 +8,8 @@ function init() {
          * Создание собственного макета с помощью фабрики макетов.
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
          */
-            balloonLayout = ymaps.templateLayoutFactory.createClass(
-            "<div class='my-balloon'>" +
+        balloonLayout = ymaps.templateLayoutFactory.createClass(
+                "<div class='my-balloon'>" +
                 "<u>Маршрут {% if properties.type == 'driving' %}" +
                 "на автомобиле<br/>" +
                 "{% else %}" +
@@ -25,7 +25,7 @@ function init() {
          * Создание мультимаршрута.
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
-            multiRoute = new ymaps.multiRouter.MultiRoute({
+        multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
                 "метро Арбатская",
                 "метро Смоленская"
