@@ -161,5 +161,4 @@ Exhibit B - “Incompatible With Secondary Licenses” Notice
 
     This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
 
-
 A copy of the MPL is also available at http://mozilla.org/MPL/2.0/.
