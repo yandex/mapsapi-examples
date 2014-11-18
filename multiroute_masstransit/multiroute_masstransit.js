@@ -24,10 +24,11 @@ function init () {
 
     // Объявляем обработчики для кнопки.
     changeLayoutButton.events.add('select', function () {
-        var contentLayout = ymaps.templateLayoutFactory.createClass('{{ properties.duration.text }}');
-        multiRoute.options.set("routeWalkMarkerIconContentLayout", contentLayout);
-        // Чтобы показывать время для всех сегментов нужно задать
-        // более общую опцию routeMarkerIconContentLayout.
+        multiRoute.options.set(
+            // routeMarkerIconContentLayout - чтобы показывать время для всех сегментов.
+            "routeWalkMarkerIconContentLayout",
+            ymaps.templateLayoutFactory.createClass('{{ properties.duration.text }}')
+        );
     });
 
     changeLayoutButton.events.add('deselect', function () {
