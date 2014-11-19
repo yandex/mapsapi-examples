@@ -2,7 +2,7 @@ function init () {
     // Объявляем набор опорных точек, и массив индексов транзитных точек.
     var referencePoints = [
             "Москва, Ленинский проспект",
-            "55.734, 37.587",
+            "Москва, Льва Толстого, 16",
             "Москва, Кремлевская набережная",
             "Москва, парк Сокольники"
         ],
@@ -68,10 +68,15 @@ function init () {
          */
         multiRoute.model.events.once("requestsuccess", function () {
             var yandexWayPoint = multiRoute.getWayPoints().get(1);
+            // Создаем балун у метки второй точки.
+            ymaps.geoObject.addon.balloon.get(yandexWayPoint);
             yandexWayPoint.options.set({
                 preset: "islands#grayStretchyIcon",
                 iconContentLayout: ymaps.templateLayoutFactory.createClass(
                     '<span style="color: red;">Я</span>ндекс'
+                ),
+                balloonContentLayout: ymaps.templateLayoutFactory.createClass(
+                    '{{ properties.address|raw }}'
                 )
             });
         });
