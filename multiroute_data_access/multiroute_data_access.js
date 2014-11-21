@@ -1,18 +1,16 @@
 function init () {
-    // Создаем мультимаршрут.
-    var multiRoute = new ymaps.multiRouter.MultiRoute({
-        referencePoints: [
-            [55.734876, 37.59308],
-            "Москва, ул. Мясницкая"
-        ]
-    }, {
+    // Создаем модель мультимаршрута.
+    var multiRouteModel = new ymaps.multiRouter.MultiRouteModel([
+        [55.734876, 37.59308],
+        "Москва, ул. Мясницкая"
+    ], {
         // Путевые точки можно перетаскивать.
         // Маршрут при этом будет перестраиваться.
         wayPointDraggable: true,
         boundsAutoApply: true
     });
 
-    // Создаем кнопку, переключающую маршрут в режим
+    // Создаем кнопку, переключающую модель в режим
     // маршрутизации на общественном транспорте.
     var masstransitButton = new ymaps.control.Button({
         data: { content: "На общественном транспорте"},
@@ -21,16 +19,16 @@ function init () {
 
     // Объявляем обработчики для кнопки.
     masstransitButton.events.add('select', function () {
-        multiRoute.model.setParams({ routingMode: 'masstransit' }, true);
+        multiRouteModel.setParams({ routingMode: 'masstransit' }, true);
     });
 
     masstransitButton.events.add('deselect', function () {
-        multiRoute.model.setParams({ routingMode: 'auto' }, true);
+        multiRouteModel.setParams({ routingMode: 'auto' }, true);
     });
 
     // Создаем экземпляр текстового отображения модели мультимаршрута.
     // см. файл custom_view.js
-    new CustomView(multiRoute.model);
+    new CustomView(multiRouteModel);
 
     // Создаем карту с добавленной на нее кнопкой.
     var myMap = new ymaps.Map('map', {
@@ -39,6 +37,14 @@ function init () {
         controls: [masstransitButton]
     }, {
         buttonMaxWidth: 300
+    });
+
+    // Создаем на основе существующей модели мультимаршрут.
+    var multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
+        // Путевые точки можно перетаскивать.
+        // Маршрут при этом будет перестраиваться.
+        wayPointDraggable: true,
+        boundsAutoApply: true
     });
 
     // Добавляем мультимаршрут на карту.
