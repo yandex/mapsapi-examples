@@ -17,7 +17,7 @@ function init () {
         wayPointStartIconColor: "#000000",
         // Задаем собственную картинку для последней путевой точки.
         wayPointFinishIconLayout: "default#image",
-        wayPointFinishIconImageHref: "./sokolniki.png",
+        wayPointFinishIconImageHref: "images/sokolniki.png",
         wayPointFinishIconImageSize: [30, 30],
         wayPointFinishIconImageOffset: [-15, -15],
         // Внешний вид транзитных точек.
