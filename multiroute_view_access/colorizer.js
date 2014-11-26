@@ -38,7 +38,8 @@ Colorizer.walkPreset = {
 Colorizer.prototype = {
     // Обработчик смены активного маршрута.
     onActiveRouteChange: function () {
-        // Снимаем раскраску с предыдущего активного маршрута.
+        // Снимаем раскраску с предыдущего активного маршрута, иначе он
+        // останется раскрашенным в неактивном состоянии.
         this.uncolorize();
         // Запоминаем новый активный маршрут и раскрашиваем его.
         this.activeRoute = this.multiRoute.getActiveRoute();
@@ -84,6 +85,13 @@ Colorizer.prototype = {
                 }, this)
             }, this);
         }
+    },
+
+    destroy: function () {
+        this.uncolorize();
+        this.multiRoute.events
+            .remove("update", this.onMultiRouteUpdate, this)
+            .remove("activeroutechange", this.onActiveRouteChange, this);
     },
 
     // Метод, раскрашивающий транспортные сегменты.

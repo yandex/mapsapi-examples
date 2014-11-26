@@ -108,5 +108,11 @@ CustomView.prototype = {
             }
         }
         return result.join("");
+    },
+
+    destroy: function () {
+        this.outputElement.remove();
+        this.multiRouteModel.events
+            .remove(["requestsuccess", "requestfail", "requestsend"], this.onModelStateChange, this);
     }
 };
