@@ -27,4 +27,3 @@ function init () {
 }
 
 ymaps.ready(init);
-
