@@ -2,12 +2,12 @@ function init() {
     var myMap = new ymaps.Map('map', {
         center: [55.74, 37.58],
         zoom: 13,
-        controls: [];
+        controls: []
     });
     
     // Создадим экземпляр элемента управления «поиск по карте», 
     // с установленной опцией провайдера данных для поиска по организациям.
-    var searchControl = new ymaps.SearchControl({
+    var searchControl = new ymaps.control.SearchControl({
         options: {
             provider: 'yandex#search'
         }
@@ -18,7 +18,7 @@ function init() {
     // Программно выполним поиск кафе в текущей 
     // прямоугольной области карты.
     searchControl.search('кафе');
-};
+}
 
 ymaps.ready(init);
 
