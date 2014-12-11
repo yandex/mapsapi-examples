@@ -10,8 +10,12 @@ function init () {
         }
     });
 
-    // Создаем объект, раскрашивающий линии сегментов маршрута.
-    new Colorizer(multiRoute);
+    ymaps.modules.require([
+        'MultiRouteColorizer'
+    ], function (MultiRouteColorizer) {
+        // Создаем объект, раскрашивающий линии сегментов маршрута.
+        new MultiRouteColorizer(multiRoute);
+    });
 
     // Создаем карту.
     var myMap = new ymaps.Map('map', {

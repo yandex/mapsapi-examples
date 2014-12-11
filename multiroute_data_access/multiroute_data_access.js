@@ -26,9 +26,13 @@ function init () {
         multiRouteModel.setParams({ routingMode: 'auto' }, true);
     });
 
-    // Создаем экземпляр текстового отображения модели мультимаршрута.
-    // см. файл custom_view.js
-    new CustomView(multiRouteModel);
+    ymaps.modules.require([
+        'MultiRouteCustomView'
+    ], function (MultiRouteCustomView) {
+        // Создаем экземпляр текстового отображения модели мультимаршрута.
+        // см. файл custom_view.js
+        new MultiRouteCustomView(multiRouteModel);
+    });
 
     // Создаем карту с добавленной на нее кнопкой.
     var myMap = new ymaps.Map('map', {
