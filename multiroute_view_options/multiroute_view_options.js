@@ -22,15 +22,17 @@ function init () {
         wayPointFinishIconImageOffset: [-15, -15],
         // Внешний вид транзитных точек.
         viaPointIconRadius: 7,
-        viaPointIconFillColor: "#E63E92",
+        viaPointIconFillColor: "#000088",
+        viaPointActiveIconFillColor: "#E63E92",
         // Транзитные точки можно перетаскивать, при этом
         // маршрут будет перестраиваться.
         viaPointDraggable: true,
         // Внешний вид точечных маркеров под путевыми точками.
-        pinIconFillColor: "#E63E92",
+        pinIconFillColor: "#000088",
+        pinActiveIconFillColor: "#E63E92",
         // Внешний вид линии маршрута.
         routeStrokeWidth: 2,
-        routeStrokeColor: "000088",
+        routeStrokeColor: "#000088",
         routeActiveStrokeWidth: 6,
         routeActiveStrokeColor: "#E63E92",
         // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
