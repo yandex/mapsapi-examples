@@ -16,7 +16,6 @@ ymaps.ready(function () {
     myMap.geoObjects.add(myPlacemark);
     myPlacemark.balloon.open();
 });
-
 function observeEvents (map) {
     var mapEventsGroup,
         mapBalloonEventsGroup = map.balloon.events
@@ -29,18 +28,18 @@ function observeEvents (map) {
                     // 1) в начале движения (если балун во внешнем контейнере);
                     .add('actiontick', function (e2) {
                         if (placemark.options.get('balloonPane') == 'outerBalloon') {
-                            setBalloonPane(placemark, e2.get('tick'));
+                            setBalloonPane(map, placemark, e2.get('tick'));
                         }
                     })
                     // 2) в конце движения (если балун во внутреннем контейнере).
                     .add('actiontickcomplete', function (e2) {
                         if (placemark.options.get('balloonPane') != 'outerBalloon') {
-                            setBalloonPane(placemark, e2.get('tick'));
+                            setBalloonPane(map, placemark, e2.get('tick'));
                         }
                     });
 
                 // Вызываем функцию сразу после открытия.
-                setBalloonPane(placemark);
+                setBalloonPane(map, placemark);
             })
             // При закрытии балуна удаляем слушатели.
             .add('close', function () {
@@ -48,20 +47,20 @@ function observeEvents (map) {
             });
 }
 
-function setBalloonPane (placemark, mapData) {
+function setBalloonPane (map, placemark, mapData) {
     mapData = mapData || {
-        globalPixelCenter: myMap.getGlobalPixelCenter(),
-        zoom: myMap.getZoom()
+        globalPixelCenter: map.getGlobalPixelCenter(),
+        zoom: map.getZoom()
     };
 
-    var mapSize = myMap.container.getSize(),
+    var mapSize = map.container.getSize(),
         mapBounds = [
             [mapData.globalPixelCenter[0] - mapSize[0] / 2, mapData.globalPixelCenter[1] - mapSize[1] / 2],
             [mapData.globalPixelCenter[0] + mapSize[0] / 2, mapData.globalPixelCenter[1] + mapSize[1] / 2]
         ],
         balloonPosition = placemark.balloon.getPosition(),
     // Используется при изменении зума.
-        zoomFactor = Math.pow(2, mapData.zoom - myMap.getZoom()),
+        zoomFactor = Math.pow(2, mapData.zoom - map.getZoom()),
     // Определяем, попадает ли точка привязки балуна в видимую область карты.
         pointInBounds = ymaps.util.bounds.contains(mapBounds, [
             balloonPosition[0] * zoomFactor,
