@@ -10,19 +10,20 @@ ymaps.ready(function () {
     }, {
         balloonPanelMaxMapArea: 0
     });
-
-    observeEvents(myMap);
-
     myMap.geoObjects.add(myPlacemark);
+    
+    observeEvents(myMap);
+    
     myPlacemark.balloon.open();
 });
+
 function observeEvents (map) {
-    var mapEventsGroup,
-        mapBalloonEventsGroup = map.balloon.events
+    var mapEventsGroup;
+    map.geoObjects.each(function (geoObject) {
+        geoObject.balloon.events
             // При открытии балуна начинаем слушать изменение центра карты.
             .add('open', function (e1) {
                 var placemark = e1.get('target');
-
                 // Вызываем функцию в двух случаях:
                 mapEventsGroup = map.events.group()
                     // 1) в начале движения (если балун во внешнем контейнере);
@@ -37,7 +38,6 @@ function observeEvents (map) {
                             setBalloonPane(map, placemark, e2.get('tick'));
                         }
                     });
-
                 // Вызываем функцию сразу после открытия.
                 setBalloonPane(map, placemark);
             })
@@ -45,6 +45,7 @@ function observeEvents (map) {
             .add('close', function () {
                 mapEventsGroup.removeAll();
             });
+    });
 }
 
 function setBalloonPane (map, placemark, mapData) {
