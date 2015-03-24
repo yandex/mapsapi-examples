@@ -20,6 +20,9 @@ function init () {
         wayPointFinishIconImageHref: "images/sokolniki.png",
         wayPointFinishIconImageSize: [30, 30],
         wayPointFinishIconImageOffset: [-15, -15],
+        // Позволяет скрыть иконки путевых точек маршрута.
+        // wayPointVisible:false,
+
         // Внешний вид транзитных точек.
         viaPointIconRadius: 7,
         viaPointIconFillColor: "#000088",
@@ -27,9 +30,15 @@ function init () {
         // Транзитные точки можно перетаскивать, при этом
         // маршрут будет перестраиваться.
         viaPointDraggable: true,
+        // Позволяет скрыть иконки транзитных точек маршрута.
+        // viaPointVisible:false,
+
         // Внешний вид точечных маркеров под путевыми точками.
         pinIconFillColor: "#000088",
         pinActiveIconFillColor: "#E63E92",
+        // Позволяет скрыть точечные маркеры путевых точек.
+        // pinVisible:false,
+        
         // Внешний вид линии маршрута.
         routeStrokeWidth: 2,
         routeStrokeColor: "#000088",
