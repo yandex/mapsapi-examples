@@ -1,4 +1,4 @@
->Check out **other branches** for different **languages** and **API versions.**
+>Check out **other branches** for different **languages** and **API versions**.
 
 Примеры использования API Яндекс.Карт
 ----
