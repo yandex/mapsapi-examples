@@ -63,7 +63,7 @@ function setBalloonPane (map, placemark, mapData) {
     // Используется при изменении зума.
         zoomFactor = Math.pow(2, mapData.zoom - map.getZoom()),
     // Определяем, попадает ли точка привязки балуна в видимую область карты.
-        pointInBounds = ymaps.util.bounds.contains(mapBounds, [
+        pointInBounds = ymaps.util.pixelBounds.containsPoint(mapBounds, [
             balloonPosition[0] * zoomFactor,
             balloonPosition[1] * zoomFactor
         ]),
