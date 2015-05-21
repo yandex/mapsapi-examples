@@ -46,7 +46,7 @@ function init () {
         }, {
             // Опции.
             // Своё изображение иконки метки.
-            iconImageHref: '/maps/doc/jsapi/2.x/examples/images/myIcon.gif',
+            iconImageHref: '/images/myIcon.gif',
             // Размеры метки.
             iconImageSize: [30, 42],
             // Смещение левого верхнего угла иконки относительно
