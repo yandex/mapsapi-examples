@@ -1,0 +1,17 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="GeoObjectCollection"/>, <sa href="Placemark"/>, <sa href="geoXml.load"/>
+</div>
+<p>
+    <a href="/maps/doc/ymapsml/1.x/guide/concepts/About.xml">YMapsML</a> - язык описания географических объектов.
+</p>
+<p>
+    Каждому географическому объекту в YMapsML ставятся в соответствие геометрическая фигура и геообъект, используемый для
+    отображения этой фигуры на карте. Описание фигур и их привязка к географическим координатам задаются
+    в соответствующих YMapsML-элементах. Для описания фигуры "точка" предназначен элемент <a href="maps/doc/ymapsml/1.x/ref/reference/gml-Point.xml">gml:Point</a>.
+    Для отображения точки на карте используется геообъект Placemark.
+</p>
+<p>
+    Для загрузки YMapsML-данных предназначена функция <sa href="geoXml.load"/>. После того как данные загрузятся, функция преобразует их в
+    <sa href="GeoObjectCollection"/> и передаст в качестве параметра функции-обработчику. Коллекцию геообъектов GeoObjectCollection можно отобразить
+    на карте.
+</p>
