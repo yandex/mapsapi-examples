@@ -103,10 +103,6 @@
         "Редактирование маршрута": "router_editor",
         "Расчёт стоимости маршрута": "deliveryCalculator"
     },
-    "YMapsML": {
-        "Добавление метки": "ymapsml_simpleobject",
-        "Смена значка метки": "ymapsml_styleobject"
-    },
     "GeoXML": {
         "Отображение YMapsML и KML": "geoxml_display"
     },
