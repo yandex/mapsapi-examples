@@ -11,9 +11,7 @@ function init () {
         .then(function (res) {
             // Добавление геообъектов на карту.
             myMap.geoObjects.add(res.geoObjects);
-        },
-        // Вызывается в случае неудачной загрузки YMapsML-файла.
-        function (error){
+        }, function (error){
             alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
         });
 }

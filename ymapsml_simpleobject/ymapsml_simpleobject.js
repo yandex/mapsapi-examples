@@ -10,5 +10,7 @@ function init () {
         .then(function (res) {
             // Добавляем коллекцию геообъектов на карту.
             myMap.geoObjects.add(res.geoObjects);
+        }, function (error) {
+            alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
         });
 }

@@ -12,5 +12,9 @@ function init () {
                 // Изменение типа карты.
                 res.mapState.applyToMap(mapSatellite);
             }
+        },
+        // Вызывается в случае неудачной загрузки YMapsML-файла.
+        function (error) {
+            alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
         });
 }
