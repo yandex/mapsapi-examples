@@ -1,0 +1,23 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="geoXml.load"/>
+</div>
+<p>
+    YMapsML позволяет задавать внешний вид отображаемых на карте объектов. Изменение внешнего вида отображаемых объектов
+    производится с помощью стилей. <xref href="styles.xml">Стили</xref> позволяют задавать некоторые параметры
+    отображения геообъектов и формировать их произвольное HTML-представление с помощью
+    <xref href="templates.xml">шаблонов</xref> (см. <a href="http://tech.yandex.ru/maps/jsbox/2.1/ymapsml_ballooncontentstyle">пример использования шаблонов</a>).
+</p>
+<p>
+    Для определения стилей используется элемент <xref href="../../ref/reference/representation-Style.xml">repr:Style</xref>, который
+    размещается в элементе  <a href="maps/doc/ymapsml/1.x/ref/reference/representation-Representation.xml">repr:Representation</a>.
+</p>
+<p>
+    Чтобы указать, какой стиль следует применять при отображении объекта, в элементе
+    <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObject.xml">ymaps:GeoObject</a>
+    следует задать элемент <xref href="../../ref/reference/ymaps-style.xml">ymaps:style</xref>. В нем указывается ссылка
+    на стиль, который был определен в элементе <xref href="../../ref/reference/representation-Style.xml">repr:Style</xref>. Также
+    в элементе  <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObjectCollection.xml">ymaps:GeoObjectCollection</a>
+    можно задавать стиль для коллекции геообъектов.
+</p>
+
+

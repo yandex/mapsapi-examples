@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <ymaps:GeoObjectCollection>
+        <gml:featureMembers>
+            <ymaps:GeoObject>
+                <gml:name>M 4.9, offshore Los Lagos, Chile</gml:name>
+                <gml:description>-73.5167 -39.4695</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.5167 -39.4695</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.2, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-73.2773 -36.4508</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.2773 -36.4508</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 2.6, Northern California</gml:name>
+                <gml:description>-122.7848 38.8132</gml:description>
+                <gml:Point>
+                    <gml:pos>-122.7848 38.8132</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, Maule, Chile</gml:name>
+                <gml:description>-72.0004 -35.0720</gml:description>
+                <gml:Point>
+                    <gml:pos>-72.0004 -35.0720</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.3, offshore Maule, Chile</gml:name>
+                <gml:description>-72.6383 -35.2025</gml:description>
+                <gml:Point>
+                    <gml:pos>-72.6383 -35.2025</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.8, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-74.5006 -37.7352</gml:description>
+                <gml:Point>
+                    <gml:pos>-74.5006 -37.7352</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.3, Santa Cruz Islands</gml:name>
+                <gml:description>166.2438 -10.4111</gml:description>
+                <gml:Point>
+                    <gml:pos>166.2438 -10.4111</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.1, off the coast of Libertador O'Higgins, Chile</gml:name>
+                <gml:description>-73.2625 -34.0618</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.2625 -34.0618</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.8, Ryukyu Islands, Japan</gml:name>
+                <gml:description>128.2320 26.0339</gml:description>
+                <gml:Point>
+                    <gml:pos>128.2320 26.0339</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.8, Ryukyu Islands, Japan</gml:name>
+                <gml:description>128.3806 26.1366</gml:description>
+                <gml:Point>
+                    <gml:pos>128.3806 26.1366</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.1, Ryukyu Islands, Japan</gml:name>
+                <gml:description>128.3178 26.0921</gml:description>
+                <gml:Point>
+                    <gml:pos>128.3178 26.0921</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 3.5, Central California</gml:name>
+                <gml:description>-117.8732 36.0645</gml:description>
+                <gml:Point>
+                    <gml:pos>-117.8732 36.0645</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.6, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-73.1815 -35.9420</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.1815 -35.9420</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.5, offshore Libertador O'Higgins, Chile</gml:name>
+                <gml:description>-72.4714 -34.4540</gml:description>
+                <gml:Point>
+                    <gml:pos>-72.4714 -34.4540</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.1, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-73.3720 -36.6665</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.3720 -36.6665</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.1, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-73.5020 -35.8844</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.5020 -35.8844</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, Valparaiso, Chile</gml:name>
+                <gml:description>-71.6690 -33.7744</gml:description>
+                <gml:Point>
+                    <gml:pos>-71.6690 -33.7744</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, offshore Libertador O'Higgins, Chile</gml:name>
+                <gml:description>-72.6251 -34.4728</gml:description>
+                <gml:Point>
+                    <gml:pos>-72.6251 -34.4728</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.8, Luzon, Philippines</gml:name>
+                <gml:description>122.4870 18.2382</gml:description>
+                <gml:Point>
+                    <gml:pos>122.4870 18.2382</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.3, Neuquen, Argentina</gml:name>
+                <gml:description>-71.2422 -39.7965</gml:description>
+                <gml:Point>
+                    <gml:pos>-71.2422 -39.7965</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, Kyrgyzstan</gml:name>
+                <gml:description>75.5842 42.5425</gml:description>
+                <gml:Point>
+                    <gml:pos>75.5842 42.5425</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.8, Bio-Bio, Chile</gml:name>
+                <gml:description>-73.4976 -37.5898</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.4976 -37.5898</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.9, Maule, Chile</gml:name>
+                <gml:description>-71.7680 -34.9859</gml:description>
+                <gml:Point>
+                    <gml:pos>-71.7680 -34.9859</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.9, off the coast of Libertador O'Higgins, Chile</gml:name>
+                <gml:description>-73.5595 -34.3804</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.5595 -34.3804</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, Region Metropolitana, Chile</gml:name>
+                <gml:description>-71.2009 -33.7620</gml:description>
+                <gml:Point>
+                    <gml:pos>-71.2009 -33.7620</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 2.5, San Francisco Bay area, California</gml:name>
+                <gml:description>-121.8987 38.0532</gml:description>
+                <gml:Point>
+                    <gml:pos>-121.8987 38.0532</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.0, off the coast of Libertador O'Higgins, Chile</gml:name>
+                <gml:description>-73.9244 -34.7951</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.9244 -34.7951</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 5.2, Bio-Bio, Chile</gml:name>
+                <gml:description>-72.4791 -36.3054</gml:description>
+                <gml:Point>
+                    <gml:pos>-72.4791 -36.3054</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.6, Cayman Islands region</gml:name>
+                <gml:description>-81.4610 18.9213</gml:description>
+                <gml:Point>
+                    <gml:pos>-81.4610 18.9213</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 4.9, offshore Bio-Bio, Chile</gml:name>
+                <gml:description>-73.6093 -36.7724</gml:description>
+                <gml:Point>
+                    <gml:pos>-73.6093 -36.7724</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+            <ymaps:GeoObject>
+                <gml:name>M 2.7, Central Alaska</gml:name>
+                <gml:description>-144.2244 63.1290</gml:description>
+                <gml:Point>
+                    <gml:pos>-144.2244 63.1290</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+        </gml:featureMembers>
+    </ymaps:GeoObjectCollection>
+</ymaps:ymaps>

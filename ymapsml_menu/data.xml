@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <ymaps:GeoObjectCollection>
+        <gml:featureMembers>
+            <ymaps:GeoObjectCollection>
+                <gml:name>Известные памятники</gml:name>
+                <gml:featureMembers>
+                    <ymaps:GeoObject>
+                        <gml:name>Монумент "Родина-Мать"</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.563022 50.426472</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Памятник "Богдану Хмельницкому"</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.516489 50.45351</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Арка Дружбы народов</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.529874 50.454433</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                </gml:featureMembers>
+                <ymaps:style>default#redPoint</ymaps:style>
+            </ymaps:GeoObjectCollection>
+
+            <ymaps:GeoObjectCollection>
+                <gml:name>Покушайки</gml:name>
+                <gml:featureMembers>
+                    <ymaps:GeoObject>
+                        <gml:name>Ресторан "Калинка-Малинка"</gml:name>
+                        <gml:description>пр.Владимира Маяковского, 47</gml:description>
+                        <gml:Point>
+                            <gml:pos>30.60791 50.50955</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Бар "Сало-бар"</gml:name>
+                        <gml:description>ул. Анри Барбюса, 5а</gml:description>
+                        <gml:Point>
+                            <gml:pos>30.521708 50.429083</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Абсент-бар "Палата №6"</gml:name>
+                        <gml:description>бульвар Воровского, 31а</gml:description>
+                        <gml:Point>
+                            <gml:pos>30.498271 50.450843</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Ресторан "Спотыкач"</gml:name>
+                        <gml:description>Владимирская,16</gml:description>
+                        <gml:Point>
+                            <gml:pos>30.516498 50.454834</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+                </gml:featureMembers>
+
+                <ymaps:style>default#greenPoint</ymaps:style>
+            </ymaps:GeoObjectCollection>
+
+            <ymaps:GeoObjectCollection>
+                <gml:name>Оригинальные музейчики</gml:name>
+                <gml:featureMembers>
+                    <ymaps:GeoObject>
+                        <gml:name>Музей грамзаписи и старинных музыкальных инструментов</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.520163 50.443334</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Музей истории медицины или Анатомический театр</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.505269 50.446977</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Музей воды. Водно-информационный центр</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.530889 50.452512</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                </gml:featureMembers>
+                <ymaps:style>default#orangePoint</ymaps:style>
+            </ymaps:GeoObjectCollection>
+
+            <ymaps:GeoObjectCollection>
+                <gml:name>Красивости</gml:name>
+                <gml:featureMembers>
+                    <ymaps:GeoObject>
+                        <gml:name>Замок Ричарда-Львиное сердце</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.516174 50.45987</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>"Дом с химерами"</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.528598 50.445049</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                    <ymaps:GeoObject>
+                        <gml:name>Дом Рыцаря</gml:name>
+                        <gml:Point>
+                            <gml:pos>30.511809 50.449156</gml:pos>
+                        </gml:Point>
+                    </ymaps:GeoObject>
+
+                </gml:featureMembers>
+            </ymaps:GeoObjectCollection>
+        </gml:featureMembers>
+    </ymaps:GeoObjectCollection>
+</ymaps:ymaps>

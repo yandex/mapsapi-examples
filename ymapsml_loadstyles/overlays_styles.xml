@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <repr:Representation>
+        <repr:Style gml:id="moscow">
+            <repr:parentStyle>default#houseIcon</repr:parentStyle>
+        </repr:Style>
+
+        <repr:Style gml:id="rostov">
+            <repr:iconContentStyle>
+                <repr:template>#iconTemplate</repr:template>
+            </repr:iconContentStyle>
+        </repr:Style>
+
+        <repr:Template gml:id="iconTemplate">
+            <repr:text><![CDATA[<div>$[name]</div>]]></repr:text>
+        </repr:Template>
+
+        <repr:Style gml:id="myway">
+            <repr:lineStyle>
+                <repr:strokeColor>FF9911</repr:strokeColor>
+                <repr:strokeWidth>7</repr:strokeWidth>
+            </repr:lineStyle>
+        </repr:Style>
+    </repr:Representation>
+</ymaps:ymaps>

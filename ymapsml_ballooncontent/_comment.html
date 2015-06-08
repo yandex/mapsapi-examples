@@ -1,0 +1,24 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="geoXml.load"/>
+</div>
+<p>
+   Шаблоны позволяют сформировать произвольное HTML-представление геообъектов, балунов и хинтов.
+</p>
+<p>
+  Для определения шаблона используется элемент <a href="maps/doc/ymapsml/1.x/ref/reference/representation-Template.xml">repr:Representation</a>, внутри
+    которого в контейнере <a href="maps/doc/ymapsml/1.x/ref/reference/representation-text.xml">repr:text</a> размещается HTML-код (тело шаблона).
+</p>
+<p>
+    При использовании шаблона доступ к значению любого XML-элемента, находящегося внутри элемента
+    <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObject.xml">ymaps:GeoObject</a>
+    или <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObjectCollection.xml">ymaps:GeoObjectCollection</a>, осуществляется с помощью
+    обращения к соответствующей переменной.
+</p>
+<p>
+    Для определения переменной используется строка вида $[имя_переменной|значение_по_умолчанию].
+    Имя переменной представляет собой местоположение этого XML-элемента внутри элемента, к которому применяется стиль. Местоположение задаётся
+    последовательным перечислением названий всех родительских элементов и названия самого элемента, в качестве разделителя используется точка.
+</p>
+<p>
+    Подробнее о шаблонах см. в <a href="maps/doc/ymapsml/1.x/guide/concepts/templates.xml">документации</a>.
+</p>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <repr:Representation>
+        <repr:Style gml:id="offices">
+            <repr:iconStyle>
+                <repr:href>http://company.yandex.ru/i/ya.png</repr:href>
+                <repr:size x="57" y="55"/>
+                <repr:offset x="-37" y="-5"/>
+            </repr:iconStyle>
+
+            <repr:balloonContentStyle>
+                <repr:template>#balloonTemplate</repr:template>
+            </repr:balloonContentStyle>
+        </repr:Style>
+
+        <repr:Template gml:id="balloonTemplate">
+            <repr:text><![CDATA[
+                    <div style="font-size:12px;">
+                        <div style="color:#ff0303;font-weight:bold">$[name]</div> 
+                        <div>Адрес: $[metaDataProperty.AnyMetaData.address]</div>
+                        <div>Телефон: $[metaDataProperty.AnyMetaData.phone|не задан]</div>
+                        <div>Факс: $[metaDataProperty.AnyMetaData.fax|не задан]</div>
+                    </div>]]></repr:text>
+        </repr:Template>
+    </repr:Representation>
+
+    <ymaps:GeoObjectCollection>
+        <gml:name>Объекты карте</gml:name>
+        <ymaps:style>#offices</ymaps:style>
+        <gml:featureMembers>
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса на Льва Толстого </gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>119021, Москва, ул. Льва Толстого, 16</address>
+                        <phone>+7 495 739-70-00</phone>
+                        <fax>+7 495 739-70-70</fax>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>37.587937 55.733771</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис в Санкт-Петербурге</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>195027, Санкт-Петербург, Cвердловская набережная, 44, БЦ «Бенуа» (4-6 эт.).</address>
+                        <phone>(812) 633 36 00</phone>
+                        <fax>(812) 633 36 99</fax>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>30.406127143 59.9590655815</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса в Екатеринбурге</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>620062, Екатеринбург, ул. Гагарина, 8, офис 602.</address>
+                        <phone>(812) 633 36 00</phone>
+                        <fax>(812) 633 36 99</fax>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>60.644555 56.845209</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса в Одессе</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>Адрес: Одесса, пр. Шевченко, дом 4-Д, офис 61</address>
+                        <phone>+38 0482 33-8848 (3 линии), +38 044 232-6003</phone>
+                        <fax>+38 0482 33-8848 (3 линии), +38 044 232-6003</fax>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>30.748434 46.457741</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса в Киеве</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>Адрес: Киев, ул. Луначарского, 4</address>
+                        <phone>+38 044 5864367</phone>
+                        <fax>+38 044 5864368</fax>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>30.598379 50.45332</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса в Симферополе</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>Адрес: 95011, Симферополь, ул. Героев Аджимушкая, 6/13, второй этаж</address>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>34.095482 44.949507</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+
+            <ymaps:GeoObject>
+                <gml:name>Офис Яндекса в Burlingame</gml:name>
+                <gml:metaDataProperty>
+                    <ymaps:AnyMetaData>
+                        <address>Адрес: 3d floor, Suite 306, 330 Primrose Road Burlingame, CA 94010</address>
+                    </ymaps:AnyMetaData>
+                </gml:metaDataProperty>
+                <gml:Point>
+                    <gml:pos>-122.348557 37.578894</gml:pos>
+                </gml:Point>
+            </ymaps:GeoObject>
+        </gml:featureMembers>
+    </ymaps:GeoObjectCollection>
+</ymaps:ymaps>

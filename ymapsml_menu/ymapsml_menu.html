@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Примеры YMapsML. Создание меню для отображения групп объектов.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
+    <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="ymapsml_menu.js" type="text/javascript"></script>
+    <style type="text/css">
+        html, body, #map {
+            width: 400px; height: 300px; padding: 0; margin: 0;
+        }
+        /* Оформление меню (начало)*/
+        #menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #menu a {
+            text-decoration: none;
+            border-bottom: dashed 1px;
+        }
+        a.active {
+            color: #000;
+        }
+        /* Оформление меню (конец)*/
+    </style>
+</head>
+<body>
+ <div>
+     <ul id="menu"></ul>
+ </div>
+ <div id="map"></div>
+ </body>
+</html>

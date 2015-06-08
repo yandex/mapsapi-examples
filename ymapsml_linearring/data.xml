@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <ymaps:GeoObjectCollection>
+        <gml:featureMember>
+            <ymaps:GeoObject>
+                <gml:name>Замкнутая ломаная линия</gml:name>
+                <gml:description>Координаты вершин ломаной можно также определить и с помощью элемента gml:posList</gml:description>
+                <gml:LinearRing>
+                    <gml:pos>92.959678 56.008711</gml:pos>
+                    <gml:pos>93.018733 56.024094</gml:pos>
+                    <gml:pos>93.032468 56.000245</gml:pos>
+                    <gml:pos>92.976162 55.98716</gml:pos>
+                    <gml:pos>92.959678 56.008711</gml:pos>
+                </gml:LinearRing>
+            </ymaps:GeoObject>
+        </gml:featureMember>
+    </ymaps:GeoObjectCollection>
+</ymaps:ymaps>
