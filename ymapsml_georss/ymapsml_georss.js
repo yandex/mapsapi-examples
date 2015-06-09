@@ -7,7 +7,7 @@ function init () {
         zoom: 0
     });
 
-    // Загрузка YMapsML-файла
+    // Загрузка YMapsML-файла.
     ymaps.geoXml.load('ymapsml.xml')
         .then(function (res) {
             myMap.geoObjects.add(res.geoObjects);

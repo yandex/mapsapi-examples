@@ -6,7 +6,7 @@ function init () {
             zoom: 8
         });
     // После того как данные YmapsMl-файла загрузятся, вызывается callback-функция.
-    ymaps.geoXml.load("data.xml")
+    ymaps.geoXml.load('data.xml')
         .then(function (res) {
             // Добавляем коллекцию геообъектов на карту.
             myMap.geoObjects.add(res.geoObjects);

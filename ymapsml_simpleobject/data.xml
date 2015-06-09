@@ -7,7 +7,7 @@
                 <gml:name>Патриаршие пруды</gml:name>
                 <gml:description>Однажды весною, в час небывало жаркого заката, в Москве, на Патриарших прудах, появились два гражданина.</gml:description>
                 <gml:Point>
-                    <gml:pos>55.763969 37.592111 </gml:pos>
+                    <gml:pos>37.592111 55.763969</gml:pos>
                 </gml:Point>
             </ymaps:GeoObject>
         </gml:featureMembers>

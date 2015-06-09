@@ -11,7 +11,6 @@ function init () {
     ymaps.geoXml.load('overlays_styles.xml')
         .then(
         function () {
-            //Загрузка YMapsML-файла
             ymaps.geoXml.load('overlays.xml')
                 .then(
                 function (res) {
