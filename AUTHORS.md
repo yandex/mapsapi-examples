@@ -8,3 +8,4 @@ The following authors have created the source code of "mapsapi-examples-ru" publ
   * Vsevolod Shmyrov <vsesh@yandex-team.ru>
   * Marina Pereskokova <mstepanova@yandex-team.ru>
   * Alexander Zinchuk <zinchuk@yandex-team.ru>
+  * Anton Korzunov <kashey@yandex-team.ru>
