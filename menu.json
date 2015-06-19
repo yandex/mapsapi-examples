@@ -103,21 +103,6 @@
         "Редактирование маршрута": "router_editor",
         "Расчёт стоимости маршрута": "deliveryCalculator"
     },
-    "YMapsML": {
-        "Изменение типа карты": "ymapsml_maptype",
-        "Добавление метки на карту": "ymapsml_simpleobject",
-        "Смена значка метки": "ymapsml_styleobject",
-        "Ломаная":  "ymapsml_linestring",
-        "Замкнутая ломаная": "ymapsml_linearring",
-        "Многоугольник": "ymapsml_polygon",
-        "Задание стиля объектов": "ymapsml_setstyle",
-        "Наследование стилей": "ymapsml_parentstyle",
-        "Подгрузка стилей из отдельного файла": "ymapsml_loadstyles",
-        "Изменение шаблона содержимого балуна": "ymapsml_ballooncontentstyle",
-        "Отображение результатов геокодирования": "ymapsml_showhttpgeocoderresult",
-        "Создание меню для отображения групп объектов": "ymapsml_menu",
-        "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
-    },
     "GeoXML": {
         "Отображение YMapsML и KML": "geoxml_display"
     },
