@@ -3,9 +3,12 @@ ymaps.ready(init);
 function init () {
     // Создание экземпляра карты
     var myMap = new ymaps.Map('map', {
-        center: [61.766513, 34.344165],
-        zoom: 12
-    });
+            center: [61.766513, 34.344165],
+            zoom: 12
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+
     // Загрузка YMapsML-файла
     ymaps.geoXml.load('data.xml')
         .then(function (res) {

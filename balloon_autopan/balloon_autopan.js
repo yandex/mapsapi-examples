@@ -4,6 +4,8 @@ ymaps.ready(function () {
             center: [55.751574, 37.573856],
             zoom: 9,
             behaviors: ['default', 'scrollZoom']
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
 
     // Создание макета балуна на основе Twitter Bootstrap.

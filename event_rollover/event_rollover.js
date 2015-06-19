@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.755773, 37.617761],
             zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         myPlacemark = new ymaps.Placemark(myMap.getCenter());
 

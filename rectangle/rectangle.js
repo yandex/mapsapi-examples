@@ -5,6 +5,8 @@ function init () {
     myMap = new ymaps.Map('map', {
         center: [55.674, 37.601],
         zoom: 11
+    }, {
+        searchControlProvider: 'yandex#search'
     });
 
     // Cоздаем геообъект с типом геометрии "прямоугольник".

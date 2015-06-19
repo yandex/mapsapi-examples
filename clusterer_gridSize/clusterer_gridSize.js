@@ -4,6 +4,8 @@ function init () {
     var myMap = new ymaps.Map('map', {
             center: [63.369315, 105.440191],
             zoom: 3
+        }, {
+            searchControlProvider: 'yandex#search'
         });
 
     // Создаем кластеризатор c красной иконкой (по умолчанию используются синяя).

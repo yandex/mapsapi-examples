@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
             center: [55.73, 37.75],
             zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         yellowCollection = new ymaps.GeoObjectCollection(null, {
             preset: 'islands#yellowIcon'

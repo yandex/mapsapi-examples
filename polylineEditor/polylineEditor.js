@@ -3,9 +3,11 @@ ymaps.ready(init);
 function init() {
     // Создаем карту.
     var myMap = new ymaps.Map("map", {
-        center: [55.72, 37.64],
-        zoom: 10
-    });
+            center: [55.72, 37.64],
+            zoom: 10
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
 
     // Создаем ломаную.
     var myPolyline = new ymaps.Polyline([

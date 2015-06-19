@@ -3,6 +3,8 @@ ymaps.ready(function () {
             center: [55.751574, 37.573856],
             zoom: 9,
             behaviors: ['default', 'scrollZoom']
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         /**
          * Создадим кластеризатор, вызвав функцию-конструктор.

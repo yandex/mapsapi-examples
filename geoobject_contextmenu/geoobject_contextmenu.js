@@ -3,9 +3,11 @@ ymaps.ready(init);
 function init () {
     // Создаем карту.
     var myMap = new ymaps.Map("map", {
-        center: [47.60, 41.8],
-        zoom: 9
-    });
+            center: [47.60, 41.8],
+            zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
 
     // Создаем метку.
     var myPlacemark = new ymaps.Placemark([47.60, 42.10], {

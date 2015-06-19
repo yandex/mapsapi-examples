@@ -6,6 +6,8 @@ function init() {
     var myMap = new ymaps.Map('map', {
             center: [50.443705, 30.530946],
             zoom: 14
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         // Контейнер для меню.
         menu = $('<ul class="menu"/>');

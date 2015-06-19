@@ -1,8 +1,10 @@
 ymaps.ready(function () {
     var myMap = new ymaps.Map('map', {
-        center: [55.733835, 37.588227],
-        zoom: 5
-    });
+            center: [55.733835, 37.588227],
+            zoom: 5
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
     // Пользовательские модули не дописываются в неймспейс ymaps.
     // Поэтому доступ к ним мы можем получить асинхронно через метод ymaps.modules.require.
     ymaps.modules.require(['geoObject.Arrow'], function (Arrow) {

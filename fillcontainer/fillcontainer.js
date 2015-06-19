@@ -12,6 +12,7 @@ function init () {
         // обновление карты при изменении размеров контейнера.
         // При простых изменениях размера контейнера рекомендуется обновлять карту программно.
         // autoFitToViewport: 'always'
+        searchControlProvider: 'yandex#search'
     });
     $('#toggler').click(toggle);
 }

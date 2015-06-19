@@ -13,30 +13,32 @@ var
         RU: '#688',
         UA: '#868',
         BY: '#888',
-        KZ: '#668',
+        KZ: '#668'
     },
     fillColorSet={
         RU: '#FAA',
         UA: '#AFA',
         BY: '#AAA',
-        KZ: '#FFA',
+        KZ: '#FFA'
     };
 
 
 ymaps.ready(function () {
     var sLng = $("#lang"),
         sLevel = $("#level");
+    
     for (var j in langs) {
         var i = langs[j];
         $("<option value=" + i + ">" + i + "</option>").appendTo(sLng);
     }
 
-
-    geoMap = new ymaps.Map('container', {
-        center: [50, 45],
-        type: "yandex#map",
-        zoom: 3
-    });
+    var myMap = new ymaps.Map('container', {
+            center: [50, 45],
+            type: "yandex#map",
+            zoom: 3
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
 
     var lastCollection = 0;
 
@@ -68,8 +70,6 @@ ymaps.ready(function () {
                 });
             });
             targetCollection.add(collection);
-
-
         }, function () {
             //alert('no response');
         });
@@ -79,10 +79,10 @@ ymaps.ready(function () {
         var lng = $("option:selected", sLng).val() || 'ru',
             level = $("option:selected", sLevel).val();
         if (lastCollection) {
-            geoMap.geoObjects.remove(lastCollection);
+            myMap.geoObjects.remove(lastCollection);
         }
         lastCollection = new ymaps.GeoObjectCollection();
-        geoMap.geoObjects.add(lastCollection);
+        myMap.geoObjects.add(lastCollection);
         for (var i in countries) {
             loadRegion(i, {
                 lang: lng,

@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
             center: [57.131311, 34.576128],
             zoom: 5
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         // Признак начала редактирования маршрута.
         startEditing = false,

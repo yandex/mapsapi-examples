@@ -4,6 +4,8 @@ function init () {
     var myMap = new ymaps.Map("map", {
             center: [54.83, 37.11],
             zoom: 5
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         // Метка, содержимое балуна которой загружается с помощью AJAX.
         placemark = new ymaps.Placemark([55.8, 37.72], {

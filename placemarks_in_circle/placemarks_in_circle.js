@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
             center: [55.43, 37.75],
             zoom: 8
+        }, {
+            searchControlProvider: 'yandex#search'
         }),
         objects = ymaps.geoQuery([
             {

@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
             center: [55.745508, 37.435225],
             zoom: 13
+        }, {
+            searchControlProvider: 'yandex#search'
         });
 
     // Добавим на карту схему проезда

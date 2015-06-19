@@ -4,6 +4,8 @@ ymaps.ready(function () {
     myMap = new ymaps.Map('map', {
         zoom: 4,
         center: [54.78, 30.08]
+    }, {
+        searchControlProvider: 'yandex#search'
     });
     var myPlacemark = new ymaps.Placemark([55.76, 37.64], {
         balloonContent: 'Я вышел за границы карты'

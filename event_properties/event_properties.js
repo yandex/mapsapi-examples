@@ -6,7 +6,8 @@ function init () {
         center: [57.5262, 38.3061], // Углич
         zoom: 11
     }, {
-        balloonMaxWidth: 200
+        balloonMaxWidth: 200,
+        searchControlProvider: 'yandex#search'
     });
 
     // Обработка события, возникающего при щелчке

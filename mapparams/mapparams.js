@@ -15,6 +15,9 @@ function init () {
             zoom: 10,
             // Тип покрытия карты: "Спутник".
             type: 'yandex#satellite'
+        }, {
+            // Поиск по организациям.
+            searchControlProvider: 'yandex#search'
         }
     );
 }

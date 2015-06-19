@@ -7,6 +7,8 @@ function init () {
         // Санкт-Петербург
         center: [59.93772, 30.313622],
         zoom: 10
+    }, {
+        searchControlProvider: 'yandex#search'
     });
 
     myMap.behaviors

@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.30954, 37.721587],
             zoom: 8
+        }, {
+            searchControlProvider: 'yandex#search'
         });
     
     // Функция, которая по состоянию чекбоксов в меню

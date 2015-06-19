@@ -5,6 +5,8 @@ function init () {
     var myMap = new ymaps.Map('map', {
         center: [50.76, 35.64],
         zoom: 0
+    }, {
+        searchControlProvider: 'yandex#search'
     });
 
     // Загрузка YMapsML-файла.

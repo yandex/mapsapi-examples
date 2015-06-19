@@ -2,11 +2,13 @@ ymaps.ready(init);
 
 function init () {
     // Создание экземпляра карты.
-    var map = new ymaps.Map('map', {
+    var myMap = new ymaps.Map('map', {
             center: [55.76, 37.64],
             zoom: 10
+        }, {
+            searchControlProvider: 'yandex#search'
         });
-    window.myMap = map;
+
     // Загрузка результатов геокодирования.
     ymaps.geoXml.load("http://geocode-maps.yandex.ru/1.x/?geocode=поселок Рай")
         .then(function (res) {

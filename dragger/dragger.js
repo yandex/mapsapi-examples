@@ -3,12 +3,12 @@ jQuery(function () {
 });
 
 function init () {
-    var map = new ymaps.Map(
-            'map', {
-                center: [55.819543, 37.611619],
-                zoom: 10
-            }
-        ),
+    var map = new ymaps.Map('map', {
+            center: [55.819543, 37.611619],
+            zoom: 10
+        }, {
+            searchControlProvider: 'yandex#search'
+        }),
         markerElement = jQuery('#marker'),
         dragger = new ymaps.util.Dragger({
             // Драггер будет автоматически запускаться при нажатии на элемент 'marker'.

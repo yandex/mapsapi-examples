@@ -4,6 +4,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
         center: [55.73, 37.75],
         zoom: 8
+    }, {
+        searchControlProvider: 'yandex#search'
     });
     
     // Создадим объекты на основе JSON-описания геометрий.

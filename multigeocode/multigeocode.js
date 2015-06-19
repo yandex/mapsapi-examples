@@ -2,6 +2,8 @@ function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.734046, 37.588628],
             zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
         });
     
     // Можно создать выборку из запроса к геокодеру.

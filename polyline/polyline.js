@@ -5,6 +5,8 @@ function init() {
     var myMap = new ymaps.Map("map", {
             center: [55.72, 37.44],
             zoom: 10
+        }, {
+            searchControlProvider: 'yandex#search'
         });
 
     // Создаем ломаную, используя класс GeoObject.

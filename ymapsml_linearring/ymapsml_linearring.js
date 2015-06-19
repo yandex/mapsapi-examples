@@ -5,7 +5,10 @@ function init () {
     var myMap = new ymaps.Map('map', {
             center: [56.007941, 92.998135],
             zoom: 11
+        }, {
+            searchControlProvider: 'yandex#search'
         });
+
     // Загрузка YMapsML-файла.
     ymaps.geoXml.load('data.xml')
         .then(function (res) {
