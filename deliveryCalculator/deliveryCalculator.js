@@ -3,7 +3,6 @@ function init() {
             center: [60.906882, 30.067233],
             zoom: 9,
             type: 'yandex#map',
-            behaviors: ['scrollZoom', 'drag'],
             controls: []
         }),
         searchStartPoint = new ymaps.control.SearchControl({

@@ -1,4 +1,4 @@
-© YANDEX LLC, 2014-2015 The Source Code called “mapsapi-examples-ru” available at https://github.com/yandex/mapsapi-examples-ru is subject to the terms of the following licence:
+© YANDEX LLC, 2014-2015 The Source Code called "mapsapi-examples" available at https://github.com/yandex/mapsapi-examples is subject to the terms of the following licence:
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
