@@ -70,7 +70,6 @@ function init () {
         }
 
         ymaps.regions.load(params.region, {
-            disputedBorders: params.disputedBorders,
             lang: params.lang,
             quality: params.quality
         }).then(function (result) {
