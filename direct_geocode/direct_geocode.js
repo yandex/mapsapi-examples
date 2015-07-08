@@ -2,11 +2,9 @@ ymaps.ready(init);
 
 function init() {
     var myMap = new ymaps.Map('map', {
-            center: [55.753994, 37.622093],
-            zoom: 9
-        }, {
-            searchControlProvider: 'yandex#search'
-        });
+        center: [55.753994, 37.622093],
+        zoom: 9
+    });
 
     // Поиск координат центра Нижнего Новгорода.
     ymaps.geocode('Нижний Новгород', {
@@ -14,9 +12,12 @@ function init() {
          * Опции запроса
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
          */
-        // boundedBy: myMap.getBounds(), // Сортировка результатов от центра окна карты
-        // strictBounds: true, // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy
-        results: 1 // Если нужен только один результат, экономим трафик пользователей
+        // Сортировка результатов от центра окна карты.
+        // boundedBy: myMap.getBounds(),
+        // strictBounds: true,
+        // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy.
+        // Если нужен только один результат, экономим трафик пользователей.
+        results: 1
     }).then(function (res) {
             // Выбираем первый результат геокодирования.
             var firstGeoObject = res.geoObjects.get(0),
@@ -29,7 +30,8 @@ function init() {
             myMap.geoObjects.add(firstGeoObject);
             // Масштабируем карту на область видимости геообъекта.
             myMap.setBounds(bounds, {
-                checkZoomRange: true // проверяем наличие тайлов на данном масштабе.
+                // Проверяем наличие тайлов на данном масштабе.
+                checkZoomRange: true
             });
 
             /**
