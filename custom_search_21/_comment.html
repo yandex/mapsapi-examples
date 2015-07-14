@@ -1,0 +1,8 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="IGeocodeProvider"/> <sa href="map.GeoObjects"/>, <sa href="control.SearchControl"/>, <sa href="GeoObjectCollection"/>, <sa href="Placemark"/>, <sa href="vow"/>
+</div>
+<p>Searching for an object by name is implemented using the <sa href="geocode"/> function. However, this function searches among the objects placed on the regular or public map.
+</p>
+<p>What if you want to organize the search across custom objects and integrate it with the Yandex.Maps API? Write your own search provider, which can be used in the <sa href="geocode"/> function and the <sa href="control.SearchControl">&quot;Search on map&quot;</sa> control.
+</p>
+<p>The search provider must implement the <sa href="IGeocodeProvider"/> interface. This example shows how to write your own provider and connect it to the standard <sa href="control.SearchControl">&quot;Search on map&quot;</sa> control.
+</p>

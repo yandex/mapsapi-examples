@@ -1,0 +1,8 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.Balloon"/>, <sa href="map.Hint"/>, <sa href="Placemark"/>
+</div>
+<p> On the map you can display the <a href="/maps/doc/jsapi/2.1/dg/concepts/map.xml#balloon_and_hint">balloon and hint</a>.
+</p>
+<p> References to the balloon and hint managers are contained in the <sa href="Map#balloon">balloon</sa> and <sa href="Map#hint">hint</sa> fields of themap object. Managers are implemented as <sa href="map.Balloon"/> and <sa href="map.Hint"/>, but you <strong>should notcreate instances of these classes</strong> — use the corresponding fields of the map object.
+</p>
+<p> The <a href="/maps/doc/jsapi/2.1/dg/concepts/geoobjects.xml">geo objects</a>, <a href="/maps/doc/jsapi/2.1/dg/concepts/general-info.xml">hotspots</a> , and other entities on the map have access to the balloon and hint. Use the <sa href="GeoObject#constructor-summary">corresponding properties and options</sa> (the <code>balloon</code> and <code>hint</code>) prefixes) to describe the balloon and hint of a geo object/hotspot. The coordinates of the balloon and the hint will be calculated automatically.
+</p>

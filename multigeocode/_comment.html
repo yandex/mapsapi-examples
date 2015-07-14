@@ -1,0 +1,10 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="geocode"/>, <sa href="geoQuery"/>, <sa href="GeoQueryResult"/>
+</div>
+<p> It is often necessary to geocode (forward and reverse) a large number of geographical objects.
+</p>
+<p> The geocode service allows to get data for a single address (or one pair of coordinates) per request. In addition, communication with the server takes place asynchronously, so geocoding results can be returned in an arbitrary order.
+</p>
+<p> You can use the <sa href="geoQuery"/> method and <sa href="GeoQueryResult"/> class to combine multiple asynchronous requests in a chain and then process the response from several requests at once.
+</p>
+<p> For those cases when you need to geocode the same points multiple times on the client side, it is better to implement server-side geocoding with caching of results. For more information about this technology, see the <a href="/maps/doc/jsapi/2.1/dg/concepts/geocoding.xml#multi-geocode">Developer&#39;s Guide.</a>
+</p>

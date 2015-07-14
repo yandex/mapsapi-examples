@@ -1,0 +1,10 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="control.ZoomControl"/>, <sa href="templateLayoutFactory"/>
+</div>
+<p> <a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Layouts</a> can be created using the <sa href="templateLayoutFactory"/> factory using text templates.
+</p>
+<p> This example creates a custom layout for the <sa href="control.ZoomControl">map zoom control</sa>. The layout of the control is based on its data, status, and options. The layout is automatically rebuilt when changes are made to the values of fields, states, or options that are used in its text template.
+</p>
+<p> In response to a user action (a mouse click on the button), the layout can generate special events that are defined in its interface. The control listens to these events on the layout and tries to change its state, data, or options. After the control has implemented changes, the layout is rebuilt based on the updated data.
+</p>
+<p> The list of events that the zoom slider responds to is provided in the <sa href="IZoomControlLayout"/> interface.
+</p>

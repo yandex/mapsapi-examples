@@ -1,0 +1,8 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.Balloon"/>, <sa href="templateLayoutFactory"/>, <sa href="IBalloon"/>
+</div>
+<p>To create your own balloon &quot;from scratch&quot;, you can use the <sa href="templateLayoutFactory"/> factory . The balloon class must implement the <sa href="IBalloon"/> interface.
+</p>
+<p>In order for the balloon to support autopositioning, meaning it automatically adjusts to the size of the content, you need to correctly state its current size. To do this, implement the <sa href="ILayout#getShape">getShape()</sa> method.
+</p>
+<p>When you change the content of a balloon in the onSublayoutSizeChange() method, override the offset option and throw the shapechange event.
+</p>

@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Examples. Creating maps on demand.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+         <!--
+	        Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)
+         -->
+        <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        <!--
+            Подключаем JQuery.
+            Яндекс предоставляет хостинг JavaScript-библиотек:
+        -->
+        <script src="//yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+        <script src="request_map.js" type="text/javascript"></script>
+    </head>
+
+    <body> <input type="button" value="Show map" id="toggle"/> <p> <div id="map" style="width: 400px; height: 300px"></div>
+        </p>
+    </body>
+</html>

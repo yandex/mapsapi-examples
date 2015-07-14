@@ -1,0 +1,12 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="geoXml.load"/>
+</div>
+<p> Templates allow you to make custom HTML representations of geo objects, balloons, and hints.
+</p>
+<p> To define a template, use the<a href="maps/doc/ymapsml/1.x/ref/reference/representation-Template.xml">repr:Representation</a> element, which contains the HTML code (the template body) in the <a href="maps/doc/ymapsml/1.x/ref/reference/representation-text.xml">repr:text</a> container.
+</p>
+<p> When using a template, access to the value of anyXML element located inside the <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObject.xml">ymaps:GeoObject</a> or <a href="maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObjectCollection.xml">ymaps:GeoObjectCollection</a> element requires accessing the corresponding substitution variable.
+</p>
+<p> To define a substitution, use a string in the format $[substitution_name]|default_value]. The substitution name is the location of this XML element inside the element that the style is applied to. The location is defined using an ordered list of the names of all parent elements and the name of the element itself. A dot is used as the separator.
+</p>
+<p> For more information about templates, see the <a href="maps/doc/ymapsml/1.x/guide/concepts/templates.xml">documentation</a>.
+</p>

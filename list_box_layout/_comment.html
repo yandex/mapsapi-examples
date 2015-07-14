@@ -1,0 +1,14 @@
+<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="control.ListBox"/>, <sa href="templateLayoutFactory"/>, <sa href="control.ListBoxItem"/>
+</div>
+<p> <a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Layouts</a> can be created using the <sa href="templateLayoutFactory"/> factory, using text templates.
+</p>
+<p> This example creates a custom layout for the <sa href="control.ListBox">drop-down list</sa>. The layout of the control is based on its data, status, and options. The layout is automatically rebuilt when changes are made to the values of fields, states, or options that are used in its text template.
+</p>
+<p> A drop-down list by default responds to a click on its layout and changes the value of the field state.get(&#39;expanded&#39;).
+</p>
+<p> Layout events that the drop-down list responds to are described in the interfaces <sa href="IExpandableControlLayout"/> and <sa href="IGroupControlLayout"/>.
+</p>
+<p> A drop-down list is a group control, so its layout must generate events and implement the methods described in <sa href="IGroupControlLayout"/>.
+</p>
+<p> You can use options to make settings for the drop-down list itself, as well as for its child elements. To do this, specify the prefix &#39;item&#39; for the child elements.
+</p>

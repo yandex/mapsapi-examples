@@ -1,0 +1,9 @@
+<div id="references"> <a href="/maps/doc/jsapi/2.1/ref/reference/ready.xml">ready</a>, <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml">Map</a> <a href="/maps/doc/jsapi/2.1/ref/reference/map.action.Manager.xml#setCorrection">map.action.Manager.setCorrection</a>
+</div>
+<p> Sometimes it is necessary to limit the visible area of the map, so users cannot go beyond it. </p>
+<p> For such cases, the map has the &quot;restrictMapArea&quot; option, which can take as input parameters a rectangular area, or a Boolean value. If &quot;true&quot; the user will not be able to go beyond the initial visible area of the map.
+</p>
+<p> For a detailed description of the options, see <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml#param-options">this section</a>.
+</p>
+<p> If it is not enough simply to limit the viewport to a rectangle and you have a more complex task (for example, to prevent the center of the map from going outside of a polygon), use <a href="/maps/doc/jsapi/2.1/ref/reference/map.action.Manager.xml#setCorrection">map.action.Manager.setCorrection</a> to specify a function that will adjust the actions of the user on the map.
+</p>
