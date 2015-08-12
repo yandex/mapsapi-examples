@@ -21,7 +21,7 @@ function init() {
         e.target.disabled = true;
     });
     kmlButton.click(function (e) {
-        ymaps.geoXml.load('https://openflights.org/demo/openflights-sample.kml')
+        ymaps.geoXml.load('http://openflights.org/demo/openflights-sample.kml')
             .then(onGeoXmlLoad);
         e.target.disabled = true;
     });
