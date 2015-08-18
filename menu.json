@@ -77,7 +77,6 @@
       "Forward geocoding":"direct_geocode",
       "Reverse geocoding":"reverse_geocode",
       "Determining the address of a click on the map using reverse geocoding":"event_reverse_geocode",
-      "Multiple geocoding":"multigeocode",
       "Searching for businesses":"search_control_ppo",
       "Searching across your own objects":"custom_search",
       "Setting a custom display for search results":"custom_search_results"
