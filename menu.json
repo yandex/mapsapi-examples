@@ -1,135 +1,135 @@
-{
-    "Карта": {
-        "Создание и удаление": "mapbasics",
-        "Основные параметры": "mapparams",
-        "Создание карты по требованию": "request_map",
-        "Изменение размера карты": "fillcontainer"
-    },
-    "Геообъекты": {
-        "Метка": "placemark",
-        "Задание собственного изображения для метки": "icon_customImage",
-        "Ломаная": "polyline",
-        "Прямоугольник": "rectangle",
-        "Многоугольник": "polygon",
-        "Круг": "circle",
-        "Стрелка на карте": "arrow",
-        "Множественная обводка": "multystroke",
-        "Добавление геообъектов в коллекцию": "geo_object_collection",
-        "Редактор ломаной": "polylineEditor",
-        "Редактор многоугольника": "polygonEditor",
-        "Вывод списка объектов карты": "object_list",
-        "События геообъекта": "geoobject_events",
-        "Изменение параметров метки": "geoobject_contextmenu",
-        "Смена значка метки при наведении": "event_rollover",
-        "Задание фигуры активной области HTML макету метки": "placemark_shape"
-    },
-    "Балун и хинт": {
-        "Балун и хинт": "balloon_and_hint",
-        "Балун, выходящий за пределы карты": "balloon_out_of_map",
-        "Динамическая загрузка содержимого балуна": "balloon_ajax",
-        "Метка и балун-панель": "placemark_balloon",
-        "Макет хинта метки": "placemark_hint_layout",
-        "Макет балуна метки": "placemark_balloon_layout",
-        "Пользовательский макет балуна с поддержкой автопозиционирования": "balloon_autopan"
-    },
-    "Элементы управления": {
-        "Стандартный набор элементов управления": "default_controls",
-        "Добавление отдельных элементов управления": "customSet_controls",
-        "Добавление кнопки на карту": "button",
-        "Произвольный макет кнопки": "button_layout",
-        "Произвольный макет элемента изменения масштаба": "zoom_layout",
-        "Произвольный макет выпадающего списка": "list_box_layout",
-        "Собственный элемент управления": "custom_control"
-    },
-    "Активные области": {
-        "Слой активных областей": "hotspot_layer"
-    },
-    "Регионы": {
-        "Пример работы модуля \"Регионы\"": "regions"
-    },
-    "Кластеризация": {
-        "Создание кластеризатора": "clusterer_create",
-        "Создание кластеризатора с произвольными иконками": "clusterer_custom_icon",
-        " Изменение цвета кластеров и меток при наведении": "clusterer_icon_hover",
-        "Открытие балуна кластера с выбранным объектом": "clusterer_balloon_open",
-        "Изменение размера ячейки кластеризатора": "clusterer_gridSize",
-        "Макета балуна кластера \"Две колонки\"": "cluster_balloon_twoColumns_21",
-        "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion_21",
-        "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel_21",
-        "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout_21"
-    },
-    "GeoQuery": {
-        "Попадание точек в окружность": "placemarks_in_circle",
-        "Поиск ближайшего объекта": "find_closest_object",
-        "Добавление на карту объектов, попадающих в область видимости": "show_visible_objects",
-        "Пересечение маршрута с многоугольником на примере МКАД": "route_inside_polygon",
-        "Фильтрация объектов на карте по различным признакам": "geoobjects_menu",
-        "Позиционирование карты для показа результатов геокодирования и их кластеризация": "apply_bounds_and_clusterize",
-        "Загрузка данных с помощью JQuery и добавление их на карту": "data_load_jquery"
-    },
-    "Поведения и события": {
-        "Поведения карты": "behaviors",
-        "Подписка на события dom-элемента": "dom_event_manager",
-        "Свойства события. Координаты щелчка": "event_properties",
-        "Использование драггера": "dragger"
-    },
-    "Поиск по карте": {
-        "Прямое геокодирование": "direct_geocode",
-        "Обратное геокодирование": "reverse_geocode",
-        "Определение адреса клика на карте с помощью обратного геокодирования": "event_reverse_geocode",
-        "Множественное геокодирование": "multigeocode",
-        "Поиск по организациям": "search_control_ppo",
-        "Поиск по своим объектам": "custom_search",
-        "Собственное отображение результатов поиска": "custom_search_results"
-    },
-    "Пробки": {
-        "Элемент управления \"Пробки\"": "traffic_control",
-        "Слой пробок на карте без добавления кнопки": "traffic_provider"
-    },
-    "Местоположение пользователя": {
-        "Определение местоположения пользователя": "geolocation",
-        "Добавление кнопки \"Геолокация\"": "geolocation_control",
-        "Создание карты с местоположением пользователя": "geolocated_map"
-    },
-    "Маршрутизация": {
-        "Построение автомобильного мультимаршрута": "multiroute_driving",
-        "Построение мультимаршрута на общественном транспорте": "multiroute_masstransit",
-        "Настройка отображения мультимаршрута": "multiroute_view_options",
-        "Задание собственного макета балуна мультимаршрута": "multiroute_custom_balloon_layout",
-        "Работа с данными и событиями мультимаршрута": "multiroute_view_access",
-        "Работа с данными и событиями модели мультимаршрута": "multiroute_data_access",
-        "Редактирование мультимаршрута": "multiroute_edit",
-        "Построение маршрута": "router",
-        "Редактирование маршрута": "router_editor",
-        "Расчёт стоимости маршрута": "deliveryCalculator"
-    },
-    "YMapsML": {
-        "Изменение типа карты": "ymapsml_maptype",
-        "Добавление метки на карту": "ymapsml_simpleobject",
-        "Смена значка метки": "ymapsml_styleobject",
-        "Ломаная":  "ymapsml_linestring",
-        "Замкнутая ломаная": "ymapsml_linearring",
-        "Многоугольник": "ymapsml_polygon",
-        "Задание стиля объектов": "ymapsml_setstyle",
-        "Наследование стилей": "ymapsml_parentstyle",
-        "Подгрузка стилей из отдельного файла": "ymapsml_loadstyles",
-        "Изменение шаблона содержимого балуна": "ymapsml_ballooncontentstyle",
-        "Отображение результатов геокодирования": "ymapsml_showhttpgeocoderresult",
-        "Создание меню для отображения групп объектов": "ymapsml_menu",
-        "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
-    },
-    "GeoXML": {
-        "Отображение YMapsML и KML": "geoxml_display"
-    },
-    "ObjectManager": {
-        "Добавление объектов на карту через ObjectManager": "object_manager",
-        "Обработка событий на объектах в ObjectManager": "object_manager_events",
-        "Открытие балуна на метке в ObjectManager": "object_manager_balloon",
-        "Загрузка данных для балуна метки по требованию": "object_manager_balloon_async"
-    },
-    "Модульная система": {
-        "Загрузка определенных модулей при инициализации": "load_modules",
-        "Загрузка модуля по требованию": "module_request",
-        "Создание своего модуля": "custom_module"
-    }
+{  
+   'Map':{  
+      'Putting the map on a page.':'mapbasics',
+      'Setting and changing the map settings.':'mapparams',
+      'Creating maps on demand.':'request_map',
+      'Resizing the map':'fillcontainer'
+   },
+   'GeoObjects':{  
+      'Placemark':'placemark',
+      'Setting a custom placemark image':'icon_customImage',
+      'Polylines':'polyline',
+      'Rectangle':'rectangle',
+      'Polygon':'polygon',
+      'Circle':'circle',
+      'The arrow on the map':'arrow',
+      'Multistroke outline':'multystroke',
+      'Adding geo objects to a collection':'geo_object_collection',
+      'Polyline editor':'polylineEditor',
+      'Polygon editor':'polygonEditor',
+      'A list of map objects.':'object_list',
+      'Geo object events':'geoobject_events',
+      'Geo object context menu':'geoobject_contextmenu',
+      'Changing a placemark icon when hovering over it':'event_rollover',
+      'Example of setting custom HTML layouts for placemarks with your own hotspot shapes':'placemark_shape'
+   },
+   "Balloon and Hint":{  
+      'Balloon and hint':'balloon_and_hint',
+      'A balloon that goes off the map':'balloon_out_of_map',
+      'Dynamically loading balloon content':'balloon_ajax',
+      'Placemark and balloon panel.':'placemark_balloon',
+      'Custom hint layout':'placemark_hint_layout',
+      'The layout of a geo object&#39;s balloon.':'placemark_balloon_layout',
+      'Custom balloon layout with autopositioning.':'balloon_autopan'
+   },
+   "Controls":{  
+      'Standard sets of controls':'default_controls',
+      'Adding individual controls':'customSet_controls',
+      'Adding buttons to the map':'button',
+      'Custom layout for a button.':'button_layout',
+      'Custom layout for the zoom control.':'zoom_layout',
+      'Custom drop-down list layout':'list_box_layout',
+      'Custom control.':'custom_control'
+   },
+   "Hotspot":{  
+      'Using hotspot technology':'hotspot_layer'
+   },
+   "Regions":{  
+      'Regions':'regions'
+   },
+   "Clusterization":{  
+      'Adding a placemark clusterer to the map':'clusterer_create',
+      'Custom placemarks for clusters':'clusterer_custom_icon',
+      'Changing the color of clusters and placemarks when hovering':'clusterer_icon_hover',
+      'Opening the cluster balloon with the selected object':'clusterer_balloon_open',
+      'Using clusterization':'clusterer_gridSize',
+      'Customization of the &quot;Two columns&quot; cluster balloon layout.':'cluster_balloon_twoColumns_21',
+      'Custom layout for information about a geo object in the &quot;Accordion&quot; layout of the cluster balloon.':'cluster_balloon_accordion_21',
+      'Customization of the &quot;Carousel&quot; cluster balloon layout.':'cluster_balloon_carousel_21',
+      'Custom layout for cluster balloon content.':'cluster_custom_balloon_content_layout_21'
+   },
+   GeoQuery:{  
+      'Objects falling within a circle.':'placemarks_in_circle',
+      'Searching for the nearest object.':'find_closest_object',
+      'Displaying objects in the visible area of the map.':'show_visible_objects',
+      'The intersection of a route with a polygon using the example of the Moscow Ring Road.':'route_inside_polygon',
+      'Filtering objects by attributes.':'geoobjects_menu',
+      'Positioning the map to display geocoding results and clustering':'apply_bounds_and_clusterize',
+      'Loading geo data using jQuery.':'data_load_jquery'
+   },
+   "Behaviors and events":{  
+      'Map behaviors':'behaviors',
+      'Forward geocoding':'dom_event_manager',
+      'Click coordinates':'event_properties',
+      'Using the dragger.':'dragger'
+   },
+   "Searching":{  
+      'Forward geocoding':'direct_geocode',
+      'Reverse geocoding':'reverse_geocode',
+      'Determining the address of a click on the map using reverse geocoding':'event_reverse_geocode',
+      'Multiple geocoding':'multigeocode',
+      'Searching across your own objects':'search_control_ppo',
+      'Searching across your own objects 0.9942870282102376':'custom_search',
+      'Setting a custom display for search results':'custom_search_results'
+   },
+   "Traffic":{  
+      '&quot;Traffic&quot; control':'traffic_control',
+      'Traffic layer on the map without buttons added':'traffic_provider'
+   },
+   "Geolocation":{  
+      'Detecting user location':'geolocation',
+      'Adding the &quot;Geolocation&quot; button':'geolocation_control',
+      'Creating a map with the user&#39;s location':'geolocated_map'
+   },
+   "Routing":{  
+      'Building a driving multiroute':'multiroute_driving',
+      'Route on public transport':'multiroute_masstransit',
+      'Configuring the view of a multiroute':'multiroute_view_options',
+      'Custom layout for the multiroute balloon':'multiroute_custom_balloon_layout',
+      'Working with multiroute data and events':'multiroute_view_access',
+      'Working with the multiroute model data and events':'multiroute_data_access',
+      'Editing a multiroute':'multiroute_edit',
+      'Route planning':'router',
+      'Editing a route':'router_editor',
+      'Calculating delivery cost':'deliveryCalculator'
+   },
+   YMapsML:{  
+      'Changing the map type.':'ymapsml_maptype',
+      'Adding placemarks to the map.':'ymapsml_simpleobject',
+      'Changing a placemark icon.':'ymapsml_styleobject',
+      'Polyline.':'ymapsml_linestring',
+      'Polyline. 0.36702041747048497':'ymapsml_linearring',
+      'Adding placemarks to the map. 0.3923509188462049':'ymapsml_polygon',
+      'Setting styles for objects.':'ymapsml_setstyle',
+      'Style inheritance.':'ymapsml_parentstyle',
+      'Loading styles from a separate file.':'ymapsml_loadstyles',
+      'Changing the balloon content template.':'ymapsml_ballooncontentstyle',
+      'Displaying geocoding results.':'ymapsml_showhttpgeocoderresult',
+      'Creating a menu for displaying groups of objects.':'ymapsml_menu',
+      'Converting GeoRSS to YMapsML.':'ymapsml_georss'
+   },
+   GeoXML:{  
+      'Displaying YMapsML and KML on the map':'geoxml_display'
+   },
+   ObjectManager:{  
+      'Adding a large number of objects to the map':'object_manager',
+      'Event handling in ObjectManager':'object_manager_events',
+      'Working with the balloon in ObjectManager':'object_manager_balloon',
+      'Working with the balloon in ObjectManager 0.11066289735026658':'object_manager_balloon_async'
+   },
+   "Modules system":{  
+      'An example of loading only necessary modules':'load_modules',
+      'An example of loading only necessary modules 0.5126556053292006':'module_request',
+      'An example of loading only necessary modules 0.6181820530910045':'custom_module'
+   }
 }
