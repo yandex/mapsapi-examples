@@ -7,7 +7,8 @@ ymaps.modules.define('plugin.PlacemarkCounterControlLayout', [
     // The function that defines the module itself. The first argument is the provide function. The
     // provide function must be passed directly to the module. The provide function call may be
     // delayed. For example, in order to load some data. Subsequent arguments are requested in the
-    // module dependencies.     provide(
+    // module dependencies.     
+    provide(
         templateLayoutFactory.createClass('<div class=placemark_counter>{{ data.placemark_count }}</div>')
     );
 });
@@ -32,7 +33,8 @@ function (provide, Button, extend, augment, PlacemarkCounterControlLayout) {
                 }
             });
         };
-    // Inheriting all the methods of a standard button.     augment(CounterControl, Button, {
+    // Inheriting all the methods of a standard button.     
+    augment(CounterControl, Button, {
         // Overriding the setParent method.
         setParent: function (parent) {
             CounterControl.superclass.setParent.call(this, parent);
@@ -71,8 +73,9 @@ ymaps.ready(function () {
                 new PlacemarkCounterControl()
             );
         });
-    // Creating a button that we use for adding placemarks to the map.     var addPlacemarkButton =
-    // new ymaps.control.Button({
+    // Creating a button that we use for adding placemarks to the map.     
+    var addPlacemarkButton =
+        new ymaps.control.Button({
             data: { content: 'Добавить метку' },
             options: { maxWidth: 200, float: 'right', selectOnClick: false }
         });
