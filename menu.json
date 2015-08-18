@@ -1,8 +1,8 @@
 {  
    "Map":{  
-      "Putting the map on a page.":"mapbasics",
-      "Setting and changing the map settings.":"mapparams",
-      "Creating maps on demand.":"request_map",
+      "Putting the map on a page":"mapbasics",
+      "Setting and changing the map settings":"mapparams",
+      "Creating maps on demand":"request_map",
       "Resizing the map":"fillcontainer"
    },
    "GeoObjects":{  
@@ -27,19 +27,19 @@
       "Balloon and hint":"balloon_and_hint",
       "A balloon that goes off the map":"balloon_out_of_map",
       "Dynamically loading balloon content":"balloon_ajax",
-      "Placemark and balloon panel.":"placemark_balloon",
+      "Placemark and balloon panel":"placemark_balloon",
       "Custom hint layout":"placemark_hint_layout",
-      "The layout of a geo object&#39;s balloon.":"placemark_balloon_layout",
-      "Custom balloon layout with autopositioning.":"balloon_autopan"
+      "The layout of a geo object&#39;s balloon":"placemark_balloon_layout",
+      "Custom balloon layout with autopositioning":"balloon_autopan"
    },
    "Controls":{  
-      "Standard sets of controls":"default_controls",
+      "Standard set of controls":"default_controls",
       "Adding individual controls":"customSet_controls",
       "Adding buttons to the map":"button",
-      "Custom layout for a button.":"button_layout",
-      "Custom layout for the zoom control.":"zoom_layout",
+      "Custom layout for a button":"button_layout",
+      "Custom layout for the zoom control":"zoom_layout",
       "Custom drop-down list layout":"list_box_layout",
-      "Custom control.":"custom_control"
+      "Custom control":"custom_control"
    },
    "Hotspot":{  
       "Using hotspot technology":"hotspot_layer"
@@ -54,32 +54,32 @@
       "Opening the cluster balloon with the selected object":"clusterer_balloon_open",
       "Using clusterization":"clusterer_gridSize",
       "Customization of the &quot;Two columns&quot; cluster balloon layout.":"cluster_balloon_twoColumns_21",
-      "Custom layout for information about a geo object in the &quot;Accordion&quot; layout of the cluster balloon.":"cluster_balloon_accordion_21",
-      "Customization of the &quot;Carousel&quot; cluster balloon layout.":"cluster_balloon_carousel_21",
-      "Custom layout for cluster balloon content.":"cluster_custom_balloon_content_layout_21"
+      "Custom layout for information about a geo object in the &quot;Accordion&quot; layout of the cluster balloon":"cluster_balloon_accordion_21",
+      "Customization of the &quot;Carousel&quot; cluster balloon layout":"cluster_balloon_carousel_21",
+      "Custom layout for cluster balloon content":"cluster_custom_balloon_content_layout_21"
    },
-   GeoQuery:{  
-      "Objects falling within a circle.":"placemarks_in_circle",
-      "Searching for the nearest object.":"find_closest_object",
-      "Displaying objects in the visible area of the map.":"show_visible_objects",
-      "The intersection of a route with a polygon using the example of the Moscow Ring Road.":"route_inside_polygon",
-      "Filtering objects by attributes.":"geoobjects_menu",
+   "GeoQuery":{  
+      "Objects falling within a circle":"placemarks_in_circle",
+      "Searching for the nearest object":"find_closest_object",
+      "Displaying objects in the visible area of the map":"show_visible_objects",
+      "The intersection of a route with a polygon using the example of the Moscow Ring Road":"route_inside_polygon",
+      "Filtering objects by attributes":"geoobjects_menu",
       "Positioning the map to display geocoding results and clustering":"apply_bounds_and_clusterize",
-      "Loading geo data using jQuery.":"data_load_jquery"
+      "Loading geo data using jQuery":"data_load_jquery"
    },
    "Behaviors and events":{  
       "Map behaviors":"behaviors",
       "Forward geocoding":"dom_event_manager",
       "Click coordinates":"event_properties",
-      "Using the dragger.":"dragger"
+      "Using the dragger":"dragger"
    },
    "Searching":{  
       "Forward geocoding":"direct_geocode",
       "Reverse geocoding":"reverse_geocode",
       "Determining the address of a click on the map using reverse geocoding":"event_reverse_geocode",
       "Multiple geocoding":"multigeocode",
-      "Searching across your own objects":"search_control_ppo",
-      "Searching across your own objects 0.9942870282102376":"custom_search",
+      "Searching for businesses":"search_control_ppo",
+      "Searching across your own objects":"custom_search",
       "Setting a custom display for search results":"custom_search_results"
    },
    "Traffic":{  
@@ -103,33 +103,33 @@
       "Editing a route":"router_editor",
       "Calculating delivery cost":"deliveryCalculator"
    },
-   YMapsML:{  
-      "Changing the map type.":"ymapsml_maptype",
-      "Adding placemarks to the map.":"ymapsml_simpleobject",
-      "Changing a placemark icon.":"ymapsml_styleobject",
-      "Polyline.":"ymapsml_linestring",
-      "Polyline. 0.36702041747048497":"ymapsml_linearring",
-      "Adding placemarks to the map. 0.3923509188462049":"ymapsml_polygon",
-      "Setting styles for objects.":"ymapsml_setstyle",
-      "Style inheritance.":"ymapsml_parentstyle",
-      "Loading styles from a separate file.":"ymapsml_loadstyles",
-      "Changing the balloon content template.":"ymapsml_ballooncontentstyle",
-      "Displaying geocoding results.":"ymapsml_showhttpgeocoderresult",
-      "Creating a menu for displaying groups of objects.":"ymapsml_menu",
-      "Converting GeoRSS to YMapsML.":"ymapsml_georss"
+   "YMapsML":{  
+      "Changing the map type":"ymapsml_maptype",
+      "Adding placemarks to the map":"ymapsml_simpleobject",
+      "Changing a placemark icon":"ymapsml_styleobject",
+      "Polyline":"ymapsml_linestring",
+      "Closed polyline":"ymapsml_linearring",
+      "Adding placemarks to the map":"ymapsml_polygon",
+      "Setting styles for objects":"ymapsml_setstyle",
+      "Style inheritance":"ymapsml_parentstyle",
+      "Loading styles from a separate file":"ymapsml_loadstyles",
+      "Changing the balloon content template":"ymapsml_ballooncontentstyle",
+      "Displaying geocoding results":"ymapsml_showhttpgeocoderresult",
+      "Creating a menu for displaying groups of objects":"ymapsml_menu",
+      "Converting GeoRSS to YMapsML":"ymapsml_georss"
    },
-   GeoXML:{  
+   "GeoXML":{  
       "Displaying YMapsML and KML on the map":"geoxml_display"
    },
-   ObjectManager:{  
+   "ObjectManager":{  
       "Adding a large number of objects to the map":"object_manager",
       "Event handling in ObjectManager":"object_manager_events",
       "Working with the balloon in ObjectManager":"object_manager_balloon",
-      "Working with the balloon in ObjectManager 0.11066289735026658":"object_manager_balloon_async"
+      "Loading baloon content on demand":"object_manager_balloon_async"
    },
    "Modules system":{  
-      "An example of loading only necessary modules":"load_modules",
-      "An example of loading only necessary modules 0.5126556053292006":"module_request",
-      "An example of loading only necessary modules 0.6181820530910045":"custom_module"
+      "Loading only necessary modules when initializing the map":"load_modules",
+      "Loading modules on demand":"module_request",
+      "Creating custom module":"custom_module"
    }
 }
