@@ -9,7 +9,7 @@ ymaps.ready(function () {
         }),
         placemark = new ymaps.Placemark(
             myMap.getCenter(), {
-                balloonContent: 'Нант - шестой по величине город Франции'
+                balloonContent: 'Nantes - the sixth largest city in France'
             }
         );
     myMap.geoObjects.add(placemark);    
