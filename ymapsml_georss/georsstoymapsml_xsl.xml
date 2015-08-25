@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+                xmlns:gml="http://www.opengis.net/gml"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:georss="http://www.georss.org/georss"
+                xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+
+    <xsl:template match="/atom:feed">
+        <ymaps:ymaps>
+            <ymaps:GeoObjectCollection>
+                <gml:featureMembers>
+                    <xsl:apply-templates select="atom:entry"/>
+                </gml:featureMembers>
+            </ymaps:GeoObjectCollection>
+        </ymaps:ymaps>
+    </xsl:template>
+
+    <xsl:template match="atom:entry">
+        <ymaps:GeoObject>
+            <gml:name><xsl:value-of select="atom:title"/></gml:name>
+            <gml:description><xsl:apply-templates select="georss:point"/></gml:description>
+            <gml:Point>
+                <gml:pos><xsl:apply-templates select="georss:point"/></gml:pos>
+            </gml:Point>
+        </ymaps:GeoObject>
+    </xsl:template>
+
+    <xsl:template match="georss:point">
+        <xsl:value-of select="substring-after(.,' ')"/>
+        <xsl:text>&#xa0;</xsl:text>
+        <xsl:value-of select="substring-before(.,' ')"/>
+    </xsl:template>
+
+</xsl:stylesheet>

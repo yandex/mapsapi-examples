@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ymaps:ymaps xmlns:ymaps="http://maps.yandex.ru/ymaps/1.x"
+             xmlns:repr="http://maps.yandex.ru/representation/1.x"
+             xmlns:gml="http://www.opengis.net/gml"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maps.yandex.ru/schemas/ymaps/1.x/ymaps.xsd">
+    <repr:Representation>
+        <repr:Style gml:id="customStyle">
+            <repr:lineStyle>
+                <repr:strokeColor>FF9911</repr:strokeColor>
+                <repr:strokeWidth>7</repr:strokeWidth>
+            </repr:lineStyle>
+        </repr:Style>
+        <repr:Style gml:id="customStyle1">
+            <repr:parentStyle>#customStyle</repr:parentStyle>
+            <repr:lineStyle>
+                <repr:strokeColor>FF0000</repr:strokeColor>
+            </repr:lineStyle>
+        </repr:Style>
+    </repr:Representation>
+    <ymaps:GeoObjectCollection>
+        <gml:name>Ломаная и её стиль</gml:name>
+        <gml:featureMembers>
+            <ymaps:GeoObject>
+                <gml:name>Маршрут</gml:name>
+                <gml:description>Маршрут в виде ломаной</gml:description>
+                <gml:LineString>
+                    <gml:pos>36.243914 54.565467</gml:pos>
+                    <gml:pos>36.259706 54.56447</gml:pos>
+                    <gml:pos>36.269659 54.529742</gml:pos>
+                    <gml:pos>36.303652 54.567863</gml:pos>
+                </gml:LineString>
+                <ymaps:style>#customStyle1</ymaps:style>
+            </ymaps:GeoObject>
+        </gml:featureMembers>
+    </ymaps:GeoObjectCollection>
+</ymaps:ymaps>
