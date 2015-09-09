@@ -31,8 +31,8 @@ function setBounds () {
 
 function setTypeAndPan () {
     myMap
-        // Меняем тип карты на "Народный гибрид".
-        .setType('yandex#publicMapHybrid')
+        // Меняем тип карты на "Гибрид".
+        .setType('yandex#hybrid')
         // Плавное перемещение центра карты в точку с новыми координатами.
         .panTo([62.915, 34.461], {
             // Задержка перед началом перемещения.
