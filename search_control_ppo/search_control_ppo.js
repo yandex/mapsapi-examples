@@ -15,9 +15,9 @@ function init() {
     
     myMap.controls.add(searchControl);
     
-    // Программно выполним поиск кафе в текущей 
+    // Программно выполним поиск определённых кафе в текущей
     // прямоугольной области карты.
-    searchControl.search('кафе');
+    searchControl.search('Шоколадница');
 }
 
 ymaps.ready(init);

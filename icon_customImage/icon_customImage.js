@@ -6,7 +6,8 @@ ymaps.ready(function () {
             searchControlProvider: 'yandex#search'
         }),
         myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-            hintContent: 'Собственный значок метки'
+            hintContent: 'Собственный значок метки',
+            balloonContent: 'Это красивая метка'
         }, {
             // Опции.
             // Необходимо указать данный тип макета.
