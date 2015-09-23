@@ -117,7 +117,6 @@ ymaps.ready(function () {
 
             targetBtn.select();
             routeTypeSelector.collapse();
-            currentRoutingMode = routingMode;
         } else if (currentRoutingMode) {
             routingMode = currentRoutingMode;
         } else {
@@ -126,12 +125,15 @@ ymaps.ready(function () {
 
         // Если начальная точка маршрута еще не выбрана, ничего не делаем.
         if (!sourcePoint) {
+            currentRoutingMode = routingMode;
             alert('Пожалуйста, укажите начальное местоположение');
             return;
         }
 
         // Стираем предыдущий маршрут.
         clearRoute();
+
+        currentRoutingMode = routingMode;
 
         // Создаём маршрут нужного типа из начальной в конечную точку.
         currentRoute = new ymaps.multiRouter.MultiRoute({
