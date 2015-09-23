@@ -26,9 +26,22 @@ ymaps.ready(function () {
         searchControl = myMap.controls.get('searchControl'),
         geolocationControl = myMap.controls.get('geolocationControl'),
 
-    // Создаём кнопки выбора типа маршрута.
-        autoRouteBtn = new ymaps.control.Button('На авто'),
-        masstransitRouteBtn = new ymaps.control.Button('На транспорте'),
+    // Создаём выпадающий список для выбора типа маршрута.
+        routeTypeSelector = new ymaps.control.ListBox({
+            data: {
+                content: 'Как добраться'
+            },
+            items: [
+                new ymaps.control.ListBoxItem('На автомобиле'),
+                new ymaps.control.ListBoxItem('Общественным транспортом')
+            ],
+            options: {
+                itemSelectOnClick: false
+            }
+        }),
+    // Получаем прямые ссылки на пункты списка.
+        autoRouteItem = routeTypeSelector.get(0),
+        masstransitRouteItem = routeTypeSelector.get(1),
 
     // Метка для начальной точки маршрута.
         sourcePoint,
@@ -40,18 +53,12 @@ ymaps.ready(function () {
     // Добавляем конечную точку на карту.
     myMap.geoObjects.add(targetPoint);
 
-    // Добавляем на карту созданные кнопки.
-    myMap.controls
-        .add(autoRouteBtn, { float: 'left', floatIndex: -500 })
-        .add(masstransitRouteBtn, { float: 'left', floatIndex: -501 });
+    // Добавляем на карту созданный выпадающий список.
+    myMap.controls.add(routeTypeSelector);
 
-    // Подписываемся на события нажатия на кнопки.
-    autoRouteBtn.events
-        .add('select', function (e) { createRoute('auto', e.get('target')); })
-        .add('deselect', clearRoute);
-    masstransitRouteBtn.events
-        .add('select', function (e) { createRoute('masstransit', e.get('target')); })
-        .add('deselect', clearRoute);
+    // Подписываемся на события нажатия на пункты выпадающего списка.
+    autoRouteItem.events.add('click', function (e) { createRoute('auto', e.get('target')); });
+    masstransitRouteItem.events.add('click', function (e) { createRoute('masstransit', e.get('target')); });
 
     // Подписываемся на события, информирующие о трёх типах выбора начальной точки маршрута:
     // клик по карте, отображение результата поиска или геолокация.
@@ -98,33 +105,33 @@ ymaps.ready(function () {
      * Функция, создающая маршрут.
      */
     function createRoute (routingMode, targetBtn) {
-        // Если начальная точка маршрута еще не выбрана, ничего не делаем.
-        if (!sourcePoint) {
-            if (targetBtn) {
-                targetBtn.deselect();
+        // Если `routingMode` был передан, значит вызов происходит по клику на пункте выбора типа маршрута,
+        // следовательно снимаем выделение с другого пункта, отмечаем текущий пункт и закрываем список.
+        // В противном случае — перестраиваем уже имеющийся маршрут или ничего не делаем.
+        if (routingMode) {
+            if (routingMode == 'auto') {
+                masstransitRouteItem.deselect();
+            } else if (routingMode == 'masstransit') {
+                autoRouteItem.deselect();
             }
 
-            alert('Пожалуйста, укажите начальное местоположение');
-            return;
-        }
-
-        // Если `routingMode` был передан, значит вызов происходит по клику
-        // на кнопке выбора типа маршрута, следовательно снимаем выделение с другой кнопки.
-        // В противном случае — перестраиваем уже имеющийся маршрут или ничего не делаем.
-        if (routingMode == 'auto') {
-            masstransitRouteBtn.deselect();
-        } else if (routingMode == 'masstransit') {
-            autoRouteBtn.deselect();
+            targetBtn.select();
+            routeTypeSelector.collapse();
+            currentRoutingMode = routingMode;
         } else if (currentRoutingMode) {
             routingMode = currentRoutingMode;
         } else {
             return;
         }
 
+        // Если начальная точка маршрута еще не выбрана, ничего не делаем.
+        if (!sourcePoint) {
+            alert('Пожалуйста, укажите начальное местоположение');
+            return;
+        }
+
         // Стираем предыдущий маршрут.
         clearRoute();
-
-        currentRoutingMode = routingMode;
 
         // Создаём маршрут нужного типа из начальной в конечную точку.
         currentRoute = new ymaps.multiRouter.MultiRoute({
