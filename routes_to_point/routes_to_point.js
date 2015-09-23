@@ -104,7 +104,7 @@ ymaps.ready(function () {
                 targetBtn.deselect();
             }
 
-            alert('Сперва скажите, откуда вы поедите');
+            alert('Пожалуйста, укажите начальное местоположение');
             return;
         }
 
@@ -116,7 +116,7 @@ ymaps.ready(function () {
         } else if (routingMode == 'masstransit') {
             autoRouteBtn.deselect();
         } else if (currentRoutingMode) {
-            routingMode = currentRoutingMode
+            routingMode = currentRoutingMode;
         } else {
             return;
         }
