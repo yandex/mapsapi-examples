@@ -126,7 +126,7 @@ ymaps.ready(function () {
         // Если начальная точка маршрута еще не выбрана, ничего не делаем.
         if (!sourcePoint) {
             currentRoutingMode = routingMode;
-            alert('Пожалуйста, укажите начальное местоположение');
+            geolocationControl.events.fire('press');
             return;
         }
 
