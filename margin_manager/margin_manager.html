@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Примеры. Менеджер отступов карты.</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script src="https://yastatic.net/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&mode=release"></script>
+    <script src="_helper.js"></script>
+    <script src="margin_manager.js"></script>
+</head>
+<body>
+    <div class="viewport">
+        <div id="map" class="map"></div>
+        <aside class="icon-panel">
+            <ul>
+                <li class="glyphicon glyphicon-star"></li>
+                <li class="glyphicon glyphicon-cog"></li>
+                <li class="glyphicon glyphicon-info-sign"></li>
+            </ul>
+        </aside>
+        <div class="text-block"></div>
+        <div class="map-bounds is-hidden"></div>
+    </div>
+</body>
+</html>
