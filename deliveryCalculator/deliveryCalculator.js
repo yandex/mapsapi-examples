@@ -1,4 +1,4 @@
-function init() {
+ymaps.ready(function init () {
     var myMap = new ymaps.Map('map', {
             center: [60.906882, 30.067233],
             zoom: 9,
@@ -26,7 +26,7 @@ function init() {
                 position: { left: 10, top: 44 }
             }
         }),
-        calculator = new DeliveryCalculator(myMap, myMap.getCenter());
+        calculator = new DeliveryCalculator(myMap);
 
     myMap.controls.add(searchStartPoint);
     myMap.controls.add(searchFinishPoint);
@@ -36,6 +36,7 @@ function init() {
             selected = e.get('index'),
             point = results[selected].geometry.getCoordinates();
 
+        // Задаем начало маршрута.
         calculator.setStartPoint(point);
     })
         .add('load', function (event) {
@@ -51,6 +52,7 @@ function init() {
             selected = e.get('index'),
             point = results[selected].geometry.getCoordinates();
 
+        // Задаем конец маршрута.
         calculator.setFinishPoint(point);
     })
         .add('load', function (event) {
@@ -60,9 +62,13 @@ function init() {
                 searchFinishPoint.showResult(0);
             }
         });
-}
+});
 
-function DeliveryCalculator(map, finish) {
+/**
+ * @class DeliveryCalculator Расчет стоимости доставки
+ * @param {Object} map    Экземпляр карты
+ */
+function DeliveryCalculator (map) {
     this._map = map;
     this._start = null;
     this._route = null;
@@ -72,105 +78,146 @@ function DeliveryCalculator(map, finish) {
     map.events.add('click', this._onClick, this);
 }
 
-var ptp = DeliveryCalculator.prototype;
-
-ptp._onClick= function (e) {
-    if (this._start) {
-        this.setFinishPoint(e.get('coords'));
-    } else {
-        this.setStartPoint(e.get('coords'));
-    }
-};
-
-ptp._onStartDragEnd = function (e) {
-    var coords = this._start.geometry.getCoordinates();
-    this.geocode("start", coords);
-}
-
-ptp._onFinishDragEnd = function (e) {
-    var coords = this._finish.geometry.getCoordinates();
-    this.geocode("finish", coords);
-}
-
-ptp.getDirection = function () {
-    if(this._route) {
-        this._map.geoObjects.remove(this._route);
-    }
-
-    if (this._start && this._finish) {
-        var self = this,
-            start = this._start.geometry.getCoordinates(),
-            finish = this._finish.geometry.getCoordinates(),
-            startBalloon = this._startBalloon,
-            finishBalloon = this._finishBalloon;
-
-
-        ymaps.route([start, finish])
-            .then(function (router) {
-                var distance = Math.round(router.getLength() / 1000),
-                    message = '<span>Расстояние: ' + distance + 'км.</span><br/>' +
-                        '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
-
-                self._route = router.getPaths();
-
-                self._route.options.set({ strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5 });
-                self._map.geoObjects.add(self._route);
-                self._start.properties.set('balloonContentBody', startBalloon + message.replace('%s', self.calculate(distance)));
-                self._finish.properties.set('balloonContentBody', finishBalloon + message.replace('%s', self.calculate(distance)));
-
-            });
-
-        self._map.setBounds(self._map.geoObjects.getBounds())
-    }
-};
-
-ptp.setStartPoint = function (position) {
-    if(this._start) {
-        this._start.geometry.setCoordinates(position);
-    }
-    else {
-        this._start = new ymaps.Placemark(position, { iconContent: 'А' }, { draggable: true });
-        this._start.events.add('dragend', this._onStartDragEnd, this);
-        this._map.geoObjects.add(this._start);
-    }
-    this.geocode("start", position);
-};
-
-ptp.setFinishPoint = function (position) {
-    if(this._finish) {
-        this._finish.geometry.setCoordinates(position);
-    }
-    else {
-        this._finish = new ymaps.Placemark(position, { iconContent: 'Б' }, { draggable: true });
-        this._finish.events.add('dragend', this._onFinishDragEnd, this);
-        this._map.geoObjects.add(this._finish);
-    }
-    if (this._start) {
-        this.geocode("finish", position);
-    }
-};
-
-ptp.geocode = function (str, point) {
-    ymaps.geocode(point).then(function(geocode) {
-        if (str == "start") {
-            this._startBalloon = geocode.geoObjects.get(0) &&
-                geocode.geoObjects.get(0).properties.get('balloonContentBody') || '';
-            console.log(str + " " + this._startBalloon);
-        } else {
-            this._finishBalloon = geocode.geoObjects.get(0) &&
-                geocode.geoObjects.get(0).properties.get('balloonContentBody') || '';
-            console.log(str + " " + this._finishBalloon);
+DeliveryCalculator.prototype = {
+    /**
+     * Прокладываем маршрут через заданные точки
+     * и проводим расчет доставки
+     */
+    getDirection: function () {
+        // Удаляем предыдущий маршрут с карты
+        if(this._route) {
+            this._map.geoObjects.remove(this._route);
         }
-        this.getDirection();
-    }, this);
 
-}
-ptp.calculate = function (len) {
-    // Константы.
-    var DELIVERY_TARIF = 20,
-        MINIMUM_COST = 500;
+        if (this._start && this._finish) {
+            var self = this,
+                start = this._start.geometry.getCoordinates(),
+                finish = this._finish.geometry.getCoordinates(),
+                startBalloon = this._startBalloon,
+                finishBalloon = this._finishBalloon;
 
-    return Math.max(len * DELIVERY_TARIF, MINIMUM_COST);
+            // Прокладываем маршрут через заданные точки.
+            ymaps.route([start, finish])
+                .then(function (router) {
+                    var distance = Math.round(router.getLength() / 1000),
+                        message = '<span>Расстояние: ' + distance + 'км.</span><br/>' +
+                            '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
+
+                    self._route = router.getPaths(); // Получаем коллекцию путей, из которых состоит маршрут.
+
+                    self._route.options.set({ strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5 });
+                    self._map.geoObjects.add(self._route); // Добавляем маршрут на карту.
+                    // Задаем контент балуна для начального и конечного маркера
+                    self._start.properties.set('balloonContentBody', startBalloon + message.replace('%s', self.calculate(distance)));
+                    self._finish.properties.set('balloonContentBody', finishBalloon + message.replace('%s', self.calculate(distance)));
+
+                    // Открываем балун над точкой доставки.
+                    // Закомментируйте, если не хотите показывать балун автоматически.
+                    self._finish.balloon.open();
+                });
+
+            this._map.setBounds(this._map.geoObjects.getBounds());
+        }
+    },
+
+    /**
+     * Создаем начальную точку маршрута.
+     * Если точка создана, то обновляем координаты.
+     * @param {Number[]} position Координаты точки
+     */
+    setStartPoint: function (position) {
+        if(this._start) {
+            this._start.geometry.setCoordinates(position);
+        }
+        else {
+            // Создаем маркер с возможностью перетаскивания (опция `draggable`).
+            // По завершении перетаскивания вызываем обработчик `_onStartDragEnd`.
+            this._start = new ymaps.Placemark(position, {iconContent: 'А'}, {draggable: true});
+            this._start.events.add('dragend', this._onStartDragEnd, this);
+            this._map.geoObjects.add(this._start);
+        }
+        this.geocode("start", position);
+    },
+
+    /**
+     * Создаем конечную точку маршрута.
+     * Если точка создана, то обновляем координаты.
+     * @param {Number[]} position Координаты точки
+     */
+    setFinishPoint: function (position) {
+        if(this._finish) {
+            this._finish.geometry.setCoordinates(position);
+        }
+        else {
+            this._finish = new ymaps.Placemark(position, { iconContent: 'Б' }, { draggable: true });
+            this._finish.events.add('dragend', this._onFinishDragEnd, this);
+            this._map.geoObjects.add(this._finish);
+        }
+        if (this._start) {
+            this.geocode("finish", position);
+        }
+    },
+
+    /**
+     * Проводим обратное геокодирование (определяем адрес по координатам) для точек маршрута
+     * @param {String} str Тип точки: 'start' - начальная, 'finish' - конечная
+     * @param {Number[]} point Координаты точки
+     */
+    geocode: function (str, point) {
+        ymaps.geocode(point).then(function(result) {
+            // result содержит описание найденных геообъектов
+            if (str == "start") {
+                // получаем описание первого геообъекта в списке, чтобы затем показать
+                // с описанием доставки по клику на метке
+                this._startBalloon = result.geoObjects.get(0) &&
+                    result.geoObjects.get(0).properties.get('balloonContentBody') || '';
+            } else {
+                // то же самое для конечной точки
+                this._finishBalloon = result.geoObjects.get(0) &&
+                    result.geoObjects.get(0).properties.get('balloonContentBody') || '';
+            }
+            this.getDirection();
+        }, this);
+
+    },
+
+    /**
+     *
+     * @param  {Number} routeLength Длина маршрута в километрах
+     * @return {Number} Стоимость доставки
+     */
+    calculate: function (routeLength) {
+        // Константы.
+        var DELIVERY_TARIF = 20, // стоимость за километр
+            MINIMUM_COST = 500; // минимальная стоимость
+
+        return Math.max(routeLength * DELIVERY_TARIF, MINIMUM_COST);
+    },
+
+    /**
+     * Обработчик клика по карте. Получаем координаты точки на карты и создаем маркер.
+     * @param  {Object} event Событие
+     */
+    _onClick: function (event) {
+        if (this._start) {
+            this.setFinishPoint(event.get('coords'));
+        } else {
+            this.setStartPoint(event.get('coords'));
+        }
+    },
+
+    /**
+     * Получаем координаты маркера и вызываем геокодер для начальной точки
+     */
+    _onStartDragEnd: function () {
+        var coords = this._start.geometry.getCoordinates();
+        this.geocode("start", coords);
+    },
+
+    _onFinishDragEnd: function () {
+        var coords = this._finish.geometry.getCoordinates();
+        this.geocode("finish", coords);
+    }
 };
 
-ymaps.ready(init);
+DeliveryCalculator.prototype.constructor = DeliveryCalculator;
