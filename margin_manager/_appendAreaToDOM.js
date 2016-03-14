@@ -11,7 +11,7 @@
      * Добавляем в DOM дерево элемент, представляющий занятую область.
      * @param {Object} accessor Экземпляр map.margin.Accessor
      */
-    window.addArea = function addArea (accessor) {
+    window.visualizeArea = function visualizeArea (accessor) {
         if (!container) {
             container = document.createElement('div');
             container.className = 'area-holder is-hidden';

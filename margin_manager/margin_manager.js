@@ -56,7 +56,7 @@ ymaps.ready(function () {
         // Если у аксессора вызвать метод `remove`, то область будет удалена из менеджера отступов.
         // Пример: accessor.remove()
 
-        addArea(accessor);
+        visualizeArea(accessor);
     });
 
     map.balloon.open(balloonPosition);

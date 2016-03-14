@@ -7,12 +7,12 @@ ymaps.ready(function () {
     }),
     objectManager = new ymaps.ObjectManager();
 
-    // Загружаем GeoJSON файл с описанием объектов
+    // Загружаем GeoJSON файл с описанием объектов.
     $.getJSON('data.json')
         .done(function (geoJson) {
-            // добавляем описание объектов в формате JSON в менеджер объектов
+            // Добавляем описание объектов в формате JSON в менеджер объектов.
             objectManager.add(geoJson);
-            // добавляем объекты на карту
+            // Добавляем объекты на карту.
             map.geoObjects.add(objectManager);
         });
 });
