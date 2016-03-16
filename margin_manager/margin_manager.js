@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+ymaps.ready(['util.dom.className'], function () {
     var balloonPosition = [55.83866, 37.712326], // Позиция балуна.
         Layout = ymaps.templateLayoutFactory.createClass([
             'Центровать<br>',
@@ -30,16 +30,16 @@ ymaps.ready(function () {
             }
         );
 
-    // Указываем для элементов область занимаемую над картой (положение и размер).
-    // Поддерживаются значения в пикселях (px) и процентах (%),
-    // если единица измерения не указана, то считается, что значение в пикселях.
+    // Для элементов на странице указываем область, занимаемую над картой (положение и размер).
+    // Поддерживаются значения в пикселях (px) и процентах (%).
+    // Если единица измерения не указана, то считается, что значение в пикселях.
     var mapAreas = [
         // Панель слева.
         {
             top: 0,
             left: 0,
             width: '80px',
-            height: '100%' // Проценты расчитываются относительно размеров контейнера с картой.
+            height: '100%' // Проценты рассчитываются относительно размеров контейнера с картой.
         },
         // Блок в правом углу.
         {
@@ -64,17 +64,25 @@ ymaps.ready(function () {
     // Контролы поддерживают опцию adjustMapMargin.
     // Когда значение true, контрол автоматически добавляет свои размеры в менеджер отступов.
     var toggleAreaBtn = new ymaps.control.Button({
-        data: {content: 'Показать занятые области', title: 'Показать все занятые области из менеджера отступов'},
+        data: {
+            content: 'Показать занятые области',
+            title: 'Показать все занятые области из менеджера отступов'
+        },
         options: {
-            maxWidth: 300,
-            // adjustMapMargin: true
+            // adjustMapMargin: true,
+            // Максимальная ширина кнопки.
+            maxWidth: 300
         }
     });
     // По клику над картой отображаются все области, добавленные
     // в менеджер отступов.
     toggleAreaBtn.events.add(['select', 'deselect'], function (event) {
-        var container = document.getElementsByClassName('area-holder')[0];
-        container && container.classList[event.originalEvent.type == 'select' ? 'remove' : 'add']('is-hidden');
+        var container = document.getElementsByClassName('area-holder')[0],
+            mode = event.originalEvent.type == 'select' ? 'remove' : 'add';
+
+        if (container) {
+            ymaps.util.dom.className[mode](container, 'is-hidden');
+        }
     });
     map.controls.add(toggleAreaBtn);
 
@@ -87,8 +95,12 @@ ymaps.ready(function () {
         }
     });
     toggleMarginBtn.events.add(['select', 'deselect'], function (event) {
-        var container = document.getElementsByClassName('map-bounds')[0];
-        container && container.classList[event.originalEvent.type == 'select' ? 'remove' : 'add']('is-hidden');
+        var container = document.getElementsByClassName('map-bounds')[0],
+            mode = event.originalEvent.type == 'select' ? 'remove' : 'add';
+
+        if (container) {
+            ymaps.util.dom.className[mode](container, 'is-hidden');
+        }
     });
     map.controls.add(toggleMarginBtn);
 
