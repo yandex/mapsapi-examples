@@ -16,7 +16,7 @@ function init() {
     // При нажатии на кнопку загружаем соответствующий XML-файл.
     // и отображаем его данные на карте.
     ymapsmlButton.click(function (e) {
-        ymaps.geoXml.load('https://maps.yandex.ru/export/usermaps/93jfWjoXws37exPmKH-OFIuj3IQduHal/')
+        ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/93jfWjoXws37exPmKH-OFIuj3IQduHal/')
             .then(onGeoXmlLoad);
         e.target.disabled = true;
     });
