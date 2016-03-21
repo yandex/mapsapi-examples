@@ -121,7 +121,7 @@
         "Подгрузка стилей из отдельного файла": "ymapsml_loadstyles",
         "Изменение шаблона содержимого балуна": "ymapsml_ballooncontentstyle",
         "Отображение результатов геокодирования": "ymapsml_showhttpgeocoderresult",
-        "Создание меню для отображения группобъектов": "ymapsml_menu",
+        "Создание меню для отображения групп объектов": "ymapsml_menu",
         "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
     },
     "GeoXML": {
