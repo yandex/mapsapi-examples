@@ -108,7 +108,7 @@
       "Changing a placemark icon":"ymapsml_styleobject",
       "Polyline":"ymapsml_linestring",
       "Closed polyline":"ymapsml_linearring",
-      "Adding placemarks to the map":"ymapsml_polygon",
+      "Adding polygon":"ymapsml_polygon",
       "Setting styles for objects":"ymapsml_setstyle",
       "Style inheritance":"ymapsml_parentstyle",
       "Loading styles from a separate file":"ymapsml_loadstyles",
