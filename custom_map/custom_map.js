@@ -9,9 +9,9 @@ ymaps.ready(function () {
      */
     var Layer = function () {
         var layer = new ymaps.Layer(TILES_PATH + '/%z/%x-%y.jpeg', {
-            // Если тайл не загрузился, показываем это изображение.
-            notFoundTile: TILES_PATH + '/2/0-0.jpeg'
-        });
+                // Если тайл не загрузился, показываем это изображение.
+                notFoundTile: TILES_PATH + '/2/0-0.jpeg'
+            });
         // Указываем доступный диапазон масштабов для данного слоя.
         layer.getZoomRange = function () {
             return ymaps.vow.resolve([1, 3]);

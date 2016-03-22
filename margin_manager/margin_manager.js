@@ -64,16 +64,16 @@ ymaps.ready(['util.dom.className'], function () {
     // Контролы поддерживают опцию adjustMapMargin.
     // Когда значение true, контрол автоматически добавляет свои размеры в менеджер отступов.
     var toggleAreaBtn = new ymaps.control.Button({
-        data: {
-            content: 'Показать занятые области',
-            title: 'Показать все занятые области из менеджера отступов'
-        },
-        options: {
-            // adjustMapMargin: true,
-            // Максимальная ширина кнопки.
-            maxWidth: 300
-        }
-    });
+            data: {
+                content: 'Показать занятые области',
+                title: 'Показать все занятые области из менеджера отступов'
+            },
+            options: {
+                // adjustMapMargin: true,
+                // Максимальная ширина кнопки.
+                maxWidth: 300
+            }
+        });
     // По клику над картой отображаются все области, добавленные
     // в менеджер отступов.
     toggleAreaBtn.events.add(['select', 'deselect'], function (event) {
@@ -87,13 +87,14 @@ ymaps.ready(['util.dom.className'], function () {
     map.controls.add(toggleAreaBtn);
 
     var toggleMarginBtn = new ymaps.control.Button({
-        data: {content: 'Показать отступы', title: 'Показать отступы карты'},
-        options: {
-            // Разрешаем контролу автоматически добавить свои размеры в менеджер отступов.
-            // adjustMapMargin: true,
-            maxWidth: 200
-        }
-    });
+            data: {content: 'Показать отступы', title: 'Показать отступы карты'},
+            options: {
+                // Разрешаем контролу автоматически добавить свои размеры в менеджер отступов.
+                // Чтобы элемент управления зарегистрировал себя в менеджере отступов, раскомментируйте строку.
+                // adjustMapMargin: true,
+                maxWidth: 200
+            }
+        });
     toggleMarginBtn.events.add(['select', 'deselect'], function (event) {
         var container = document.getElementsByClassName('map-bounds')[0],
             mode = event.originalEvent.type == 'select' ? 'remove' : 'add';
