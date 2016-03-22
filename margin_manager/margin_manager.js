@@ -74,7 +74,7 @@ ymaps.ready(['util.dom.className'], function () {
                 maxWidth: 300
             }
         });
-    // По клику над картой отображаются все области, добавленные
+    // По клику на карте отображаются все области, добавленные
     // в менеджер отступов.
     toggleAreaBtn.events.add(['select', 'deselect'], function (event) {
         var container = document.getElementsByClassName('area-holder')[0],
