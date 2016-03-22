@@ -10,7 +10,9 @@
         "Создание и удаление": "mapbasics",
         "Основные параметры": "mapparams",
         "Создание карты по требованию": "request_map",
-        "Изменение размера карты": "fillcontainer"
+        "Изменение размера карты": "fillcontainer",
+        "Создание собственной карты": "custom_map",
+        "Менеджер отступов": "margin_manager"
     },
     "Геообъекты": {
         "Метка": "placemark",
@@ -131,7 +133,8 @@
         "Добавление объектов на карту через ObjectManager": "object_manager",
         "Обработка событий на объектах в ObjectManager": "object_manager_events",
         "Открытие балуна на метке в ObjectManager": "object_manager_balloon",
-        "Загрузка данных для балуна метки по требованию": "object_manager_balloon_async"
+        "Загрузка данных для балуна метки по требованию": "object_manager_balloon_async",
+        "Добавление на карту объектов с разной геометрией": "object_manager_spatial"
     },
     "Модульная система": {
         "Загрузка определенных модулей при инициализации": "load_modules",
