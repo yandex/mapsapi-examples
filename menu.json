@@ -109,7 +109,7 @@
         "Редактирование мультимаршрута": "multiroute_edit",
         "Построение маршрута": "router",
         "Редактирование маршрута": "router_editor",
-        "Расчёт стоимости маршрута": "deliveryCalculator"
+        "Расчёт стоимости доставки": "deliveryCalculator"
     },
     "YMapsML": {
         "Изменение типа карты": "ymapsml_maptype",
