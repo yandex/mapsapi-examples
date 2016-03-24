@@ -2,7 +2,7 @@ ymaps.ready(function () {
 
     var LAYER_NAME = 'user#layer',
         MAP_TYPE_NAME = 'user#customMap',
-        TILES_PATH = './images/tiles'; // Директория с тайлами.
+        TILES_PATH = 'images/tiles'; // Директория с тайлами.
 
     /**
      * Конструктор, создающий собственный слой.
