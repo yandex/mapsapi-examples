@@ -1,11 +1,11 @@
 ymaps.ready(function () {
-    // Для начала проверим поддерживает ли движок браузер.
+    // Для начала проверим, поддерживает ли движок браузер.
     if (!ymaps.panorama.isSupported()) {
         // Если нет, то просто ничего не будем делать.
         return;
     }
 
-    // Сначала описывам уровни масштабирования панорамного изображения.
+    // Сначала описываем уровни масштабирования панорамного изображения.
     // Для этого заводим класс, реализующий интерфейс IPanoramaTileLevel.
     // Параметрами конструктора будут шаблон URL тайлов и размер уровня.
     function TileLevel (urlTemplate, imageSize) {
@@ -15,7 +15,7 @@ ymaps.ready(function () {
 
     ymaps.util.defineClass(TileLevel, {
         getTileUrl: function (x, y) {
-            // Определяем URL тайла для с переданными индексами.
+            // Определяем URL тайла для переданных индексов.
             return this._urlTemplate.replace('%c', y + '-' + x);
         },
 
@@ -35,7 +35,7 @@ ymaps.ready(function () {
         ];
     }
 
-    // Наследуем класс панорамы от ymaps.panorama.Base, который чвстично
+    // Наследуем класс панорамы от ymaps.panorama.Base, который частично
     // реализует IPanoramaTileLevel за нас.
     ymaps.util.defineClass(Panorama, ymaps.panorama.Base, {
         getPosition: function () {
