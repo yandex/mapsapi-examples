@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Примеры. Получение панорамы и создание плеера.</title>
+    <meta charset="utf-8">
+
+    <style>
+        html, body, .player {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .player {
+            height: 50%;
+        }
+    </style>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=panorama.isSupported,panorama.locate,panorama.createPlayer,panorama.Player"></script>
+    <script src="panorama_basics.js"></script>
+</head>
+<body>
+    <div id="player1" class="player"></div>
+    <div id="player2" class="player"></div>
+</body>
+</html>
