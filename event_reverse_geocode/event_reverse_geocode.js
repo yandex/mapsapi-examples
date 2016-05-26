@@ -32,22 +32,22 @@ function init() {
     // Создание метки
     function createPlacemark(coords) {
         return new ymaps.Placemark(coords, {
-            iconContent: 'поиск...'
+            iconCaption: 'поиск...'
         }, {
-            preset: 'islands#violetStretchyIcon',
+            preset: 'islands#violetDotIconWithCaption',
             draggable: true
         });
     }
 
     // Определяем адрес по координатам (обратное геокодирование)
     function getAddress(coords) {
-        myPlacemark.properties.set('iconContent', 'поиск...');
+        myPlacemark.properties.set('iconCaption', 'поиск...');
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
 
             myPlacemark.properties
                 .set({
-                    iconContent: firstGeoObject.properties.get('name'),
+                    iconCaption: firstGeoObject.properties.get('name'),
                     balloonContent: firstGeoObject.properties.get('text')
                 });
         });

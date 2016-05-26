@@ -29,7 +29,8 @@ ymaps.modules.define('MultiRouteCustomView', [
     // Таблица соответствия типа маршрута имени его обработчика.
     CustomView.routeProcessors = {
         "driving": "processDrivingRoute",
-        "masstransit": "processMasstransitRoute"
+        "masstransit": "processMasstransitRoute",
+        "pedestrian": "processPedestrianRoute"
     };
 
     defineClass(CustomView, {
@@ -91,6 +92,12 @@ ymaps.modules.define('MultiRouteCustomView', [
             var result = ["Маршрут на общественном транспорте."];
             result.push(this.createCommonRouteOutput(route));
             result.push("Описание маршута: <ul>" + this.createMasstransitRouteOutput(route) + "</ul>");
+            return result.join("<br/>");
+        },
+
+        processPedestrianRoute: function (route) {
+            var result = ["Пешеходный маршрут."];
+            result.push(this.createCommonRouteOutput(route));
             return result.join("<br/>");
         },
 

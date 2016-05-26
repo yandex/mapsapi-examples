@@ -8,23 +8,31 @@ function init () {
         // Маршрут при этом будет перестраиваться.
         wayPointDraggable: true,
         boundsAutoApply: true
-    });
+    }),
 
-    // Создаем кнопку, переключающую модель в режим
-    // маршрутизации на общественном транспорте.
-    var masstransitButton = new ymaps.control.Button({
-        data: { content: "На общественном транспорте"},
-        options: { selectOnClick: true }
-    });
+    // Создаём выпадающий список для выбора типа маршрута.
+        routeTypeSelector = new ymaps.control.ListBox({
+            data: {
+                content: 'Как добраться'
+            },
+            items: [
+                new ymaps.control.ListBoxItem({data: {content: "Авто"},state: {selected: true}}),
+                new ymaps.control.ListBoxItem({data: {content: "Общественным транспортом"}}),
+                new ymaps.control.ListBoxItem({data: {content: "Пешком"}})
+            ],
+            options: {
+                itemSelectOnClick: false
+            }
+        }),
+    // Получаем прямые ссылки на пункты списка.
+        autoRouteItem = routeTypeSelector.get(0),
+        masstransitRouteItem = routeTypeSelector.get(1),
+        pedestrianRouteItem = routeTypeSelector.get(2);
 
-    // Объявляем обработчики для кнопки.
-    masstransitButton.events.add('select', function () {
-        multiRouteModel.setParams({ routingMode: 'masstransit' }, true);
-    });
-
-    masstransitButton.events.add('deselect', function () {
-        multiRouteModel.setParams({ routingMode: 'auto' }, true);
-    });
+    // Подписываемся на события нажатия на пункты выпадающего списка.
+    autoRouteItem.events.add('click', function (e) { changeRoutingMode('auto', e.get('target')); });
+    masstransitRouteItem.events.add('click', function (e) { changeRoutingMode('masstransit', e.get('target')); });
+    pedestrianRouteItem.events.add('click', function (e) { changeRoutingMode('pedestrian', e.get('target')); });
 
     ymaps.modules.require([
         'MultiRouteCustomView'
@@ -38,7 +46,7 @@ function init () {
     var myMap = new ymaps.Map('map', {
         center: [55.750625, 37.626],
         zoom: 7,
-        controls: [masstransitButton]
+        controls: [routeTypeSelector]
     }, {
         buttonMaxWidth: 300
     });
@@ -53,6 +61,23 @@ function init () {
 
     // Добавляем мультимаршрут на карту.
     myMap.geoObjects.add(multiRoute);
+
+    function changeRoutingMode(routingMode, targetBtn) {
+        multiRouteModel.setParams({ routingMode: routingMode }, true);
+            if (routingMode == 'auto') {
+                masstransitRouteItem.deselect();
+                pedestrianRouteItem.deselect();
+            } else if (routingMode == 'masstransit') {
+                autoRouteItem.deselect();
+                pedestrianRouteItem.deselect();
+            } else if (routingMode == 'pedestrian') {
+                autoRouteItem.deselect();
+                masstransitRouteItem.deselect();
+            }
+
+            targetBtn.select();
+            routeTypeSelector.collapse();
+        }
 }
 
 ymaps.ready(init);
