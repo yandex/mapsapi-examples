@@ -45,7 +45,7 @@ function init () {
         .add(new ymaps.Placemark([55.684758, 37.738521], {}, {
             preset: 'islands#glyphIcon',
             // Задаём имя глифа.
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
             // Задаём цвет глифа.
             iconGlyphColor: 'blue',
             // Задаём цвет метки.
@@ -53,39 +53,39 @@ function init () {
         }))
         .add(new ymaps.Placemark([55.833436, 37.715175], {}, {
             preset: 'islands#glyphCircleIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)]
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)]
         }))
         .add(new ymaps.Placemark([55.687086, 37.529789], {}, {
             preset: 'islands#blueGlyphIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)]
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)]
         }))
         .add(new ymaps.Placemark([55.782392, 37.614924], {}, {
             preset: 'islands#redGlyphCircleIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)]
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)]
         }))
         .add(new ymaps.Placemark([55.642063, 37.656123], {}, {
             preset: 'islands#glyphIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
             iconGlyphColor: 'green',
             iconColor: 'green'
         }))
         .add(new ymaps.Placemark([55.826479, 37.487208], {}, {
             preset: 'islands#glyphCircleIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
             iconGlyphColor: 'green',
             iconColor: 'green'
         }))
         .add(new ymaps.Placemark([55.694843, 37.435023], {}, {
             preset: 'islands#glyphIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
             iconGlyphColor: '#0095b6',
             iconColor: '#0095b6'
         }))
         .add(new ymaps.Placemark([55.790139, 37.814052], {}, {
             preset: 'islands#glyphCircleIcon',
-            iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
+            iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
             iconGlyphColor: '#3caa3c',
             iconColor: '#3caa3c'
         }));
-   console.log(glyphNames[Math.round(Math.random() * glyphNames.length)]);
+   console.log(glyphNames[Math.floor(Math.random() * glyphNames.length)]);
 }
