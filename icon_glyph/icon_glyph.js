@@ -44,11 +44,11 @@ function init () {
     myMap.geoObjects
         .add(new ymaps.Placemark([55.684758, 37.738521], {}, {
             preset: 'islands#glyphIcon',
-            //задаём имя глифа
+            // Задаём имя глифа.
             iconGlyph: glyphNames[Math.round(Math.random() * glyphNames.length)],
-            //задаём цвет глифа
+            // Задаём цвет глифа.
             iconGlyphColor: 'blue',
-            //задаём цвет метки
+            // Задаём цвет метки.
             iconColor: 'blue'
         }))
         .add(new ymaps.Placemark([55.833436, 37.715175], {}, {
