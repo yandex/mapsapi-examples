@@ -62,21 +62,17 @@ function init () {
     // Добавляем мультимаршрут на карту.
     myMap.geoObjects.add(multiRoute);
 
-    function changeRoutingMode(routingMode, targetBtn) {
+    function changeRoutingMode(routingMode, targetItem) {
         multiRouteModel.setParams({ routingMode: routingMode }, true);
-            if (routingMode == 'auto') {
-                masstransitRouteItem.deselect();
-                pedestrianRouteItem.deselect();
-            } else if (routingMode == 'masstransit') {
-                autoRouteItem.deselect();
-                pedestrianRouteItem.deselect();
-            } else if (routingMode == 'pedestrian') {
-                autoRouteItem.deselect();
-                masstransitRouteItem.deselect();
-            }
+        
+        // Отменяем выбор элементов.
+        autoRouteItem.deselect();
+        masstransitRouteItem.deselect();
+        pedestrianRouteItem.deselect();
 
-            targetBtn.select();
-            routeTypeSelector.collapse();
+        // Выбираем элемент и закрываем список.
+        targetItem.select();
+        routeTypeSelector.collapse();
         }
 }
 
