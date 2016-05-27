@@ -1,7 +1,7 @@
 ymaps.ready(init);
 
 function init () {
-    //Перечень возможных глифов
+    // Перечень возможных глифов.
     var glyphNames = ['asterisk', 'plus', 'euro', 'eur', 'minus', 'cloud', 'envelope',
         'pencil', 'glass', 'music', 'search', 'heart', 'star', 'star-empty', 'user', 'film',
         'th-large', 'th', 'th-list', 'ok', 'remove', 'zoom-in', 'zoom-out', 'off', 'signal',
