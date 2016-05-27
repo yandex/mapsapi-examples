@@ -9,11 +9,11 @@ function init() {
             searchControlProvider: 'yandex#search'
         });
 
-    // Слушаем клик на карте
+    // Слушаем клик на карте.
     myMap.events.add('click', function (e) {
         var coords = e.get('coords');
 
-        // Если метка уже создана – просто передвигаем ее
+        // Если метка уже создана – просто передвигаем ее.
         if (myPlacemark) {
             myPlacemark.geometry.setCoordinates(coords);
         }
@@ -29,7 +29,7 @@ function init() {
         getAddress(coords);
     });
 
-    // Создание метки
+    // Создание метки.
     function createPlacemark(coords) {
         return new ymaps.Placemark(coords, {
             iconCaption: 'поиск...'
@@ -39,7 +39,7 @@ function init() {
         });
     }
 
-    // Определяем адрес по координатам (обратное геокодирование)
+    // Определяем адрес по координатам (обратное геокодирование).
     function getAddress(coords) {
         myPlacemark.properties.set('iconCaption', 'поиск...');
         ymaps.geocode(coords).then(function (res) {
