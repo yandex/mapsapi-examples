@@ -44,20 +44,20 @@ function init () {
 
     // Создаем карту с добавленной на нее кнопкой.
     var myMap = new ymaps.Map('map', {
-        center: [55.750625, 37.626],
-        zoom: 7,
-        controls: [routeTypeSelector]
-    }, {
-        buttonMaxWidth: 300
-    });
+            center: [55.750625, 37.626],
+            zoom: 7,
+            controls: [routeTypeSelector]
+        }, {
+            buttonMaxWidth: 300
+        }),
 
     // Создаем на основе существующей модели мультимаршрут.
-    var multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
-        // Путевые точки можно перетаскивать.
-        // Маршрут при этом будет перестраиваться.
-        wayPointDraggable: true,
-        boundsAutoApply: true
-    });
+        multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
+            // Путевые точки можно перетаскивать.
+            // Маршрут при этом будет перестраиваться.
+            wayPointDraggable: true,
+            boundsAutoApply: true
+        });
 
     // Добавляем мультимаршрут на карту.
     myMap.geoObjects.add(multiRoute);
