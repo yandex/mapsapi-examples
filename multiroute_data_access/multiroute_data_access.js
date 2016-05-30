@@ -1,33 +1,33 @@
 function init () {
     // Создаем модель мультимаршрута.
     var multiRouteModel = new ymaps.multiRouter.MultiRouteModel([
-        [55.734876, 37.59308],
-        "Москва, ул. Мясницкая"
-    ], {
-        // Путевые точки можно перетаскивать.
-        // Маршрут при этом будет перестраиваться.
-        wayPointDraggable: true,
-        boundsAutoApply: true
-    }),
+            [55.734876, 37.59308],
+            "Москва, ул. Мясницкая"
+        ], {
+            // Путевые точки можно перетаскивать.
+            // Маршрут при этом будет перестраиваться.
+            wayPointDraggable: true,
+            boundsAutoApply: true
+        }),
 
     // Создаём выпадающий список для выбора типа маршрута.
-    routeTypeSelector = new ymaps.control.ListBox({
-        data: {
-            content: 'Как добраться'
-        },
-        items: [
-            new ymaps.control.ListBoxItem({data: {content: "Авто"},state: {selected: true}}),
-            new ymaps.control.ListBoxItem({data: {content: "Общественным транспортом"}}),
-            new ymaps.control.ListBoxItem({data: {content: "Пешком"}})
-        ],
-        options: {
-            itemSelectOnClick: false
-        }
-    }),
+        routeTypeSelector = new ymaps.control.ListBox({
+            data: {
+                content: 'Как добраться'
+            },
+            items: [
+                new ymaps.control.ListBoxItem({data: {content: "Авто"},state: {selected: true}}),
+                new ymaps.control.ListBoxItem({data: {content: "Общественным транспортом"}}),
+                new ymaps.control.ListBoxItem({data: {content: "Пешком"}})
+            ],
+            options: {
+                itemSelectOnClick: false
+            }
+        }),
     // Получаем прямые ссылки на пункты списка.
-    autoRouteItem = routeTypeSelector.get(0),
-    masstransitRouteItem = routeTypeSelector.get(1),
-    pedestrianRouteItem = routeTypeSelector.get(2);
+        autoRouteItem = routeTypeSelector.get(0),
+        masstransitRouteItem = routeTypeSelector.get(1),
+        pedestrianRouteItem = routeTypeSelector.get(2);
 
     // Подписываемся на события нажатия на пункты выпадающего списка.
     autoRouteItem.events.add('click', function (e) { changeRoutingMode('auto', e.get('target')); });
@@ -64,7 +64,7 @@ function init () {
 
     function changeRoutingMode(routingMode, targetItem) {
         multiRouteModel.setParams({ routingMode: routingMode }, true);
-        
+
         // Отменяем выбор элементов.
         autoRouteItem.deselect();
         masstransitRouteItem.deselect();
