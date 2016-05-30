@@ -10,7 +10,7 @@ function init () {
             boundsAutoApply: true
         }),
 
-    // Создаём выпадающий список для выбора типа маршрута.
+        // Создаём выпадающий список для выбора типа маршрута.
         routeTypeSelector = new ymaps.control.ListBox({
             data: {
                 content: 'Как добраться'
@@ -24,7 +24,7 @@ function init () {
                 itemSelectOnClick: false
             }
         }),
-    // Получаем прямые ссылки на пункты списка.
+        // Получаем прямые ссылки на пункты списка.
         autoRouteItem = routeTypeSelector.get(0),
         masstransitRouteItem = routeTypeSelector.get(1),
         pedestrianRouteItem = routeTypeSelector.get(2);
@@ -51,7 +51,7 @@ function init () {
             buttonMaxWidth: 300
         }),
 
-    // Создаем на основе существующей модели мультимаршрут.
+        // Создаем на основе существующей модели мультимаршрут.
         multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
             // Путевые точки можно перетаскивать.
             // Маршрут при этом будет перестраиваться.
