@@ -1,7 +1,7 @@
 ymaps.ready(init);
 
 function init () {
-    // Перечень возможных глифов.
+    // Перечень возможных глиф-иконок.
     var glyphNames = ['asterisk', 'plus', 'euro', 'eur', 'minus', 'cloud', 'envelope',
         'pencil', 'glass', 'music', 'search', 'heart', 'star', 'star-empty', 'user', 'film',
         'th-large', 'th', 'th-list', 'ok', 'remove', 'zoom-in', 'zoom-out', 'off', 'signal',
@@ -44,9 +44,9 @@ function init () {
     myMap.geoObjects
         .add(new ymaps.Placemark([55.684758, 37.738521], {}, {
             preset: 'islands#glyphIcon',
-            // Задаём имя глифа.
+            // Задаём имя глиф-иконки.
             iconGlyph: glyphNames[Math.floor(Math.random() * glyphNames.length)],
-            // Задаём цвет глифа.
+            // Задаём цвет глиф-иконки.
             iconGlyphColor: 'blue',
             // Задаём цвет метки.
             iconColor: 'blue'
