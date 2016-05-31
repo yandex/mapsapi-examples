@@ -56,27 +56,27 @@ function init () {
             iconColor: 'yellow'
         }))
         .add(new ymaps.Placemark([55.642063, 37.656123], {
-            balloonContent: 'цвет <strong>бисмарк-фуриозо</strong>'
+            balloonContent: 'цвет <strong>красный</strong>'
         }, {
-            preset: 'islands#icon',
-            iconColor: '#a5260a'
+            preset: 'islands#redSportIcon'
         }))
         .add(new ymaps.Placemark([55.826479, 37.487208], {
             balloonContent: 'цвет <strong>фэйсбука</strong>'
         }, {
-            preset: 'islands#dotIcon',
+            preset: 'islands#governmentCircleIcon',
             iconColor: '#3b5998'
         }))
         .add(new ymaps.Placemark([55.694843, 37.435023], {
-            balloonContent: 'цвет <strong>вконтакте</strong>'
+            balloonContent: 'цвет <strong>вконтакте</strong>',
+            iconCaption: 'Очень длиннный, но невероятно интересный текст'
         }, {
-            preset: 'islands#circleIcon',
-            iconColor: '#4d7198'
+            preset: 'islands#greenDotIconWithCaption'
         }))
         .add(new ymaps.Placemark([55.790139, 37.814052], {
-            balloonContent: 'цвет <strong>твиттера</strong>'
+            balloonContent: 'цвет <strong>голубой</strong>',
+            iconCaption: 'Очень длиннный, но невероятно интересный текст'
         }, {
-            preset: 'islands#circleDotIcon',
-            iconColor: '#1faee9'
+            preset: 'islands#blueCircleDotIconWithCaption',
+            iconCaptionMaxWidth: '50'
         }));
 }

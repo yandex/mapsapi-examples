@@ -33,7 +33,8 @@ ymaps.ready(function () {
             },
             items: [
                 new ymaps.control.ListBoxItem('На автомобиле'),
-                new ymaps.control.ListBoxItem('Общественным транспортом')
+                new ymaps.control.ListBoxItem('Общественным транспортом'),
+                new ymaps.control.ListBoxItem('Пешком')
             ],
             options: {
                 itemSelectOnClick: false
@@ -42,6 +43,7 @@ ymaps.ready(function () {
     // Получаем прямые ссылки на пункты списка.
         autoRouteItem = routeTypeSelector.get(0),
         masstransitRouteItem = routeTypeSelector.get(1),
+        pedestrianRouteItem = routeTypeSelector.get(2),
 
     // Метка для начальной точки маршрута.
         sourcePoint,
@@ -59,6 +61,7 @@ ymaps.ready(function () {
     // Подписываемся на события нажатия на пункты выпадающего списка.
     autoRouteItem.events.add('click', function (e) { createRoute('auto', e.get('target')); });
     masstransitRouteItem.events.add('click', function (e) { createRoute('masstransit', e.get('target')); });
+    pedestrianRouteItem.events.add('click', function (e) { createRoute('pedestrian', e.get('target')); });
 
     // Подписываемся на события, информирующие о трёх типах выбора начальной точки маршрута:
     // клик по карте, отображение результата поиска или геолокация.
@@ -111,8 +114,13 @@ ymaps.ready(function () {
         if (routingMode) {
             if (routingMode == 'auto') {
                 masstransitRouteItem.deselect();
+                pedestrianRouteItem.deselect();
             } else if (routingMode == 'masstransit') {
                 autoRouteItem.deselect();
+                pedestrianRouteItem.deselect();
+            } else if (routingMode == 'pedestrian') {
+                autoRouteItem.deselect();
+                masstransitRouteItem.deselect();
             }
 
             targetBtn.select();
