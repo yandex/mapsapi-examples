@@ -58,7 +58,7 @@ function init() {
 
     // Добавляем контрол в верхний правый угол,
     myMap.controls
-        .add(mySearchControl, { right: 10, top: 10 });
+        .add(mySearchControl, { float: 'right' });
 }
 
 
