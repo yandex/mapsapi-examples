@@ -130,9 +130,10 @@
       "Loading only necessary modules when initializing the map":"load_modules",
       "Loading modules on demand":"module_request",
       "Creating custom module":"custom_module"
-   },
-   "Panoramas": {
-      "Getting Yandex panoramas": "panorama_basics",
-      "Creating your own panorama": "panorama_custom"
    }
+   // ,
+   // "Panoramas": {
+   //    "Getting Yandex panoramas": "panorama_basics",
+   //    "Creating your own panorama": "panorama_custom"
+   // }
 }
