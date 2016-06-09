@@ -131,9 +131,4 @@
       "Loading modules on demand":"module_request",
       "Creating custom module":"custom_module"
    }
-   // ,
-   // "Panoramas": {
-   //    "Getting Yandex panoramas": "panorama_basics",
-   //    "Creating your own panorama": "panorama_custom"
-   // }
 }
