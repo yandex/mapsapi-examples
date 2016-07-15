@@ -52,22 +52,22 @@ ymaps.ready(function () {
                 dataType: 'json',
                 processData: false
             }).then(function (data) {
+                jQuery.each(geoObjects, function (index, geoObject) {
+                    // Содержимое балуна берем из данных, полученных от сервера.
+                    // Сервер возвращает массив объектов вида:
+                    // [ {"balloonContentBody": "Содержимое балуна"}, ...]
+                    geoObject.properties.set(data[index]);
+                });
+            }, function (jqXHR, textStatus, errorThrown) {
+                jQuery.each(geoObjects, function (index, geoObject) {
+                    geoObject.properties.set('balloonContentBody', errorThrown);
+                });
+                clusterer.events.once('balloonclose', function () {
                     jQuery.each(geoObjects, function (index, geoObject) {
-                        // Содержимое балуна берем из данных, полученных от сервера.
-                        // Сервер возвращает массив объектов вида:
-                        // [ {"balloonContentBody": "Содержимое балуна"}, ...]
-                        geoObject.properties.set(data[index]);
-                    });
-                }, function (jqXHR, textStatus, errorThrown) {
-                    jQuery.each(geoObjects, function (index, geoObject) {
-                        geoObject.properties.set('balloonContentBody', errorThrown);
-                    });
-                    clusterer.events.once('balloonclose', function () {
-                        jQuery.each(geoObjects, function (index, geoObject) {
-                            geoObject.properties.unset('balloonContentBody');
-                        });
+                        geoObject.properties.unset('balloonContentBody');
                     });
                 });
+            });
         }
     });
 });
