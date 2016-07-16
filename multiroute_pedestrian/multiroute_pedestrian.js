@@ -1,4 +1,4 @@
-function init () {
+function init() {
     // Задаём точки мультимаршрута.
     var pointA = [55.749, 37.524],
         pointB = "Москва, Красная площадь",
@@ -7,23 +7,23 @@ function init () {
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
          */
         multiRoute = new ymaps.multiRouter.MultiRoute({
-        referencePoints: [
-            pointA,
-            pointB
-        ],
-        params: {
-            //Тип маршрутизации - пешеходная маршрутизация.
-            routingMode: 'pedestrian'
-        }
-    }, {
-        // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
-        boundsAutoApply: true
-    });
+            referencePoints: [
+                pointA,
+                pointB
+            ],
+            params: {
+                //Тип маршрутизации - пешеходная маршрутизация.
+                routingMode: 'pedestrian'
+            }
+        }, {
+            // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
+            boundsAutoApply: true
+        });
 
     // Создаем кнопку.
     var changePointsButton = new ymaps.control.Button({
-        data: { content: "Поменять местами точки А и В"},
-        options: { selectOnClick: true }
+        data: {content: "Поменять местами точки А и В"},
+        options: {selectOnClick: true}
     });
 
     // Объявляем обработчики для кнопки.
