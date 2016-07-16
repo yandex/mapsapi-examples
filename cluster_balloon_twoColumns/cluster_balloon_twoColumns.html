@@ -2,20 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-    <title>Примеры. Собственный макет контента балуна кластера.</title>
+    <title>Примеры. Кастомизация макета балуна кластера "Две колонки".</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
-	<script src="//yandex.st/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
     <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-	<script src="cluster_custom_balloon_content_layout_21.js" type="text/javascript"></script>
+	<script src="cluster_balloon_twoColumns.js" type="text/javascript"></script>
 	<style>
 		html, body { margin: 0; padding: 0; }
 		html, body, #map { width: 100%; height: 100%; }
 		
-		.list { list-style: none outside; margin: 0; padding: 0;}
-		.list li { padding-bottom: 10px; }
-		.list a { color: #207697; } 
-		.list a:hover { color: #28B8F0; text-decoration: none; } 
+		.ballon_header { font-size: 16px; margin-top: 0; margin-bottom: 10px; color: #708090; }
+		.ballon_body { font-size: 14px; text-align: center; }
+		.ballon_footer { font-size: 12px; text-align: right; border-top: 1px solid #7D7D7D; color: #7D7D7D; margin-top: 10px; }
 	</style>
 </head>
 	<body>

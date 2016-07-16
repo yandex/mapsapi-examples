@@ -62,10 +62,10 @@
         " Изменение цвета кластеров и меток при наведении": "clusterer_icon_hover",
         "Открытие балуна кластера с выбранным объектом": "clusterer_balloon_open",
         "Изменение размера ячейки кластеризатора": "clusterer_gridSize",
-        "Макета балуна кластера \"Две колонки\"": "cluster_balloon_twoColumns_21",
-        "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion_21",
-        "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel_21",
-        "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout_21"
+        "Макета балуна кластера \"Две колонки\"": "cluster_balloon_twoColumns",
+        "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion",
+        "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel",
+        "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout"
     },
     "GeoQuery": {
         "Попадание точек в окружность": "placemarks_in_circle",
