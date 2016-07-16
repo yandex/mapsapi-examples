@@ -30,7 +30,7 @@ function toggle () {
 
     // Если выставлен флаг, сообщаем карте, что ей следует
     // привести свои размеры к размерам контейнера.
-    if ($('#checkbox').attr('checked')) {
+    if ($('#checkbox').prop('checked')) {
         myMap.container.fitToViewport();
     }
 }
