@@ -1,23 +1,23 @@
-ymaps.ready(['projection.Azimuth']).then(function init () {
+ymaps.ready(['projection.Azimuth']).then(function init() {
 
     var ARCTIC_LAYER_NAME = 'user#arcticLayer',
         ARCTIC_MAP_TYPE_NAME = 'Арктика',
         ARCTIC_TILES_PATH = 'images/tiles_arctic',
 
-    /**
-     * Конструктор, создающий собственный слой.
-     */
-    ArcticLayer = function () {
-        var layer = new ymaps.Layer(ARCTIC_TILES_PATH + '/%z/tile-%x-%y.jpg', {
+        /**
+         * Конструктор, создающий собственный слой.
+         */
+        ArcticLayer = function () {
+            var layer = new ymaps.Layer(ARCTIC_TILES_PATH + '/%z/tile-%x-%y.jpg', {
                 // Если тайл не загрузился, показываем это изображение.
                 notFoundTile: ARCTIC_TILES_PATH + '/3/tile-0-0.jpg'
             });
-        // Указываем доступный диапазон масштабов для данного слоя.
-        layer.getZoomRange = function () {
-            return ymaps.vow.resolve([0, 3]);
+            // Указываем доступный диапазон масштабов для данного слоя.
+            layer.getZoomRange = function () {
+                return ymaps.vow.resolve([0, 3]);
+            };
+            return layer;
         };
-        return layer;
-    };
 
     // Добавляем в хранилище слоев свой конструктор.
     ymaps.layer.storage.add(ARCTIC_LAYER_NAME, ArcticLayer);
