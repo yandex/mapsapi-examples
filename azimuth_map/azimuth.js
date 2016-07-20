@@ -8,7 +8,7 @@ ymaps.modules.define('projection.Azimuth', [
      * Азимутальная проекция.
      */
 
-    var latLongOrder = ymaps.meta.coordinatesOrder == 'longlat';
+    var latLongOrder = ymaps.meta.coordinatesOrder != 'longlat';
 
     /**
      * Создает азимутальную проекцию.
@@ -38,6 +38,8 @@ ymaps.modules.define('projection.Azimuth', [
         this._latRatio = latRatio ? latRatio : 0.71111111111111;
 
         this._offsetAngle = offsetAngle ? offsetAngle : 0;
+
+        this._coordSystem = new CoordSystemCartesian(scale);
     }
 
     defineClass(Azimuth, {
@@ -55,8 +57,8 @@ ymaps.modules.define('projection.Azimuth', [
                 latRatio = this._latRatio,
                 southPole = this._southPole,
                 offsetAngle = this._offsetAngle,
-                longitude = cycleRestrict(point[latLongOrder ? 0 : 1] + offsetAngle, -180, 180),
-                latitude = point[latLongOrder ? 1 : 0],
+                longitude = cycleRestrict(point[latLongOrder ? 1 : 0] + offsetAngle, -180, 180),
+                latitude = point[latLongOrder ? 0 : 1],
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
                 radius = ((southPole ? -90 : 90) - latitude) * Math.pow(2, zoom) * latRatio,
@@ -77,7 +79,7 @@ ymaps.modules.define('projection.Azimuth', [
                 longitude = cycleRestrict(Math.atan2(x - centerX, y - centerY) * 180 / Math.PI + offsetAngle, -180, 180),
                 latitude = 90 - ( Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / (Math.pow(2, zoom) * latRatio)),
                 latitude = (southPole ? -latitude : latitude);
-            return latLongOrder ? [longitude, latitude] : [latitude, longitude];
+            return latLongOrder ? [latitude, longitude] : [longitude, latitude];
         },
 
         isCycled: function () {
