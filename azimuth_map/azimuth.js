@@ -38,8 +38,6 @@ ymaps.modules.define('projection.Azimuth', [
         this._latRatio = latRatio ? latRatio : 0.71111111111111;
 
         this._offsetAngle = offsetAngle ? offsetAngle : 0;
-
-        this._coordSystem = new CoordSystemCartesian(scale);
     }
 
     defineClass(Azimuth, {
