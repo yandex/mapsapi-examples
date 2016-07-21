@@ -22,9 +22,8 @@ ymaps.modules.define('projection.Azimuth', [
      * @param {Number}  [latRatio=0.71111111111111] Количество градусов широты содержащееся в 1 пикселе на 0-м зуме.
      * @param {Number}  [offsetAngle=0] Положительный угол смещения нулевого меридиана на карте по часовой стрелке.
      * @param {Number}  [southPole=false] Cеверный или южный географический полюс, true - если северный.
-     * @param {Number|Number[]} [scale=1] Масштаб одного деления на оси. Может быть числом или парой чисел для каждой из осей.
      */
-    function Azimuth(center, latRatio, offsetAngle, southPole, scale) {
+    function Azimuth(center, latRatio, offsetAngle, southPole) {
         if (ymaps.meta.debug) {
             if (!center[0] || !center[1]) {
                 throw new Error("projection.Azimuth: Некорректные значения параметра center. Координаты центра должны быть заданы.");
