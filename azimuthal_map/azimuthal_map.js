@@ -1,4 +1,4 @@
-ymaps.ready(['projection.Azimuth']).then(function init() {
+ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
 
     var ARCTIC_LAYER_NAME = 'user#arcticLayer',
         ARCTIC_MAP_TYPE_NAME = 'Арктика',
@@ -37,11 +37,11 @@ ymaps.ready(['projection.Azimuth']).then(function init() {
     var map = new ymaps.Map('map', {
         center: [90, 0],
         zoom: 1,
-        controls: ["searchControl"],
+        controls: ["searchControl", "rulerControl"],
         type: ARCTIC_MAP_TYPE_NAME
     }, {
         // Задаем азимутальную проекцию.
-        projection: new ymaps.projection.Azimuth()
+        projection: new ymaps.projection.AzimuthalPolarEquidistant()
     }), regions;
 
     var regionsButton = new ymaps.control.Button({data: {content: 'Добавить регионы'}, options: {selectOnClick: true}});

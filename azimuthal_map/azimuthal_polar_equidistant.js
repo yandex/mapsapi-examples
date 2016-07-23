@@ -1,8 +1,8 @@
-ymaps.modules.define('projection.Azimuth', [
+ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
     'util.defineClass',
     'util.math.cycleRestrict',
-    'coordSystem.Cartesian'
-], function (provide, defineClass, cycleRestrict, CoordSystemCartesian) {
+    'coordSystem.geo'
+], function (provide, defineClass, cycleRestrict, CoordSystemGeo) {
     /**
      * @fileOverview
      * Азимутальная проекция.
@@ -11,11 +11,11 @@ ymaps.modules.define('projection.Azimuth', [
     var latLongOrder = ymaps.meta.coordinatesOrder != 'longlat';
 
     /**
-     * Создает азимутальную проекцию.
+     * Создает полярную азимутальную эквидистантную проекцию.
      * Размер области в пикселях всегда NxN, где N = 256 * 2^zoom.
      *
-     * @name projection.Azimuth
-     * @class Азимутальная проекция.
+     * @name projection.AzimuthalPolarEquidistant
+     * @class Полярная азимутальная эквидистантная проекция.
      * Учитывает параметр coordorder загрузки API.
      * @augments IProjection
      * @param {Object[]} [center=[128, 128]] Массив из пиксельных координат центра карты (северный или южный географический полюс).
@@ -23,10 +23,10 @@ ymaps.modules.define('projection.Azimuth', [
      * @param {Number}  [offsetAngle=0] Положительный угол смещения нулевого меридиана на карте по часовой стрелке.
      * @param {Number}  [southPole=false] Cеверный или южный географический полюс, true - если северный.
      */
-    function Azimuth(center, latRatio, offsetAngle, southPole) {
+    function AzimuthalPolarEquidistant(center, latRatio, offsetAngle, southPole) {
         if (ymaps.meta.debug) {
             if (!center[0] || !center[1]) {
-                throw new Error("projection.Azimuth: Некорректные значения параметра center. Координаты центра должны быть заданы.");
+                throw new Error("projection.AzimuthalPolarEquidistant: Некорректные значения параметра center. Координаты центра должны быть заданы.");
             }
         }
 
@@ -39,14 +39,14 @@ ymaps.modules.define('projection.Azimuth', [
         this._offsetAngle = offsetAngle ? offsetAngle : 0;
     }
 
-    defineClass(Azimuth, {
+    defineClass(AzimuthalPolarEquidistant, {
         toGlobalPixels: function (point, zoom) {
             if (ymaps.meta.debug) {
                 if (!point) {
-                    throw new Error("Azimuth.toGlobalPixels: не передан параметр point");
+                    throw new Error("AzimuthalPolarEquidistant.toGlobalPixels: не передан параметр point");
                 }
                 if (typeof zoom == "undefined") {
-                    throw new Error("Azimuth.toGlobalPixels: не передан параметр zoom");
+                    throw new Error("AzimuthalPolarEquidistant.toGlobalPixels: не передан параметр zoom");
                 }
             }
 
@@ -81,8 +81,12 @@ ymaps.modules.define('projection.Azimuth', [
 
         isCycled: function () {
             return [false, false];
+        },
+
+        getCoordSystem: function () {
+            return CoordSystemGeo;
         }
     });
 
-    provide(Azimuth);
+    provide(AzimuthalPolarEquidistant);
 });
