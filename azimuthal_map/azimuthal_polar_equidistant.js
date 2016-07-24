@@ -32,7 +32,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
 
         this._mapPixelCenter = center ? center : [128, 128];
 
-        this._southPole = southPole ? southPole : false;
+        this._southPole = Boolean(southPole);
 
         this._latRatio = latRatio ? latRatio : 0.71111111111111;
 
