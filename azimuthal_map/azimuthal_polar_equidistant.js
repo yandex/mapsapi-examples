@@ -16,17 +16,17 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
      *
      * @name projection.AzimuthalPolarEquidistant
      * @class Полярная азимутальная эквидистантная проекция.
-     * Учитывает параметр coordorder загрузки API.
+     * Учитывает параметр coordorder, заданный при подключении API.
      * @augments IProjection
-     * @param {Object[]} [center=[128, 128]] Массив из пиксельных координат центра карты (северный или южный географический полюс).
+     * @param {Number[]} [center=[128, 128]] Массив из пиксельных координат центра карты (северный или южный географический полюс).
      * @param {Number}  [latRatio=0.71111111111111] Количество градусов широты, содержащееся в 1 пикселе на 0-м зуме.
      * @param {Number}  [offsetAngle=0] Положительный угол смещения нулевого меридиана на карте по часовой стрелке.
-     * @param {Number}  [southPole=false] Cеверный или южный географический полюс, true - если северный.
+     * @param {Boolean}  [southPole=false] Cеверный или южный географический полюс, true - если северный.
      */
     function AzimuthalPolarEquidistant(center, latRatio, offsetAngle, southPole) {
         if (ymaps.meta.debug) {
             if (!center[0] || !center[1]) {
-                throw new Error("projection.AzimuthalPolarEquidistant: Некорректные значения параметра center. Координаты центра должны быть заданы.");
+                throw new Error("projection.AzimuthalPolarEquidistant: Некорректные значения параметра center.");
             }
         }
 
