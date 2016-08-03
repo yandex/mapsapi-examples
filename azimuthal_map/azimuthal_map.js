@@ -9,9 +9,9 @@ ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
          */
         ArcticLayer = function () {
             var layer = new ymaps.Layer(ARCTIC_TILES_PATH + '/%z/tile-%x-%y.jpg', {
-                // Если тайл не загрузился, показываем это изображение.
-                notFoundTile: ARCTIC_TILES_PATH + '/3/tile-0-0.jpg'
-            });
+                    // Если тайл не загрузился, показываем это изображение.
+                    notFoundTile: ARCTIC_TILES_PATH + '/3/tile-0-0.jpg'
+                });
             // Указываем доступный диапазон масштабов для данного слоя.
             layer.getZoomRange = function () {
                 return ymaps.vow.resolve([0, 3]);
@@ -35,14 +35,14 @@ ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
      * Создаем карту, указав свой новый тип карты.
      */
     var map = new ymaps.Map('map', {
-        center: [90, 0],
-        zoom: 1,
-        controls: ["searchControl", "rulerControl"],
-        type: ARCTIC_MAP_TYPE_NAME
-    }, {
-        // Задаем азимутальную проекцию.
-        projection: new ymaps.projection.AzimuthalPolarEquidistant()
-    }), regions;
+            center: [90, 0],
+            zoom: 1,
+            controls: ["searchControl", "rulerControl"],
+            type: ARCTIC_MAP_TYPE_NAME
+        }, {
+            // Задаем азимутальную проекцию.
+            projection: new ymaps.projection.AzimuthalPolarEquidistant()
+        }), regions;
 
     var regionsButton = new ymaps.control.Button({data: {content: 'Добавить регионы'}, options: {selectOnClick: true}});
     regionsButton.events
@@ -54,11 +54,10 @@ ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
         });
 
     ymaps.regions.load('001', {
-        lang: 'ru'
-    }).then(function (result) {
-        regions = result;
-        map.controls.add(regionsButton);
-        regionsButton.options.set('maxWidth', 150);
-    });
-
+            lang: 'ru'
+        }).then(function (result) {
+            regions = result;
+            map.controls.add(regionsButton);
+            regionsButton.options.set('maxWidth', 150);
+        });
 });
