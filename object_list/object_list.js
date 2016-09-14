@@ -26,7 +26,6 @@ function init() {
 
         // Добавляем коллекцию на карту.
         myMap.geoObjects.add(collection);
-
         // Добавляем подменю.
         menuItem
             .append(submenu)
@@ -34,12 +33,14 @@ function init() {
             .appendTo(menu)
             // По клику удаляем/добавляем коллекцию на карту и скрываем/отображаем подменю.
             .find('a')
-            .toggle(function () {
-                myMap.geoObjects.remove(collection);
-                submenu.hide();
-            }, function () {
-                myMap.geoObjects.add(collection);
-                submenu.show();
+            .bind('click', function () {
+                if (collection.getParent()) {
+                    myMap.geoObjects.remove(collection);
+                    submenu.hide();
+                } else {
+                    myMap.geoObjects.add(collection);
+                    submenu.show();
+                }
             });
         for (var j = 0, m = group.items.length; j < m; j++) {
             createSubMenu(group.items[j], collection, submenu);
@@ -59,10 +60,13 @@ function init() {
             .appendTo(submenu)
             // При клике по пункту подменю открываем/закрываем баллун у метки.
             .find('a')
-            .toggle(function () {
-                placemark.balloon.open();
-            }, function () {
-                placemark.balloon.close();
+            .bind('click', function () {
+                if (!placemark.balloon.isOpen()) {
+                    placemark.balloon.open();
+                } else {
+                    placemark.balloon.close();
+                }
+                return false;
             });
     }
 
