@@ -5,6 +5,7 @@ ymaps.ready(function () {
         return;
     }
     // Информация о панораме.
+    // Панорама имеет неполный угол обзора по вертикали.
     var angularBBox = [0.35, 8 * Math.PI/3, -0.61, 2 * Math.PI/3],
         position = [0, 0, 0],
         tileSize = [512, 512],
@@ -143,6 +144,7 @@ ymaps.ready(function () {
 
     // Отображаем панораму на странице.
     var player = new ymaps.panorama.Player('player', panorama, {
-        direction: [290, 30]
-    });
+            direction: [290, 0],
+            span: [50, 50]
+        });
 })
