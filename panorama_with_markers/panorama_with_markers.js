@@ -13,7 +13,7 @@ ymaps.ready(function () {
             tileLevels: [{
                 // URL тайлов для высокого уровня детализации.
                 getTileUrl: function (x, y) {
-                    return '/tiles/hq/' + x + '-' + y + '.jpg';
+                    return 'tiles/hq/' + x + '-' + y + '.jpg';
                 },
                 // Размер изображения для высокого уровня детализации.
                 getImageSize: function () {
@@ -22,7 +22,7 @@ ymaps.ready(function () {
             }, {
                 // URL тайлов для низкого уровня детализации.
                 getTileUrl: function (x, y) {
-                    return '/tiles/lq/' + x + '-' + y + '.jpg';
+                    return 'tiles/lq/' + x + '-' + y + '.jpg';
                 },
                 // Размер изображения для низкого уровня детализации.
                 getImageSize: function () {
@@ -35,8 +35,8 @@ ymaps.ready(function () {
         // информация о маркере.
         markerData = {
             src: {
-                'default': '/images/marker-default.png',
-                hovered: '/images/marker-hovered.png'
+                'default': 'images/marker-default.png',
+                hovered: 'images/marker-hovered.png'
             },
             position: [-2.3, -7, 0.5]
         };
