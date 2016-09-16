@@ -4,30 +4,32 @@ ymaps.ready(function () {
         // Если нет, то ничего не будем делать.
         return;
     }
-    // Информация о панораме.
+    // Создаем объект, содержащий данные панорамы.
     // Панорама имеет неполный угол обзора по вертикали.
-    var angularBBox = [0.35, 8 * Math.PI/3, -0.61, 2 * Math.PI/3],
-        position = [0, 0, 0],
-        tileSize = [512, 512],
-        tileLevels = [{
-            // URL тайлов для высокого уровня детализации.
-            getTileUrl: function (x, y) {
-                return '/tiles/hq/' + x + '-' + y + '.jpg';
-            },
-            // Размер изображения для высокого уровня детализации.
-            getImageSize: function () {
-                return [10752, 1658];
-            }
-        }, {
-            // URL тайлов для низкого уровня детализации.
-            getTileUrl: function (x, y) {
-                return '/tiles/lq/' + x + '-' + y + '.jpg';
-            },
-            // Размер изображения для низкого уровня детализации.
-            getImageSize: function () {
-                return [1024, 158];
-            }
-        }],
+    var panoData = {
+            angularBBox: [0.35, 8 * Math.PI/3, -0.61, 2 * Math.PI/3],
+            position: [0, 0, 0],
+            tileSize: [512, 512],
+            tileLevels: [{
+                // URL тайлов для высокого уровня детализации.
+                getTileUrl: function (x, y) {
+                    return '/tiles/hq/' + x + '-' + y + '.jpg';
+                },
+                // Размер изображения для высокого уровня детализации.
+                getImageSize: function () {
+                    return [10752, 1658];
+                }
+            }, {
+                // URL тайлов для низкого уровня детализации.
+                getTileUrl: function (x, y) {
+                    return '/tiles/lq/' + x + '-' + y + '.jpg';
+                },
+                // Размер изображения для низкого уровня детализации.
+                getImageSize: function () {
+                    return [1024, 158];
+                }
+            }]
+        },
 
         // Создаем объект, в котором будет храниться
         // информация о маркере.
@@ -36,7 +38,7 @@ ymaps.ready(function () {
                 'default': '/images/marker-default.png',
                 hovered: '/images/marker-hovered.png'
             },
-            position: [3, -11, 0.9]
+            position: [-2.3, -7, 0.5]
         };
 
     // Функция возвращает Promise-объект, который будет разрешен
@@ -57,10 +59,10 @@ ymaps.ready(function () {
         var ctx = document.createElement('canvas').getContext('2d');
         ctx.canvas.width = 128;
         ctx.canvas.height = 32;
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '#333333';
         ctx.fillRect(0, 0, 128, 32);
-        ctx.fillStyle = 'black';
-        ctx.font = '24px Arial';
+        ctx.fillStyle = 'white';
+        ctx.font = '12px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(text, 64, 16);
@@ -93,8 +95,8 @@ ymaps.ready(function () {
                         offset: [0, 0]
                     },
                     expanded: {
-                        image: renderImage("JavaScript"),
-                        offset: [0, 0]
+                        image: renderImage("Книги по JavaScript"),
+                        offset: [0, -10]
                     }
                 };
             });
@@ -140,11 +142,11 @@ ymaps.ready(function () {
         }
     });
 
-    var panorama = new MyPanorama(angularBBox, position, tileSize, tileLevels);
+    var panorama = new MyPanorama(panoData.angularBBox, panoData.position, panoData.tileSize, panoData.tileLevels);
 
     // Отображаем панораму на странице.
     var player = new ymaps.panorama.Player('player', panorama, {
-            direction: [290, 0],
-            span: [50, 50]
-        });
+        direction: [240, 0],
+        span: [50, 50]
+    });
 })
