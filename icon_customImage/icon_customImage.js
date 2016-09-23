@@ -18,7 +18,7 @@ ymaps.ready(function () {
             iconImageSize: [30, 42],
             // Смещение левого верхнего угла иконки относительно
             // её "ножки" (точки привязки).
-            iconImageOffset: [-3, -42]
+            iconImageOffset: [-5, -38]
         });
 
     myMap.geoObjects.add(myPlacemark);
