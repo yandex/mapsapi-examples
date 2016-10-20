@@ -70,6 +70,9 @@ ymaps.ready(function () {
             thoroughfares: [{
                 panoID: 'firstPano',
                 direction: [90, 0]
+            }, {
+                panoID: 'secondPano',
+                direction: [45, 0]
             }],
             markerConnections: []
         },
@@ -109,10 +112,10 @@ ymaps.ready(function () {
 
     ymaps.util.defineClass(Thoroughfare, {
         getConnectedPanorama: function () {
-            // Если переход будет осуществляется на пользовательскую панораму,
-            // то создаем объект MyPanorama.
-            // Если нужно перейти на Яндекс.Панораму, то воспользуемся
-            // функцией ymaps.panorama.locate.
+            // Если переход будет осуществляться на пользовательскую панораму,
+            // то создаем объект панорамы MyPanorama.
+            // Если нужно перейти на Яндекс.Панораму, то для получения объекта
+            // панорамы воспользуемся функцией ymaps.panorama.locate.
             if (this._connectedPanorama.type == 'custom') {
                 return ymaps.vow.resolve(new MyPanorama(this._connectedPanorama));
             } else if (this._connectedPanorama.type == 'yandex') {
@@ -120,6 +123,8 @@ ymaps.ready(function () {
                     function(panoramas) {
                         if (panoramas.length) {
                             return panoramas[0];
+                        }  else {
+                            return ymaps.vow.reject(new Error('Панорама не нашлась.'));
                         }
                     }
                 );
@@ -181,6 +186,8 @@ ymaps.ready(function () {
                     function(panoramas) {
                         if (panoramas.length) {
                             return panoramas[0];
+                        } else {
+                            return ymaps.vow.reject(new Error('Панорама не нашлась.'));
                         }
                     }
                 );
@@ -196,7 +203,7 @@ ymaps.ready(function () {
         this._tileSize = obj.tileSize;
         this._tileLevels = obj.tileLevels;
         // Получаем массив экземпляров класса, описывающего переход по стрелке из
-        // одной панораму на другую.
+        // одной панорамы на другую.
         this._thoroughfares = obj.thoroughfares.map(function (thoroughfare) {
             return new Thoroughfare(
                 this, // Текущая панорама.
