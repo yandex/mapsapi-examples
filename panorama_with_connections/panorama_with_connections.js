@@ -42,7 +42,7 @@ ymaps.ready(function () {
                     'default': 'images/marker-default.jpg',
                     hovered: 'images/marker-hovered.jpg'
                 },
-                iconPosition: [6, 1.5, 1.3]
+                iconPosition: [0.5, 1.5, 0.3]
             }]
         },
         // Данные второй панорамы.
