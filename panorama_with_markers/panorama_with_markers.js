@@ -38,7 +38,7 @@ ymaps.ready(function () {
                 'default': 'images/marker-default.png',
                 hovered: 'images/marker-hovered.png'
             },
-            position: [-2.3, -7, 0.5]
+            position: [-2, -0.8, 0.2]
         };
 
     // Функция возвращает Promise-объект, который будет разрешен
