@@ -150,6 +150,7 @@
         "Вставка на страницу панорам Яндекса": "panorama_basics",
         "Создание своей панорамы": "panorama_custom",
         "Добавление маркеров на панораму": "panorama_with_markers",
-        "Создание переходов между своими панорамами": "panorama_with_connections"
+        "Создание переходов между своими панорамами": "panorama_with_connections",
+        "Отображение панорамы в балуне": "panorama_in_balloon"
     }
 }
