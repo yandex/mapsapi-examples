@@ -11,105 +11,130 @@ ymaps.ready(function () {
             controls: []
         }),
 
+        // При клике на метке будет открываться балун,
+        // содержащий Яндекс.Панораму в текущей географической точке.
+        myPlacemark1 = new ymaps.Placemark([59.938557, 30.316198], {
+            // Для данной метки нужно будет открыть воздушную панораму.
+            panoLayer: 'yandex#airPanorama'
+        }, {
+            preset: 'islands#redIcon',
+            openEmptyBalloon: true
+        }),
+
+        myPlacemark2 = new ymaps.Placemark([59.900557, 30.44319], {
+            // Для этой метки будем запрашивать наземную панораму.
+            panoLayer: 'yandex#panorama'
+        }, {
+            preset: 'islands#nightIcon',
+            openEmptyBalloon: true
+        });
+
+    // Функция, устанавливающая для метки макет содержимого ее балуна.
+    function setBalloonContentLayout (placemark, panorama) {
         // Создание макета содержимого балуна.
-        BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-            // Будем динамически задавать размеры контейнера в зависимости от того,
-            // будет ли найдена панорама для текущей точки или нет.
-            '<div id="panorama" style="width:{{state.size.width}};height:{{state.size.height}}"/>', {
+        var BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div id="panorama" style="width:250px;height:150px"/>', {
+                // Переопределяем функцию build, чтобы при формировании макета
+                // создавать в нем плеер панорам.
                 build: function () {
                     // Сначала вызываем метод build родительского класса.
                     BalloonContentLayout.superclass.build.call(this);
                     // Добавляем плеер панорам в содержимое балуна.
-                    this._createPanoramaPlayer();
+                    this._openPanorama();
                 },
-                // При закрытии балуна будем удалять плеер панорам.
+                // Аналогично переопределяем функцию clear, чтобы удалять
+                // плеер панорам при удалении макета с карты.
                 clear: function () {
                     this._destroyPanoramaPlayer();
                     BalloonContentLayout.superclass.clear.call(this);
                 },
-                // Создание плеера панорам.
-                _createPanoramaPlayer: function () {
-                    // Будем запрашивать данные для текущей панорамы в том случае,
-                    // если ранее еще не делали этого.
-                    // Это условие необходимо для того, чтобы после перестроения макета
-                    // не запрашивать повторно данные для одной и той же панорамы.
-                    if (!this._checkedForPanorama) {
-                        // Координаты точки, в которой нужно открыть панораму.
-                        var coords = this.getData().geometry.getCoordinates(),
-                            // Тип панорамы: воздушная или наземная.
-                            panoramaType = this.getData().properties.get('panoramaType'),
-                            el;
-                        ymaps.panorama.locate(coords, {
-                            layer: panoramaType
-                        }).then(
-                            function (panoramas) {
-                                // Выставляем флаг, что мы уже сделали запрос за данной панорамой.
-                                this._checkedForPanorama = true;
-                                if (panoramas.length) {
-                                    // Задаем размеры контейнера, в котором будет размещаться наша панорама.
-                                    // Обратите внимание, что после этого макет балуна
-                                    // будет перестроен.
-                                    this._setPanoramaContainerSize("300px", "200px");
-                                    // Получаем контейнер с новыми размерами.
-                                    el = this.getParentElement().querySelector('#panorama');
-                                    // Добавляем плеер панорам в контейнер.
-                                    this._panoramaPlayer = new ymaps.panorama.Player(el, panoramas[0], {
-                                        controls: ['panoramaName']
-                                    });
-                                } else {
-                                    // Если панорама не была найдена, то задаем меньший размер
-                                    // для контейнера и отображаем в нем простой текст.
-                                    this._setPanoramaContainerSize("100px", "50px");
-                                    el = this.getParentElement().querySelector('#panorama');
-                                    el.innerHTML = "Для данной точки панорамы нет.";
-                                }
-                            },
-                            function (err) {
-                                // Если при попытке получить панораму возникла ошибка,
-                                // отобразим сообщение об ошибке в балуне.
-                                this._checkedForPanorama = true;
-                                this._setPanoramaContainerSize("300px", "100px");
-                                el = this.getParentElement().querySelector('#panorama');
-                                el.innerHTML = err.toString();
-                            },
-                            this
-                        );
+                // Добавление плеера панорам.
+                _openPanorama: function () {
+                    if (!this._panoramaPlayer) {
+                        // Получаем контейнер, в котором будет размещаться наша панорама.
+                        var el = this.getParentElement().querySelector('#panorama');
+                        this._panoramaPlayer = new ymaps.panorama.Player(el, panorama, {
+                            controls: ['panoramaName']
+                        });
                     }
                 },
-                // Удаление плеера панорам.
+                // Удаление плеера панорамы.
                 _destroyPanoramaPlayer: function () {
                     if (this._panoramaPlayer) {
                         this._panoramaPlayer.destroy();
                         this._panoramaPlayer = null;
-                        this._checkedForPanorama = false;
                     }
-                },
-                // Задание размеров контейнера с панорамой.
-                _setPanoramaContainerSize: function (width, height) {
-                    this.getData().state.set({
-                        size: {
-                            width: width,
-                            height: height
-                        }
-                    });
                 }
-            }
-        ),
+            });
+        // Устанавливаем созданный макет в опции метки.
+        placemark.options.set('balloonContentLayout', BalloonContentLayout);
+    }
 
-        myPlacemark1 = new ymaps.Placemark([59.938557, 30.316198], {
-            // Для данной метки нужно будет открыть воздушную панораму.
-            panoramaType: 'yandex#airPanorama'
-        }, {
-            balloonContentLayout: BalloonContentLayout,
-            preset: 'islands#redIcon'
-        }),
-        myPlacemark2 = new ymaps.Placemark([59.900557, 30.44319], {
-            // Для этой метки будем запрашивать наземную панораму.
-            panoramaType: 'yandex#panorama'
-        }, {
-            balloonContentLayout: BalloonContentLayout
-        });
+    // В этой функции выполняем проверку на наличие панорамы в данной точке.
+    // Если панорама нашлась, то устанавливаем для балуна макет с этой панорамой,
+    // в противном случае задаем для балуна простое текстовое содержимое.
+    function requestForPanorama (e) {
+        var placemark = e.get('target'),
+            // Координаты точки, для которой будем запрашивать панораму.
+            coords = placemark.geometry.getCoordinates(),
+            // Тип панорамы (воздушная или наземная).
+            panoLayer = placemark.properties.get('panoLayer');
+
+        placemark.properties.set('balloonContent', "Идет проверка на наличие панорамы...");
+
+        // Запрашиваем объект панорамы.
+        ymaps.panorama.locate(coords, {
+            layer: panoLayer
+        }).then(
+            function (panoramas) {
+                if (panoramas.length) {
+                    // Устанавливаем для балуна макет, содержащий найденную панораму.
+                    setBalloonContentLayout(placemark, panoramas[0]);
+                } else {
+                    // Если панорам не нашлось, задаем
+                    // в содержимом балуна простой текст.
+                    placemark.properties.set('balloonContent', "Для данной точки панорамы нет.");
+                }
+            },
+            function (err) {
+                placemark.properties.set('balloonContent',
+                    "При попытке открыть панораму произошла ошибка: " + err.toString());
+            }
+        );
+    }
+
+    // Слушаем на метках событие 'balloonopen': как только балун будет впервые открыт,
+    // выполняем проверку на наличие панорамы в данной точке и в случае успеха создаем
+    // макет с найденной панорамой.
+    // Событие открытия балуна будем слушать только один раз.
+    myPlacemark1.events.once('balloonopen', requestForPanorama);
+    myPlacemark2.events.once('balloonopen', requestForPanorama);
 
     myMap.geoObjects.add(myPlacemark1);
     myMap.geoObjects.add(myPlacemark2);
+
+
+    // Если для меток будет включена опция 'draggable', то чтобы при перетаскивании
+    // метки в балуне отображалась панорама для новой точки, раскомментируйте код ниже:
+
+    /*
+     function onDragEnd (e) {
+     var placemark = e.get('target');
+     // Как только пользователь передвинул метку в другую точку,
+     // удаляем заданный ранее макет балуна.
+     placemark.options.unset('balloonContentLayout');
+     // Также удалим текстовое содержимое балуна.
+     placemark.properties.unset('balloonContent');
+
+     // Снова подписываемся на событие открытия балуна.
+     // Это событие будем слушать только один раз.
+     placemark.events.once('balloonopen', requestForPanorama);
+     }
+
+     // Слушаем на метках событие 'dragend'. При наступлении этого события
+     // будем удалять макет балуна со старой панорамой, после чего выполнять
+     // проверку на наличие панорамы в новой точке.
+     myPlacemark1.events.add('dragend', onDragEnd);
+     myPlacemark2.events.add('dragend', onDragEnd);
+     */
 });
