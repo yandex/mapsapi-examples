@@ -18,7 +18,8 @@ ymaps.ready(function () {
             panoLayer: 'yandex#airPanorama'
         }, {
             preset: 'islands#redIcon',
-            openEmptyBalloon: true
+            openEmptyBalloon: true,
+            balloonPanelMaxMapArea: 0
         }),
 
         myPlacemark2 = new ymaps.Placemark([59.900557, 30.44319], {
@@ -26,7 +27,8 @@ ymaps.ready(function () {
             panoLayer: 'yandex#panorama'
         }, {
             preset: 'islands#nightIcon',
-            openEmptyBalloon: true
+            openEmptyBalloon: true,
+            balloonPanelMaxMapArea: 0
         });
 
     // Функция, устанавливающая для метки макет содержимого ее балуна.
