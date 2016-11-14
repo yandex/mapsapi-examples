@@ -121,16 +121,16 @@ ymaps.ready(function () {
 
     /*
      function onDragEnd (e) {
-     var placemark = e.get('target');
-     // Как только пользователь передвинул метку в другую точку,
-     // удаляем заданный ранее макет балуна.
-     placemark.options.unset('balloonContentLayout');
-     // Также удалим текстовое содержимое балуна.
-     placemark.properties.unset('balloonContent');
+         var placemark = e.get('target');
+         // Как только пользователь передвинул метку в другую точку,
+         // удаляем заданный ранее макет балуна.
+         placemark.options.unset('balloonContentLayout');
+         // Также удалим текстовое содержимое балуна.
+         placemark.properties.unset('balloonContent');
 
-     // Снова подписываемся на событие открытия балуна.
-     // Это событие будем слушать только один раз.
-     placemark.events.once('balloonopen', requestForPanorama);
+         // Снова подписываемся на событие открытия балуна.
+         // Это событие будем слушать только один раз.
+         placemark.events.once('balloonopen', requestForPanorama);
      }
 
      // Слушаем на метках событие 'dragend'. При наступлении этого события
