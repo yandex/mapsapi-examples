@@ -1,0 +1,16 @@
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Clusterer"/>,
+    <sa href="Placemark"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="layout.PieChart"/>
+</div>
+<p>
+    Макет в виде круговой диаграммы <sa href="layout.PieChart"/>. Доступен в хранилище макетов под ключом 'default#pieChart'.
+    Макет может использоваться как инструмент визуализации произвольных данных, так и в связке с другими визуальными компонентами API, такими как метки, кластеризатор, менеджер объектов.
+</p>
+<p>
+    Макет может строиться на основе <a href="/maps/doc/jsapi/2.1/dg/concepts/layout.PieChart.xml#param-data.properties.data">статистических данных</a>, которые должны представлять собой массив JSON-объектов с полями weight и color (вес и цвет сектора) либо функцию, возвращающую такой массив, (см. <a href="http://tech.yandex.ru/maps/jsbox/2.1/placemark">пример "Метка"</a>).
+    При отсутствии properties.data макет проходит по всем <a href="/maps/doc/jsapi/2.1/dg/concepts/layout.PieChart.xml#param-data.properties.geoObjects">геообъектам</a>, определяет значение опции iconColor каждого объекта и на основе этих данных строит диаграмму.
+</p>
