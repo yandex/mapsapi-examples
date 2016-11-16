@@ -39,7 +39,7 @@ function init() {
             ],
             iconCaption: "Диаграмма"
         }, {
-            // Также можно переопределить опции макета с префиксом icon.
+            // Зададим произвольный макет метки.
             iconLayout: 'default#pieChart',
             // Радиус диаграммы в пикселях.
             iconPieChartRadius: 30,
