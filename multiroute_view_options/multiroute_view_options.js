@@ -38,7 +38,7 @@ function init () {
         pinActiveIconFillColor: "#E63E92",
         // Позволяет скрыть точечные маркеры путевых точек.
         // pinVisible:false,
-        
+
         // Внешний вид линии маршрута.
         routeStrokeWidth: 2,
         routeStrokeColor: "#000088",
@@ -52,18 +52,18 @@ function init () {
         // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
         boundsAutoApply: true
     });
-    
+
     // Настраиваем внешний вид второй точки через прямой доступ к ней.
     customizeSecondPoint();
 
     // Создаем кнопки.
     var removePointsButton = new ymaps.control.Button({
-        data: { content: "Удалить промежуточные точки"},
-        options: { selectOnClick: true }
+            data: {content: "Удалить промежуточные точки"},
+            options: {selectOnClick: true}
         }),
         routingModeButton = new ymaps.control.Button({
-            data: { content: "Тип маршрута"},
-            options: { selectOnClick: true }
+            data: {content: "Тип маршрута"},
+            options: {selectOnClick: true}
         });
 
     // Объявляем обработчики для кнопок.
