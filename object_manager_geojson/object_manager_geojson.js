@@ -14,7 +14,7 @@ ymaps.ready(function () {
             geoJson.features.forEach(function(obj){
                 // Задаём контент балуна.
                 obj.properties.balloonContent = obj.properties.name;
-                // Задаём пресет для меток с полем iconCaption
+                // Задаём пресет для меток с полем iconCaption.
                 if(obj.properties.iconCaption){
                     obj.options = {
                         preset: "islands#greenDotIconWithCaption"
