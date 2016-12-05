@@ -44,6 +44,11 @@ function init () {
         routeStrokeColor: "#000088",
         routeActiveStrokeWidth: 6,
         routeActiveStrokeColor: "#E63E92",
+
+        // Внешний вид линии пешеходного маршрута.
+        routeActivePedestrianSegmentStrokeStyle: "solid",
+        routeActivePedestrianSegmentStrokeColor: "#00CDCD",
+
         // Автоматически устанавливать границы карты так, чтобы маршрут был виден целиком.
         boundsAutoApply: true
     });
@@ -51,13 +56,17 @@ function init () {
     // Настраиваем внешний вид второй точки через прямой доступ к ней.
     customizeSecondPoint();
 
-    // Создаем кнопку.
+    // Создаем кнопки.
     var removePointsButton = new ymaps.control.Button({
         data: { content: "Удалить промежуточные точки"},
         options: { selectOnClick: true }
-    });
+        }),
+        routingModeButton = new ymaps.control.Button({
+            data: { content: "Тип маршрута"},
+            options: { selectOnClick: true }
+        });
 
-    // Объявляем обработчики для кнопки.
+    // Объявляем обработчики для кнопок.
     removePointsButton.events.add('select', function () {
         multiRoute.model.setReferencePoints([
             referencePoints[0],
@@ -69,6 +78,14 @@ function init () {
         multiRoute.model.setReferencePoints(referencePoints, viaIndexes);
         // Т.к. вторая точка была удалена, нужно заново ее настроить.
         customizeSecondPoint();
+    });
+
+    routingModeButton.events.add('select', function () {
+        multiRoute.model.setParams({routingMode: 'pedestrian'}, true);
+    });
+
+    routingModeButton.events.add('deselect', function () {
+        multiRoute.model.setParams({routingMode: 'auto'}, true);
     });
 
     // Функция настройки внешнего вида второй точки.
@@ -97,7 +114,7 @@ function init () {
     var myMap = new ymaps.Map('map', {
         center: [55.739625, 37.54120],
         zoom: 7,
-        controls: [removePointsButton]
+        controls: [removePointsButton, routingModeButton]
     }, {
         buttonMaxWidth: 300
     });
