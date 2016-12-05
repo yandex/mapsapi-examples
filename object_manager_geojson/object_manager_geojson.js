@@ -1,8 +1,8 @@
 ymaps.ready(function () {
 
     var map = new ymaps.Map('map', {
-        center: [29.702651, 59.99467],
-        zoom: 10,
+        center: [29.902651, 60.02],
+        zoom: 11,
         controls: ['zoomControl']
     }),
         objectManager = new ymaps.ObjectManager();
