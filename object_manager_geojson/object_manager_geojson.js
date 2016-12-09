@@ -7,7 +7,7 @@ ymaps.ready(function () {
         }),
         objectManager = new ymaps.ObjectManager();
 
-    // Загружаем GeoJSON файл экспортированный из Конструктора карт.
+    // Загружаем GeoJSON файл, экспортированный из Конструктора карт.
     $.getJSON('geoObjects.geojson')
         .done(function (geoJson) {
 
