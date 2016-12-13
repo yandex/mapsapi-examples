@@ -1,4 +1,4 @@
-function init () {
+function init() {
     // Объявляем набор опорных точек, и массив индексов транзитных точек.
     var referencePoints = [
             "Москва, Ленинский проспект",
@@ -11,7 +11,7 @@ function init () {
     // Создаем мультимаршрут и настраиваем его внешний вид с помощью опций.
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: referencePoints,
-        params: { viaIndexes: viaIndexes }
+        params: {viaIndexes: viaIndexes}
     }, {
         // Внешний вид путевых точек.
         wayPointStartIconColor: "#000000",
@@ -89,7 +89,7 @@ function init () {
     });
 
     // Функция настройки внешнего вида второй точки.
-    function customizeSecondPoint () {
+    function customizeSecondPoint() {
         /**
          * Ждем пока будут загружены данные мультимаршрута и созданы отображения путевых точек.
          * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel-docpage/#event-requestsuccess
@@ -112,12 +112,12 @@ function init () {
 
     // Создаем карту с добавленной на нее кнопкой.
     var myMap = new ymaps.Map('map', {
-        center: [55.739625, 37.54120],
-        zoom: 7,
-        controls: [removePointsButton, routingModeButton]
-    }, {
-        buttonMaxWidth: 300
-    });
+            center: [55.739625, 37.54120],
+            zoom: 7,
+            controls: [removePointsButton, routingModeButton]
+        }, {
+            buttonMaxWidth: 300
+        });
 
     // Добавляем мультимаршрут на карту.
     myMap.geoObjects.add(multiRoute);

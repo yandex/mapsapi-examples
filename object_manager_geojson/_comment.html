@@ -2,13 +2,13 @@
     <sa href="ObjectManager"/>
 </div>
 <p>
-    В примере показано, как произвести загрузку данных, экспортированных из <a href="https://yandex.ru/map-constructor/">Конструктора карт</a>, с помощью функции <a href="https://api.jquery.com/jquery.getjson/">JQuery.getJSON()</a> и отобразить
-    их на карте с помощью <sa href="ObjectManager"/>.
+    В примере показано, как с помощью <sa href="ObjectManager"/> отобразить на карте данные, экспортированные из <a href="https://yandex.ru/map-constructor/">Конструктора карт</a>.
+    Для загрузки данных используется функция <a href="https://api.jquery.com/jquery.getjson/">JQuery.getJSON()</a>. Как только данные будут загружены, зададим для них нужные свойства (например, контент балуна) и затем добавим их в менеджер объектов.
 </p>
 <p>
     Подробнее об экспорте вы можете почитать в <a href="https://yandex.ru/support/maps-builder/concept/markers_3.xml">документации</a>.
 </p>
 <p>
     Обратите внимание, что координаты объектов заданы в последовательности "долгота, широта". Поскольку по умолчанию в API принят порядок
-    "широта, долгота", необходимо при подключении API передать параметр coordorder со значением longlat. Подробнее см. в разделе <a href="http://api.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load.xml#param">Подключение API</a>.
+    "широта, долгота", необходимо при подключении API передать параметр coordorder со значением longlat. Подробнее см. в разделе <a href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/#param">Подключение API</a>.
 </p>
