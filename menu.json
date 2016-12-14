@@ -63,13 +63,14 @@
     "Кластеризация": {
         "Создание кластеризатора": "clusterer_create",
         "Создание кластеризатора с произвольными иконками": "clusterer_custom_icon",
-        " Изменение цвета кластеров и меток при наведении": "clusterer_icon_hover",
+        "Изменение цвета кластеров и меток при наведении": "clusterer_icon_hover",
         "Открытие балуна кластера с выбранным объектом": "clusterer_balloon_open",
         "Изменение размера ячейки кластеризатора": "clusterer_gridSize",
         "Макета балуна кластера \"Две колонки\"": "cluster_balloon_twoColumns",
         "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion",
         "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel",
-        "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout"
+        "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout",
+        "Макет в виде круговой диаграммы": "clusterer_pie_chart"
     },
     "GeoQuery": {
         "Попадание точек в окружность": "placemarks_in_circle",
@@ -132,7 +133,7 @@
         "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
     },
     "GeoXML": {
-        "Отображение YMapsML и KML": "geoxml_display"
+        "Отображение GPX и KML": "geoxml_display"
     },
     "ObjectManager": {
         "Добавление объектов на карту через ObjectManager": "object_manager",
@@ -140,7 +141,8 @@
         "Открытие балуна на метке в ObjectManager": "object_manager_balloon",
         "Загрузка данных для балуна метки по требованию": "object_manager_balloon_async",
         "Добавление на карту объектов с разной геометрией": "object_manager_spatial",
-        "Добавление в ObjectManager меток с разнообразными опциями и данными": "object_manager_options"
+        "Добавление в ObjectManager меток с разнообразными опциями и данными": "object_manager_options",
+        "Добавление на карту GeoJSON файла из Конструктора карт": "object_manager_geojson"
     },
     "Модульная система": {
         "Загрузка определенных модулей при инициализации": "load_modules",
