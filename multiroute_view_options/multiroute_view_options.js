@@ -1,5 +1,5 @@
 function init() {
-    // Объявляем набор опорных точек, и массив индексов транзитных точек.
+    // Объявляем набор опорных точек и массив индексов транзитных точек.
     var referencePoints = [
             "Москва, Ленинский проспект",
             "Москва, Льва Толстого, 16",
@@ -91,7 +91,7 @@ function init() {
     // Функция настройки внешнего вида второй точки.
     function customizeSecondPoint() {
         /**
-         * Ждем пока будут загружены данные мультимаршрута и созданы отображения путевых точек.
+         * Ждем, пока будут загружены данные мультимаршрута и созданы отображения путевых точек.
          * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel-docpage/#event-requestsuccess
          */
         multiRoute.model.events.once("requestsuccess", function () {
