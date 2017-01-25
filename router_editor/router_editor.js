@@ -41,7 +41,7 @@ function init() {
         });
         route.editor.events.add(["waypointadd", "waypointremove", "start"], function () {
             if (route.getWayPoints().getLength() >= 10) {
-                // Выключаем добавление новых точек.
+                // Если на карте больше 9 точек маршрута, отключаем добавление новых точек.
                 route.editor.start({addWayPoints: false, removeWayPoints: true});
             }
             else {

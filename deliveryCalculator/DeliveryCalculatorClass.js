@@ -63,11 +63,11 @@ ymaps.modules.define(
 
             /**
              * Задаём точку маршрута.
-             * Точку маршрута можно задать координатами, адресом или координатами с адресом.
+             * Точку маршрута можно задать координатами или координатами с адресом.
              * Если точка маршрута задана координатами с адресом, то адрес становится контентом балуна.
              * @param {String} pointType Тип точки: 'start' - начальная, 'finish' - конечная.
              * @param {Number[]} position Координаты точки.
-             * @param {String} address Контент балуна.
+             * @param {String} address Адрес.
              */
             setPoint: function (pointType, position, address) {
                 if (!this._startPoint || !this._finishPoint) {
@@ -145,7 +145,7 @@ ymaps.modules.define(
                             }
 
                         }, function (err) {
-                            //При невозможности построить маршрут, открываем балун с предупреждением.
+                            // Если через заданные точки невозможно проложить маршрут, откроется балун с предупреждением.
                             this._finishPoint.properties.set('balloonContentBody', "Невозможно построить маршрут");
                             this._finishPoint.balloon.open();
                             this._finishPoint.balloon.autoPan();
