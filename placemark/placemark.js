@@ -33,9 +33,9 @@ function init() {
         ], {
             // Данные для построения диаграммы.
             data: [
-                {weight: 8, color: '#224080'},
-                {weight: 6, color: '#408022'},
-                {weight: 4, color: '#802240'}
+                {weight: 8, color: '#0E4779'},
+                {weight: 6, color: '#1E98FF'},
+                {weight: 4, color: '#82CDFF'}
             ],
             iconCaption: "Диаграмма"
         }, {
