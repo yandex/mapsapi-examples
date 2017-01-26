@@ -123,8 +123,9 @@ ymaps.modules.define(
                     ymaps.route([start, finish])
                         .then(function (router) {
                             if (!deferred.promise().isRejected()) {
-                                var distance = Math.round(router.getLength() / 1000),
-                                    message = '<span>Расстояние: ' + distance + 'км.</span><br/>' +
+                                var price = this.calculate(Math.round(router.getLength() / 1000)),
+                                    distance = ymaps.formatter.distance(router.getLength()),
+                                    message = '<span>Расстояние: ' + distance + '.</span><br/>' +
                                         '<span style="font-weight: bold; font-style: italic">Стоимость доставки: %sр.</span>';
 
                                 this._route = router.getPaths(); // Получаем коллекцию путей, из которых состоит маршрут.
@@ -132,8 +133,8 @@ ymaps.modules.define(
                                 this._route.options.set({strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5});
                                 this._map.geoObjects.add(this._route); // Добавляем маршрут на карту.
                                 // Задаем контент балуна для начального и конечного маркера.
-                                this._startPoint.properties.set('balloonContentBody', startBalloon + message.replace('%s', this.calculate(distance)));
-                                this._finishPoint.properties.set('balloonContentBody', finishBalloon + message.replace('%s', this.calculate(distance)));
+                                this._startPoint.properties.set('balloonContentBody', startBalloon + message.replace('%s', price));
+                                this._finishPoint.properties.set('balloonContentBody', finishBalloon + message.replace('%s', price));
 
                                 this._map.setBounds(this._route.getBounds(), {checkZoomRange: true}).then(function () {
                                     // Открываем балун над точкой доставки.
