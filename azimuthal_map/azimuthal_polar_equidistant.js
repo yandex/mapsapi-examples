@@ -1,14 +1,15 @@
 ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
     'util.defineClass',
     'util.math.cycleRestrict',
-    'coordSystem.geo'
-], function (provide, defineClass, cycleRestrict, CoordSystemGeo) {
+    'coordSystem.geo',
+    'meta'
+], function (provide, defineClass, cycleRestrict, CoordSystemGeo, meta) {
     /**
      * @fileOverview
      * Азимутальная проекция.
      */
 
-    var latLongOrder = ymaps.meta.coordinatesOrder != 'longlat';
+    var latLongOrder = meta.coordinatesOrder != 'longlat';
 
     /**
      * Создает полярную азимутальную эквидистантную проекцию.
