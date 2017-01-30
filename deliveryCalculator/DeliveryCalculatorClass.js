@@ -89,19 +89,12 @@ ymaps.modules.define(
              * @param {Number[]} point Координаты точки.
              */
             _reverseGeocode: function (point) {
-                return new vow.Promise(function (resolve, reject) {
-                    ymaps.geocode(point).then(function (result, err) {
-                        if (err) {
-                            reject(err);
-                            return;
-                        }
-                        // result содержит описание найденных геообъектов.
-                        // Получаем описание первого геообъекта в списке, чтобы затем показать
-                        // с описанием доставки по клику на метке.
-                        resolve(result.geoObjects.get(0) &&
-                            result.geoObjects.get(0).properties.get('balloonContentBody') || '');
-
-                    });
+                return ymaps.geocode(point).then(function (res) {
+                    // res содержит описание найденных геообъектов.
+                    // Получаем описание первого геообъекта в списке, чтобы затем показать
+                    // с описанием доставки по клику на метке.
+                    return res.geoObjects.get(0) &&
+                        res.geoObjects.get(0).properties.get('balloonContentBody') || '';
                 });
 
             },
@@ -111,18 +104,15 @@ ymaps.modules.define(
              * @param {String} address Адрес.
              */
             _geocode: function (address) {
-                return new vow.Promise(function (resolve, reject) {
-                    ymaps.geocode(address).then(function (result, err) {
-                        if (err) {
-                            reject(err);
-                            return;
-                        }
-                        // result содержит описание найденных геообъектов.
-                        // Получаем координаты первого геообъекта в списке.
-                        resolve(result.geoObjects.get(0) &&
-                            result.geoObjects.get(0).geometry.getCoordinates() || '');
+                return ymaps.geocode(address).then(function (res) {
+                    // res содержит описание найденных геообъектов.
+                    // Получаем описание и координаты первого геообъекта в списке.
+                    var balloonContent = res.geoObjects.get(0) &&
+                            res.geoObjects.get(0).properties.get("balloonContent") || '',
+                        coords = res.geoObjects.get(0) &&
+                            res.geoObjects.get(0).geometry.getCoordinates() || '';
 
-                    });
+                    return [coords, balloonContent];
                 });
 
             },
@@ -232,33 +222,27 @@ ymaps.modules.define(
                     this._addNewPoint("finish");
                 }
                 if (typeof(startPoint) === "string" && typeof(finishPoint) === "string") {
-                    vow.all([this._geocode(startPoint), this._geocode(finishPoint)]).then(function (coords) {
-                        vow.all([this._reverseGeocode(coords[0]), this._reverseGeocode(coords[1])]).then(function (addresses) {
-                            this._setPointData("start", coords[0], addresses[0]);
-                            this._setPointData("finish", coords[1], addresses[1]);
-                            this._setupRoute();
-                        }, this);
+                    vow.all([this._geocode(startPoint), this._geocode(finishPoint)]).then(function (res) {
+                        this._setPointData("start", res[0][0], res[0][1]);
+                        this._setPointData("finish", res[1][0], res[1][1]);
+                        this._setupRoute();
                     }, this);
                 } else if (typeof(startPoint) === "string") {
-                    this._geocode(startPoint).then(function (coords) {
-                        vow.all([this._reverseGeocode(coords), this._reverseGeocode(finishPoint)]).then(function (addresses) {
-                            this._setPointData("start", coords, addresses[0]);
-                            this._setPointData("finish", finishPoint, addresses[1]);
-                            this._setupRoute();
-                        }, this);
+                    vow.all([this._geocode(startPoint), this._reverseGeocode(finishPoint)]).then(function (res) {
+                        this._setPointData("start", res[0][0], res[0][1]);
+                        this._setPointData("finish", finishPoint, res[1]);
+                        this._setupRoute();
                     }, this);
                 } else if (typeof(finishPoint) === "string") {
-                    this._geocode(finishPoint).then(function (coords) {
-                        vow.all([this._reverseGeocode(startPoint), this._reverseGeocode(coords)]).then(function (addresses) {
-                            this._setPointData("start", startPoint, addresses[0]);
-                            this._setPointData("finish", coords, addresses[1]);
-                            this._setupRoute();
-                        }, this);
+                    vow.all([this._reverseGeocode(startPoint), this._geocode(finishPoint)]).then(function (res) {
+                        this._setPointData("start", startPoint, res[0]);
+                        this._setPointData("finish", res[1][0], res[1][1]);
+                        this._setupRoute();
                     }, this);
                 } else {
-                    vow.all([this._reverseGeocode(startPoint), this._reverseGeocode(finishPoint)]).then(function (addresses) {
-                        this._setPointData("start", startPoint, addresses[0]);
-                        this._setPointData("finish", finishPoint, addresses[1]);
+                    vow.all([this._reverseGeocode(startPoint), this._reverseGeocode(finishPoint)]).then(function (res) {
+                        this._setPointData("start", startPoint, res[0]);
+                        this._setPointData("finish", finishPoint, res[1]);
                         this._setupRoute();
                     }, this);
 
