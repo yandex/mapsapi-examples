@@ -22,7 +22,7 @@ function init() {
             point: 'Москва, метро Арбатская'
         },
         // Метро "Третьяковская".
-        [55.74062, 37.62561]
+        [55.744568, 37.60118]
     ], {
         // Автоматически позиционировать карту.
         mapStateAutoApply: true
@@ -31,7 +31,7 @@ function init() {
         button.click(function () {
             if (startEditing = !startEditing) {
                 // Включаем редактор.
-                route.editor.start({ addWayPoints: true });
+                route.editor.start({addWayPoints: true, removeWayPoints: true});
                 button.val('Отключить редактор маршрута');
             } else {
                 // Выключаем редактор.
@@ -39,6 +39,16 @@ function init() {
                 button.val('Включить редактор маршрута');
             }
         });
+        route.editor.events.add(["waypointadd", "waypointremove", "start"], function () {
+            if (route.getWayPoints().getLength() >= 10) {
+                // Если на карте больше 9 точек маршрута, отключаем добавление новых точек.
+                route.editor.start({addWayPoints: false, removeWayPoints: true});
+            }
+            else {
+                // Включаем добавление новых точек.
+                route.editor.start({addWayPoints: true, removeWayPoints: true});
+            }
+        })
     }, function (error) {
         alert("Возникла ошибка: " + error.message);
     });

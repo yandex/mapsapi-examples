@@ -7,8 +7,8 @@ ymaps.ready(function () {
         }),
         // Значения цветов иконок.
         placemarkColors = [
-            '#FF1F1F', '#1F44FF', '#1FFF8E', '#FF1FF5',
-            '#FFEF1F', '#FF931F', '#AE6961', '#6193AE'
+            '#DB425A', '#4C4DA2', '#00DEAD', '#D73AD2',
+            '#F8CC4D', '#F88D00', '#AC646C', '#548FB7'
         ],
         clusterer = new ymaps.Clusterer({
             // Макет метки кластера pieChart.
