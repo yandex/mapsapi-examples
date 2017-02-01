@@ -1,14 +1,15 @@
 ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
     'util.defineClass',
     'util.math.cycleRestrict',
-    'coordSystem.geo'
-], function (provide, defineClass, cycleRestrict, CoordSystemGeo) {
+    'coordSystem.geo',
+    'meta'
+], function (provide, defineClass, cycleRestrict, CoordSystemGeo, meta) {
     /**
      * @fileOverview
      * Азимутальная проекция.
      */
 
-    var latLongOrder = ymaps.meta.coordinatesOrder != 'longlat';
+    var latLongOrder = meta.coordinatesOrder != 'longlat';
 
     /**
      * Создает полярную азимутальную эквидистантную проекцию.
@@ -21,7 +22,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
      * @param {Number[]} [center=[128, 128]] Массив из пиксельных координат центра карты (северный или южный географический полюс).
      * @param {Number}  [latRatio=0.71111111111111] Количество градусов широты, содержащееся в 1 пикселе на 0-м зуме.
      * @param {Number}  [offsetAngle=0] Положительный угол смещения нулевого меридиана на карте по часовой стрелке.
-     * @param {Boolean}  [southPole=false] Cеверный или южный географический полюс, true - если северный.
+     * @param {Boolean}  [southPole=false] Cеверный или южный географический полюс, true - если южный.
      */
     function AzimuthalPolarEquidistant(center, latRatio, offsetAngle, southPole) {
         if (ymaps.meta.debug) {
@@ -59,7 +60,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
                 radius = ((southPole ? -90 : 90) - latitude) * Math.pow(2, zoom) * latRatio,
-                x = centerX + radius * Math.sin(longitude * Math.PI / 180),
+                x = centerX + radius * Math.sin(longitude * Math.PI / 180) * (southPole ? -1 : 1),
                 y = centerY + radius * Math.cos(longitude * Math.PI / 180);
             return [x, y];
         },
@@ -73,7 +74,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
                 offsetAngle = this._offsetAngle,
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
-                longitude = cycleRestrict(Math.atan2(x - centerX, y - centerY) * 180 / Math.PI + offsetAngle, -180, 180),
+                longitude = cycleRestrict((southPole ? 180 : 0) + Math.atan2(x - centerX, y - centerY) * (southPole ? -180 : 180) / Math.PI + offsetAngle, -180, 180),
                 latitude = 90 - ( Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / (Math.pow(2, zoom) * latRatio)),
                 latitude = (southPole ? -latitude : latitude);
             return latLongOrder ? [latitude, longitude] : [longitude, latitude];
