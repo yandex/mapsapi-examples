@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Примеры. Геоссылка.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Чтобы добавить на страницу геоссылку, необходимо загрузить код API с модулем Geolink. -->
+    <script src="https://api-maps.yandex.ru/2.1/?load=Geolink&lang=ru_RU" type="text/javascript"></script>
+</head>
+<style type="text/css">
+    #whiteText {
+        background-color: #110;
+        color: white;
+        padding: 5px 0px 5px 8px;
+    }
+
+    #box {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        line-height: 22px;
+    }
+</style>
+<body>
+<div id="box">
+    <!-- Чтобы добавить на страницу геоссылку, необходимо обернуть нужный текст в HTML-элемент с CSS-классом «ymaps-geolink». -->
+    <p><span class="ymaps-geolink">Москва, ул. Льва Толстого, 16</span> — адрес офиса.</p>
+    <p id="whiteText">
+        <!-- Геоссылке могут быть заданы различные параметры: область поиска объекта (data-bounds), тип объекта (data-type),
+            поясняющий текст, который будет отображен в шапке всплывающего окна (data-description). -->
+        <span class="ymaps-geolink" data-bounds="[[55.73333783240489,37.586741441564136],
+        [55.73433517114847,37.59017466910319]]" data-type="biz">Кафе</span>, которое вы можете посетить рядом с нами.
+    </p>
+    <p>Геоссылка — простой способ добавить карту на сайт. <br>Достаточно обернуть нужный адрес в специальные теги. При
+        клике по геоссылке откроется всплывающее окно с картой и меткой по указанному адресу. </p>
+</div>
+</body>
+</html>
