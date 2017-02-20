@@ -4,7 +4,7 @@
     <title>Примеры. Геоссылка.</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- Чтобы добавить на страницу геоссылку, необходимо загрузить код API с модулем Geolink. -->
-    <script src="https://api-maps.yandex.ru/2.1/?load=Geolink&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?load=Geolink&amp;lang=ru_RU" type="text/javascript"></script>
 </head>
 <style type="text/css">
     #whiteText {
@@ -25,7 +25,8 @@
 </style>
 <body>
 <div id="box">
-    <!-- Чтобы добавить на страницу геоссылку, необходимо обернуть нужный текст в HTML-элемент с CSS-классом «ymaps-geolink». -->
+    <!-- Чтобы добавить на страницу геоссылку, необходимо обернуть нужный текст в HTML-элемент с CSS-классом «ymaps-geolink»
+    и загрузить код API с модулем Geolink.-->
     <p><span class="ymaps-geolink">Москва, ул. Льва Толстого, 16</span> — адрес офиса.</p>
     <p id="whiteText">
         <!-- Геоссылке могут быть заданы различные параметры: область поиска объекта (data-bounds), тип объекта (data-type),
