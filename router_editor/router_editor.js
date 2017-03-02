@@ -32,11 +32,11 @@ function init() {
             if (startEditing = !startEditing) {
                 // Включаем редактор.
                 route.editor.start({addWayPoints: true, removeWayPoints: true});
-                button.val('Отключить редактор маршрута');
+                button.text('Отключить редактор маршрута');
             } else {
                 // Выключаем редактор.
                 route.editor.stop();
-                button.val('Включить редактор маршрута');
+                button.text('Включить редактор маршрута');
             }
         });
         route.editor.events.add(["waypointadd", "waypointremove", "start"], function () {
