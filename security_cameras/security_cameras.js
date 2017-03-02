@@ -13,7 +13,7 @@ ymaps.ready(['Heatmap']).then(function init() {
     }
     var heatmap = new ymaps.Heatmap(data, {
         // Радиус влияния.
-        radius: 20,
+        radius: 15,
         // Нужно ли уменьшать пиксельный размер точек при уменьшении зума. False - не нужно.
         dissipating: false,
         // Прозрачность тепловой карты.
