@@ -1,25 +1,31 @@
-// Creating our first custom module - a custom control layout.
+// Creating our first custom module - a layout for our control.
 ymaps.modules.define('plugin.PlacemarkCounterControlLayout', [
-    // The list of module dependencies. These modules will be loaded (if they have not yet been
-    // loaded) before calling the function that defines the module.
+    /**
+     * The list of module dependencies.
+     * These modules will be loaded (if they have not yet been loaded) before calling the function that defines the module.
+     */
     'templateLayoutFactory'
 ], function (provide, templateLayoutFactory) {
-    // The function that defines the module itself. The first argument is the provide function. The
-    // provide function must be passed directly to the module. The provide function call may be
-    // delayed. For example, in order to load some data. Subsequent arguments are requested in the
-    // module dependencies.     
+    /**
+     * The function that defines the module itself.
+     *  The first argument is the provide function. The provide function must be passed directly to the module.
+     *  The provide function call may be delayed. For example, in order to load some data.
+     *  Subsequent arguments are requested in the module dependencies. 
+     */
     provide(
         templateLayoutFactory.createClass('<div class=placemark_counter>{{ data.placemark_count }}</div>')
     );
 });
 
-// Creating a second custom module. This module provides its own control, which is based on the
-// buttons.
+/**
+ * Creating a second custom module.
+ * This module provides its own control, which is based on a button.
+ */
 ymaps.modules.define('plugin.PlacemarkCounterControl', [
     'control.Button',
     'util.extend',
     'util.augment',
-    // The second module in the dependencies requests the first one.
+    // The second module requests the first one in the dependencies.
     'plugin.PlacemarkCounterControlLayout'
 ], 
 function (provide, Button, extend, augment, PlacemarkCounterControlLayout) {
@@ -33,7 +39,7 @@ function (provide, Button, extend, augment, PlacemarkCounterControlLayout) {
                 }
             });
         };
-    // Inheriting all the methods of a standard button.     
+    // Inheriting all the methods of a standard button. 
     augment(CounterControl, Button, {
         // Overriding the setParent method.
         setParent: function (parent) {
@@ -68,15 +74,14 @@ ymaps.ready(function () {
     // Requesting our custom control in the module system.
     ymaps.modules.require(['plugin.PlacemarkCounterControl'])
         .spread(function (PlacemarkCounterControl) {
-            // Creating an instance of your custom button and adding it to the map.
+            // Creating an instance of the custom button and adding it to the map.
             myMap.controls.add(
                 new PlacemarkCounterControl()
             );
         });
-    // Creating a button that we use for adding placemarks to the map.     
-    var addPlacemarkButton =
-        new ymaps.control.Button({
-            data: { content: 'Добавить метку' },
+    // Creating a button that we use for adding placemarks to the map.    
+    var addPlacemarkButton = new ymaps.control.Button({
+            data: { content: 'Add a placemark' },
             options: { maxWidth: 200, float: 'right', selectOnClick: false }
         });
     myMap.controls.add(addPlacemarkButton);

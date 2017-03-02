@@ -13,8 +13,10 @@ function init() {
         moscowPolygon = new ymaps.Polygon(json.coordinates);
         // If we do not want the outline to be visible, we set the appropriate option.
         moscowPolygon.options.set('visible', false);
-        // To correctly carried out geometric operations on the projected polygon, you must add it
-        // to the map.
+        /**
+         * To have geometric operations performed correctly on the projected polygon,
+         * you must add it to the map.
+         */
         myMap.geoObjects.add(moscowPolygon);
         
         ymaps.route([[55.654884,37.527034], [55.767305,37.976100]]).then(
@@ -34,10 +36,12 @@ function init() {
                     }
                 });
                 
-                // Creating a new selection, containing:
- - sections that define the route;
- - the start and end points;
- - intermediate points.
+                /**
+                 * Creating a new selection containing the following:
+                 * - sections that define the route;
+                 * - the start and end points;
+                 * - intermediate points.
+                 */
                 var routeObjects = ymaps.geoQuery(edges)
                         .add(res.getWayPoints())
                         .add(res.getViaPoints())
@@ -47,8 +51,7 @@ function init() {
                     objectsInMoscow = routeObjects.searchInside(moscowPolygon),
                     // Finding the objects that intersect with the ring road.
                     boundaryObjects = routeObjects.searchIntersect(moscowPolygon);
-                // Using different colors for objects inside, outside and intersecting the ring
-                // road.
+                // Using different colors for objects inside, outside and intersecting the ring road.
                 boundaryObjects.setOptions({
                     strokeColor: '#06ff00',
                     preset: 'islands#greenIcon'
@@ -57,8 +60,10 @@ function init() {
                     strokeColor: '#ff0005',
                     preset: 'islands#redIcon'
                 });
-                // We will get objects outside the ring road by excluding resulting selections from
-                // the source selection.
+                /**
+                 * Getting objects outside the Moscow ring road
+                 * by subtracting the obtained samples from the source sample.
+                 */
                 routeObjects.remove(objectsInMoscow).remove(boundaryObjects).setOptions({
                     strokeColor: '#0010ff',
                     preset: 'islands#blueIcon'

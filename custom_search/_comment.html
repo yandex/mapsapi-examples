@@ -1,10 +1,29 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="control.SearchControl"/>, <sa href="geocode"/>, <sa href="IGeocodeProvider"/>, <sa href="GeoObjectArray"/>, <sa href="Placemark"/>, <sa href="util.Promise"/>
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="control.SearchControl"/>,
+    <sa href="geocode"/>,
+    <sa href="IGeocodeProvider"/>,
+    <sa href="GeoObjectArray"/>,
+    <sa href="Placemark"/>,
+    <sa href="util.Promise"/>
 </div>
-<p> Searching for an object by name is implemented using the <sa href="geocode"/> function. However, this function searches among the objects placed on the regular or public map.
+<p>
+    Searching for an object by name is implemented using the <sa href="geocode"/> function. However, this function
+    searches among the objects on the regular or public map.
 </p>
-<p> What if you want to organize the search across custom objects and integrate it with the Yandex.Maps API? Write your own search provider, which can be used in the <sa href="geocode"/> function and the <sa href="control.SearchControl">&quot;Search on map&quot;</sa> control.
+<p>
+    But what if you need to set up a search across your own objects
+    and integrate it with the Yandex.Maps API? Write your own search provider,
+    which you can use in the <sa href="geocode"/> function and in the
+    <sa href="control.SearchControl">Search on map</sa> control.
 </p>
-<p> The search provider must implement the <sa href="IGeocodeProvider"/> interface. This example shows how to write your own provider and connect it to the standard &quot;Search on map&quot; control.
+<p>
+    The search provider must implement the <sa href="IGeocodeProvider"/> interface.
+    This example shows how to create your own provider and connect it to the
+    standard Search control on the map.
 </p>
-<p> The example is discussed in more detail in the <a href="https://ymapsapi.ya.ru/replies.xml?item_no=301">club</a>.
+<p>
+    The example is discussed in more detail in the <a href="https://ymapsapi.ya.ru/replies.xml?item_no=301">club</a>.
 </p>

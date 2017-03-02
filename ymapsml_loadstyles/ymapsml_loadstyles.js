@@ -21,13 +21,13 @@ function init () {
                 },
                 // Called if loading the YMapsML file was unsuccessful.
                 function (error) {
-                    alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
+                    alert('When loading the YMapsML file, the following error occurred: ' + error);
                 }
             );
         },
-        // Called if loading styles was unsuccessful.
+        // Called if styles have been loaded unsuccessfully.
         function (error) {
-            alert('При загрузке стилей произошла ошибка: ' + error);
+            alert('When loading styles, the following error occurred: ' + error);
         }
     );
 

@@ -1,0 +1,27 @@
+<div id="references">
+	<sa href="Layer"/>,
+	<sa href="MapType"/>,
+	<sa href="projection.Cartesian"/>,
+	<sa href="Layer"/>,
+	<sa href="Map"/>
+</div>
+<p>
+	The Yandex.Maps API can be used for displaying maps and plans on a website that aren't anchored to the earth's surface.
+</p>
+<p>
+	Before creating a map, you need to set your own <sa href="Layer">layer</sa> with the map image. Pass the data source for the map to the class constructor. The data source provides the tiles for the layer according to the current coordinates of the map center and the zoom level.
+</p>
+<p>
+	To use an image as a custom Yandex.Maps layer, you need to prepare it first. The image must be divided into sections (tiles) with the dimensions 256x256 pixels. Each tile is stored in a separate file (JPEG or PNG). For each zoom level, you must form a corresponding set of tiles.
+</p>
+<p>
+	Then create a new map type using the <sa href="MapType">MapType</sa> class.
+	When creating the map type, specify the following parameters:
+	<ul>
+		<li>name of the type</li>
+		<li>array of layer constructors or a key.</li>
+	</ul>
+</p>
+<p>
+	Creating a map and setting a custom map type for it. This can be done via the constructor's <sa href="Map#param-state.type">type</sa> parameter or the <sa href="Map#setType">setType</sa> method of the class instance.
+</p>

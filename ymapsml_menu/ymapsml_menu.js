@@ -18,7 +18,7 @@ function init () {
         },
         // Called if loading the YMapsML file was unsuccessful.
         function (error) {
-            alert("При загрузке YMapsML-файла произошла ошибка: " + error);
+            alert("When loading the YMapsML file, the following error occurred: " + error);
         });
 
     // Adding an element to the list.
@@ -27,8 +27,10 @@ function init () {
         $("<a class=\"title\" href=\"#\">" + group.properties.get('name') + "</a>")
             .bind("click", function () {
                 var link = $(this);
-                // If the menu item is "inactive," we add the group to the map. Otherwise, we
-                // delete it from the map.
+                /**
+                 * If the menu item is "inactive," we add the group to the map.
+                 * Otherwise, we delete it from the map.
+                 */
                 if (link.hasClass("active")) {
                     map.geoObjects.remove(group);
                 } else {

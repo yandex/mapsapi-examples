@@ -6,7 +6,7 @@ function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [
             [55.749, 37.524],
-            "Москва, Успенский пер. 7"
+            "7 Uspenskiy st., Moscow"
         ],
         params: {
             routingMode: 'masstransit'
@@ -18,7 +18,7 @@ function init () {
 
     // Creating a button.
     var changeLayoutButton = new ymaps.control.Button({
-        data: { content: "Показывать время для пеших сегментов"},
+        data: { content: "Show time for walking segments"},
         options: { selectOnClick: true }
     });
 

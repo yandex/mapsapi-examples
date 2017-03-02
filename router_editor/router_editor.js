@@ -11,15 +11,19 @@ function init() {
         startEditing = false,
         button = $('#editor');
 
-    // Building a route from Smolenskaya metro station to Tretyakov station. The route should pass
-    // through Arbatskaya station.
+    /**
+     * Building a route from Smolenskaya metro station to Tretyakov station.
+     * The route should pass through Arbatskaya station.
+     */
     ymaps.route([
-        'Москва, метро Смоленская',
+        'Smolenskaya metro stations, Moscow',
         {
-            // Metro Arbatskaya is a through point (passing through this point, but not stopping at
-            // it).
+            /**
+             * Metro Arbatskaya is a through point (passing through this point,
+             * but not stopping at it).
+             */
             type: 'viaPoint',
-            point: 'Москва, метро Арбатская'
+            point: 'Moscow, Arbatskaya metro station'
         },
         // Metro Tretyakovskaya.
         [55.74062, 37.62561]
@@ -32,14 +36,14 @@ function init() {
             if (startEditing = !startEditing) {
                 // Turning on the editor.
                 route.editor.start({ addWayPoints: true });
-                button.val('Отключить редактор маршрута');
+                button.val('Disable the route editor');
             } else {
                 // Turning off the editor.
                 route.editor.stop();
-                button.val('Включить редактор маршрута');
+                button.val('Enable the route editor');
             }
         });
     }, function (error) {
-        alert("Возникла ошибка: " + error.message);
+        alert("An error occurred: " + error.message);
     });
 }

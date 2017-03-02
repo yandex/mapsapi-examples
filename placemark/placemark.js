@@ -1,6 +1,6 @@
 ymaps.ready(init);
 
-function init () {
+function init() {
     var myMap = new ymaps.Map("map", {
             center: [55.76, 37.64],
             zoom: 10
@@ -18,64 +18,94 @@ function init () {
             // Properties.
             properties: {
                 // The placemark content.
-                iconContent: 'Я тащусь',
-                hintContent: 'Ну давай уже тащи'
+                iconContent: 'I'm draggable',
+                hintContent: 'Come on, drag already!'
             }
         }, {
-            // Options. The placemark's icon will stretch to fit its contents.
+            /**
+             * Options.
+             * The placemark's icon will stretch to fit its contents.
+             */
             preset: 'islands#blackStretchyIcon',
-            // The placemark can be moved.
+            // The placemark can be dragged.
             draggable: true
+        }),
+        myPieChart = new ymaps.Placemark([
+            55.847, 37.6
+        ], {
+            // Data for creating a diagram.
+            data: [
+                {weight: 8, color: '#224080'},
+                {weight: 6, color: '#408022'},
+                {weight: 4, color: '#802240'}
+            ],
+            iconCaption: "Diagram"
+        }, {
+            // Defining a custom placemark layout.
+            iconLayout: 'default#pieChart',
+            // Radius in pixels for the chart.
+            iconPieChartRadius: 30,
+            // Radius of the central part of the layout.
+            iconPieChartCoreRadius: 10,
+            // Fill style for the center area.
+            iconPieChartCoreFillStyle: '#ffffff',
+            // Style for the lines separating sections and the outline of the chart.
+            iconPieChartStrokeStyle: '#ffffff',
+            // Width of the lines separating sections and the outline of the chart.
+            iconPieChartStrokeWidth: 3,
+            // Maximum width of the placemark label.
+            iconPieChartCaptionMaxWidth: 200
         });
 
     myMap.geoObjects
         .add(myGeoObject)
+        .add(myPieChart)
         .add(new ymaps.Placemark([55.684758, 37.738521], {
-            balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+            balloonContent: 'the color of <strong>the water on Bondi Beach</strong>'
         }, {
             preset: 'islands#icon',
             iconColor: '#0095b6'
         }))
         .add(new ymaps.Placemark([55.833436, 37.715175], {
-            balloonContent: '<strong>серобуромалиновый</strong> цвет'
+            balloonContent: '<strong>greyish-brownish-maroon</strong> color'
         }, {
             preset: 'islands#dotIcon',
             iconColor: '#735184'
         }))
         .add(new ymaps.Placemark([55.687086, 37.529789], {
-            balloonContent: 'цвет <strong>влюбленной жабы</strong>'
+            balloonContent: 'the color of <strong>enamored toads</strong>'
         }, {
             preset: 'islands#circleIcon',
             iconColor: '#3caa3c'
         }))
         .add(new ymaps.Placemark([55.782392, 37.614924], {
-            balloonContent: 'цвет <strong>детской неожиданности</strong>'
+            balloonContent: 'the color of <strong>Surprise Dauphin</strong>'
         }, {
             preset: 'islands#circleDotIcon',
             iconColor: 'yellow'
         }))
         .add(new ymaps.Placemark([55.642063, 37.656123], {
-            balloonContent: 'цвет <strong>бисмарк-фуриозо</strong>'
+            balloonContent: '<strong>red</strong> color'
         }, {
-            preset: 'islands#icon',
-            iconColor: '#a5260a'
+            preset: 'islands#redSportIcon'
         }))
         .add(new ymaps.Placemark([55.826479, 37.487208], {
-            balloonContent: 'цвет <strong>фэйсбука</strong>'
+            balloonContent: '<strong>Facebook</strong> color'
         }, {
-            preset: 'islands#dotIcon',
+            preset: 'islands#governmentCircleIcon',
             iconColor: '#3b5998'
         }))
         .add(new ymaps.Placemark([55.694843, 37.435023], {
-            balloonContent: 'цвет <strong>вконтакте</strong>'
+            balloonContent: 'the color of a <strong>crocodile's nose</strong>',
+            iconCaption: 'Very long but, of course, very interesting text'
         }, {
-            preset: 'islands#circleIcon',
-            iconColor: '#4d7198'
+            preset: 'islands#greenDotIconWithCaption'
         }))
         .add(new ymaps.Placemark([55.790139, 37.814052], {
-            balloonContent: 'цвет <strong>твиттера</strong>'
+            balloonContent: '<strong>blue</strong> color',
+            iconCaption: 'Very long but, of course, very interesting text'
         }, {
-            preset: 'islands#circleDotIcon',
-            iconColor: '#1faee9'
+            preset: 'islands#blueCircleDotIconWithCaption',
+            iconCaptionMaxWidth: '50'
         }));
 }

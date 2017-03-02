@@ -1,0 +1,14 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>,
+    <sa href="Clusterer"/>, <sa href="ClusterPlacemark"/>, <sa href="templateLayoutFactory"/>,
+    <sa href="Placemark"/>
+</div>
+    The example uses the "cluster#balloonCarousel" cluster balloon layout.<br/>
+    In this layout, information about the geo object is shown in the center, and buttons for going to the previous and next geo objects are shown on the sides.<br/>
+    There is a quick navigation menu in the lower part of the balloon.<br/>
+    The information about the selected geo object is set by a separate layout and can be configured using the 'clusterBalloonItemContentLayout' option.<br/>
+    This example sets a custom layout with information about a geo object.<br/>
+<br/>
+    <a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Layouts</a> for objects can be created using the <sa href="templateLayoutFactory"/> factory, and using text templates.<br/> 
+    Text templates form the HTML content of the layout from a hash with the data passed to the layout constructor.<br/>
+    In this example, the data provider is the geo object.

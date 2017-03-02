@@ -12,16 +12,18 @@ ymaps.ready(function () {
                 size: [40, 40],
                 offset: [-20, -20]
             }],
-            // This option is responsible for the cluster sizes. In this case, for clusters
-            // containing up to 100 elements, it will show a small icon. For the rest, a large icon
-            // will be shown.
+            /**
+             * This option is responsible for the cluster sizes.
+             * In this case, for clusters containing up to 100 elements,
+             * it will show a small icon. For the rest, a large icon will be shown.
+             */
             clusterNumbers: [100],
             clusterIconContentLayout: null
         }),
         getPointData = function (index) {
             return {
-                balloonContentBody: 'балун <strong>метки ' + index + '</strong>',
-                clusterCaption: 'метка <strong>' + index + '</strong>'
+                balloonContentBody: 'placemark <strong>balloon ' + index + '</strong>',
+                clusterCaption: 'placemark <strong>' + index + '</strong>'
             };
         },
         points = [

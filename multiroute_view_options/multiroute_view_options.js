@@ -1,17 +1,17 @@
-function init () {
+function init() {
     // Declaring a set of reference points and an array of throughpoint indexes.
     var referencePoints = [
-            "Москва, Ленинский проспект",
-            "Москва, Льва Толстого, 16",
-            "Москва, Кремлевская набережная",
-            "Москва, парк Сокольники"
+            "Lenin prospekt, Moscow",
+            "16 Lev Tolstoy, Moscow",
+            "Kremlin embankment, Moscow",
+            "Sokolniki park, Moscow"
         ],
         viaIndexes = [2];
 
     // Creating a multiroute and using options to configure its appearance.
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: referencePoints,
-        params: { viaIndexes: viaIndexes }
+        params: {viaIndexes: viaIndexes}
     }, {
         // Display options for waypoints.
         wayPointStartIconColor: "#000000",
@@ -20,40 +20,61 @@ function init () {
         wayPointFinishIconImageHref: "images/sokolniki.png",
         wayPointFinishIconImageSize: [30, 30],
         wayPointFinishIconImageOffset: [-15, -15],
-        // This allows hiding the icon for the route's waypoints. wayPointVisible:false,
+        /**
+         * This allows hiding the icon for the route's waypoints.
+         * wayPointVisible:false,
+         */
 
         // Display options for throughpoints.
         viaPointIconRadius: 7,
         viaPointIconFillColor: "#000088",
         viaPointActiveIconFillColor: "#E63E92",
-        // Throughpoints can be dragged, and the route will adjust.
+        /**
+         * Throughpoints can be dragged,
+         * and the route will adjust.
+         */
         viaPointDraggable: true,
-        // This allows hiding the icon for the route's throughpoints. viaPointVisible:false,
+        /**
+         * This allows hiding the icon for the route's throughpoints.
+         * viaPointVisible:false,
+         */
 
         // Display options for pin markers under waypoints.
         pinIconFillColor: "#000088",
         pinActiveIconFillColor: "#E63E92",
-        // This allows hiding pin markers for waypoints. pinVisible:false,
-        
+        /**
+         * This allows hiding pin markers for waypoints.
+         * pinVisible:false,
+         */
+
         // Display options for the route line.
         routeStrokeWidth: 2,
         routeStrokeColor: "#000088",
         routeActiveStrokeWidth: 6,
         routeActiveStrokeColor: "#E63E92",
+
+        // Display options for the line on a pedestrian route.
+        routeActivePedestrianSegmentStrokeStyle: "solid",
+        routeActivePedestrianSegmentStrokeColor: "#00CDCD",
+
         // Automatically set the map boundaries so the entire route is visible.
         boundsAutoApply: true
     });
-    
+
     // Setting the display options for the second point by directly accessing it.
     customizeSecondPoint();
 
-    // Creating a button.
+    // Creating buttons.
     var removePointsButton = new ymaps.control.Button({
-        data: { content: "Удалить промежуточные точки"},
-        options: { selectOnClick: true }
-    });
+            data: {content: "Deleting intermediate points"},
+            options: {selectOnClick: true}
+        }),
+        routingModeButton = new ymaps.control.Button({
+            data: {content: "Type of route"},
+            options: {selectOnClick: true}
+        });
 
-    // Declaring handlers for the button.
+    // Declaring handlers for the buttons.
     removePointsButton.events.add('select', function () {
         multiRoute.model.setReferencePoints([
             referencePoints[0],
@@ -67,8 +88,16 @@ function init () {
         customizeSecondPoint();
     });
 
+    routingModeButton.events.add('select', function () {
+        multiRoute.model.setParams({routingMode: 'pedestrian'}, true);
+    });
+
+    routingModeButton.events.add('deselect', function () {
+        multiRoute.model.setParams({routingMode: 'auto'}, true);
+    });
+
     // Function for configuring the appearance of the second point.
-    function customizeSecondPoint () {
+    function customizeSecondPoint() {
         /**
          * Waiting for the multiroute data to load and the views of the waypoints to be created.
          * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel-docpage/#event-requestsuccess
@@ -80,7 +109,7 @@ function init () {
             yandexWayPoint.options.set({
                 preset: "islands#grayStretchyIcon",
                 iconContentLayout: ymaps.templateLayoutFactory.createClass(
-                    '<span style="color: red;">Я</span>ндекс'
+                    '<span style="color: red;">Y</span>andex'
                 ),
                 balloonContentLayout: ymaps.templateLayoutFactory.createClass(
                     '{{ properties.address|raw }}'
@@ -91,12 +120,12 @@ function init () {
 
     // Creating the map with the button added to it.
     var myMap = new ymaps.Map('map', {
-        center: [55.739625, 37.54120],
-        zoom: 7,
-        controls: [removePointsButton]
-    }, {
-        buttonMaxWidth: 300
-    });
+            center: [55.739625, 37.54120],
+            zoom: 7,
+            controls: [removePointsButton, routingModeButton]
+        }, {
+            buttonMaxWidth: 300
+        });
 
     // Adding a multiroute to the map.
     myMap.geoObjects.add(multiRoute);

@@ -22,8 +22,11 @@ function init () {
         if (objectState.isClustered) {
             // Making sure that the specified object has been "selected" in the balloon.
             objectManager.clusters.state.set('activeObject', objectManager.objects.getById(1));
-            // All the generated clusters have unique identifiers. This identifier must be passed
-            // to the balloon manager to specify which cluster to show the balloon on.
+            /**
+             * All the generated clusters have unique identifiers.
+             * This identifier must be passed to the balloon manager to specify
+             * which cluster to show the balloon on.
+             */
             objectManager.clusters.balloon.open(objectState.cluster.id);
         } else {
             objectManager.objects.balloon.open(1);

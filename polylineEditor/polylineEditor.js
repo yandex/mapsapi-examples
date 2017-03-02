@@ -17,7 +17,10 @@ function init() {
         [55.70, 37.50],
         [55.70, 37.40]
     ], {}, {
-        // Setting geo object options. Color with transparency.
+        /**
+         * Setting geo object options.
+         * Color with transparency.
+         */
         strokeColor: "#00000088",
         // The line width.
         strokeWidth: 4,
@@ -26,7 +29,7 @@ function init() {
         // Adding a new item to the context menu that allows deleting the polyline.
         editorMenuManager: function (items) {
             items.push({
-                title: "Удалить линию",
+                title: "Deleting a polyline",
                 onClick: function () {
                     myMap.geoObjects.remove(myPolyline);
                 }

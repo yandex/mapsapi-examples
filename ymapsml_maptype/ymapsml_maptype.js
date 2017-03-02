@@ -18,6 +18,6 @@ function init () {
         },
         // Called if loading the YMapsML file was unsuccessful.
         function (error) {
-            alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
+            alert('When loading the YMapsML file, the following error occurred: ' + error);
         });
 }

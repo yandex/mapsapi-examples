@@ -8,8 +8,8 @@ function init() {
         searchControlProvider: 'yandex#search'
     });
     
-    // Creating objects based on JSON descriptions of geometries.    var objects =
-    // ymaps.geoQuery([{
+    // Creating objects based on JSON descriptions of geometries.
+    var objects = ymaps.geoQuery([{
             type: 'Point',
             coordinates: [55.73, 37.75]
         }, {
@@ -23,13 +23,15 @@ function init() {
             coordinates: [55.25, 67.35]
         }]);
     
-        // Finding objects in the visible area of the map.    objects.searchInside(myMap)
-        // And then adding the found objects to the map.        .addToMap(myMap);
+        // Finding objects in the visible area of the map.
+    objects.searchInside(myMap)
+        // And then adding the found objects to the map.
+        .addToMap(myMap);
     
     myMap.events.add('boundschange', function () {
-        // After each shift of the map we will see what objects are in the visible area.        var
-        // visibleObjects = objects.searchInside(myMap).addToMap(myMap);
-        // Then we'll delete the other objects from the map.       
-        // objects.remove(visibleObjects).removeFromMap(myMap);
+        // After each shift of the map we will see what objects are in the visible area.
+        var visibleObjects = objects.searchInside(myMap).addToMap(myMap);
+        // Then we'll delete the other objects from the map.
+        objects.remove(visibleObjects).removeFromMap(myMap);
     });
 }

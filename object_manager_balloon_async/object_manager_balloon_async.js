@@ -8,8 +8,10 @@ function init () {
             searchControlProvider: 'yandex#search'
         }),
         objectManager = new ymaps.ObjectManager({
-            // We want to load data for a balloon before opening, so we disable automatically
-            // opening the balloon on click.
+            /**
+             * We want to load data for a balloon before opening,
+             * so we disable automatically opening the balloon on click.
+             */
             geoObjectOpenBalloonOnClick: false
         });
 
@@ -26,7 +28,7 @@ function init () {
     function loadBalloonData (objectId) {
         var dataDeferred = ymaps.vow.defer();
         function resolveData () {
-            dataDeferred.resolve('Данные балуна');
+            dataDeferred.resolve('Balloon data');
         }
         window.setTimeout(resolveData, 1000);
         return dataDeferred.promise();

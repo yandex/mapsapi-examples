@@ -16,15 +16,24 @@ function init() {
         // The radius of the circle in meters.
         10000
     ], {
-        // Describing the properties of the circle. The contents of the balloon.
-        balloonContent: "Радиус круга - 10 км",
-        // The contents of the hint.
-        hintContent: "Подвинь меня"
+        /**
+         * Describing the properties of the circle.
+         * The contents of the balloon.
+         */
+        balloonContent: "The radius of the circle is 10 km",
+ The contents of the hint.
+        hintContent: "Move me"
     }, {
-        // Setting the circle options. Enabling drag-n-drop for the circle.
+        /**
+         * Setting the circle options.
+         * Enabling drag-n-drop for the circle.
+         */
         draggable: true,
-        // Fill color. The last byte (77) defines transparency. The transparency of the fill can
-        // also be set using the option "fillOpacity".
+        /**
+         * Fill color.
+         * The last byte (77) defines transparency.
+         * The transparency of the fill can also be set using the option "fillOpacity".
+         */
         fillColor: "#DB709377",
         // Stroke color.
         strokeColor: "#990066",

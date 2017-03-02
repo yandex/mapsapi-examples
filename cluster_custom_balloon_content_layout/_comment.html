@@ -1,0 +1,14 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>,
+    <sa href="Clusterer"/>, <sa href="ClusterPlacemark"/>, <sa href="templateLayoutFactory"/>,
+    <sa href="Placemark"/>
+</div>
+    This example creates a custom layout for the cluster balloon content.<br/>
+    The layout is specified with the 'clusterBalloonContentLayout' option.
+<br/><a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Layouts</a>
+    for objects can be created using the factory <sa href="templateLayoutFactory"/>
+    and text templates. <br/>
+    Text templates generate the HTML content of the layout from data hashes
+    passed to the layout constructor.<br/>
+    In this example, the data provider is the cluster where the balloon was opened.<br/><br/>
+    The layout enumerates and outputs the 'placemarkId' and 'balloonContentHeader' fields for all the cluster's geo objects using the 'for' construction.

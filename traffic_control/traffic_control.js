@@ -16,7 +16,6 @@ function init () {
         }});
     // Adding the control to the map.
     myMap.controls.add(trafficControl);
-    // Getting a reference to the "Now" traffic provider and enabling the display of information
-    // points.
+    // Getting a reference to the "Now" traffic provider and enabling the display of information points.
     trafficControl.getProvider('traffic#actual').state.set('infoLayerShown', true);    
 }

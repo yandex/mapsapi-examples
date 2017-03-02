@@ -1,6 +1,8 @@
 ymaps.ready(function () {
-    // An example implementation of a custom control based on inheritance from collection.Item. The
-    // control displays the name of the object that is in the center of the map.
+    /**
+     * An example implementation of a custom control based on inheritance from collection.Item.
+     * The control displays the name of the object that is in the center of the map.
+     */
     var map = new ymaps.Map("map", {
                 center: [55.819543, 37.611619],
                 zoom: 6,
@@ -57,8 +59,10 @@ ymaps.ready(function () {
         },
 
         _onServerResponse: function (result) {
-            // The data has been received from the server and now it must be displayed. Description
-            // of the response in JSON format.
+            /**
+             * The data has been received from the server and now it must be displayed.
+             * Description of the response in JSON format.
+             */
             var members = result.GeoObjectCollection.featureMember,
                 geoObjectData = (members && members.length) ? members[0].GeoObject : null;
             if (geoObjectData) {

@@ -7,15 +7,20 @@ function init () {
         }, {
             searchControlProvider: 'yandex#search'
         }),
-    // Creating a layout for hint content. The layout is created through the layout factory using a
-    // text template.
+    /**
+     * Creating a layout for hint content.
+     * The layout is created through the layout factory using a text template.
+     */
         HintLayout = ymaps.templateLayoutFactory.createClass( "<div class='my-hint'>" +
             "<b>{{ properties.object }}</b><br />" +
             "{{ properties.address }}" +
             "</div>", {
-                // Defining the getShape method, which will return the size of the hint layout.
-                // This is necessary in order for the hint to automatically move its position when
-                // going off the map.
+                /**
+                 * Defining the getShape method,
+                 * which will return the size of the hint layout.
+                 * This is necessary in order for the hint to automatically
+                 * move its position when going off the map.
+                 */
                 getShape: function () {
                     var el = this.getElement(),
                         result = null;
@@ -34,8 +39,8 @@ function init () {
         );
 
     var myPlacemark = new ymaps.Placemark([55.764286, 37.581408], {
-        address: "Москва, ул. Зоологическая, 13, стр. 2",
-        object: "Центр современного искусства"
+        address: "Moscow, St. Zoologicheskaya, 13, page 2,",
+        object: "Contemporary art center"
     }, {
         hintLayout: HintLayout
     });

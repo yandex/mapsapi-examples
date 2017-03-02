@@ -15,6 +15,6 @@ function init () {
             // Adding geo objects to the map.
             myMap.geoObjects.add(res.geoObjects);
         }, function (error){
-            alert('При загрузке YMapsML-файла произошла ошибка: ' + error);
+            alert('When loading the YMapsML file, the following error occurred: ' + error);
         });
 }

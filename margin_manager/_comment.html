@@ -1,0 +1,24 @@
+<div id="references">
+    <sa href="map.margin.Manager"/>,
+    <sa href="map.margin.Accessor"/>
+</div>
+<p>
+    Manager for calculating optimal margins from the edges of the map container.
+</p>
+<p>
+    Each map has its own margins manager.
+    To add an area over the map to the manager, use the <sa href="map.margin.Manager">addArea</sa> method.
+    The <sa href="map.margin.Manager">addArea</sa> method returns an <sa href="map.margin.Accessor">object (accessor)</sa> that represents the occupied rectangular area. The accessor allows you to change or remove an area from the object manager.
+</p>
+<p>
+    The area is described as an object containing information about offsets from the edge of the map and the size of this area.
+    Either pixels (px) or percentages (%) can be used as units of measurement. Percentages are calculated relative to the size
+    of the map container.
+</p>
+<p>
+    <sa href="control.Button">Сontrols</sa> support the adjustMapMargin option, which takes a Boolean value. When set to true, the control registers its dimensions in the map's margins manager.
+</p>
+<p>
+    <sa href="multiRouter.MultiRoute"/> and <sa href="Clusterer"/> support the useMapMargin option, which allows using the map margins.<br/>
+    Many of the <sa href="Map">map</sa> methods support this option, such as setBounds, panTo, and setCenter.
+</p>

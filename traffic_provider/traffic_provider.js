@@ -12,6 +12,8 @@ function init () {
     // And then adding it to the map.
     actualProvider.setMap(myMap);
     
-    // Removing the provider from the map is also performed through setMap.
-    // actualProvider.setMap(null);
+    /**
+     * Removing the provider from the map is also performed through setMap.
+     * actualProvider.setMap(null);
+     */
 }

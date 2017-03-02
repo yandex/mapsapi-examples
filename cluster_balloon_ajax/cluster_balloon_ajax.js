@@ -31,16 +31,23 @@ ymaps.ready(function () {
                     return !geoObject.properties.get("balloonContentBody");
                 }
             ),
-        // Forming an array of IDs that will be passed to the server.
+        /**
+         * Forming an array of IDs that will be
+         * passed to the server.
+         */
             ids = jQuery.map(geoObjects, function (geoObject) {
-                geoObject.properties.set('balloonContent', 'идет загрузка...');
+                geoObject.properties.set('balloonContent', 'loading data...');
 
                 return geoObject.properties.get('id');
             });
 
         if(ids.length) {
-            // Request to the server. The server will process the array of IDs and return a JSON
-            // object based on it containing the balloon text for the specified placemarks.
+            /**
+             * Request to the server.
+             * The server will process the array of IDs and
+             * return a JSON object based on it containing the balloon text
+             * for the specified placemarks.
+             */
             jQuery.ajax({
                 contentType: 'application/json',
                 url: 'getBalloonContent.json',
@@ -50,10 +57,12 @@ ymaps.ready(function () {
                 processData: false
             }).then(function (data) {
                     jQuery.each(geoObjects, function (index, geoObject) {
-                        // The contents of the balloon is taken from data received from the server.
-                        // The server returns an array of objects: [ {"balloonContentBody":
-                        // "Balloon content"} , ...]
-{"balloonContentBody": "Содержимое балуна"}                        geoObject.properties.set(data[index]);
+                        /**
+                         * The contents of the balloon is taken from data received from the server.
+                         * The server returns an array of objects: 
+                         * [ {"balloonContentBody": "Balloon content"}, ...]
+                         */
+                        geoObject.properties.set(data[index]);
                     });
                 }, function (jqXHR, textStatus, errorThrown) {
                     jQuery.each(geoObjects, function (index, geoObject) {

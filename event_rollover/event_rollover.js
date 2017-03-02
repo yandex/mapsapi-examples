@@ -13,8 +13,10 @@ function init() {
 
     myPlacemark.events
         .add('mouseenter', function (e) {
-            // A reference to the object that triggered the event; you can get it from the 'target'
-            // field.
+            /**
+             * A reference to the object that triggered the event;
+             * you can get it from the 'target' field.
+             */
             e.get('target').options.set('preset', 'islands#greenIcon');
         })
         .add('mouseleave', function (e) {

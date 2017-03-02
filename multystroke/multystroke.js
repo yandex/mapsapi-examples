@@ -24,12 +24,15 @@ function init() {
             // Defining properties of the geo object.
             properties:{
                 // The contents of the hint.
-                hintContent: "Я геообъект",
-                // The contents of the balloon.
-                balloonContent: "Меня можно перетащить"
+                hintContent: "I'm a geo object",
+ Balloon content.
+                balloonContent: "You can drag me"
             }
         }, {
-            // Setting the geo object options. Enabling drag-n-drop for the polyline.
+            /**
+             * Setting the geo object options.
+             *  Enabling drag-n-drop for the polyline.
+             */
             draggable: true,
             // Line color - two values
             strokeColor: ['#000',"#FFFF00"],
@@ -45,10 +48,16 @@ function init() {
             [55.70, 37.50],
             [55.70, 37.40]
         ], {
-            // Describing the properties of the geo object. The contents of the balloon.
-            balloonContent: "Ломаная линия"
+            /**
+             * Describing the properties of the geo object.
+             *  The contents of the balloon.
+             */
+            balloonContent: "Polyline"
         }, {
-            // Setting options for the geo object. Disabling the close button on a balloon.
+            /**
+             * Setting options for the geo object. Disabling the close button on a balloon.
+             * 
+             */
             balloonCloseButton: false,
             // Line color - black, white and red
             strokeColor: ["#000000","#FFF","#F00"],

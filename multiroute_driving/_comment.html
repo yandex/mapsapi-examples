@@ -1,16 +1,30 @@
-<div id="references"> <sa href="multiRouter.MultiRoute"/>, <sa href="multiRouter.MultiRouteModel"/>
+<div id="references">
+    <sa href="multiRouter.MultiRoute"/>,
+    <sa href="multiRouter.MultiRouteModel"/>
 </div>
-<p> The multirouter allows planning multiple routes at once using the set points.
+<p>
+    The multirouter allows planning multiple routes at once using the set points.
 </p>
-<p> To create a multiroute, use the <sa href="multiRouter.MultiRoute"/> class. The following objects are passed as its parameters:</p>
+<p>
+    The <sa href="multiRouter.MultiRoute"/> class is used for creating a multiroute. The following objects are passed
+    as its parameters:</p>
 <ul>
-    <li>The multiroute <sa href="multiRouter.MultiRouteModel">model</sa>. It is defined as an object with fields: <ul>
-           <li>referencePoints - Array of reference points for the route. Note that if more than two reference points are set, the router only returns one route.</li>
+    <li>The multiroute <sa href="multiRouter.MultiRouteModel">model</sa>. It is defined as an object with fields:
+       <ul>
+           <li>referencePoints - Array of reference points for the route. Note that if more than two reference points are set,
+				the router only returns one route.</li>
            <li>params - Routing parameters (for example, the type of routing, consider traffic, and so on).</li>
        </ul></li>
     <li>router options. The options specify rules for displaying routes on the map.</li>
 </ul>
-<p> All anchor points on the route are divided into waypoints (wayPoint) and throughpoints (viaPoint). Waypoints are points at which you must stop, and throughpoints are passed through on the route without stopping.
+<p>
+    All anchor points on the route are divided into waypoints (wayPoint) and throughpoints (viaPoint). Waypoints are points at which you must stop,
+	and throughpoints are passed through on the route without stopping.
 </p>
-<p> After all the routes have been built, the shortest one automatically becomes active. This route is shown in purple on the map. Gray dotted lines mark transfers from one type of transportation to another, or crossing between stations (for routes on public transport).<br/> Inactive routes are shown in gray. To switch the active route, just right-click the desired route. You can also switch the active route programmatically. See <sa href="multiRouter.MultiRouteModel#methods-summary"/>.
+<p>
+    After all the routes are built, the shortest one is activated automatically. This route is shown in purple on the map. Gray dotted lines denote transfers
+ 	from one type of transport to another, or crossing from one station 
+	to another (for public transport routes).<br/>
+    Inactive routes are shown in gray. To switch the active route, just right-click the desired route.
+    The active route can also be switched programmatically. See <sa href="multiRouter.MultiRouteModel#methods-summary"/>.
 </p>

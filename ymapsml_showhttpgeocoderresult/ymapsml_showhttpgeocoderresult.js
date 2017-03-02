@@ -10,7 +10,7 @@ function init () {
         });
 
     // Loading geocoding results.
-    ymaps.geoXml.load("http://geocode-maps.yandex.ru/1.x/?geocode=поселок Рай")
+    ymaps.geoXml.load("geocode-maps.yandex.ru/1.x/?geocode=poselok Ray")//http:
         .then(function (res) {
             res.geoObjects.each(function (item) {
                 // Boundaries of the map area that contains the found object.
@@ -23,6 +23,6 @@ function init () {
         },
         // Called if data loading was unsuccessful.
         function (error) {
-            alert("При загрузке YMapsML-файла произошла ошибка: " + error);
+            alert("When loading the YMapsML file, the following error occurred: " + error);
         });
 }

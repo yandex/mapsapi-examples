@@ -1,16 +1,32 @@
-<div id="references"> <a href="/maps/doc/jsapi/2.1/ref/reference/ready.xml">ready</a>, <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml">Map</a> <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">control.Manager</a>
+<div id="references">
+    <a href="/maps/doc/jsapi/2.1/ref/reference/ready.xml">ready</a>,
+    <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml">Map</a>
+    <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">control.Manager</a>
 </div>
-<p> Each control is implemented by a separate class from the control namespace (e.g. <a href="/maps/doc/jsapi/2.1/ref/reference/control.TrafficControl.xml">control.TrafficControl</a>). The reference to the controls is contained in the <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">controls</a> field of the map. To add or remove a control, use the &quot;add&quot; and &quot;remove&quot; methods, respectively.
+<p>
+    Each control is implemented by a separate class from the control namespace (e.g. <a href="/maps/doc/jsapi/2.1/ref/reference/control.TrafficControl.xml">control.TrafficControl</a>).
+    The reference to the controls is contained in the <a href="/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml">controls</a> field of the map.
+    To add or remove a control, use the "add" and "remove" methods, respectively.
 </p>
-<p> In the API 2.1, controls can also be added to the map through its <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml#constructor-summary">parameters</a>. This means that when you initialize the map, you can specify the key of the corresponding control in the &quot;controls&quot; field.
+<p>
+    In the API 2.1, controls can also be added to the map through its <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml#constructor-summary">parameters</a>.
+    This means that when you initialize the map, you can specify the key of the corresponding control in the "controls" field.
 </p>
- <p> You can add individual controls, or an entire set at once. The API 2.1 has three standard sets of controls available using the following keys: <ul>
-        <li>&#39;smallMapDefaultSet&#39;;</li>
-        <li>&#39;mediumMapDefaultSet&#39; (default);</li>
-        <li>&#39;largeMapDefaultSet&#39;.</li>
+ <p>
+     You can add individual controls, or an entire set at once. The API 2.1 has three standard sets of controls available
+    using the following keys:
+    <ul>
+        <li>'smallMapDefaultSet';</li>
+        <li>'mediumMapDefaultSet' (default);</li>
+        <li>'largeMapDefaultSet'.</li>
     </ul>
  </p>
-<p> The sets differ in the number of controls included in them, as well as the size of the buttons. A set can be added depending on the size of the map.When the map is created, the &#39;mediumMapDefault&#39; set is added automatically.However, if the map is fairly large, it is advisable to add &#39;largeMapDefaultSet&#39;.If controls will not fit on the map when it is resized, the API will automatically reduce the size of icons.
+<p>
+    The sets differ in the number of controls included in them, as well as the size of the buttons. A set can be added depending on the size of the map.
+When the map is created, the 'mediumMapDefault' set is added automatically.
+However, if the map is fairly large, it is advisable to add 'largeMapDefaultSet'.
+If controls will not fit on the map when it is resized, the API will automatically reduce the size of icons.
 </p>
-<p> For more information about available sets of controls, see the <a href="/maps/doc/jsapi/2.1/ref/reference/control.Button.xml">Reference</a>.
+<p>
+    For more information about available sets of controls, see the <a href="/maps/doc/jsapi/2.1/ref/reference/control.Button.xml">Reference</a>.
 </p>

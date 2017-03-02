@@ -1,25 +1,26 @@
 <div id="references">
-    <sa href="panorama.isSupported"></sa>,
-    <sa href="panorama.locate"></sa>,
-    <sa href="panorama.createPlayer"></sa>,
-    <sa href="panorama.Player"></sa></div>
+    <sa href="panorama.isSupported"/>,
+    <sa href="panorama.locate"/>,
+    <sa href="panorama.createPlayer"/>,
+    <sa href="panorama.Player"/>
+</div>
 <p>
     The Yandex.Maps API allows you to display Yandex panoramas on website pages.
 </p>
  <p>
-     The panorama is implemented by <sa href="Panorama"></sa>. This object contains the necessary information
+     The panorama is implemented by <sa href="Panorama"/>. This object contains the necessary information
      about the panorama: its name, geographical coordinates,connections to linked panoramas, and so on.
  </p>
 <p>
-     The <sa href="panorama.Player"></sa> object (the player) is used for adding a panorama 
-     to a page. The player forms requests for tiles and creates the &lt;canvas> element on the page for displaying the panorama.  To insert a panorama on the page, just pass the player constructor the panorama object (Panorama). </p>
+     The <sa href="panorama.Player"/> object (the player) is used for adding a panorama 
+     to a page. The player forms requests for tiles and creates the &lt;canvas> element on the page for displaying the panorama. To insert a panorama on the page, just pass the player constructor the panorama object (Panorama). </p>
 <p>
-    You can use the <sa href="panorama.locate"></sa> function to get the panorama object. As input it is passed the geographical coordinates
+    You can use the <sa href="panorama.locate"/> function to get the panorama object. As input it is passed the geographical coordinates
     of the point to get a panorama for. The function returns an array of panoramas found in the vicinity of this point.
     The panoramas in the array are sorted by distance from the point.
 </p>
 <p>
-    You can also use the <sa href="panorama.createPlayer"></sa> function for adding panoramas to a web page. For input, it takes
+    You can also use the <sa href="panorama.createPlayer"/> function for adding panoramas to a web page. For input, it takes
     the coordinates of the point where a panorama should be opened. The function searches for the nearest panorama and, if successful, it
     creates a panorama player with the found panorama.
 </p>

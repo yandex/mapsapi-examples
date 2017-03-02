@@ -8,8 +8,8 @@ function init () {
             controls: ['zoomControl']
         }),
         myCircle = new ymaps.Circle([myMap.getCenter(), 1000000], {
-            balloonContentBody: 'Балун',
-            hintContent: 'Хинт'
+            balloonContentBody: 'Balloon,',
+            hintContent: 'Hint'
         }, {
             draggable: true
         });
@@ -27,16 +27,16 @@ function init () {
 }
 
 function setupControls(map, geoObject) {
-    var btnProperty = new ymaps.control.Button('Свойство: balloonHeader'),
-        btnOption = new ymaps.control.Button('Опция: geodesic'),
-        btnRadius = new ymaps.control.Button('Изменить радиус');
+    var btnProperty = new ymaps.control.Button('Property: balloonHeader'),
+        btnOption = new ymaps.control.Button('Option: geodesic'),
+        btnRadius = new ymaps.control.Button('Change the radius');
 
     btnProperty.options.set('maxWidth', 200);
     btnOption.options.set('maxWidth', 200);
     btnRadius.options.set('maxWidth', 200);
 
     btnProperty.events.add(['select', 'deselect'], function (e) {
-        geoObject.properties.set('balloonContentHeader', e.get('type') == 'select' ? 'Заголовок' : undefined);
+        geoObject.properties.set('balloonContentHeader', e.get('type') == 'select' ? 'Header' : undefined);
     });
     btnOption.events.add(['select', 'deselect'], function (e) {
         geoObject.options.set('geodesic', e.get('type') == 'select');

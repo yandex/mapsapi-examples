@@ -1,75 +1,75 @@
 // Groups of objects
 var groups = [
         {
-            name: "Известные памятники",
+            name: "Famous monuments",
             style: "islands#redIcon",
             items: [
                 {
                     center: [50.426472, 30.563022],
-                    name: "Монумент &quot;Родина-Мать&quot;"
+                    name: "Monument &quot;Motherland&quot;"
                 },
                 {
                     center: [50.45351, 30.516489],
-                    name: "Памятник &quot;Богдану Хмельницкому&quot;"
+                    name: "Monument to &quot;Bogdan Khmelnitsky&quot;"
                 },
                 {
                     center: [50.454433, 30.529874],
-                    name: "Арка Дружбы народов"
+                    name: "Druzhby Narodov Arch"
                 }
             ]},
         {
-            name: "Покушайки",
+            name: "Pokushaiki,",
             style: "islands#greenIcon",
             items: [
                 {
                     center: [50.50955, 30.60791],
-                    name: "Ресторан &quot;Калинка-Малинка&quot;"
+                    name: "Restaurant &quot;Kalinka Malinka&quot;"
                 },
                 {
                     center: [50.429083, 30.521708],
-                    name: "Бар &quot;Сало-бар&quot;"
+                    name: "Bar &quot;Salo-bar&quot;"
                 },
                 {
                     center: [50.450843, 30.498271],
-                    name: "Абсент-бар &quot;Палата №6&quot;"
+                    name: "Absinthe bar &quot;Palata No. 6&quot;"
                 },
                 {
                     center: [50.454834, 30.516498],
-                    name: "Ресторан &quot;Спотыкач&quot;"
+                    name: "Restaraunt &quot;Spotykach&quot;"
                 }
             ]},
         {
-            name: "Оригинальные музейчики",
+            name: "Original museums,",
             style: "islands#orangeIcon",
             items: [
                 {
                     center: [50.443334, 30.520163],
-                    name: "Музей грамзаписи и старинных музыкальных инструментов"
+                    name: "The Museum of gramophones and vintage musical instruments"
                 },
                 {
                     center: [50.446977, 30.505269],
-                    name: "Музей истории медицины или Анатомический театр"
+                    name: "Museum of the history of medicine or Anatomical theater"
                 },
                 {
                     center: [50.452512, 30.530889],
-                    name: "Музей воды. Водно-информационный центр"
+                    name: "The Museum of water. Water information center"
                 }
             ]},
         {
-            name: "Красивости",
+            name: "Goodies,",
             style: "islands#blueIcon",
             items: [
                 {
                     center: [50.45987, 30.516174],
-                    name: "Замок Ричарда-Львиное сердце"
+                    name: "The castle of Richard the Lion-heart"
                 },
                 {
                     center: [50.445049, 30.528598],
-                    name: "&quot;Дом с химерами&quot;"
+                    name: "&quot;the House with chimeras&quot;"
                 },
                 {
                     center: [50.449156, 30.511809],
-                    name: "Дом Рыцаря"
+                    name: "The House Of Knight"
                 }
             ]}
     ];

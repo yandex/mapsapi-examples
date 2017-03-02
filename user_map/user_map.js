@@ -12,8 +12,10 @@ function init () {
     // Creating a custom map layer:
         MyLayer = function () {
             return new ymaps.Layer(
-                // Defining the function that converts the tile number and zoom level to the URL of
-                // the tile on the server.
+                /**
+                 * Defining the function that converts the tile number
+                 *  and zoom level to the URL of the tile on the server.
+                 */
                 function (tile, zoom) {
                     return "https://mt.gmapuploader.com/tiles/FVSH1JsvdT/tile-" + zoom + "-" +
                         (tile[1] * Math.pow(2, zoom) + tile[0]) + ".jpg";
@@ -23,10 +25,12 @@ function init () {
 
     // Adding a layer constructor to the layer storage with the key my#layer.
     ymaps.layer.storage.add('my#layer', MyLayer);
-    // Creating a new map type consisting only of our tile layer, and adding it to the storage for
-    // map types with the key my#type.
+    /**
+     * Creating a new map type consisting only of our tile layer,
+     *  and adding it to the storage for map types with the key my#type.
+     */
     ymaps.mapType.storage.add('my#type', new ymaps.MapType(
-        'Схема',
+        'Roadmap',
         ['my#layer']
     ));
 
@@ -37,10 +41,13 @@ function init () {
         type: 'my#type',
         controls: ['zoomControl']
     }, {
-        maxZoom: 4, // Максимальный коэффициент масштабирования для заданной проекции.
-        minZoom: 2, // Минимальный коэффициент масштабирования.
+        maxZoom: 4, // The maximum zoom level for the specified projection.
+ The minimum zoom level.
         projection: myProjection,
-        // Setting an option so the zoom control is minimal size regardless of the size of the map.
+        /**
+         * Setting an option so the zoom control is minimal size
+         *  regardless of the size of the map.
+         */
         zoomControlSize: 'small'
     });
 }

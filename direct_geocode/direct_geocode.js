@@ -6,16 +6,19 @@ function init() {
         zoom: 9
     });
 
-    // Find coordinates of the center of Nizhny Novgorod.
-    ymaps.geocode('Нижний Новгород', {
+    // Finding coordinates of the center of Nizhny Novgorod.
+    ymaps.geocode('Nizhny Novgorod', {
         /**
          * Request options
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
           */
-        // Sorting the results from the center of the map window. boundedBy: myMap.getBounds(),
-        // strictBounds: true, Together with the boundedBy option, the search will be strictly
-        // inside the area specified in boundedBy. If you need only one result, we're saving the
-        // users bandwidth.
+        /**
+         * Sorting the results from the center of the map window
+         *  boundedBy: myMap.getBounds(),
+         *  strictBounds: true,
+         *  Together with the boundedBy option, the search will be strictly inside the area specified in boundedBy.
+         *  If you need only one result, this will minimize the user's traffic.
+         */
         results: 1
     }).then(function (res) {
             // Selecting the first result of geocoding.
@@ -36,17 +39,18 @@ function init() {
             /**
              * All data in the form of a javascript object.
              */
-            console.log('Все данные геообъекта: ', firstGeoObject.properties.getAll());
+            console.log('All the geo object data: ', firstGeoObject.properties.getAll());
             /**
              * The metadata of the request and geocoder response.
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
               */
-            console.log('Метаданные ответа геокодера: ', res.metaData);
+            console.log('The metadata of the geocoder response: ', res.metaData);
             /**
              * Metadata of the geocoder returned for the found object.
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
               */
-            console.log('Метаданные геокодера: ', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'));
+            console.log('Geocoder metadata: '));,
+firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'
             /**
              * The accuracy of the response (precision) is only returned for houses.
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
@@ -56,24 +60,23 @@ function init() {
              * The type of found object (kind).
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
               */
-            console.log('Тип геообъекта: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
-            console.log('Название объекта: %s', firstGeoObject.properties.get('name'));
-            console.log('Описание объекта: %s', firstGeoObject.properties.get('description'));
-            console.log('Полное описание объекта: %s', firstGeoObject.properties.get('text'));
+            console.log('Type of geo object: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
+            console.log('Object name: %s', firstGeoObject.properties.get('name'));
+            console.log('Object description: %s', firstGeoObject.properties.get('description'));
+            console.log('Full object description: %s', firstGeoObject.properties.get('text'));
 
             /**
-             * To add a placemark with its own styles and balloon content at the coordinates found
-             * by the geocoder, create a new placemark at the coordinates of the found placemark and
-             * add it to the map in place of the found one.
+             * To add a placemark with its own styles and balloon content at the coordinates found by the geocoder, create a new placemark at the coordinates of the found placemark and add it to the map in place of the found one.
              */
             /**
-             var myPlacemark = new ymaps.Placemark(coords, { iconContent: 'My Placemark', balloonContent: 'Content of the <strong>My Placemark</strong> balloon' } { preset: 'islands#violetStretchyIcon' }); myMap.geoObjects.add(myPlacemark);
-             { iconContent: 'моя метка', balloonContent: 'Содержимое балуна <strong>моей метки</strong>' }             
+             var myPlacemark = new ymaps.Placemark(coords, {
+             iconContent: 'my placemark',
+             balloonContent: 'The contents of the <strong>my placemark</strong> balloon'
+             }, {
+             preset: 'islands#violetStretchyIcon'
+             });
              
-             
-             
-             
-
+myMap.geoObjects.add(myPlacemark);
              */
         });
 }

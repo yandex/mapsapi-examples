@@ -12,8 +12,9 @@ ymaps.ready(function () {
         });
 
     /**
-     * The clusterer extends the collection, which allows you to use the same handler for processing
-     * events of all geo objects. We'll change the color of the icons and clusters on mouse hover.
+     * The clusterer extends the collection, which allows you to use the same handler
+     * for processing events of all geo objects.
+     * We'll change the color of the icons and clusters on mouse hover.
      */
     clusterer.events
         // You can listen to multiple events at once by specifying their names in the array.
@@ -39,8 +40,8 @@ ymaps.ready(function () {
 
     var getPointData = function (index) {
             return {
-                balloonContentBody: 'балун <strong>метки ' + index + '</strong>',
-                clusterCaption: 'метка <strong>' + index + '</strong>'
+                balloonContentBody: 'placemark <strong>balloon ' + index + '</strong>',
+                clusterCaption: 'placemark <strong>' + index + '</strong>'
             };
         },
         getPointOptions = function () {

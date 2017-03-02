@@ -1,2 +1,10 @@
-<div id="references"> <sa href="Placemark"/>, <sa href="templateLayoutFactory"/>
-</div> This example creates three placemarks with their own HTML layouts.<br/> Custom layouts are created using the layout factory.<br/> All layouts are assigned various hotspot shapes:rectangle, circle, or polygon. <br/><br/> The placemark uses the <a href="/maps/doc/jsapi/2.1/dg/concepts/about-hotspots.xml">hotspot</a> to catch mouse events.<br/> By default, the hotspot shape is not set when setting the HTML layout, and it has to be set separately.<br/> You can do this using the iconShape placemark option as a <sa href="IGeometryJson">JSON geometry description</sa>.
+<div id="references">
+    <sa href="Placemark"/>,
+    <sa href="templateLayoutFactory"/>
+</div>
+    This example creates three placemarks with their own HTML layouts. <br/>
+    Custom layouts are created using the layout factory. <br/>
+    All the placemarks have different hotspot shapes set: rectangle, circle, or polygon. <br/><br/>
+    In order to catch mouse events, the layout uses a <a href="/maps/doc/jsapi/2.1/dg/concepts/about-hotspots.xml">hotspot</a>. <br/>
+    By default, the hotspot shape isn't set when creating your own HTML layout, and you need to set it yourself.<br/>
+    You can do this using the 'iconShape' layout option as a <sa href="IGeometryJson">JSON description of a geometry</sa>.

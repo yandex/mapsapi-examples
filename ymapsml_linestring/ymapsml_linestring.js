@@ -14,6 +14,6 @@ function init () {
             // Adding geo object collections to the map.
             myMap.geoObjects.add(res.geoObjects);
         }, function (error) {
-            alert('При загрузке стилей произошла ошибка: ' + error);
+            alert('When loading styles, the following error occurred: ' + error);
         });
 }

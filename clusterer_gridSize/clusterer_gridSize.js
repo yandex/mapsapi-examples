@@ -13,7 +13,7 @@ function init () {
     // Creating a collection of geo objects.
         collection = new ymaps.GeoObjectCollection(),
     // Additional input field when clusterization is enabled.
-        gridSizeField = $('<div class="field" style="display: none">Размер ячейки кластера в пикселях: <input type="text" size="6" id ="gridSize" value="64"/></div>')
+        gridSizeField = $('<div class="field" style="display: none">Size of the cluster cell in pixels: <input type="text" size="6" id ="gridSize" value="64"/></div>')
             .appendTo('.inputs');
 
     // Adding the clusterer to the map.
@@ -33,7 +33,7 @@ function init () {
             bounds = myMap.getBounds(),
             // Flag indicating whether to cluster objects.
             useClusterer = $('#useClusterer').is(':checked'),
-            // The clusterer cell siz, specified by the user.
+            // The clusterer cell size, specified by the user.
             gridSize = parseInt($('#gridSize').val()),
             // Generating the required number of new objects.
             newPlacemarks = createGeoObjects(placemarksNumber, bounds);
@@ -44,8 +44,10 @@ function init () {
             });
         }
 
-        // If you are using the clusterer, add the cluster to the map; if not using it, add the
-        // collection of geo objects to the map.
+        /**
+         * If you are using the clusterer, add the cluster to the map;
+         * if not using it, add the collection of geo objects to the map.
+         */
         if (useClusterer) {
             // Adding an array of placemarks to the clusterer.
             clusterer.add(newPlacemarks);
@@ -70,7 +72,10 @@ function init () {
         return placemarks;
     }
 
-    // A function that generates random coordinates within the map viewport.
+    /**
+     * A function that generates random coordinates
+     * within the viewport of the map.
+     */
     function getRandomCoordinates (bounds) {
         var size = [bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]];
         return [Math.random() * size[0] + bounds[0][0], Math.random() * size[1] + bounds[0][1]];
@@ -78,9 +83,12 @@ function init () {
 
     // Show/hide additional input field.
     function toggleGridSizeField () {
-        // If the user has enabled clustering, an additional field for entering clusterization
-        // options appears - the clusterization cell size in pixels. By default, the cell size is
-        // 64. If clustering is disabled, the additional input field is hidden.
+        /**
+         * If the user has enabled clusterization mode, an additional input field appears
+         * for entering a clusterization option - the size of cluster cells, in pixels.
+         * By default, the cluster cell size is 64.
+         * When clusterization is disabled, the additional input field is hidden.
+         */
         gridSizeField.toggle();
     }
 

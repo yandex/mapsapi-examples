@@ -1,5 +1,21 @@
 <div id="doc">
-    <div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.Container"/>, <sa href="map.Converter"/>, <sa href="IProjection"/>, <sa href="util.Dragger"/>, <sa href="Circle"/> </div>
-    <p> In this example, the dragger is used for dragging the &quot;#marker&quot; HTML element. This HTML element was passed as the value of the autoStartElement option. The dragger is automatically started on the mousedown event of the autoStartElement. It is possible to initialize the dragger manually using the <sa href="util.Dragger#start">start()</sa> method. The dragger stops on the mouseup event of the document, but it is possible to terminate the dragger earlier using the <sa href="util.Dragger#stop">stop()</sa> method. </p>
-    <p> All dragger events contain the fields &#39;position&#39; and &#39;delta&#39;, which tell us the current cursor position and the offset of the current position relative to the last dragger event. In the example, when the <sa href="util.Dragger#event-stop">stop</sa> event occurs, the marker position is converted to geocoordinates if the dragger has stopped working on the map. </p>
+    <div id="references">
+        <sa href="ready"/>, <sa href="Map"/>,
+        <sa href="map.Container"/>, <sa href="map.Converter"/>,
+        <sa href="IProjection"/>, <sa href="util.Dragger"/>,
+        <sa href="Circle"/>
+    </div>
+    <p>
+        In this example, the dragger is used for dragging the "#marker" HTML element.
+        This HTML element was passed as the value of the autoStartElement option.
+        The dragger is automatically started on the mousedown event of the  autoStartElement.
+        It is possible to initialize the dragger manually using the <sa href="util.Dragger#start">start()</sa> method.
+        The dragger stops on the mouseup event of the document, but it is possible to terminate the dragger earlier using the <sa href="util.Dragger#stop">stop()</sa> method.
+    </p>
+    <p>
+        All dragger events contain the fields 'position' and 'delta',
+        which tell us the current cursor position and the offset of the current position relative to the last dragger event.
+        In the example, when the <sa href="util.Dragger#event-stop">stop</sa> event occurs, the marker position is converted to geocoordinates
+        if the dragger has stopped working on the map.
+    </p>
 </div> 

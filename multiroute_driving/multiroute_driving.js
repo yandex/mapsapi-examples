@@ -1,16 +1,16 @@
 function init () {
     /**
-     * Creating a multiroute.The first argument passes either the model or object description
-     * model.The second argument passes the multiroute display options.
+     * Creating a multiroute.
+     * The first argument passes either the model or object description model.
+     * The second argument passes the multiroute display options.
      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml
-     *       *
-     */
+      */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         // The description of the reference points on the multi-stop route.
         referencePoints: [
             [55.734876, 37.59308],
-            "Москва, ул. Мясницкая"
+            "Masnitskaya st., Moscow"
         ],
         // Routing options.
         params: {
@@ -24,11 +24,11 @@ function init () {
 
     // Creating buttons for controlling the multiroute.
     var trafficButton = new ymaps.control.Button({
-            data: { content: "Учитывать пробки" },
+            data: { content: "Considering traffic" },
             options: { selectOnClick: true }
         }),
         viaPointButton = new ymaps.control.Button({
-            data: { content: "Добавить транзитную точку" },
+            data: { content: "Adding a throughpoint" },
             options: { selectOnClick: true }
         });
 
@@ -47,13 +47,13 @@ function init () {
 
     viaPointButton.events.add('select', function () {
         var referencePoints = multiRoute.model.getReferencePoints();
-        referencePoints.splice(1, 0, "Москва, ул. Солянка, 7");
+        referencePoints.splice(1, 0, "7 Solyanka st., Moscow");
         /**
-         * Adding a throughpoint to the multiroute model.Note that throughpoints can only be placed
-         * between two waypoints. In other words, they can't be end points on a route.
+         * Adding a throughpoint to the multiroute model.
+         * Note that throughpoints can only be placed between two waypoints.
+         * In other words, they can't be end points on a route.
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml#setReferencePoints
-         *           *
-         */
+          */
         multiRoute.model.setReferencePoints(referencePoints, [1]);
     });
 

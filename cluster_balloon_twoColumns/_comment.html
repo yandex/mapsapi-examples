@@ -1,0 +1,15 @@
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>,
+    <sa href="Clusterer"/>, <sa href="ClusterPlacemark"/>, <sa href="templateLayoutFactory"/>,
+    <sa href="Placemark"/>
+</div>
+    This examples uses the cluster balloon layout "cluster#balloonTwoColumns".<br/>
+    This layout consists of two columns: a list of all geo objects, and information about the selected geo object.<br/>
+    The information about the selected geo object is set by a separate layout <br/>
+    and can be configured using the 'clusterBalloonItemContentLayout' option.<br/>
+    This example sets a custom layout with information about a geo object.<br/>
+<br/>
+    <a href="/maps/doc/jsapi/2.1/dg/concepts/layouts.xml">Layouts</a><br/>
+    for objects can be created using the <sa href="templateLayoutFactory"/> factory and text templates. <br/>
+    Text templates generate the HTML content of the layout from the data hash passed to the layout constructor. <br/>
+    In this example, the data provider is the geo object selected in the left column.

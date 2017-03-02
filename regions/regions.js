@@ -86,50 +86,50 @@ var options = {
         region: [
             {
                 id: '001',
-                title: 'Страны мира'
+                title: 'World countries'
             }, {
                 id: 'BY',
-                title: 'Беларусь'
+                title: 'Belarus'
             }, {
                 id: 'KZ',
-                title: 'Казахстан'
+                title: 'Kazakhstan'
             }, {
                 id: 'RU',
-                title: 'Россия'
+                title: 'Russia'
             }, {
                 id: 'TR',
-                title: 'Турция'
+                title: 'Turkey'
             }, {
                 id: 'UA',
-                title: 'Украина'
+                title: 'Ukraine'
             }
         ],
         lang: [
             {
                 id: 'en',
-                title: 'Английский'
+                title: 'English'
             }, {
                 id: 'be',
-                title: 'Белорусский'
+                title: 'Belarusian'
             }, {
                 id: 'kk',
-                title: 'Казахский'
+                title: 'Kazakh'
             }, {
                 id: 'ru',
-                title: 'Русский'
+                title: 'Russian'
             }, {
                 id: 'tr',
-                title: 'Турецкий'
+                title: 'Turkish'
             }, {
                 id: 'uk',
-                title: 'Украинский'
+                title: 'Ukrainian'
             }
         ]
     },
     optionsTemplate = ['<div style="line-height: 34px; background-color: #80808080;" id="regions-params">',
         '<div class="btn-group btn-group-xs">',
         '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Регион</span><span class="value"></span>&nbsp;<span class="caret"></span>',
+        '<span>Region</span><span class="value"></span>&nbsp;<span class="caret"></span>',
         '</button>',
         '<ul class="dropdown-menu region">',
         '{% for region in data.region %}',
@@ -140,7 +140,7 @@ var options = {
         '&nbsp;',
         '<div class="btn-group btn-group-xs">',
         '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Язык</span><span class="value"></span>&nbsp;<span class="caret"></span>',
+        '<span>Language</span><span class="value"></span>&nbsp;<span class="caret"></span>',
         '</button>',
         '<ul class="dropdown-menu lang">',
         '{% for lang in data.lang %}',
@@ -151,7 +151,7 @@ var options = {
         '&nbsp;',
         '<div class="btn-group btn-group-xs">',
         '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Точность границ</span><span class="value">: 1</span>&nbsp;<span class="caret"></span>',
+        '<span>Accuracy of borders</span><span class="value">: 1</span>&nbsp;<span class="caret"></span>',
         '</button>',
         '<ul class="dropdown-menu quality">',
         '<li><a href="javascript:void(0)" data-id="0">0</a></li>',

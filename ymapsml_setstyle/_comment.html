@@ -1,10 +1,23 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="geoXml.load"/>
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="geoXml.load"/>
 </div>
-<p> YMapsML allows you to set the appearance of objects displayed on the map. The appearance of displayed objects is changed using styles. <a href="/maps/doc/ymapsml/1.x/guide/concepts/styles.xml">Styles</a> let you set certain parameters for displaying geo objects and generate custom HTML representation using <a href="/maps/doc/ymapsml/1.x/guide/concepts/templates.xml">templates</a> (see the <a href="http://tech.yandex.ru/maps/jsbox/2.1/ymapsml_ballooncontentstyle">example of using templates</a>).
+<p>
+    YMapsML allows you to set the appearance of objects displayed on the map. The appearance of displayed objects is changed
+    using styles. <a href="/maps/doc/ymapsml/1.x/guide/concepts/styles.xml">Styles</a> let you set certain parameters
+    for displaying geo objects and generate custom HTML representation using
+    <a href="/maps/doc/ymapsml/1.x/guide/concepts/templates.xml">templates</a> (see the <a href="http://tech.yandex.ru/maps/jsbox/2.1/ymapsml_ballooncontentstyle">example of using templates</a>).
 </p>
-<p> To define styles, use the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Style.xml">repr:Style</a> element, which is located in the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Representation.xml">repr:Representation</a> element.
+<p>
+    To define styles, use the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Style.xml">repr:Style</a> element, which
+    is located in the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Representation.xml">repr:Representation</a> element.
 </p>
-<p> To specify which style to apply for displaying an object, set the <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-style.xml">ymaps:style</a> element in the <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObject.xml">ymaps:GeoObject</a> element. It should contain a link to a style that was defined in the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Style.xml">repr:Style</a> element. The style for a collection of geo objects can be set the same way in the <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObjectCollection.xml">ymaps:GeoObjectCollection</a> element.
+<p>
+    To specify which style to apply for displaying an object, set the
+   <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObject.xml">ymaps:style</a>
+    element in the <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-style.xml">ymaps:GeoObject</a> element. It should contain a link
+    to a style that was defined in the <a href="/maps/doc/ymapsml/1.x/ref/reference/representation-Style.xml">repr:Style</a> element. The style 
+    for a collection of geo objects can be set the same way in the
+    <a href="/maps/doc/ymapsml/1.x/ref/reference/ymaps-GeoObjectCollection.xml">ymaps:GeoObjectCollection</a> element.
 </p>
 
 

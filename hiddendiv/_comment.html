@@ -1,0 +1,22 @@
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Map.container"/>
+</div>
+<p>
+    The map content fills the container it is in. At the time of initialization, the map must be able to detect the dimensions of the container.
+</p>
+<p>
+    If the container isn't ready at the time of map initialization, the map dimensions will be null (0x0), which means that the map won't be visible.
+</p>
+<p>
+    The map is invisible on the inactive jQuery.UI tab because the CSS 'display: none' property is used for hiding tabs.
+An element that has 'display: none' doesn't know its actual dimensions. The easiest solution is to initiate calculating map sizes when switching tabs, by calling the <a href="/maps/doc/jsapi/2.1/ref/reference/map.Container-docpage/#fitToViewport">fitToViewport()</a> command. Another workaround for the problem in the example (using jQuery.UI) is to use an alternative method for hiding tabs  by redefining the standard jQuery.UI classes:
+</p>
+<p>
+    .ui-tabs .ui-tabs-hide {
+    position: absolute !important;
+    left: -10000px !important;
+    display: block !important;
+    }
+</p>

@@ -37,10 +37,13 @@ function init() {
         // Defining properties of the geo object.
         properties:{
             // The contents of the balloon.
-            balloonContent: "Многоугольник"
+            balloonContent: "Polygon"
         }
     }, {
-        // Describing the geo object options. Fill color.
+        /**
+         * Describing the geo object options.
+         *  Fill color.
+         */
         fillColor: '#00FF00',
         // Stroke color.
         strokeColor: '#0000FF',
@@ -57,8 +60,10 @@ function init() {
 
     // Creating a polygon using the Polygon auxiliary class.
     var myPolygon = new ymaps.Polygon([
-        // Specifying the coordinates of the vertices of the polygon. The coordinates of the
-        // vertices of the external contour.
+        /**
+         * Specifying the coordinates of the vertices of the polygon.
+         *  The coordinates of the vertices of the external contour.
+         */
         [
             [55.75, 37.50],
             [55.80, 37.60],
@@ -73,10 +78,16 @@ function init() {
             [55.65, 37.60]
         ]
     ], {
-        // Describing the properties of the geo object. The contents of the balloon.
-        hintContent: "Многоугольник"
+        /**
+         * Describing the properties of the geo object.
+         *  The contents of the balloon.
+         */
+        hintContent: "Polygon"
     }, {
-        // Setting geo object options. Fill color.
+        /**
+         * Setting geo object options.
+         *  Fill color.
+         */
         fillColor: '#00FF0088',
         // The stroke width.
         strokeWidth: 5

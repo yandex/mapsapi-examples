@@ -1,2 +1,29 @@
-<div id="references"> <sa href="ready"/>, <sa href="modules.require"/>, <sa href="vow"/>, <sa href="Map"/>, <sa href="Placemark"/>, <sa href="control.Button"/>
-</div> In this example, initialization only loads the map and button modules.<br/> When the button is clicked, the placemark module is loaded.<br/> Separate modules can be loaded using the <sa href="modules.require">require</sa> method in the modular system.<br/> The method returns a <sa href="vow.Promise.xml">promise object</sa>, which is confirmed with an array of requested modules.<br/> For convenience, the example uses the &quot;spread&quot; method, which passes the data to the function as a list of arguments, not as an array.<br/><br/><br/> By default, enabling the API loads the standard set of modules (package.full), which includes everything necessary for working with the API.<br/> To reduce the volume of code to load, the API can connect certain modules instead of the standard set.<br/> You can do this by indicating the desired modules in the &quot;load&quot; GET parameter. Modules are comma-separated.<br/> If the &quot;load&quot; GET parameter is omitted, package.full is loaded.<br/> For more information about how modules work, see the section <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a>.
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="modules.require"/>,
+    <sa href="vow"/>,
+    <sa href="Map"/>,
+    <sa href="Placemark"/>,
+    <sa href="control.Button"/>
+</div>
+    In this example, only the map and button modules are loaded during initialization.
+<br/>
+    The placemark module is loaded when the button is clicked.
+<br/>
+     You can load separate modules using the <sa href="modules.require">require</sa> method in the modular system.
+<br/>
+    The method returns a <sa href="vow.Promise.xml">promise object</sa> that is resolved by an array of requested modules.
+<br/>   
+    For convenience, the example uses the 'spread' method, which passes the function the data as a list of arguments, not as an array.
+<br/><br/>
+    The Yandex.Maps API consists of a large number of interrelated modules.
+<br/>
+    By default, when the API is enabled, it loads a standard set of modules (package.full), which includes everything that is necessary for using the API.
+<br/>
+    To reduce the amount of API code that is loaded, you can enable certain modules instead of the full set.
+<br/>
+    You can do this by specifying the desired modules in the 'load' GET parameter. Modules are specified as a comma-separated list.
+<br/>
+    If the 'load' GET parameter isn't specified, package.full is loaded.
+<br/>
+    For more information aobut modules, see the <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a> section.

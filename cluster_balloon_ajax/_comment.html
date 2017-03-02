@@ -1,13 +1,30 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="GeoObject"/>, <sa href="Clusterer"/>, <sa href="Event"/>, <sa href="geoQuery"/>
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="GeoObject"/>,
+    <sa href="Clusterer"/>,
+    <sa href="Event"/>,
+    <sa href="geoQuery"/>
 </div>
-<p> Often when working with the map you have to download a large amount of additional data (text information, images, etc). However, this downloaded information is not always used by the user. For example, when the map display hundreds of placemarks, and each of them has a balloon containing a large amount of text. When working with the map, the user might not open any of the balloons, but the data will still be loaded.
+<p>
+    Often when working with the map you have to download a large amount of additional data (text information, images, etc).
+    However, this downloaded information is not always used by the user. For example, when the map display
+    hundreds of placemarks, and each of them has a balloon containing a large amount of text.
+    When working with the map, the user might not open any of the balloons, but the data will still be loaded.
 </p>
-<p> In such cases, in order to save traffic it makes sense to not load data immediately, but wait until it is needed.
+<p>
+    In such cases, in order to save traffic it makes sense to not load data immediately, but wait until it is needed.
 </p>
-<p> This example demonstrates how to dynamically load the contents of a balloon using an AJAX request.
+<p>
+    This example demonstrates how to dynamically load the contents of a balloon using an AJAX request.
 </p>
-<p> When a cluster icon or a separate placemark is clicked, a check is performed for whether the balloon content is loaded. If any placemarks do not have the balloon text specified, a POST request is sent to the server with an array of identifiers of these placemarks. The server processes the array and returns a JSON object based on it containing the required data.
+<p>
+    When a cluster icon or a separate placemark is clicked, a check is performed for whether the balloon content is loaded.
+    If any placemarks do not have the balloon text specified, a POST request is sent
+    to the server with an array of identifiers of these placemarks.
+    The server processes the array and returns a JSON object based on it containing the required data.
 </p>
 
-<p> Note that you need to implement the server side yourself.
+<p>
+    Note that you need to implement the server side yourself.
 </p>

@@ -1,6 +1,12 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="map.GeoObjects"/>, <sa href="route"/>
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="map.GeoObjects"/>,  
+    <sa href="route"/>
 </div>
-<p> To build a <a href="/maps/doc/jsapi/2.1/dg/concepts/router.xml">route</a>, use the <sa href="route"/> function. This function is passed an array of points that the route must pass through and, if necessary, additional options for building the route.
+<p>
+	For building a <a href="/maps/doc/jsapi/2.1/dg/concepts/router.xml">route</a>, use the <sa href="route"/> function. Pass this function an array of points that the route should pass through, along with additional options for building the route, if needed.
 </p>
-<p> The route is calculated asynchronously (in other words, data is exchanged with the server while the route function is executing). The result is passed to the handler function as a <sa href="GeoObjectCollection"/> collection that can be placed on the map.
+<p>
+	The route is calculated asynchronously (i.e. while executing the 'route' function, data is exchanged with the server). The result is passed to the handler function as a <sa href="GeoObjectCollection"/> collection, which can be placed on the map.
 </p>

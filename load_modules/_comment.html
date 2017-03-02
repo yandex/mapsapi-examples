@@ -1,2 +1,17 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="modules"/>, <sa href="Placemark"/>, <sa href="geoObject.addon.balloon"/>
-</div> The Yandex.Maps API consists of a large number of interconnected modules.<br/> By default, when you enable the API, a standard set of modules is loaded (package.full), which includes everything that is necessary for the API.<br/> To reduce the amount of API code that is loaded, you can connect certain modules instead of the standard set.<br/> This can be done by specifying the necessary modules in the &quot;load&quot; GET parameter. The modules are separated by commas.<br/> If the &quot;load&quot; GET parameter is not specified, package.full is loaded.<br/> For more information about modules, see <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a>.<br/><br/> In this example, to load only the modules, cards, placemarks, and a balloon geoobject.<br/><br/> balloon geoobject connected using addon <sa href="geoObject.addon.balloon">geoObject.addon.the balloon</sa>.<br/> Without connected addon for a balloon at the geoobjects will not be properties of the <sa href="GeoObject#balloon">balloon</sa>.<br/> All Addons are enabled by default in the package.full.
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="modules"/>,
+    <sa href="Placemark"/>, <sa href="geoObject.addon.balloon"/>
+</div>
+    The Yandex.Maps API consists of a large number of interrelated modules.<br/>
+    By default, when the API is enabled, the standard set of modules ('package.full') is loaded. It includes everything for working with the API.
+<br/>
+    To reduce the volume of API code loaded, you can enable specific modules instead of the standard set.<br/>
+    To do this, specify the desired modules in the 'load' GET parameter. Use commas to separate modules in the list. <br/>
+    If the 'load' GET parameter isn't specified, 'package.full' is loaded.<br/>
+    For more information about the modules, see the section <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a>.<br/>
+<br/>
+    In this example, we load just the modules for the map, placemarks, and the geo object balloon.<br/>
+<br/>
+    The geo object balloon is enabled using an addon <sa href="geoObject.addon.balloon">geoObject.addon.balloon</sa>.<br/>
+    If the balloon addon isn't enabled, geo objects won't have the <sa href="GeoObject#balloon">balloon</sa> property.<br/>
+    All addons are enabled by default in 'package.full'.

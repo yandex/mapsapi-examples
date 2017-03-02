@@ -10,15 +10,15 @@ function init () {
           */
         balloonLayout = ymaps.templateLayoutFactory.createClass(
                 "<div class='my-balloon'>" +
-                "<u>Маршрут {% if properties.type == 'driving' %}" +
-                "на автомобиле<br/>" +
+                "<u>Route {% if properties.type == 'driving' %}" +
+                "driving<br/>" +
                 "{% else %}" +
-                "на общественном транспорте" +
+                "on public transport" +
                 "{% endif %}</u><br />" +
-                "Расстояние: " +
+                "Distance: " +
                 "<i>{{ properties.distance.text }}</i>,<br />" +
-                "Время в пути: " +
-                "<i>{{ properties.duration.text }} (без учета пробок) </i>." +
+                "Time to travel: " +
+                "<i>{{ properties.duration.text }} (without traffic) </i>." +
                 "</div>"
         ),
         /**
@@ -27,12 +27,14 @@ function init () {
           */
         multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
-                "метро Арбатская",
-                "метро Смоленская"
+                "Arbatskaya metro station",
+                "Smolenskaya metro station"
             ],
             params: {
-                // avoidTrafficJams: true,
-                //routingMode: 'masstransit'
+                /**
+                 * avoidTrafficJams: true,
+                 * routingMode: 'masstransit'
+                 */
             }
         }, {
             /**

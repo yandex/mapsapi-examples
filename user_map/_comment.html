@@ -1,8 +1,15 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="Layer"/>, <sa href="projection.Cartesian"/>
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Layer"/>,
+    <sa href="projection.Cartesian"/>
 </div>
-<p> The API allows you to create your own custom maps.
+<p>
+    The API allows you to create your own custom maps.
 </p>
-<p> To create a custom map, first you must specify the coordinate system that the map will be projected on. The API supports two coordinate systems: Cartesian and geographic, which are implemented by the <sa href="projection.Cartesian"/> and <sa href="projection.wgs84Mercator"/> classes, respectively. In addition, it is possible to create a custom coordinate system.
+<p>
+    For creating a custom map, first of all you need to set the coordinate system that the map will be projected on. The API has built-in support for two coordinate systems: Cartesian and geographical, which are implemented by the <sa href="projection.Cartesian"/> and <sa href="projection.wgs84Mercator"/> classes, respectively. It is also possible to create a custom coordinate system.
 </p>
-<p> Similarly, to create a custom map, you must make a custom layer and add it to the map layer storage. Use the <sa href="Layer"/> class to create a layer. When you add the layer to the layer storage, specify the constructor for the Layer class, not an instance of the class.
+<p>
+    In addition, creating a custom map requires making your own custom layer and adding it to the map layer storage. To create a layer, use the <sa href="Layer"/> class. When adding the layer to the layer storage, specify the layer constructor, not an instance of the Layer class.
 </p>

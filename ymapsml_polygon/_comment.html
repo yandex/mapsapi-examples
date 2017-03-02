@@ -1,8 +1,20 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="geoXml.load"/>, <sa href="Polygon"/>, <sa href="GeoObjectCollection"/>
+<div id="references">
+    <sa href="ready"/>, <sa href="Map"/>, <sa href="geoXml.load"/>, <sa href="Polygon"/>, <sa href="GeoObjectCollection"/>
 </div>
-<p> <a href="/maps/doc/ymapsml/1.x/guide/concepts/About.xml">YMapsML</a> is a language for describing geographical objects.
+<p>
+    <a href="/maps/doc/ymapsml/1.x/guide/concepts/About.xml">YMapsML</a> is a language for describing geographical objects.
 </p>
-<p> In YMapsML, each geographical object is associated with a geometric shape and a geo object that is used for displaying this shape on the map. The shape definitions and their anchors to geographical coordinates are set in corresponding YMapsML elements. The <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-Polygon.xml">gml:Polygon</a> element is designated for the &quot;polygon&quot; shape. It contains the <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-exterior.xml">gml:exterior</a> element, which lists the coordinates of the vertexes of the polygon&#39;s exterior contour. A polygon may also contain interior contours. Their vertexes are set in the <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-interior.xml">gml:interior</a> element.
+<p>
+    In YMapsML, each geographical object is associated with a geometric shape and a geo object that is used
+    for displaying this shape on the map. The shape definitions and their anchors to geographical coordinates are set in
+	corresponding YMapsML elements. The <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-Polygon.xml">gml:Polygon</a> element is designated
+    for the "polygon" shape.
+	It contains the <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-exterior.xml">gml:exterior</a> element, which lists the coordinates of the
+    vertexes of the polygon's exterior contour. A polygon may also contain interior contours. Their vertexes
+    are set in the <a href="/maps/doc/ymapsml/1.x/ref/reference/gml-interior.xml">gml:interior</a> element.
 </p>
-<p> The <sa href="geoXml.load"/> function is for loading YMapsML data. After data has loaded, the function converts the data to <sa href="GeoObjectCollection"/> and passes it to the handler function as a parameter. A GeoObjectCollection can be displayed on the map.
+<p>
+    The <sa href="geoXml.load"/> function is used for loading YMapsML data. After data loads, the function converts it to
+     <sa href="GeoObjectCollection"/> and passes it to the handler function as a parameter. A GeoObjectCollection can be displayed
+    on the map.
 </p>

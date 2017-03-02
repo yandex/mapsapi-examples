@@ -1,8 +1,22 @@
-<div id="references"> <sa href="ObjectManager"/>, <sa href="objectManager.ObjectCollection"/>, <sa href="objectManager.ClusterCollection"/>, <sa href="objectManager.OverlayCollection"/>
+<div id="references">
+    <sa href="ObjectManager"/>,
+    <sa href="objectManager.ObjectCollection"/>,
+    <sa href="objectManager.ClusterCollection"/>,
+    <sa href="objectManager.OverlayCollection"/>
 </div>
-<p> <sa href="ObjectManager"/> - class that allows you to add a large number of point objects without having to create separate placemarks and add them to the map.
+<p>
+    <sa href="ObjectManager"/> - A class for adding a large number of objects to the map
+    without needing to create placemarks and add them to the map individually.
 </p>
-<p> Objects added in ObjectManager are located in the ObjectManager.objects collection. The clusters formed from added placemarks are added to the ObjectManager.clusters collection. The visual display of placemarks is created asynchronously on request. Placemarks and clusters are visually displayed as objects that implement the <sa href="IOverlay"/> interface. In particular, <sa href="overlay.Placemark"/>. Overlays are placed in the ObjectManager.objects.overlays and ObjectManager.clusters.overlays collections, respectively.
+<p>
+    The objects added to the ObjectManager are located in the ObjectManager.objects collection. Clusters formed from the
+    added placemarks are added to the ObjectManager.clusters collection.
+    The visual representation of placemarks is created asynchronously on demand. The visual representation of placemarks and clusters are objects implementing the <sa href="IOverlay"/> interface. In particular, <sa href="overlay.Placemark"/>.
+    Overlays are placed in the ObjectManager.objects.overlays and ObjectManager.clusters.overlays collections, respectively.
 </p>
-<p> <sa href="ObjectManager"/> accepts placemark descriptions in JSON format. Placemarks can be clustered or displayed as-is. If you are not using clustering, the placemarks will be shown only in the visible area of the map. Because objects are stored in the manager in the form of JSON descriptions and their visual representation is created only when needed, this method of adding points to the map works faster than adding placemarks to the map directly or through clusterization.
+<p>
+    <sa href="ObjectManager"/> accepts placemark descriptions in JSON format. Placemarks can be clustered or shown as-is.
+    If you don't use clusterization, the placemarks will be shown only in the visible map area.
+    Since objects are stored in the manager as JSON descriptions and their visual representation is created only when necessary,
+    this method of adding points to the map works faster than adding placemarks to the map directly or via the clusterer.
 </p>

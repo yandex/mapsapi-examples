@@ -7,24 +7,37 @@ function init() {
             controls: []
         }),
 
-        // The button layout should display the data.content field and change depending on whether
-        // the button is pressed or not.
-        ButtonLayout = ymaps.templateLayoutFactory.createClass(
-            "<div class='my-button {% if state.selected %}my-button-selected{% endif %}'>" +
-                "{{data.content}}" +
-                "</div>"
-        ),
-            
+    /**
+     * The button layout should display the 'data.content' field 
+     * and change depending on whether the button was clicked or not.
+     * The current size (small, medium, large) is calculated from the value of the 'maxWidth' option
+     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
+      */
+        ButtonLayout = ymaps.templateLayoutFactory.createClass([
+            '<div alt="{{ data.title }}" class="my-button ',
+            '{% if state.size == "small" %}my-button_small{% endif %}',
+            '{% if state.size == "medium" %}my-button_medium{% endif %}',
+            '{% if state.size == "large" %}my-button_large{% endif %}',
+            '{% if state.selected %} my-button-selected{% endif %}">',
+            '<img class="my-button__img" src="{{ data.image }}" alt="{{ data.title }}">',
+            '<span class="my-button__text">{{ data.content }}</span>',
+            '</div>'
+        ].join('')),
+
         button = new ymaps.control.Button({
             data: {
-                content: "Жмак-жмак"
+                content: "Click-click-click",
+                image: 'images/pen.png',
+                title: "Click-click-click"
             },
             options: {
-                layout: ButtonLayout
+                layout: ButtonLayout,
+                maxWidth: [170, 190, 220]
             }
         });
-            
+
     myMap.controls.add(button, {
-        float: 'left'
+        right: 5,
+        top: 5
     });
 }

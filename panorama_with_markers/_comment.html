@@ -1,0 +1,37 @@
+<div id="references">
+    <sa href="panorama.isSupported"/>,
+    <sa href="panorama.Base"/>,
+    <sa href="panorama.Player"/>,
+    <sa href="IPanoramaMarker"/>
+</div>
+<p>
+    This example shows how to display markers on a custom panorama.
+</p>
+<p>
+    To add a marker to the panorama, create a class that describes the marker (in the example, this is the Marker class).
+    This class must implement the <sa href="IPanoramaMarker"/> interface. In addition, add the getMarkers method to the panorama class 
+    (MyPanorama in the example). This method should return instances of the Marker class.
+</p>
+<p>
+    Note that the API doesn't have any marker images, so you have to create them yourself.
+</p>
+<p>
+    Depending on the user's actions, the marker can have one of the following states: 'default',
+    'hovered', 'expanded' or 'expandedHovered'.
+</p>
+<p>
+    In order for the marker's appearance to change for different states, you need to define images for these states.
+    The image for the 'default' state is always required.
+</p>
+<p>
+    This example sets images for three marker states: 'default', 'hovered'
+    and 'expanded'. Images for the first two states are stored on the server, and the image
+    for the 'expanded' state is drawn in Canvas.
+</p>
+<p>
+    Note that the example shows a panorama without a full vertical view.
+    The <a href="/maps/doc/jsapi/2.1/dg/concepts/panoramas/panorama-manage-docpage/#not-full">documentation</a>
+    discusses projecting this panorama on a sphere, and explains how to
+    set the geometry of this panorama.
+</p>
+

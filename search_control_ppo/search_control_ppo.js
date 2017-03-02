@@ -5,8 +5,10 @@ function init() {
         controls: []
     });
     
-    // Creating an instance of the "search on map" control, with the data provider for searching by
-    // organizations set.
+    /**
+     * Creating an instance of the "Search on map" control
+     * with the option enabled for the business search data provider.
+     */
     var searchControl = new ymaps.control.SearchControl({
         options: {
             provider: 'yandex#search'
@@ -15,8 +17,11 @@ function init() {
     
     myMap.controls.add(searchControl);
     
-    // Programmatically searching for a cafe in the current rectangular map area.
-    searchControl.search('кафе');
+    /**
+     * Programmatically performing a search for specific cafes within the
+     * rectangular map area.
+     */
+    searchControl.search('Shokoladnitsa');
 }
 
 ymaps.ready(init);

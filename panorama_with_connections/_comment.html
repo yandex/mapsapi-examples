@@ -1,0 +1,35 @@
+<div id="references">
+    <sa href="panorama.isSupported"/>,
+    <sa href="panorama.Base"/>,
+    <sa href="panorama.Player"/>,
+    <sa href="IPanoramaThoroughfare"/>
+</div>
+<p>
+    The API allows you to connect created panoramas to each other and add interactive transition elements to them.
+    These elements can be standard transition arrows, or special transition markers.
+    You can add an unlimited number of transition elements to the same panorama.
+</p>
+<p>
+    To add a standard transition arrow to a panorama, redefine the getThoroughfares method in the
+    panorama class. It should return an array of class instances describing
+    the transition from one panorama to another (in the example, this is the Thoroughfares class). This class must specify the panorama
+    to transition to and the viewing direction for this panorama. Note that you can't change display options for the arrows.
+</p>
+<p>
+    To add transition markers to a panorama, implement the getConnections method in the panorama class.
+    This method must return an array of class instances describing the transition markers
+    (in the example, this is the MarkerConnection class).
+    In this class, you must specify the panorama to transition to and set the display options and position
+   of the marker on the panorama. In addition, transition markeres can have
+    one of two states: default and hovered. You can set an icon for each of these states.
+</p>
+<p>
+    Note that when adding a transition from one panorama to another, the reverse transition
+    isn't created automatically, and you need to create it yourself.
+</p>
+<p>
+    In this example, we created two custom panoramas and added transitions between them using standard arrows. On the first
+    panorama (the one that is displayed when opening the example), we added a marker that transitions to a Yandex panorama 
+    when clicked. Note that the reverse transition
+    (i.e. transitioning from the Yandex panorama to the custom panorama) is not possible.
+</p>

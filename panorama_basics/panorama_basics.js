@@ -1,6 +1,5 @@
 ymaps.ready(function () {
-    // To begin with, we have to check whether
-    // the user's browser supports the panorama player.
+    // To begin with, we have to check whether the user's browser supports the panorama player.
     if (!ymaps.panorama.isSupported()) {
         // If it doesn't, we won't do anything.
         return;
@@ -14,10 +13,16 @@ ymaps.ready(function () {
                 // Creating the panorama player with one of the panoramas found.
                 var player = new ymaps.panorama.Player(
                         'player1',
-                        // The panoramas in the response are sorted by their distance from the point passed in 'panorama.locate'.
-                        // We are choosing the first one because it will be the closest.
+                        /**
+                         * The panoramas in the response are sorted by their distance
+                         * from the point passed in 'panorama.locate'.
+                         * We are choosing the first one because it will be the closest.
+                         */
                         panoramas[0],
-                        // Setting a viewing direction different from the default value.
+                        /**
+                         * Setting a viewing direction different
+                         * from the default value.
+                         */
                         { direction: [256, 16] }
                     );
             }
@@ -28,9 +33,11 @@ ymaps.ready(function () {
         }
     );
 
-    // You can also use the 'panorama.createPlayer' method for adding panoramas to a page.
-    // This method searches for the nearest panorama and
-    // if successful, it creates a panorama player with the found panorama.
+    /**
+     * You can also use the 'panorama.createPlayer' method
+     * for adding panoramas to a page. This method searches for the nearest panorama
+     * and if successful, it creates a panorama player with the found panorama.
+     */
     ymaps.panorama.createPlayer(
        'player2',
        [59.938557, 30.316198],
@@ -41,5 +48,3 @@ ymaps.ready(function () {
             // player – a link to the player instance.
         });
 });
-
-

@@ -1,2 +1,12 @@
-<div id="references"> <sa href="modules.define"/>, <sa href="modules.require"/>, <sa href="ready"/>
-</div> The Yandex.Maps Api consists of a large number of interdependent modules.<br/> By default, enabling the API loads a standard set of modules (package.full), which includes everything necessary for working with the API.<br/> A developer who is using the Yandex.Maps API can create custom modules.<br/><br/> This example creates a custom control for a custom layout.<br/> Both the control and the layout are created as separate modules.<br/> To define a custom module, use the <sa href="modules.define">define</sa> method.<br/> After the map is created, use the <sa href="modules.require">require</sa> method to request to get the custom module.<br/><br/> For more information about how modules work, see the section <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a>.
+<div id="references">
+    <sa href="modules.define"/>, <sa href="modules.require"/>, <sa href="ready"/>
+</div>
+    The Yandex.Maps API consists of a large number of interrelated modules.<br/>
+    By default, when the API is enabled, it loads a standard set of modules  (package.full), which includes everything needed for working with the API.<br/>
+    A developer who uses the Yandex.Maps API can create custom modules.<br/><br/>
+    In this example, we create a custom control with its own custom layout.<br/>
+    Both the control and the layout are designed as separate modules.<br/>
+    You can define your own module using the <sa href="modules.define">define</sa><br/> method
+    After creating the map, a request is made to get the custom module using <sa href="modules.require">require</sa><br/>
+<br/>    
+    For more information about modules, see the section <a href="/maps/doc/jsapi/2.1/dg/concepts/modules.xml">Modules</a>.

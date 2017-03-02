@@ -1,8 +1,19 @@
-<div id="references"> <sa href="ObjectManager"/>, <sa href="objectManager.ObjectCollection"/>, <sa href="objectManager.ClusterCollection"/>, <sa href="objectManager.OverlayCollection"/>
+<div id="references">
+    <sa href="ObjectManager"/>,
+    <sa href="objectManager.ObjectCollection"/>,
+    <sa href="objectManager.ClusterCollection"/>,
+    <sa href="objectManager.OverlayCollection"/>
 </div>
-<p> <sa href="ObjectManager"/> - class that allows you to add a large number of objects to the map without having to create placemarks separately.
+<p>
+    <sa href="ObjectManager"/> - A class for adding a large number of objects to the map
+    without needing to create placemarks individually.
 </p>
-<p> Objects added in ObjectManager are located in the ObjectManager.objects collection. The clusters formed from added placemarks are added to the ObjectManager.clusters collection. The visual display of placemarks is created asynchronously on request. Placemarks and clusters are visually displayed as objects that implement the <sa href="IOverlay"/> interface. In particular, <sa href="overlay.Placemark"/>. Overlays are placed in the ObjectManager.objects.overlays and ObjectManager.clusters.overlays collections, respectively.
+<p>
+    The objects added to the ObjectManager are located in the ObjectManager.objects collection. Clusters formed from the
+    added placemarks are added to the ObjectManager.clusters collection.
+    The visual representation of placemarks is created asynchronously on demand. The visual representation of placemarks and clusters are objects implementing the <sa href="IOverlay"/> interface. In particular, <sa href="overlay.Placemark"/>.
+    Overlays are placed in the ObjectManager.objects.overlays and ObjectManager.clusters.overlays collections, respectively.
 </p>
-<p> Events on object overlays propagate to the parent collections. The unique ID of the object on which the event occurred is passed in the objectID field of the event. IDs for single objects are set by the user, and for clusters they are generated automatically during cluster creation.
+<p>
+    Events on object overlays propagate to the parent collections. The unique ID of the object on which the event occurred is passed in the objectID field of the event. IDs for single objects are set by the user, and for clusters they are generated automatically during cluster creation.
 </p>

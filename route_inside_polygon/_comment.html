@@ -1,6 +1,15 @@
-<div id="references"> <sa href="ready"/>, <sa href="Map"/>, <sa href="Polygon"/>, <sa href="route"/>, <sa href="geoQuery"/>, <sa href="GeoQueryResult"/>
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Polygon"/>,
+    <sa href="route"/>,
+    <sa href="geoQuery"/>,
+    <sa href="GeoQueryResult"/>
 </div>
-<p> It is often necessary to draw a route between specified points, and then analyze in what areas or cities the segments of this route fall on. In this example, prepared data is used for creating a polygon defining the MKAD. After the route is received, a check is performed for whether its segments fall within this polygon using the method <sa href="GeoQueryResult#searchInside">searchInside</sa>.
+<p>
+    It is often necessary to draw a route between specified points, and then analyze in what areas or cities the segments of this route fall on.
+ In this example, prepared data is used for creating a polygon defining the MKAD. After the route is received, a check is performed for whether its segments fall within this polygon using the method <sa href="GeoQueryResult#searchInside">searchInside</sa>.
 </p>
-<p> Using the <sa href="GeoQueryResult"/> object, you can set options or data for a group of geo objects at once. As shown here, the route segments that lie inside and outside the ring road are drawn in different colors.
+<p>
+    You can use the <sa href="GeoQueryResult"/> object to set options or data for an entire group of geo objects at once. Here you can see how route segments that are inside or outside of the ring road use different colors.
 </p>

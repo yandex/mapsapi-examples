@@ -1,0 +1,16 @@
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Clusterer"/>,
+    <sa href="Placemark"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="layout.PieChart"/>
+</div>
+<p>
+    Pie chart layout <sa href="layout.PieChart"/>. Available in the layout storage with the key 'default#pieChart'.
+    You can use this layout as a tool for visualizing any data, or in combination with other visual API components such as placemarks, the clusterer, and the object manager.
+</p>
+<p>
+    The layout can be based on <a href="/maps/doc/jsapi/2.1/dg/concepts/layout.PieChart.xml#param-data.properties.data">statistical data</a>, which should be an array of JSON objects with the weight and color fields (the weight and color of a section), or a function that returns such an array (see the <a href="http://tech.yandex.ru/maps/jsbox/2.1/placemark">Placemark example</a>).
+    If properties.data is omitted, the layout iterates through all the <a href="/maps/doc/jsapi/2.1/dg/concepts/layout.PieChart.xml#param-data.properties.geoObjects">geo objects</a>, determines the value of the iconColor option for each object, and creates the diagram based on this data.
+</p>

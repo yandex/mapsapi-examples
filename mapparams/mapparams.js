@@ -27,14 +27,17 @@ function setCenter () {
 }
 
 function setBounds () {
-    // Bounds - the boundaries of the map viewport. Set as the geographical coordinates of the
-    // South-Easternmost and North-Westernmost points of the viewport.
+    /**
+     * Bounds - the boundaries of the map viewport. 
+     * Set as the geographical coordinates of the South-Easternmost
+and North-Westernmost points of the viewport.
+     */
     myMap.setBounds([[37, 38], [39, 40]]);
 }
 
 function setTypeAndPan () {
-    // Changing the map type to "Public Hybrid".
-    myMap.setType('yandex#publicMapHybrid');
+    // Changing the map type to "Hybrid".
+    myMap.setType('yandex#hybrid');
     // Smoothly moving the center of the map to the point with the new coordinates.
     myMap.panTo([62.915, 34.461], {
             // The delay between movements.

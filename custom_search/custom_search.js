@@ -8,28 +8,28 @@ function init() {
         myCollection = new ymaps.GeoObjectCollection(),
     // Creating an array with the data.
         myPoints = [
-            { coords: [55.77, 37.46], text: 'Трактир' },
-            { coords: [55.66, 37.48], text: 'Кафе' },
-            { coords: [55.65, 37.42], text: 'Ресторан' },
-            { coords: [55.64, 37.54], text: 'Музей' },
-            { coords: [55.54, 37.52], text: 'Библиотека' },
-            { coords: [55.53, 37.56], text: 'Школа' },
-            { coords: [55.61, 37.61], text: 'Аптека' },
-            { coords: [55.80, 37.58], text: 'Бар' },
-            { coords: [55.71, 37.35], text: 'Институт' },
-            { coords: [55.74, 37.57], text: 'Университет' },
-            { coords: [55.58, 37.69], text: 'Больница' },
-            { coords: [55.57, 37.70], text: 'Цирк' },
-            { coords: [55.55, 37.64], text: 'Магазин' },
-            { coords: [55.50, 37.75], text: 'Булочная' },
-            { coords: [55.81, 37.73], text: 'Полиция' },
-            { coords: [55.73, 37.68], text: 'Салон красоты' },
-            { coords: [55.86, 37.76], text: 'Баня' },
-            { coords: [55.38, 37.69], text: 'Гараж' },
-            { coords: [55.91, 37.50], text: 'Дом' },
-            { coords: [55.62, 37.32], text: 'Прачечная' },
-            { coords: [55.85, 37.41], text: 'Стадион' },
-            { coords: [55.67, 37.24], text: 'Вокзал' }
+            { coords: [55.77, 37.46], text: 'Tavern' },
+            { coords: [55.66, 37.48], text: 'Cafe' },
+            { coords: [55.65, 37.42], text: 'Restaurant' },
+            { coords: [55.64, 37.54], text: 'Museum' },
+            { coords: [55.54, 37.52], text: 'Library' },
+            { coords: [55.53, 37.56], text: 'School' },
+            { coords: [55.61, 37.61], text: 'Pharmacy' },
+            { coords: [55.80, 37.58], text: 'Bar' },
+            { coords: [55.71, 37.35], text: 'Institute' },
+            { coords: [55.74, 37.57], text: 'University' },
+            { coords: [55.58, 37.69], text: 'Hospital' },
+            { coords: [55.57, 37.70], text: 'Circus' },
+            { coords: [55.55, 37.64], text: 'Store' },
+            { coords: [55.50, 37.75], text: 'Bakery' },
+            { coords: [55.81, 37.73], text: 'Police' },
+            { coords: [55.73, 37.68], text: 'Beauty salon' },
+            { coords: [55.86, 37.76], text: 'Bath' },
+            { coords: [55.38, 37.69], text: 'Garage' },
+            { coords: [55.91, 37.50], text: 'House' },
+            { coords: [55.62, 37.32], text: 'Laundry' },
+            { coords: [55.85, 37.41], text: 'Stadium' },
+            { coords: [55.67, 37.24], text: 'Train station' }
         ];
 
     // Populating the collection with data.
@@ -50,20 +50,25 @@ function init() {
         options: {
             // Replacing the standard data provider (geocoder) with our own.
             provider: new CustomSearchProvider(myPoints),
-            // We won't show another placemark when selecting a search result, because the
-            // placemarks in the myCollection collection have already been added to the map.
+            /**
+             * We won't show another placemark when selecting a search result, because
+             * the placemarks in the myCollection collection have already been added to the map.
+             */
             noPlacemark: true,
             resultsPerPage: 5
         }});
 
     // Adding the control in the upper right corner,
     myMap.controls
-        .add(mySearchControl, { right: 10, top: 10 });
+        .add(mySearchControl, { float: 'right' });
 }
 
 
-// The data provider for ymaps.control.SearchControl. Performs a search for geo objects in the
-// "points" array. Implements the IGeocodeProvider interface.
+/**
+ * The data provider for ymaps.control.SearchControl control.
+ * Searches geo objects in the "points" array.
+ * Implements the IGeocodeProvider interface.
+ */
 function CustomSearchProvider(points) {
     this.points = points;
 }

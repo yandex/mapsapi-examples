@@ -18,8 +18,7 @@ ymaps.ready(function () {
                 '</div>' +
                 '</div>', {
                 /**
-                 * Builds an instance of a layout based on a template and adds it to the parent HTML
-                 * element.
+                 * Builds an instance of a layout based on a template and adds it to the parent HTML element.
                  * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
                  * @function
                  * @name build
@@ -49,8 +48,7 @@ ymaps.ready(function () {
                 },
 
                 /**
-                 * The method will be invoked by the API's template system when resizing the nested
-                 * layout.
+                 * The method will be invoked by the API's template system when resizing the nested layout.
                  * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onSublayoutSizeChange
@@ -81,8 +79,7 @@ ymaps.ready(function () {
                 },
 
                 /**
-                 * Closes the balloon when the "x" is clicked, throwing the "userclose" event on the
-                 * layout.
+                 * Closes the balloon when the "x" is clicked, throwing the "userclose" event on the layout.
                  * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onCloseClick
@@ -98,8 +95,8 @@ ymaps.ready(function () {
                  * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
                  * @function
                  * @name getClientBounds
-                 * @returns  {Number[][]} The coordinates of the top left and bottom right corners of the template relative to the anchor point.
-                 */
+                 * @returns {Number[][]} The coordinates of the top left and bottom right corners of the template relative to the anchor point.
+                  */
                 getShape: function () {
                     if(!this._isElement(this._$element)) {
                         return MyBalloonLayout.superclass.getShape.call(this);
@@ -116,14 +113,13 @@ ymaps.ready(function () {
                 },
 
                 /**
-                 * Checking the availability of the item (in IE and Opera it might not be there
-                 * yet).
+                 * Checking the availability of the item (in IE and Opera it might not be there yet).
                  * @function
                  * @private
                  * @name _isElement
-                 * @param  {jQuery} [element] Element.
-                 * @returns  {Boolean} Availability flag.
-                 */
+                 * @param {jQuery} [element] Element.
+                 * @returns {Boolean} Availability flag.
+                  */
                 _isElement: function (element) {
                     return element && element[0] && element.find('.arrow')[0];
                 }
@@ -137,15 +133,19 @@ ymaps.ready(function () {
 
     // Creating a placemark with a custom balloon layout.
         myPlacemark = window.myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-            balloonHeader: 'Заголовок балуна',
-            balloonContent: 'Контент балуна'
+            balloonHeader: 'Balloon title',
+            balloonContent: 'Balloon content'
         }, {
             balloonShadow: false,
             balloonLayout: MyBalloonLayout,
             balloonContentLayout: MyBalloonContentLayout,
             balloonPanelMaxMapArea: 0
-            // Not hiding the icon when the balloon is open. hideIconOnBalloonOpen: false, And
-            // additionally moving the balloon to open over the icon. balloonOffset: [3, -40]
+            /**
+             * Not hiding the icon when the balloon is open.
+             * hideIconOnBalloonOpen: false,
+             * And additionally moving the balloon to open over the icon.
+             * balloonOffset: [3, -40]
+             */
         });
 
     myMap.geoObjects.add(myPlacemark);

@@ -3,12 +3,13 @@ var myMap;
 ymaps.ready(function () {
     myMap = new ymaps.Map('map', {
         zoom: 4,
-        center: [54.78, 30.08]
+        center: [54.78, 30.08],
+        controls: []
     }, {
         searchControlProvider: 'yandex#search'
     });
     var myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-        balloonContent: 'Я вышел за границы карты'
+        balloonContent: 'I went off the map'
     }, {
         balloonPanelMaxMapArea: 0
     });
@@ -28,8 +29,7 @@ function observeEvents (map) {
                 var placemark = e1.get('target');
                 // Calling a function in two cases:
                 mapEventsGroup = map.events.group()
-                    // 1) in the beginning of the movement (if the balloon is in an external
-                    // container);
+                    // 1) in the beginning of the movement (if the balloon is in an external container),
                     .add('actiontick', function (e2) {
                         if (placemark.options.get('balloonPane') == 'outerBalloon') {
                             setBalloonPane(map, placemark, e2.get('tick'));
@@ -72,8 +72,7 @@ function setBalloonPane (map, placemark, mapData) {
         ]),
         isInOutersPane = placemark.options.get('balloonPane') == 'outerBalloon';
 
-    // If the anchor does not fall within the visible area of the map, we move the balloon into the
-    // inner container
+    // If the anchor does not fall within the visible area of the map, we move the balloon into the inner container
     if (!pointInBounds && isInOutersPane) {
         placemark.options.set({
             balloonPane: 'balloon',

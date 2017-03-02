@@ -32,22 +32,22 @@ function init() {
     // Creating a placemark
     function createPlacemark(coords) {
         return new ymaps.Placemark(coords, {
-            iconContent: 'поиск...'
+            iconCaption: 'searching...'
         }, {
-            preset: 'islands#violetStretchyIcon',
+            preset: 'islands#violetDotIconWithCaption',
             draggable: true
         });
     }
 
-    // Determining the address by coordinates (reverse geocoding)
+    // Determining the address by coordinates (reverse geocoding).
     function getAddress(coords) {
-        myPlacemark.properties.set('iconContent', 'поиск...');
+        myPlacemark.properties.set('iconContent', 'searching...');
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
 
             myPlacemark.properties
                 .set({
-                    iconContent: firstGeoObject.properties.get('name'),
+                    iconCaption: firstGeoObject.properties.get('name'),
                     balloonContent: firstGeoObject.properties.get('text')
                 });
         });

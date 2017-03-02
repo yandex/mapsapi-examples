@@ -16,6 +16,6 @@ function init () {
             myMap.geoObjects.add(res.geoObjects);
             // Called if loading the YMapsML file was unsuccessful.
         }, function (error){
-            alert('Ошибка: ' + error);
+            alert('Error: ' + error);
         });
 }

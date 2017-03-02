@@ -14,8 +14,10 @@ function init () {
             gridSize: 32
         });
 
-    // To set options for single objects and clusters, we refer to child collections of
-    // ObjectManager.
+    /**
+     * To set options for single objects and clusters, 
+     * we refer to child collections of ObjectManager.
+     */
     objectManager.objects.options.set('preset', 'islands#greenDotIcon');
     objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
     myMap.geoObjects.add(objectManager);

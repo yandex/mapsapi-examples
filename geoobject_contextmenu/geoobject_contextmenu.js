@@ -11,14 +11,16 @@ function init () {
 
     // Creating a placemark.
     var myPlacemark = new ymaps.Placemark([47.60, 42.10], {
-        iconContent: 'Щелкни по мне правой кнопкой мыши!'
+        iconContent: 'Right-click me!'
     }, {
         // Red icon that stretches to fit content.
         preset: "islands#redStretchyIcon"
     });
 
-    // The context menu allows you to change the placemark settings. It is opened by right-clicking
-    // the placemark.
+    /**
+     * The context menu allows you to change the placemark settings.
+     * It is opened by right-clicking the placemark.
+     */
     myPlacemark.events.add('contextmenu', function (e) {
         // If the placemark menu is already displayed, remove it.
         if ($('#menu').css('display') == 'block') {
@@ -28,11 +30,11 @@ function init () {
             var menuContent =
                 '<div id="menu">\
                     <ul id="menu_list">\
-                        <li>Название: <br /> <input type="text" name="icon_text" /></li>\
-                        <li>Подсказка: <br /> <input type="text" name="hint_text" /></li>\
-                        <li>Балун: <br /> <input type="text" name="balloon_text" /></li>\
+                        <li>Name: <br /> <input type="text" name="icon_text" /></li>\
+                        <li>Hint: <br /> <input type="text" name="hint_text" /></li>\
+                        <li>Balloon: <br /> <input type="text" name="balloon_text" /></li>\
                     </ul>\
-                <div align="center"><input type="submit" value="Сохранить" /></div>\
+                <div align="center"><input type="submit" value="Save" /></div>\
                 </div>';
 
             // Putting a context menu on the page
@@ -44,14 +46,15 @@ function init () {
                 top: e.get('pagePixels')[1]
             });
 
-            // Filling the fields of the context menu with the current values of the placemark
-            // properties.
+            // Filling the fields of the context menu with the current values of the placemark properties.
             $('#menu input[name="icon_text"]').val(myPlacemark.properties.get('iconContent'));
             $('#menu input[name="hint_text"]').val(myPlacemark.properties.get('hintContent'));
             $('#menu input[name="balloon_text"]').val(myPlacemark.properties.get('balloonContent'));
 
-            // When the "Save" button is clicked, we change placemark properties to the values
-            // entered in the context menu form.
+            /**
+             * When the "Save" button is clicked, we change placemark properties
+             * to the values entered in the context menu form.
+             */
             $('#menu input[type="submit"]').click(function () {
                 myPlacemark.properties.set({
                     iconContent: $('input[name="icon_text"]').val(),

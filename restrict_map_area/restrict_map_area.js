@@ -4,7 +4,10 @@ ymaps.ready(function () {
         zoom: 9,
         controls: ['smallMapDefaultSet']
     }, {
-        // Setting an area restricted to a rectangle that approximately defines the Kola Peninsula.
+        /**
+         * Setting an area restricted to a rectangle that
+         * approximately defines the Kola Peninsula.
+         */
         restrictMapArea: [
             [66, 28],
             [70, 41]

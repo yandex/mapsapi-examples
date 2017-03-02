@@ -1,138 +1,159 @@
-{  
-   "Map":{  
-      "Putting the map on a page":"mapbasics",
-      "Setting and changing the map settings":"mapparams",
-      "Creating maps on demand":"request_map",
-      "Resizing the map":"fillcontainer"
-   },
-   "GeoObjects":{  
-      "Placemark":"placemark",
-      "Setting a custom placemark image":"icon_customImage",
-      "Polylines":"polyline",
-      "Rectangle":"rectangle",
-      "Polygon":"polygon",
-      "Circle":"circle",
-      "The arrow on the map":"arrow",
-      "Multistroke outline":"multystroke",
-      "Adding geo objects to a collection":"geo_object_collection",
-      "Polyline editor":"polylineEditor",
-      "Polygon editor":"polygonEditor",
-      "A list of map objects.":"object_list",
-      "Geo object events":"geoobject_events",
-      "Geo object context menu":"geoobject_contextmenu",
-      "Changing a placemark icon when hovering over it":"event_rollover",
-      "Example of setting custom HTML layouts for placemarks with your own hotspot shapes":"placemark_shape"
-   },
-   "Balloon and Hint":{  
-      "Balloon and hint":"balloon_and_hint",
-      "A balloon that goes off the map":"balloon_out_of_map",
-      "Dynamically loading balloon content":"balloon_ajax",
-      "Placemark and balloon panel":"placemark_balloon",
-      "Custom hint layout":"placemark_hint_layout",
-      "The layout of a geo object&#39;s balloon":"placemark_balloon_layout",
-      "Custom balloon layout with autopositioning":"balloon_autopan"
-   },
-   "Controls":{  
-      "Standard set of controls":"default_controls",
-      "Adding individual controls":"customSet_controls",
-      "Adding buttons to the map":"button",
-      "Custom layout for a button":"button_layout",
-      "Custom layout for the zoom control":"zoom_layout",
-      "Custom drop-down list layout":"list_box_layout",
-      "Custom control":"custom_control"
-   },
-   "Hotspot":{  
-      "Using hotspot technology":"hotspot_layer"
-   },
-   "Regions":{  
-      "Regions":"regions"
-   },
-   "Clusterization":{  
-      "Adding a placemark clusterer to the map":"clusterer_create",
-      "Custom placemarks for clusters":"clusterer_custom_icon",
-      "Changing the color of clusters and placemarks when hovering":"clusterer_icon_hover",
-      "Opening the cluster balloon with the selected object":"clusterer_balloon_open",
-      "Using clusterization":"clusterer_gridSize",
-      "Customization of the &quot;Two columns&quot; cluster balloon layout.":"cluster_balloon_twoColumns_21",
-      "Custom layout for information about a geo object in the &quot;Accordion&quot; layout of the cluster balloon":"cluster_balloon_accordion_21",
-      "Customization of the &quot;Carousel&quot; cluster balloon layout":"cluster_balloon_carousel_21",
-      "Custom layout for cluster balloon content":"cluster_custom_balloon_content_layout_21"
-   },
-   "GeoQuery":{  
-      "Objects falling within a circle":"placemarks_in_circle",
-      "Searching for the nearest object":"find_closest_object",
-      "Displaying objects in the visible area of the map":"show_visible_objects",
-      "The intersection of a route with a polygon using the example of the Moscow Ring Road":"route_inside_polygon",
-      "Filtering objects by attributes":"geoobjects_menu",
-      "Positioning the map to display geocoding results and clustering":"apply_bounds_and_clusterize",
-      "Loading geo data using jQuery":"data_load_jquery"
-   },
-   "Behaviors and events":{  
-      "Map behaviors":"behaviors",
-      "Forward geocoding":"dom_event_manager",
-      "Click coordinates":"event_properties",
-      "Using the dragger":"dragger"
-   },
-   "Searching":{  
-      "Forward geocoding":"direct_geocode",
-      "Reverse geocoding":"reverse_geocode",
-      "Determining the address of a click on the map using reverse geocoding":"event_reverse_geocode",
-      "Searching for businesses":"search_control_ppo",
-      "Searching across your own objects":"custom_search",
-      "Setting a custom display for search results":"custom_search_results"
-   },
-   "Traffic":{  
-      "&quot;Traffic&quot; control":"traffic_control",
-      "Traffic layer on the map without buttons added":"traffic_provider"
-   },
-   "Geolocation":{  
-      "Detecting user location":"geolocation",
-      "Adding the &quot;Geolocation&quot; button":"geolocation_control",
-      "Creating a map with the user&#39;s location":"geolocated_map"
-   },
-   "Routing":{  
-      "Building a driving multiroute":"multiroute_driving",
-      "Route on public transport":"multiroute_masstransit",
-      "Configuring the view of a multiroute":"multiroute_view_options",
-      "Custom layout for the multiroute balloon":"multiroute_custom_balloon_layout",
-      "Working with multiroute data and events":"multiroute_view_access",
-      "Working with the multiroute model data and events":"multiroute_data_access",
-      "Editing a multiroute":"multiroute_edit",
-      "Route planning":"router",
-      "Editing a route":"router_editor",
-      "Calculating delivery cost":"deliveryCalculator"
-   },
-   "YMapsML":{  
-      "Changing the map type":"ymapsml_maptype",
-      "Adding placemarks to the map":"ymapsml_simpleobject",
-      "Changing a placemark icon":"ymapsml_styleobject",
-      "Polyline":"ymapsml_linestring",
-      "Closed polyline":"ymapsml_linearring",
-      "Adding polygon":"ymapsml_polygon",
-      "Setting styles for objects":"ymapsml_setstyle",
-      "Style inheritance":"ymapsml_parentstyle",
-      "Loading styles from a separate file":"ymapsml_loadstyles",
-      "Changing the balloon content template":"ymapsml_ballooncontentstyle",
-      "Displaying geocoding results":"ymapsml_showhttpgeocoderresult",
-      "Creating a menu for displaying groups of objects":"ymapsml_menu",
-      "Converting GeoRSS to YMapsML":"ymapsml_georss"
-   },
-   "GeoXML":{  
-      "Displaying YMapsML and KML on the map":"geoxml_display"
-   },
-   "ObjectManager":{  
-      "Adding a large number of objects to the map":"object_manager",
-      "Event handling in ObjectManager":"object_manager_events",
-      "Working with the balloon in ObjectManager":"object_manager_balloon",
-      "Loading baloon content on demand":"object_manager_balloon_async"
-   },
-   "Modules system":{  
-      "Loading only necessary modules when initializing the map":"load_modules",
-      "Loading modules on demand":"module_request",
-      "Creating custom module":"custom_module"
-   },
-   "Panoramas": {
-      "Getting Yandex panoramas": "panorama_basics",
-      "Creating your own panorama": "panorama_custom"
-   }
+{
+    "Popular examples": {
+        "Using a custom image for the placemark": "icon_customImage",
+        "Efficiently adding lots of placemarks to the map": "object_manager",
+        "Route to a point on the map": "routes_to_point",
+        "Searching for businesses": "search_control_ppo",
+        "Calculating delivery cost": "deliveryCalculator"
+    },
+    "Map": {
+        "Creating and deleting": "mapbasics",
+        "Using a hidden container": "hiddendiv",
+        "General parameters": "mapparams",
+        "Creating maps on demand": "request_map",
+        "Resizing the map": "fillcontainer",
+        "Creating your own map": "custom_map",
+        "Map margins manager": "margin_manager",
+        "Polar azimuthal equidistant projection": "azimuthal_map"
+    },
+    "Geo objects": {
+        "Placemark": "placemark",
+        "Setting a custom placemark image": "icon_customImage",
+        "Setting placemark images with CSS sprites": "icon_sprites",
+        "Polyline": "polyline",
+        "Rectangle": "rectangle",
+        "Polygon": "polygon",
+        "Circle": "circle",
+        "The arrow on the map": "arrow",
+        "Multistroke outline": "multystroke",
+        "Adding geo objects to a collection": "geo_object_collection",
+        "Polyline editor": "polylineEditor",
+        "Polygon editor": "polygonEditor",
+        "Getting the list of map objects": "object_list",
+        "Geo object events": "geoobject_events",
+        "Changing the placemark settings": "geoobject_contextmenu",
+        "Changing a placemark icon when hovering over it": "event_rollover",
+        "Setting a hotspot shape of the HTML layout of the placemark": "placemark_shape",
+        "Glyph icons": "icon_glyph"
+    },
+    "Balloon and hint": {
+        "Balloon and hint": "balloon_and_hint",
+        "Balloon that goes off the map": "balloon_out_of_map",
+        "Dynamically loading balloon content": "balloon_ajax",
+        "Placemark and balloon panel": "placemark_balloon",
+        "The layout of the placemark hint": "placemark_hint_layout",
+        "The layout of the placemark balloon": "placemark_balloon_layout",
+        "Custom balloon layout with autopositioning": "balloon_autopan"
+    },
+    "Controls": {
+        "Standard sets of controls": "default_controls",
+        "Adding individual controls": "customSet_controls",
+        "Adding buttons to the map": "button",
+        "Custom button layout": "button_layout",
+        "Custom layout for the zoom control": "zoom_layout",
+        "Creating a custom drop-down list layout": "list_box_layout",
+        "Custom control": "custom_control"
+    },
+    "Hotspots": {
+        "Hotspot layer": "hotspot_layer"
+    },
+    "Regions": {
+        "Example of how the \"Regions\" module works": "regions"
+    },
+    "Clustering": {
+        "Creating a clusterer": "clusterer_create",
+        "Creating a clusterer with arbitrary icons": "clusterer_custom_icon",
+        "Changing the color of clusters and placemarks when hovering": "clusterer_icon_hover",
+        "Opening the cluster balloon with the selected object": "clusterer_balloon_open",
+        "Changing the clusterer cell size": "clusterer_gridSize",
+        "\"Two columns\" cluster balloon layout": "cluster_balloon_twoColumns",
+        "\"Accordion\" cluster balloon layout": "cluster_balloon_accordion",
+        "\"Carousel\" cluster balloon layout": "cluster_balloon_carousel",
+        "Custom cluster balloon layout": "cluster_custom_balloon_content_layout",
+        "Pie chart layout": "clusterer_pie_chart"
+    },
+    "GeoQuery": {
+        "Points falling within a circle": "placemarks_in_circle",
+        "Searching for the nearest object.": "find_closest_object",
+        "Adding objects to the visible area of the map": "show_visible_objects",
+        "The intersection of a route with a polygon using the example of the Moscow Ring Road": "route_inside_polygon",
+        "Filtering objects by various attributes": "geoobjects_menu",
+        "Positioning the map to display geocoding results and clustering": "apply_bounds_and_clusterize",
+        "Loading geo data using jQuery and adding it to the map": "data_load_jquery"
+    },
+    "Behaviors and events": {
+        "Map behavior": "behaviors",
+        "Subscribing to the DOM element events": "dom_event_manager",
+        "Event properties. Click coordinates": "event_properties",
+        "Using the dragger.": "dragger"
+    },
+    "Search on a map": {
+        "Direct geocoding": "direct_geocode",
+        "Reverse geocoding": "reverse_geocode",
+        "Determining the address of a click on the map using reverse geocoding": "event_reverse_geocode",
+        "Searching for organizations": "search_control_ppo",
+        "Searching across your own objects": "custom_search",
+        "Custom display for search results": "custom_search_results"
+    },
+    "Traffic": {
+        "\"Traffic\" control": "traffic_control",
+        "Traffic layer on the map without buttons added": "traffic_provider"
+    },
+    "User's location": {
+        "Detecting user location": "geolocation",
+        "Adding the \"Geolocation\" button": "geolocation_control",
+        "Creating a map with the user's location": "geolocated_map"
+    },
+    "Routing": {
+        "Building a driving multiroute": "multiroute_driving",
+        "Building a multiroute on public transport": "multiroute_masstransit",
+        "Building a pedestrian multiroute": "multiroute_pedestrian",
+        "Configuring the view of a multiroute": "multiroute_view_options",
+        "Custom layout for the multiroute balloon": "multiroute_custom_balloon_layout",
+        "Working with multiroute data and events": "multiroute_view_access",
+        "Working with the multiroute model data and events": "multiroute_data_access",
+        "Editing a multiroute": "multiroute_edit",
+        "Building a route": "router",
+        "Editing a route": "router_editor",
+        "Calculating delivery cost": "deliveryCalculator"
+    },
+    "YMapsML": {
+        "Changing the map type": "ymapsml_maptype",
+        "Adding placemarks to the map": "ymapsml_simpleobject",
+        "Changing a placemark icon": "ymapsml_styleobject",
+        "ymapsml_linestring-xliff-processing":  "Polyline",
+        "Closed polyline": "ymapsml_linearring",
+        "Polygon": "ymapsml_polygon",
+        "Setting the object style": "ymapsml_setstyle",
+        "Style inheritance": "ymapsml_parentstyle",
+        "Loading styles from a separate file": "ymapsml_loadstyles",
+        "Changing the balloon content template.": "ymapsml_ballooncontentstyle",
+        "Displaying geocoding results": "ymapsml_showhttpgeocoderresult",
+        "Creating a menu for displaying groups of objects": "ymapsml_menu",
+        "Converting GeoRSS to YMapsML": "ymapsml_georss"
+    },
+    "GeoXML": {
+        "Displaying GPX and XML": "geoxml_display"
+    },
+    "ObjectManager": {
+        "Adding objects to the map via ObjectManager": "object_manager",
+        "Event handling in objects of ObjectManager": "object_manager_events",
+        "Opening the balloon on the placemark in ObjectManager": "object_manager_balloon",
+        "Loading the placemark balloon data on demand": "object_manager_balloon_async",
+        "Adding objects with different geometries to the map": "object_manager_spatial",
+        "Adding placemarks with different options and data to ObjectManager": "object_manager_options",
+        "Adding a GeoJSON file from the Map Constructor to the map": "object_manager_geojson"
+    },
+    "Modular system": {
+        "Loading predefined modules during initialization": "load_modules",
+        "Loading the module on demand": "module_request",
+        "Creating your own module": "custom_module"
+    },
+    "Panoramas": {
+        "Embedding Yandex panoramas on a page": "panorama_basics",
+        "Creating your own panorama": "panorama_custom",
+        "Adding markers to a panorama": "panorama_with_markers",
+        "Creating transitions between your panoramas": "panorama_with_connections",
+        "Displaying panoramas in a balloon": "panorama_in_balloon"
+    }
 }

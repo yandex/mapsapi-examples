@@ -10,7 +10,7 @@ ymaps.ready(function () {
 
     var squarePlacemark = new ymaps.Placemark(
         [55.725118, 37.682145], {
-            hintContent: 'Метка с прямоугольным HTML макетом'
+            hintContent: 'Placemark with a rectangular HTML layout'
         }, {
             iconLayout: squareLayout,
             // Describing the shape of a "Rectangle" hotspot.
@@ -30,7 +30,7 @@ ymaps.ready(function () {
 
     var circlePlacemark = new ymaps.Placemark(
         [55.783202, 37.605584], {
-            hintContent: 'Метка с круглым HTML макетом'
+            hintContent: 'Placemark with a circular HTML layout'
         }, {
             iconLayout: circleLayout,
             // Describing the shape of a "Circle" hotspot.
@@ -49,20 +49,20 @@ ymaps.ready(function () {
 
     var polygonPlacemark = new ymaps.Placemark(
         [55.662693, 37.558416], {
-            hintContent: 'HTML метка сложной формы'
+            hintContent: 'HTML placemark with a complex shape'
         }, {
             iconLayout: polygonLayout,
             // Describing the shape of a "Polygon" hotspot.
             iconShape: {   
                 type: 'Polygon',
-                // A polygon is defined as a three-dimensional array. The top-level array contains
-                // the contours of the polygon. The first element of the array is the external
-                // contour, and the others are internal contours.
+                /**
+                 * A polygon is defined as a three-dimensional array. The top-level array contains the contours of the polygon.
+                 * The first element of the array is the external contour, and the others are internal contours.
+                 */
                 coordinates: [
                     // Describing the external polygon contour as an array of coordinates.
                     [[-28,-76],[28,-76],[28,-20],[12,-20],[0,-4],[-12,-20],[-28,-20]]
-                    // ... Describing the internal contours - empty areas inside the external
-                    // contour.
+                    // ,... Describing the internal contours - empty areas inside the external contour.
                 ]
             }
         }

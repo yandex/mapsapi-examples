@@ -23,11 +23,14 @@ function init () {
         },
         // Properties.
         properties: {
-            hintContent: 'Перетащи меня!',
-            balloonContent: 'Прямоугольник 2'
+            hintContent: 'Drag me!',
+            balloonContent: 'Rectangle 2'
         }
     }, {
-        // Options. The object can be dragged.
+        /**
+         * Options.
+         *  The object can be dragged.
+         */
         draggable: true,
         // The fill color and transparency.
         fillColor: '#ffff0022',
@@ -43,14 +46,19 @@ function init () {
         [55.66, 37.60],
         [55.71, 37.69]
     ], {
-        //Свойства
-        hintContent: 'Меня перетаскивать нельзя!',
-        balloonContent: 'Прямоугольник 1'
+        //Properties
+        hintContent: 'You can't drag me!',
+        balloonContent: 'Rectangle 1'
     }, {
-        // Options. The fill color and transparency.
+        /**
+         * Options.
+         *  The fill color and transparency.
+         */
         fillColor: '#7df9ff33',
-        // Additional fill transparency. The resulting transparency will not be #33(0.2), but
-        // 0.1(0.2*0.5).
+        /**
+         * Additional fill transparency.
+         *  The resulting transparency will not be #33(0.2), but 0.1(0.2*0.5).
+         */
         fillOpacity: 0.5,
         // Stroke color.
         strokeColor: '#0000FF',
@@ -58,7 +66,10 @@ function init () {
         strokeOpacity: 0.5,
         // Line width.
         strokeWidth: 2,
-        // The radius of rounded corners. This option is accepted only for a rectangle.
+        /**
+         * The radius of rounded corners.
+         *  This option is accepted only for a rectangle.
+         */
         borderRadius: 6
     });
 
