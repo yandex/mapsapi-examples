@@ -18,7 +18,7 @@ function init() {
             // Properties.
             properties: {
                 // The placemark content.
-                iconContent: 'I'm draggable',
+                iconContent: 'I am draggable',
                 hintContent: 'Come on, drag already!'
             }
         }, {
@@ -96,7 +96,7 @@ function init() {
             iconColor: '#3b5998'
         }))
         .add(new ymaps.Placemark([55.694843, 37.435023], {
-            balloonContent: 'the color of a <strong>crocodile's nose</strong>',
+            balloonContent: "the color of a <strong>crocodile's nose</strong>",
             iconCaption: 'Very long but, of course, very interesting text'
         }, {
             preset: 'islands#greenDotIconWithCaption'

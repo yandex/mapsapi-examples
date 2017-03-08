@@ -136,26 +136,21 @@ ymaps.ready(function () {
     /**
      function onDragEnd (e) {
          var placemark = e.get('target');
-         /**
-          * As soon as the user moved the placemark to a different point,
-          * we delete the previously set balloon layout.
-          */
+
+          // As soon as the user moved the placemark to a different point,
+          // we delete the previously set balloon layout.
          placemark.options.unset('balloonContentLayout');
          // We also delete the balloon content text.
          placemark.properties.unset('balloonContent');
 
-         /**
-          * Subscribing to the balloon open event again.
-          * We'll only listen for this event once.
-          */
+         // Subscribing to the balloon open event again.
+         // We'll only listen for this event once.
          placemark.events.once('balloonopen', requestForPanorama);
      }
 
-     /**
-      * Listening for the 'dragend' event on placemarks. When this event occurs,
-      * we delete the balloon layout from the old panorama, then 
-      * check whether there is a panorama at the new point.
-      */
+      // Listening for the 'dragend' event on placemarks. When this event occurs,
+      // we delete the balloon layout from the old panorama, then
+      // check whether there is a panorama at the new point.
      myPlacemark1.events.add('dragend', onDragEnd);
      myPlacemark2.events.add('dragend', onDragEnd);
      */

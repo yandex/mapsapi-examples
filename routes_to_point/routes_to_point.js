@@ -80,7 +80,7 @@ ymaps.ready(function () {
 
     function onMapClick (e) {
         clearSourcePoint();
-        sourcePoint = new ymaps.Placemark(e.get('coords'), { iconContent: '/From here' }, { preset: ''islands#greenStretchyIcon });
+        sourcePoint = new ymaps.Placemark(e.get('coords'), { iconContent: '/From here' }, { preset: 'islands#greenStretchyIcon' });
         myMap.geoObjects.add(sourcePoint);
         createRoute();
     }

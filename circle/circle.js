@@ -21,7 +21,7 @@ function init() {
          * The contents of the balloon.
          */
         balloonContent: "The radius of the circle is 10 km",
- The contents of the hint.
+        // The contents of the hint.
         hintContent: "Move me"
     }, {
         /**

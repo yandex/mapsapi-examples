@@ -25,7 +25,7 @@ function init() {
             properties:{
                 // The contents of the hint.
                 hintContent: "I'm a geo object",
- Balloon content.
+                // Balloon content.
                 balloonContent: "You can drag me"
             }
         }, {

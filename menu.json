@@ -121,7 +121,7 @@
         "Changing the map type": "ymapsml_maptype",
         "Adding placemarks to the map": "ymapsml_simpleobject",
         "Changing a placemark icon": "ymapsml_styleobject",
-        "ymapsml_linestring-xliff-processing":  "Polyline",
+        "Polyline":  "ymapsml_linestring",
         "Closed polyline": "ymapsml_linearring",
         "Polygon": "ymapsml_polygon",
         "Setting the object style": "ymapsml_setstyle",

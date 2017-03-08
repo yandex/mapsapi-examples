@@ -13,7 +13,7 @@ function init () {
         data: {
             // Setting the text and icon for a button.
             content: "Adaptive button",
- The icon is 16x16 pixels.
+            // The icon is 16x16 pixels.
             image: 'images/error.png'
         },
         options: {

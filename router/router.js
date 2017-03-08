@@ -65,7 +65,7 @@ function init() {
             segments = way.getSegments();
             for (var j = 0; j < segments.length; j++) {
                 var street = segments[j].getStreet();
-                moveList += ('Going ' + segments[j].getHumanAction() + (street ? ' to ' + street : 'xliff-processing);'//') + ', passing ' + segments[j].getLength() + ' m.,
+                moveList += ('Going ' + segments[j].getHumanAction() + (street ? ' to ' + street : '') + ', passing ' + segments[j].getLength() + ' m.,'),
                 moveList += '</br>'
             }
         }

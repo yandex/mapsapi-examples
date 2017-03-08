@@ -56,9 +56,9 @@ ymaps.ready(function () {
     function getContentBody (num) {
         if (!placemarkBodies) {
             placemarkBodies = [
-                ['Lonely stillness', "A single cicada’s cry', 'Sinking into stone'].join('<br/>),'
-                 ['/Moonlight slanting', 'Through all this long bamboo grove ', 'And nightingale song.'].join('<br/>),'
-                 ['/It is deep autumn', 'My neighbor', 'How does he live, I wonder.'].join('<br/>)'
+                ['Lonely stillness', 'A single cicada’s cry', 'Sinking into stone'].join('<br/>'),
+                 ['/Moonlight slanting', 'Through all this long bamboo grove ', 'And nightingale song.'].join('<br/>'),
+                 ['/It is deep autumn', 'My neighbor', 'How does he live, I wonder.'].join('<br/>')
              ];
         }
         return '<strong>Body of the placemark #' + (num + 1) + '</strong><br/>' + placemarkBodies[num % placemarkBodies.length];

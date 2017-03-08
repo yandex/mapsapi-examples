@@ -130,7 +130,7 @@ ymaps.ready(function () {
                         if (panoramas.length) {
                             return panoramas[0];
                         }  else {
-                            return ymaps.vow.reject(new Error('The panorama wasn't found.'));
+                            return ymaps.vow.reject(new Error('The panorama not found.'));
                         }
                     }
                 );
@@ -217,17 +217,17 @@ ymaps.ready(function () {
         this._thoroughfares = obj.thoroughfares.map(function (thoroughfare) {
             return new Thoroughfare(
                 this, // The current panorama.
- Directing the view to the panorama that we are transitioning to.
- Data of the panorama that we are transitioning to.
+                thoroughfare.direction, // Directing the view to the panorama that we are transitioning to.
+                getConnectedPanoramaData(thoroughfare.panoID) // Data of the panorama that we are transitioning to.
             );
         }, this);
         // Getting an array of transition markers.
         this._connections = obj.markerConnections.map(function (marker) {
             return new MarkerConnection(
                 this, // The current panorama.
- The marker image.
- The marker position.
- Data of the panorama that we are transitioning to.
+                marker.iconSrc,  // The marker image.
+                marker.iconPosition, // The marker position.
+                getConnectedPanoramaData(marker.panoID) // Data of the panorama that we are transitioning to.
             );
         }, this);
 

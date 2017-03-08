@@ -49,8 +49,7 @@ function init() {
              * Metadata of the geocoder returned for the found object.
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
               */
-            console.log('Geocoder metadata: '));,
-firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'
+            console.log('Geocoder metadata: ', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'));
             /**
              * The accuracy of the response (precision) is only returned for houses.
              * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
@@ -76,7 +75,7 @@ firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'
              preset: 'islands#violetStretchyIcon'
              });
              
-myMap.geoObjects.add(myPlacemark);
+             myMap.geoObjects.add(myPlacemark);
              */
         });
 }

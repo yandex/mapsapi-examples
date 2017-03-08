@@ -4,11 +4,11 @@ function init () {
      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
       */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
-        referencePoints: ["Moscow", "Tver]"
+        referencePoints: ["Moscow", "Tver"]
 
     }, {
         // A type of intermediate points that can be added
-when editing.
+        // when editing.
         editorMidPointsType: "via",
         // In the mode for adding new waypoints, we do not allow putting points on top of the map objects.
         editorDrawOver: false
