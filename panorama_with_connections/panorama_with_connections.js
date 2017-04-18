@@ -225,13 +225,13 @@ ymaps.ready(function () {
 
     ymaps.util.defineClass(MyPanorama, ymaps.panorama.Base, {
         // Чтобы добавить на панораму стандартные стрелки переходов,
-        // реализуем метод getThoroughfares.
-        getThoroughfares: function () {
+        // реализуем метод getConnectionArrows.
+        getConnectionArrows: function () {
             return this._thoroughfares;
         },
         // Чтобы добавить на панораму маркеры-переходы,
-        // нужно реализовать метод getConnections.
-        getConnections: function () {
+        // нужно реализовать метод getConnectionMarkers.
+        getConnectionMarkers: function () {
             return this._connections;
         },
         getAngularBBox: function () {

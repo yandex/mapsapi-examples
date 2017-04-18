@@ -26,6 +26,10 @@ function init() {
                 // Область видимости геообъекта.
                 bounds = firstGeoObject.properties.get('boundedBy');
 
+            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            // Получаем строку с адресом и выводим в иконке геообъекта.
+            firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+
             // Добавляем первый найденный геообъект на карту.
             myMap.geoObjects.add(firstGeoObject);
             // Масштабируем карту на область видимости геообъекта.
@@ -61,6 +65,15 @@ function init() {
             console.log('Название объекта: %s', firstGeoObject.properties.get('name'));
             console.log('Описание объекта: %s', firstGeoObject.properties.get('description'));
             console.log('Полное описание объекта: %s', firstGeoObject.properties.get('text'));
+            /**
+            * Прямые методы для работы с результатами геокодирования.
+            * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
+            */
+            console.log('\nГосударство: %s', firstGeoObject.getCountry());
+            console.log('Населенный пункт: %s', firstGeoObject.getLocalities().join(', '));
+            console.log('Адрес объекта: %s', firstGeoObject.getAddressLine());
+            console.log('Наименование здания: %s', firstGeoObject.getPremise() || '-');
+            console.log('Номер здания: %s', firstGeoObject.getPremiseNumber() || '-');
 
             /**
              * Если нужно добавить по найденным геокодером координатам метку со своими стилями и контентом балуна, создаем новую метку по координатам найденной и добавляем ее на карту вместо найденной.

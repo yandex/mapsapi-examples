@@ -41,7 +41,9 @@ ymaps.ready(function () {
          */
             getPointData = function (index) {
             return {
-                balloonContentBody: 'балун <strong>метки ' + index + '</strong>',
+                balloonContentHeader: '<font size=3><b><a href = "http://www.yandex.ru">Здесь может быть ваша ссылка</a></b></font>',
+                balloonContentBody: '<p>Ваше имя: <input name="login"></p><p>Телефон в формате 2xxx-xxx:  <input></p><p><input type="submit" value="Отправить"></p>',
+                balloonContentFooter: '<font size=1>Информация предоставлена: </font> балуном <strong>метки ' + index + '</strong>',
                 clusterCaption: 'метка <strong>' + index + '</strong>'
             };
         },

@@ -11,7 +11,8 @@ function init () {
             // Чтобы метки начали кластеризоваться, выставляем опцию.
             clusterize: true,
             // ObjectManager принимает те же опции, что и кластеризатор.
-            gridSize: 32
+            gridSize: 32,
+            clusterDisableClickZoom: true
         });
 
     // Чтобы задать опции одиночным объектам и кластерам,
