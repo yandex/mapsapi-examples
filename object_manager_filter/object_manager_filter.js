@@ -40,16 +40,16 @@ function init() {
         });
     myMap.controls.add(listBoxControl);
 
-    // Добавим отслеживание изменения признака выбран ли пункт списка.
+    // Добавим отслеживание изменения признака, выбран ли пункт списка.
     for (var i = 0; i < listBoxItems.length; i++) {
         new ymaps.Monitor(listBoxItems[i].state).add("selected", callback)
     }
 
     function callback() {
-        // По умолчанию зададим фильтр, которые скрывает все объекты.
+        // По умолчанию зададим фильтр, который скрывает все объекты.
         var filter = ['properties.type == ""'];
         for (var i = 0; i < listBoxItems.length; i++) {
-            // Проверим выбран ли пункт списка и если выбран добавим соответсвующие метки в итоговый фильтр.
+            // Проверим, выбран ли пункт списка, и если выбран, добавим соответствующие метки в итоговый фильтр.
             if (listBoxItems[i].isSelected()) filter.push('properties.balloonContent == "'+ listBoxItems[i].data.get("content") +'"');
         }
         // Применим фильтр.

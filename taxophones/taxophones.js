@@ -44,7 +44,7 @@ ymaps.ready(['layout.LegendItem']).then(function init() {
     clusterer.add(placemarks);
     myMap.geoObjects.add(clusterer);
 
-    // Создадим 8 пунктов выпадающего списка
+    // Создадим 8 пунктов выпадающего списка.
     var listBoxItems = [
             new ymaps.control.ListBoxItem({data: {content: 'Жилой дом', color: '#747274'}}),
             new ymaps.control.ListBoxItem({data: {content: 'Школа', color: '#eeef43'}}),

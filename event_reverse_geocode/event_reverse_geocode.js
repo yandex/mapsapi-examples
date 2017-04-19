@@ -47,7 +47,7 @@ function init() {
 
             myPlacemark.properties
                 .set({
-                    // Формируем строку с данными о объекте.
+                    // Формируем строку с данными об объекте.
                     iconCaption: [
                         // Название населенного пункта или вышестоящее административно-территориальное образование.
                         firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
