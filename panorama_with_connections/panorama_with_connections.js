@@ -31,7 +31,7 @@ ymaps.ready(function () {
                 }
             }],
             // Переходы на панораме по стандартной стрелке.
-            thoroughfares: [{
+            connectionArrows: [{
                 panoID: 'secondPano',
                 direction: [-45, 0]
             }],
@@ -67,7 +67,7 @@ ymaps.ready(function () {
                 }
             }],
             // Добавим обратный переход на первую панораму.
-            thoroughfares: [{
+            connectionArrows: [{
                 panoID: 'firstPano',
                 direction: [90, 0]
             }, {
@@ -204,11 +204,11 @@ ymaps.ready(function () {
         this._tileLevels = obj.tileLevels;
         // Получаем массив экземпляров класса, описывающего переход по стрелке из
         // одной панорамы на другую.
-        this._connectionArrow = obj.thoroughfares.map(function (thoroughfare) {
+        this._connectionArrow = obj.connectionArrows.map(function (connectionArrow) {
             return new ConnectionArrow(
                 this, // Текущая панорама.
-                thoroughfare.direction, // Направление взгляда на панораму, на которую делаем переход.
-                getConnectedPanoramaData(thoroughfare.panoID) // Данные панорамы, на которую делаем переход.
+                connectionArrow.direction, // Направление взгляда на панораму, на которую делаем переход.
+                getConnectedPanoramaData(connectionArrow.panoID) // Данные панорамы, на которую делаем переход.
             );
         }, this);
         // Получаем массив маркеров-переходов.
