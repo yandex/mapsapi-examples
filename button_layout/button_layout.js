@@ -14,7 +14,7 @@ function init() {
      * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
      */
         ButtonLayout = ymaps.templateLayoutFactory.createClass([
-            '<div alt="{{ data.title }}" class="my-button ',
+            '<div title="{{ data.title }}" class="my-button ',
             '{% if state.size == "small" %}my-button_small{% endif %}',
             '{% if state.size == "medium" %}my-button_medium{% endif %}',
             '{% if state.size == "large" %}my-button_large{% endif %}',
