@@ -204,7 +204,7 @@ ymaps.ready(function () {
         this._tileLevels = obj.tileLevels;
         // Получаем массив экземпляров класса, описывающего переход по стрелке из
         // одной панорамы на другую.
-        this._connectionArrow = obj.connectionArrows.map(function (connectionArrow) {
+        this._connectionArrows = obj.connectionArrows.map(function (connectionArrow) {
             return new ConnectionArrow(
                 this, // Текущая панорама.
                 connectionArrow.direction, // Направление взгляда на панораму, на которую делаем переход.
@@ -227,7 +227,7 @@ ymaps.ready(function () {
         // Чтобы добавить на панораму стандартные стрелки переходов,
         // реализуем метод getConnectionArrows.
         getConnectionArrows: function () {
-            return this._connectionArrow;
+            return this._connectionArrows;
         },
         // Чтобы добавить на панораму маркеры-переходы,
         // нужно реализовать метод getConnectionMarkers.
