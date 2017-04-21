@@ -53,9 +53,7 @@ function init() {
                         firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
                         // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
                         firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
-                    ].filter(function (locationPart) {
-                        return typeof locationPart != 'undefined';
-                    }).join(', '),
+                    ].filter(Boolean).join(', '),
                     // В качестве контента балуна задаем строку с адресом объекта.
                     balloonContent: firstGeoObject.getAddressLine()
                 });

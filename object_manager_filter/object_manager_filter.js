@@ -19,13 +19,8 @@ function init() {
     myMap.geoObjects.add(objectManager);
 
     // Создадим 5 пунктов выпадающего списка.
-    var listBoxItems = [
-            new ymaps.control.ListBoxItem({data: {content: 'Школа'}, state: {selected: true}}),
-            new ymaps.control.ListBoxItem({data: {content: 'Аптека'}, state: {selected: true}}),
-            new ymaps.control.ListBoxItem({data: {content: 'Магазин'}, state: {selected: true}}),
-            new ymaps.control.ListBoxItem({data: {content: 'Больница'}, state: {selected: true}}),
-            new ymaps.control.ListBoxItem({data: {content: 'Бар'}, state: {selected: true}})
-        ],
+    var listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар']
+            .map(title => new ymaps.control.ListBoxItem({data: {content: title}, state: {selected: true}})),
         // Теперь создадим список, содержащий 5 пунктов.
         listBoxControl = new ymaps.control.ListBox({
             data: {
@@ -41,19 +36,23 @@ function init() {
     myMap.controls.add(listBoxControl);
 
     // Добавим отслеживание изменения признака, выбран ли пункт списка.
-    for (var i = 0; i < listBoxItems.length; i++) {
-        new ymaps.Monitor(listBoxItems[i].state).add("selected", callback)
-    }
-
-    function callback() {
-        // По умолчанию зададим фильтр, который скрывает все объекты.
-        var filter = ['properties.type == ""'];
+    listBoxControl.events.add(["select","deselect"], function() {
+        // Создадим массив выбранных категорий и заполним его.
+        var categories = [];
         for (var i = 0; i < listBoxItems.length; i++) {
-            // Проверим, выбран ли пункт списка, и если выбран, добавим соответствующие метки в итоговый фильтр.
-            if (listBoxItems[i].isSelected()) filter.push('properties.balloonContent == "'+ listBoxItems[i].data.get("content") +'"');
+            if (listBoxItems[i].isSelected()) {
+                categories.push(listBoxItems[i].data.get("content"))
+            }
         }
         // Применим фильтр.
-        objectManager.setFilter(filter.join(' || '));
+        objectManager.setFilter(filterObjects(categories));
+    });
+
+    function filterObjects(categories){
+        return function(obj){
+            var content = obj.properties.balloonContent;
+            return categories.indexOf(content) >= 0
+        }
     }
 
     $.ajax({
