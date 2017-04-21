@@ -45,10 +45,10 @@ function init() {
             }
         }
         // Применим фильтр.
-        objectManager.setFilter(filterObjects(categories));
+        objectManager.setFilter(getFilterFunction(categories));
     });
 
-    function filterObjects(categories){
+    function getFilterFunction(categories){
         return function(obj){
             var content = obj.properties.balloonContent;
             return categories.indexOf(content) >= 0
