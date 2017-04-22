@@ -18,12 +18,18 @@ function init() {
         });
     myMap.geoObjects.add(objectManager);
 
-    var categories = {},
-        // Создадим 5 пунктов выпадающего списка.
-        listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар'].map(function(title){
-                categories[title] = true;
-                return new ymaps.control.ListBoxItem({data: {content: title}, state: {selected: true}})
-            }),
+    // Создадим 5 пунктов выпадающего списка.
+    var listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар']
+        .map(function(title) {
+            return new ymaps.control.ListBoxItem({
+                data: {
+                    content: title
+                },
+                state: {
+                    selected: true
+                }
+            })
+        }),
         // Теперь создадим список, содержащий 5 пунктов.
         listBoxControl = new ymaps.control.ListBox({
             data: {
@@ -33,18 +39,27 @@ function init() {
             items: listBoxItems,
             state: {
                 // Признак, развернут ли список.
-                expanded: true
+                expanded: true,
+                filters: listBoxItems.reduce(function(filters, filter) {
+                    filters[filter.data.get('content')] = filter.isSelected();
+                    return filters;
+                }, {})
             }
         });
     myMap.controls.add(listBoxControl);
 
     // Добавим отслеживание изменения признака, выбран ли пункт списка.
-    listBoxControl.events.add(["select","deselect"], function(e) {
-        var content = e.get("target").data.get("content"),
-            type = e.get("type");
-        categories[content] = (type == "select");
+    listBoxControl.events.add(['select', 'deselect'], function(e) {
+        var listBoxItem = e.get('target');
+        var filters = ymaps.util.extend({}, listBoxControl.state.get('filters'));
+        filters[listBoxItem.data.get('content')] = listBoxItem.isSelected();
+        listBoxControl.state.set('filters', filters);
+    });
+
+    var filterMonitor = new ymaps.Monitor(listBoxControl.state);
+    filterMonitor.add('filters', function(filters) {
         // Применим фильтр.
-        objectManager.setFilter(getFilterFunction(categories));
+        objectManager.setFilter(getFilterFunction(filters));
     });
 
     function getFilterFunction(categories){
