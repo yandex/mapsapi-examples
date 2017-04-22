@@ -18,9 +18,12 @@ function init() {
         });
     myMap.geoObjects.add(objectManager);
 
-    // Создадим 5 пунктов выпадающего списка.
-    var listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар']
-            .map(title => new ymaps.control.ListBoxItem({data: {content: title}, state: {selected: true}})),
+    var categories = {},
+        // Создадим 5 пунктов выпадающего списка.
+        listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар'].map(function(title){
+                categories[title] = true;
+                return new ymaps.control.ListBoxItem({data: {content: title}, state: {selected: true}})
+            }),
         // Теперь создадим список, содержащий 5 пунктов.
         listBoxControl = new ymaps.control.ListBox({
             data: {
@@ -36,14 +39,10 @@ function init() {
     myMap.controls.add(listBoxControl);
 
     // Добавим отслеживание изменения признака, выбран ли пункт списка.
-    listBoxControl.events.add(["select","deselect"], function() {
-        // Создадим массив выбранных категорий и заполним его.
-        var categories = [];
-        for (var i = 0; i < listBoxItems.length; i++) {
-            if (listBoxItems[i].isSelected()) {
-                categories.push(listBoxItems[i].data.get("content"))
-            }
-        }
+    listBoxControl.events.add(["select","deselect"], function(e) {
+        var content = e.get("target").data.get("content"),
+            type = e.get("type");
+        categories[content] = (type == "select");
         // Применим фильтр.
         objectManager.setFilter(getFilterFunction(categories));
     });
@@ -51,7 +50,7 @@ function init() {
     function getFilterFunction(categories){
         return function(obj){
             var content = obj.properties.balloonContent;
-            return categories.indexOf(content) >= 0
+            return categories[content]
         }
     }
 
