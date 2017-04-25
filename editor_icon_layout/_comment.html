@@ -1,0 +1,30 @@
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Polyline"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="geometryEditor.LineString"/>
+</div>
+<p>
+    Для ломаных доступен <a href="/maps/doc/jsapi/2.1/dg/concepts/geoobjects.xml#visual_editing">визуальный редактор</a>.
+    Ссылка на редактор содержится в поле <a href="/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#editor">editor</a> объекта-ломаной.
+</p>
+<p>
+    Опции <a href="/maps/doc/jsapi/2.1/ref/reference/geometryEditor.LineString-docpage/#param-options.vertexInteractiveOptions">vertexInteractiveOptions</a> и <a href="/maps/doc/jsapi/2.1/ref/reference/geometryEditor.LineString-docpage/#param-options.edgeInteractiveOptions">edgeInteractiveOptions</a> позволяют использовать для меток вершин и промежуточных точек опции с постфиксами, привязанными к текущему состоянию вершины.
+    Если вам не требуется менять опции вершин и промежуточных меток в зависимости от их состояния, то нужно отключить соответствующую опцию.
+    Доступны следующие постфиксы для меток вершин:
+<ul>
+    <li>Hover - опции с данным постфиксом применяются при наведении на вершину указателя мыши;</li>
+    <li>Drag - опции с данным постфиксом применяются при перетаскивании вершины;</li>
+    <li>Active - опции с данным постфиксом применяются, когда для вершины открыто контекстное меню.</li>
+</ul>
+    Примеры таких опций: vertexLayoutHover, vertexIconImageSizeActive, vertexIconImageShapeHover и т.д.
+</p>
+<p>
+    Доступны следующие постфиксы для промежуточных точек:
+<ul>
+    <li>Hover - опции с данным постфиксом применяются при наведении на метку указателя мыши;</li>
+    <li>Drag - опции с данным постфиксом применяются при перетаскивании метки.</li>
+</ul>
+    Примеры таких опций: edgeLayoutHover, edgeIconImageShapeHover и т.д.
+</p>

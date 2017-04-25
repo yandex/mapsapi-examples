@@ -31,7 +31,7 @@ ymaps.ready(function () {
                 }
             }],
             // Переходы на панораме по стандартной стрелке.
-            thoroughfares: [{
+            connectionArrows: [{
                 panoID: 'secondPano',
                 direction: [-45, 0]
             }],
@@ -67,7 +67,7 @@ ymaps.ready(function () {
                 }
             }],
             // Добавим обратный переход на первую панораму.
-            thoroughfares: [{
+            connectionArrows: [{
                 panoID: 'firstPano',
                 direction: [90, 0]
             }, {
@@ -103,14 +103,14 @@ ymaps.ready(function () {
     }
 
     // Создаем класс, описывающий переход между панорамами по стандартной стрелке.
-    function Thoroughfare(currentPanorama, direction, nextPanorama) {
+    function ConnectionArrow(currentPanorama, direction, nextPanorama) {
         this.properties = new ymaps.data.Manager();
         this._currentPanorama = currentPanorama;
         this._direction = direction;
         this._connectedPanorama = nextPanorama;
     }
 
-    ymaps.util.defineClass(Thoroughfare, {
+    ymaps.util.defineClass(ConnectionArrow, {
         getConnectedPanorama: function () {
             // Если переход будет осуществляться на пользовательскую панораму,
             // то создаем объект панорамы MyPanorama.
@@ -204,15 +204,15 @@ ymaps.ready(function () {
         this._tileLevels = obj.tileLevels;
         // Получаем массив экземпляров класса, описывающего переход по стрелке из
         // одной панорамы на другую.
-        this._thoroughfares = obj.thoroughfares.map(function (thoroughfare) {
-            return new Thoroughfare(
+        this._connectionArrows = obj.connectionArrows.map(function (connectionArrow) {
+            return new ConnectionArrow(
                 this, // Текущая панорама.
-                thoroughfare.direction, // Направление взгляда на панораму, на которую делаем переход.
-                getConnectedPanoramaData(thoroughfare.panoID) // Данные панорамы, на которую делаем переход.
+                connectionArrow.direction, // Направление взгляда на панораму, на которую делаем переход.
+                getConnectedPanoramaData(connectionArrow.panoID) // Данные панорамы, на которую делаем переход.
             );
         }, this);
         // Получаем массив маркеров-переходов.
-        this._connections = obj.markerConnections.map(function (marker) {
+        this._connectionMarkers = obj.markerConnections.map(function (marker) {
             return new MarkerConnection(
                 this, // Текущая панорама.
                 marker.iconSrc, // Изображение маркера.
@@ -225,14 +225,14 @@ ymaps.ready(function () {
 
     ymaps.util.defineClass(MyPanorama, ymaps.panorama.Base, {
         // Чтобы добавить на панораму стандартные стрелки переходов,
-        // реализуем метод getThoroughfares.
-        getThoroughfares: function () {
-            return this._thoroughfares;
+        // реализуем метод getConnectionArrows.
+        getConnectionArrows: function () {
+            return this._connectionArrows;
         },
         // Чтобы добавить на панораму маркеры-переходы,
-        // нужно реализовать метод getConnections.
-        getConnections: function () {
-            return this._connections;
+        // нужно реализовать метод getConnectionMarkers.
+        getConnectionMarkers: function () {
+            return this._connectionMarkers;
         },
         getAngularBBox: function () {
             return this._angularBBox;

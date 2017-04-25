@@ -2,7 +2,8 @@
     <sa href="ready"/>,
     <sa href="Map"/>,
     <sa href="Placemark"/>,
-    <sa href="layout.Image"/>
+    <sa href="layout.Image"/>,
+    <sa href="layout.ImageWithContent"/>
 </div>
 <p>
     API предоставляет возможность задавать меткам собственные изображения.
@@ -15,7 +16,18 @@
     </ul>
 </p>
 <p>
+    Чтобы установить изображение с контентом, задайте для метки следующие опции:
+<ul>
+    <li>iconLayout: "default#imageWithContent";</li>
+    <li>iconImageHref: {URL графического файла}.</li>
+</ul>
+    И задайте содержимое иконки геообъекта:
+<ul>
+    <li>iconContent: 'содержимое';</li>
+</ul>
+</p>
+<p>
     Также могут быть установлены опции iconImageSize (ширина и высота изображения в пикселях), iconImageOffset (сдвиг левого верхнего угла иконки относительно
-точки привязки) и iconImageClipRect (координаты отображаемой области исходного изображения в пикселях).
+точки привязки), iconImageClipRect (координаты отображаемой области исходного изображения в пикселях), iconContentOffset (смещение слоя с содержимым относительно слоя с картинкой) и iconContentLayout (макет содержимого).
 
 </p>

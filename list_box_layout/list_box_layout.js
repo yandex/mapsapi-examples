@@ -78,7 +78,7 @@ function init () {
             })
         ],
 
-        // Теперь создадим список, содержащий 2 пунтка.
+        // Теперь создадим список, содержащий 2 пункта.
         listBox = new ymaps.control.ListBox({
                 items: listBoxItems,
                 data: {

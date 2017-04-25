@@ -21,6 +21,16 @@ function init() {
     }).then(function (res) {
             // Задаем изображение для иконок меток.
             res.geoObjects.options.set('preset', 'islands#redCircleIcon');
+            res.geoObjects.events
+                // При наведении на метку показываем хинт с названием станции метро.
+                .add('mouseenter', function (event) {
+                    var geoObject = event.get('target');
+                    myMap.hint.open(geoObject.geometry.getCoordinates(), geoObject.getPremise());
+                })
+                // Скрываем хинт при выходе курсора за пределы метки.
+                .add('mouseleave', function (event) {
+                    myMap.hint.close(true);
+                });
             // Добавляем коллекцию найденных геообъектов на карту.
             myMap.geoObjects.add(res.geoObjects);
             // Масштабируем карту на область видимости коллекции.
