@@ -4,7 +4,7 @@ function init () {
         referencePoints: [
             "Moscow, Barklaya street",
             "Moscow, Entuziastov highway 70"
-        ]
+        ],
         params: {
             routingMode: 'masstransit'
         }

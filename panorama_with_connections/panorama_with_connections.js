@@ -218,17 +218,17 @@ to another using the standard connection arrow.
         this._connectionArrows = obj.connectionArrows.map(function (connectionArrow) {
             return new ConnectionArrow(
                 this, // The current panorama.
- Directing the view to the panorama that we are connecting to.
- Data of the panorama that we are connecting to.
+                connectionArrow.direction, // Directing the view to the panorama that we are connecting to.
+                getConnectedPanoramaData(connectionArrow.panoID) //Data of the panorama that we are connecting to.
             );
         }, this);
         // Getting an array of connection markers.
         this._connectionMarkers = obj.markerConnections.map(function (marker) {
             return new MarkerConnection(
                 this, // The current panorama.
- The marker image.
- The marker position.
- Data of the panorama that we are connecting to.
+                marker.iconSrc, //The marker image.
+                marker.iconPosition, // The marker position.
+                getConnectedPanoramaData(marker.panoID) //Data of the panorama that we are connecting to.
             );
         }, this);
 

@@ -4,7 +4,7 @@ ymaps.ready(['util.dom.className'], function () {
             'Centering<br>', '<button type="button" class="no-margin">without margings</button>', '<button type="button" class="with-margin">considering margins</button>',            
             
 
-        ]
+        ].join(''), {
             build: function () {
                 Layout.superclass.build.call(this, arguments);
                 var container = this.getElement();

@@ -11,14 +11,14 @@ ymaps.ready(function () {
 
     var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
         balloonContentBody: [
-            '<address>', '<strong>Yandex office in Moscow</strong>', '<br/>', 'Address: 119021, Moscow, Lva Tolstogo Street, 16', '<br/>', 'For more information, see: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>', '</address>'            
-            
-            
-            
-            
-            
-
-        ]
+            '<address>',
+            '<strong>Yandex office in Moscow</strong>',
+            '<br/>',
+            'Address: 119021, Moscow, Lva Tolstogo Street, 16',
+            '<br/>',
+            'For more information, see: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>',
+            '</address>'
+        ].join('')
     }, {
         preset: 'islands#redDotIcon'
     });

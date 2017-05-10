@@ -155,7 +155,7 @@
     },
     "Panoramas": {
         "Inserting into the Yandex panoramas page": "panorama_basics",
-        "Creating your own panorama.": "panorama_custom",
+        "Creating your own panorama": "panorama_custom",
         "Adding markers to the panorama": "panorama_with_markers",
         "Creating connections between custom panoramas": "panorama_with_connections",
         "Displaying a panorama in the balloon": "panorama_in_balloon"

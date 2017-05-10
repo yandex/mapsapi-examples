@@ -6,8 +6,10 @@ function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: ["Moscow", "Tver"]
     }, {
-        // A type of intermediate points that can be added
-when editing.
+        /**
+         * A type of intermediate points that can be added
+         * when editing.
+         */
         editorMidPointsType: "via",
         // In the mode for adding new waypoints, we do not allow putting points on top of the map objects.
         editorDrawOver: false

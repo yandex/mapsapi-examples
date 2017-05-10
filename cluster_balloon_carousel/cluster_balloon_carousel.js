@@ -69,9 +69,9 @@ ymaps.ready(function () {
     function getContentBody (num) {
         if (!placemarkBodies) {
             placemarkBodies = [
-                ['Say something', 'and the lips go cold:', 'autumn wind!']
-                ['Rising again', 'the chrysanthemums faint', 'after the rains.']
-                ['Lightning', 'hand into take dark,', ' small-candle-light.']
+                ['Say something', 'and the lips go cold:', 'autumn wind!'].join('<br/>'),
+                ['Rising again', 'the chrysanthemums faint', 'after the rains.'].join('<br/>'),
+                ['Lightning', 'hand into take dark,', ' small-candle-light.'].join('<br/>')
             ];
         }
         return '<br>' + placemarkBodies[num % placemarkBodies.length];

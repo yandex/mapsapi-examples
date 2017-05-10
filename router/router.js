@@ -16,16 +16,16 @@ function init() {
      * as a string, as an object, or as an array of geocoordinates.
      */
     ymaps.route([
-        'Moscow, Krilatskiye Holmi street,',
+        'Moscow, Krilatskiye Holmi street',
         {
             point: 'Moscow, metro Molodezhnaya',
             /**
              * "Molodezhnaya" metro station - a throughpoint
              * (passing through this point, but not stopping at it).
-             ]
+             */
             type: 'viaPoint'
         },
-        [55.731272, 37.447198*/
+        [55.731272, 37.447198],
         'Moscow, metro Pionerskaya'
     ]).then(function (route) {
         myMap.geoObjects.add(route);
@@ -56,7 +56,7 @@ function init() {
          * 2) from "Kuntsevskaya" station to "Pionerskaya".
          */
 
-        var moveList = 'Let's go,</br>',
+        var moveList = 'Let\'s go,</br>',
             way,
             segments;
         // Getting an array of paths.

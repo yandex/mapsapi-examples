@@ -34,7 +34,7 @@ function init () {
             }).then(function (res) {
                 var newContent = res.geoObjects.get(0) ?
                         res.geoObjects.get(0).properties.get('name') :
-                        'Couldn't detect address.';
+                        'Couldn\'t detect address.';
 
                 // Setting the new content of the balloon in the corresponding placemark property.
                 placemark.properties.set('balloonContent', newContent);

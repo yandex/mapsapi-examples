@@ -177,8 +177,8 @@ function init() {
             state: {
                 enabled: true,
                 values: {
-                    region: 'RU',
-                    lang: 'ru',
+                    region: 'BY',
+                    lang: 'en',
                     quality: '1'
                 }
             },

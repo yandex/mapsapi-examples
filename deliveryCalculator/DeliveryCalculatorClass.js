@@ -4,7 +4,7 @@ ymaps.modules.define(
     function (provide, defineClass, vow) {
         /**
          * @class DeliveryCalculator Calculating delivery cost.
-         * @param {Object} map    Instance of the map.
+         * @param {Object} map Instance of the map.
          */
         function DeliveryCalculator(map) {
             this._map = map;
@@ -130,8 +130,8 @@ ymaps.modules.define(
              */
             calculate: function (routeLength) {
                 // Constants.
- The cost per kilometer.
- The minimal cost.
+                var DELIVERY_TARIF = 20, // The cost per kilometer.
+                    MINIMUM_COST = 500; // The minimal cost.
 
                 return Math.max(routeLength * DELIVERY_TARIF, MINIMUM_COST);
             },
@@ -168,7 +168,7 @@ ymaps.modules.define(
 
                                 this._route.options.set({strokeWidth: 5, strokeColor: '0000ffff', opacity: 0.5});
                                 this._map.geoObjects.add(this._route); // Adding the route to the map.
- Setting the balloon content for the starting and ending markers.
+                                // Setting the balloon content for the starting and ending markers.
                                 this._startPoint.properties.set('balloonContentBody', startBalloon + message.replace('%s', price));
                                 this._finishPoint.properties.set('balloonContentBody', finishBalloon + message.replace('%s', price));
 

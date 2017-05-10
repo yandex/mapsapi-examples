@@ -66,7 +66,7 @@ function init() {
             console.log('Type of geo object: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
             console.log('Object name: %s', firstGeoObject.properties.get('name'));
             console.log('Object description: %s', firstGeoObject.properties.get('description'));
-            console.log(Full object description: %s', firstGeoObject.properties.get('text'));
+            console.log('Full object description: %s', firstGeoObject.properties.get('text'));
             /**
             * Direct methods for working with the geocoding results.
             * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine

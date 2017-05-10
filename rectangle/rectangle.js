@@ -47,7 +47,7 @@ function init () {
         [55.71, 37.69]
     ], {
         //Properties
-        hintContent: 'You can't drag me!',
+        hintContent: 'You can\'t drag me!',
         balloonContent: 'Rectangle 1'
     }, {
         /**

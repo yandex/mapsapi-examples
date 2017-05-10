@@ -21,12 +21,13 @@ function init() {
             /**
              * Metro Arbatskaya is a through point (passing through this point,
              * but not stopping at it).
-             ]
+             */
+
             type: 'viaPoint',
             point: 'Moscow, metro Arbatskaya'
         },
         // Metro Tretyakovskaya.
-        [55.744568, 37.60118*/
+        [55.744568, 37.60118]
     ], {
         // Automatically positioning the map.
         mapStateAutoApply: true

@@ -133,29 +133,29 @@ ymaps.ready(function () {
      * to be displayed for a new point when dragging the placemark, uncomment the code below:
      */
 
-    /**
+    /*
      function onDragEnd (e) {
          var placemark = e.get('target');
-         /**
-          * As soon as the user moved the placemark to another point,
-          * we're deleting the balloon layout specified earlier.
-          */
+
+          // As soon as the user moved the placemark to another point,
+          // we're deleting the balloon layout specified earlier.
+
          placemark.options.unset('balloonContentLayout');
          // Also we'll remove the text content of the balloon.
          placemark.properties.unset('balloonContent');
 
-         /**
-          * Subscribing again to the event of the balloon opening.
-          * We will listen to this event only once.
-          */
+
+          // Subscribing again to the event of the balloon opening.
+          // We will listen to this event only once.
+
          placemark.events.once('balloonopen', requestForPanorama);
      }
 
-     /**
-      * Listening to the placemark event 'dragend'. When it is fired, 
-      * we will delete the balloon layout with the old panorama, and then 
-      * check if the panorama exists at the new point.
-      */
+
+      // Listening to the placemark event 'dragend'. When it is fired,
+      // we will delete the balloon layout with the old panorama, and then
+      // check if the panorama exists at the new point.
+
      myPlacemark1.events.add('dragend', onDragEnd);
      myPlacemark2.events.add('dragend', onDragEnd);
      */

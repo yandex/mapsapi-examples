@@ -29,7 +29,7 @@ function init () {
             referencePoints: [
                 "Arbatskaya metro station",
                 "Smolenskaya metro station"
-            ]
+            ],
             params: {
                 /**
                  * avoidTrafficJams: true,
