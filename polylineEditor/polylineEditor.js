@@ -29,7 +29,7 @@ function init() {
         // Adding a new item to the context menu that allows deleting the polyline.
         editorMenuManager: function (items) {
             items.push({
-                title: "Deleting a polyline",
+                title: "Delete line",
                 onClick: function () {
                     myMap.geoObjects.remove(myPolyline);
                 }

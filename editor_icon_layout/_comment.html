@@ -1,0 +1,29 @@
+<div id="references">
+    <sa href="ready"/>,
+    <sa href="Map"/>,
+    <sa href="Polyline"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="geometryEditor.LineString"/>
+</div>
+<p>
+    A <a href="/maps/doc/jsapi/2.1/dg/concepts/geoobjects.xml#visual_editing">visual editor</a> is available for polylines. A link to the editor is in the <a href="/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#editor">editor</a> field of the polyline object.
+</p>
+<p>
+    The <a href="/maps/doc/jsapi/2.1/ref/reference/geometryEditor.LineString-docpage/#param-options.vertexInteractiveOptions">vertexInteractiveOptions</a> and <a href="/maps/doc/jsapi/2.1/ref/reference/geometryEditor.LineString-docpage/#param-options.edgeInteractiveOptions">edgeInteractiveOptions</a> options allow you to use options with postfixes for the placemark vertices and interim points linked to the current status of the vertex.
+    If you don't have to change the options of the vertices and the interim placemarks depending on their condition, you should disable the corresponding option.
+    The following postfixes for the placemark vertices are available:
+<ul>
+    <li>Hover - Options with this given postfix are used when the user hovers over a vertex with the mouse pointer.</li>
+    <li>Drag - Options with this given postfix are used when the user drags a vertex.</li>
+    <li>Active - Options with this given postfix are used when the context menu is open on a vertex.</li>
+</ul>
+    Examples of such options: vertexLayoutHover, vertexIconImageSizeActive, vertexIconImageShapeHover, etc.
+</p>
+<p>
+    The following postfixes are available for intermediate points:
+<ul>
+    <li>Hover - Options with this given postfix are used when the user hovers over a placemark with the mouse pointer.</li>
+    <li>Drag - Options with this given postfix are used when the user drags a placemark.</li>
+</ul>
+    Examples of such options: edgeLayoutHover, edgeIconImageShapeHover, etc.
+</p>

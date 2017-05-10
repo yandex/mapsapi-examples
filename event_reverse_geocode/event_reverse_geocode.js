@@ -41,14 +41,21 @@ function init() {
 
     // Determining the address by coordinates (reverse geocoding).
     function getAddress(coords) {
-        myPlacemark.properties.set('iconContent', 'searching...');
+        myPlacemark.properties.set('iconCaption', 'searching...');
         ymaps.geocode(coords).then(function (res) {
             var firstGeoObject = res.geoObjects.get(0);
 
             myPlacemark.properties
                 .set({
-                    iconCaption: firstGeoObject.properties.get('name'),
-                    balloonContent: firstGeoObject.properties.get('text')
+                    // Forming a string with the object's data.
+                    iconCaption: [
+                        // The name of the municipality or the higher territorial-administrative formation.
+                        firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+                        // Getting the path to the toponym; if the method returns null, then requesting the name of the building.
+                        firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                    ].filter(Boolean).join(', '),
+                    // Specifying a string with the address of the object as the balloon content.
+                    balloonContent: firstGeoObject.getAddressLine()
                 });
         });
     }

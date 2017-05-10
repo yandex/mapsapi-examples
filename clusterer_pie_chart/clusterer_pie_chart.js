@@ -7,17 +7,17 @@ ymaps.ready(function () {
         }),
         // Values for icon colors.
         placemarkColors = [
-            '#FF1F1F', '#1F44FF', '#1FFF8E', '#FF1FF5',
-            '#FFEF1F', '#FF931F', '#AE6961', '#6193AE'
+            '#DB425A', '#4C4DA2', '#00DEAD', '#D73AD2',
+            '#F8CC4D', '#F88D00', '#AC646C', '#548FB7'
         ],
         clusterer = new ymaps.Clusterer({
-            // Layout for the pieChart cluster placemark.
+            // The layout of the pieChart cluster placemark.
             clusterIconLayout: 'default#pieChart',
-            // Radius in pixels for the chart.
+            // Radius of the diagram, in pixels.
             clusterIconPieChartRadius: 25,
-            // Radius of the central part of the layout.
+            // The radius of the central part of the layout.
             clusterIconPieChartCoreRadius: 10,
-            // Width of the line separating sections and the outline of the chart.
+            // Width of the sector dividing lines and diagram outline.
             clusterIconPieChartStrokeWidth: 3
         }),
         points = [

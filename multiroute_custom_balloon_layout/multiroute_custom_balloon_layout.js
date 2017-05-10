@@ -11,13 +11,13 @@ function init () {
         balloonLayout = ymaps.templateLayoutFactory.createClass(
                 "<div class='my-balloon'>" +
                 "<u>Route {% if properties.type == 'driving' %}" +
-                "driving<br/>" +
+                "Driving<br/>" +
                 "{% else %}" +
-                "on public transport" +
+                "Public transit" +
                 "{% endif %}</u><br />" +
                 "Distance: " +
                 "<i>{{ properties.distance.text }}</i>,<br />" +
-                "Time to travel: " +
+                "Travel time: " +
                 "<i>{{ properties.duration.text }} (without traffic) </i>." +
                 "</div>"
         ),
@@ -29,7 +29,7 @@ function init () {
             referencePoints: [
                 "Arbatskaya metro station",
                 "Smolenskaya metro station"
-            ],
+            ]
             params: {
                 /**
                  * avoidTrafficJams: true,

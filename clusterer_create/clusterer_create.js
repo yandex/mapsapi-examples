@@ -41,7 +41,9 @@ ymaps.ready(function () {
           */
             getPointData = function (index) {
             return {
-                balloonContentBody: 'placemark <strong>balloon ' + index + '</strong>',
+                balloonContentHeader: '<font size=3><b><a target="_blank" href="https://yandex.ru">Your link can be here</a></b></font>',
+                balloonContentBody: '<p>Your name: <input name="login"></p><p>The phone in the format 2xxx-xxx:  <input></p><p><input type="submit" value="Send"></p>',
+                balloonContentFooter: '<font size=1>Information provided by: placemark </font> balloon <strong> ' + index + '</strong>',
                 clusterCaption: 'placemark <strong>' + index + '</strong>'
             };
         },

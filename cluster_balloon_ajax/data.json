@@ -9,7 +9,7 @@
             },
             "properties": {
                 "id": 1,
-                "clusterCaption": "Москва"
+                "clusterCaption": "Moscow"
             }
         },
         {
@@ -20,7 +20,7 @@
             },
             "properties": {
                 "id": 2,
-                "clusterCaption": "Дубна"
+                "clusterCaption": "Dubna"
             }
         },
         {
@@ -31,7 +31,7 @@
             },
             "properties": {
                 "id": 3,
-                "clusterCaption": "Тверь"
+                "clusterCaption": "Tver"
             }
         },
         {
@@ -42,7 +42,7 @@
             },
             "properties": {
                 "id": 4,
-                "clusterCaption": "Клин"
+                "clusterCaption": "Klin"
             }
         },
         {
@@ -53,7 +53,7 @@
             },
             "properties": {
                 "id": 5,
-                "clusterCaption": "Сергиев Посад"
+                "clusterCaption": "Sergiev Posad"
             }
         },
         {
@@ -64,7 +64,7 @@
             },
             "properties": {
                 "id": 6,
-                "clusterCaption": "Королёв"
+                "clusterCaption": "Korolyov"
             }
         },
         {
@@ -75,7 +75,7 @@
             },
             "properties": {
                 "id": 7,
-                "clusterCaption": "Видное"
+                "clusterCaption": "Vidnoe"
             }
         },
         {
@@ -86,7 +86,7 @@
             },
             "properties": {
                 "id": 8,
-                "clusterCaption": "Калуга"
+                "clusterCaption": "Kaluga"
             }
         },
         {
@@ -97,7 +97,7 @@
             },
             "properties": {
                 "id": 9,
-                "clusterCaption": "Рязань"
+                "clusterCaption": "Ryazan"
             }
         },
         {
@@ -108,7 +108,7 @@
             },
             "properties": {
                 "id": 10,
-                "clusterCaption": "Владимир"
+                "clusterCaption": "Vladimir"
             }
         },
         {
@@ -119,7 +119,7 @@
             },
             "properties": {
                 "id": 11,
-                "clusterCaption": "Гусь-Хрустальный"
+                "clusterCaption": "Gus-Khrustalny"
             }
         },
         {
@@ -130,7 +130,7 @@
             },
             "properties": {
                 "id": 12,
-                "clusterCaption": "Иваново"
+                "clusterCaption": "Ivanovo"
             }
         },
         {
@@ -141,7 +141,7 @@
             },
             "properties": {
                 "id": 13,
-                "clusterCaption": "Кострома"
+                "clusterCaption": "Kostroma"
             }
         },
         {
@@ -152,7 +152,7 @@
             },
             "properties": {
                 "id": 14,
-                "clusterCaption": "Ярославль"
+                "clusterCaption": "Yaroslavl"
             }
         },
         {
@@ -163,7 +163,7 @@
             },
             "properties": {
                 "id": 15,
-                "clusterCaption": "Смоленск"
+                "clusterCaption": "Smolensk"
             }
         },
         {
@@ -174,7 +174,7 @@
             },
             "properties": {
                 "id": 16,
-                "clusterCaption": "Ярцево"
+                "clusterCaption": "Yartsevo"
             }
         },
         {
@@ -185,7 +185,7 @@
             },
             "properties": {
                 "id": 17,
-                "clusterCaption": "Ржев"
+                "clusterCaption": "Rzhev"
             }
         },
         {
@@ -196,7 +196,7 @@
             },
             "properties": {
                 "id": 18,
-                "clusterCaption": "Тула"
+                "clusterCaption": "Tula"
             }
         },
         {
@@ -207,7 +207,7 @@
             },
             "properties": {
                 "id": 19,
-                "clusterCaption": "Муром"
+                "clusterCaption": "Murom"
             }
         },
         {
@@ -218,7 +218,7 @@
             },
             "properties": {
                 "id": 20,
-                "clusterCaption": "Шуя"
+                "clusterCaption": "Shuya"
             }
         },
         {
@@ -229,7 +229,7 @@
             },
             "properties": {
                 "id": 21,
-                "clusterCaption": "Чехов"
+                "clusterCaption": "Chekhov"
             }
         },
         {
@@ -240,7 +240,7 @@
             },
             "properties": {
                 "id": 22,
-                "clusterCaption": "Вышний Волочёк"
+                "clusterCaption": "Vyshniy Volochok"
             }
         }
     ]

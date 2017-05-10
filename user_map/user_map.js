@@ -30,7 +30,7 @@ function init () {
      *  and adding it to the storage for map types with the key my#type.
      */
     ymaps.mapType.storage.add('my#type', new ymaps.MapType(
-        'Roadmap',
+        'Scheme',
         ['my#layer']
     ));
 

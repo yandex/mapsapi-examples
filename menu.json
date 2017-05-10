@@ -2,27 +2,30 @@
     "Popular examples": {
         "Using a custom image for the placemark": "icon_customImage",
         "Efficiently adding lots of placemarks to the map": "object_manager",
-        "Route to a point on the map": "routes_to_point",
-        "Searching for businesses": "search_control_ppo",
-        "Calculating delivery cost": "deliveryCalculator"
+        "Route to the point on the map": "routes_to_point",
+        "Searching for organizations": "search_control_ppo",
+        "Calculating delivery cost": "deliveryCalculator",
+        "Geo link": "geolink"
     },
     "Map": {
         "Creating and deleting": "mapbasics",
-        "Using a hidden container": "hiddendiv",
+        "Hosting maps in the hidden container": "hiddendiv",
         "General parameters": "mapparams",
         "Creating maps on demand": "request_map",
         "Resizing the map": "fillcontainer",
         "Creating your own map": "custom_map",
         "Map margins manager": "margin_manager",
-        "Polar azimuthal equidistant projection": "azimuthal_map"
+        "The polar azimuthal equidistant projection": "azimuthal_map"
     },
     "Geo objects": {
         "Placemark": "placemark",
         "Setting a custom placemark image": "icon_customImage",
-        "Setting placemark images with CSS sprites": "icon_sprites",
+        "Defining placemark images using CSS sprites": "icon_sprites",
         "Polyline": "polyline",
         "Rectangle": "rectangle",
         "Polygon": "polygon",
+        "Filling a polygon with the image": "polygon_with_image",
+        "Specifying images for the polyline editor": "editor_icon_layout",
         "Circle": "circle",
         "The arrow on the map": "arrow",
         "Multistroke outline": "multystroke",
@@ -66,11 +69,11 @@
         "Changing the color of clusters and placemarks when hovering": "clusterer_icon_hover",
         "Opening the cluster balloon with the selected object": "clusterer_balloon_open",
         "Changing the clusterer cell size": "clusterer_gridSize",
-        "\"Two columns\" cluster balloon layout": "cluster_balloon_twoColumns",
-        "\"Accordion\" cluster balloon layout": "cluster_balloon_accordion",
-        "\"Carousel\" cluster balloon layout": "cluster_balloon_carousel",
+        "Layout for cluster balloon \"Two columns\"": "cluster_balloon_twoColumns",
+        "Layout for cluster balloon \"Accordion\"": "cluster_balloon_accordion",
+        "Layout for cluster balloon \"Carousel\"": "cluster_balloon_carousel",
         "Custom cluster balloon layout": "cluster_custom_balloon_content_layout",
-        "Pie chart layout": "clusterer_pie_chart"
+        "Layout in the form of a pie chart": "clusterer_pie_chart"
     },
     "GeoQuery": {
         "Points falling within a circle": "placemarks_in_circle",
@@ -121,7 +124,7 @@
         "Changing the map type": "ymapsml_maptype",
         "Adding placemarks to the map": "ymapsml_simpleobject",
         "Changing a placemark icon": "ymapsml_styleobject",
-        "Polyline":  "ymapsml_linestring",
+        "Polyline": "ymapsml_linestring",
         "Closed polyline": "ymapsml_linearring",
         "Polygon": "ymapsml_polygon",
         "Setting the object style": "ymapsml_setstyle",
@@ -133,16 +136,17 @@
         "Converting GeoRSS to YMapsML": "ymapsml_georss"
     },
     "GeoXML": {
-        "Displaying GPX and XML": "geoxml_display"
+        "Displaying GPX and KML": "geoxml_display"
     },
     "ObjectManager": {
         "Adding objects to the map via ObjectManager": "object_manager",
         "Event handling in objects of ObjectManager": "object_manager_events",
         "Opening the balloon on the placemark in ObjectManager": "object_manager_balloon",
         "Loading the placemark balloon data on demand": "object_manager_balloon_async",
-        "Adding objects with different geometries to the map": "object_manager_spatial",
-        "Adding placemarks with different options and data to ObjectManager": "object_manager_options",
-        "Adding a GeoJSON file from the Map Constructor to the map": "object_manager_geojson"
+        "Adding objects with different geometries to the map.": "object_manager_spatial",
+        "Adding placemarks with various options and content to the ObjectManager": "object_manager_options",
+        "Adding a GeoJSON file to the map from the maps constructor": "object_manager_geojson",
+        "Filtering objects": "object_manager_filter"
     },
     "Modular system": {
         "Loading predefined modules during initialization": "load_modules",
@@ -150,10 +154,13 @@
         "Creating your own module": "custom_module"
     },
     "Panoramas": {
-        "Embedding Yandex panoramas on a page": "panorama_basics",
-        "Creating your own panorama": "panorama_custom",
-        "Adding markers to a panorama": "panorama_with_markers",
-        "Creating transitions between your panoramas": "panorama_with_connections",
-        "Displaying panoramas in a balloon": "panorama_in_balloon"
+        "Inserting into the Yandex panoramas page": "panorama_basics",
+        "Creating your own panorama.": "panorama_custom",
+        "Adding markers to the panorama": "panorama_with_markers",
+        "Creating connections between custom panoramas": "panorama_with_connections",
+        "Displaying a panorama in the balloon": "panorama_in_balloon"
+    },
+    "External modules": {
+        "Heatmap with CCTV cameras": "security_cameras"
     }
 }

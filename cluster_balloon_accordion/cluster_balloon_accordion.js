@@ -74,12 +74,12 @@ ymaps.ready(function () {
     function getContentBody (num) {
         if (!placemarkBodies) {
             placemarkBodies = [
-                ['A snowy morning -', 'By myself', 'Chewing on dried salmon'].join('<br/>'),
-                 ['/Crow’s', 'Abandoned nest,', 'A plum tree.'].join('<br/>'),
-                 ['/Fragrance of bindweed', 'On my palms the whole night –', 'Thinking of Chiyo-jo.'].join('<br/>')
-             ];
+                ['A snowy morning -', 'By myself', 'Chewing on dried salmon']
+                ['Crow’s', 'Abandoned nest,', 'A plum tree.']
+                ['Fragrance of bindweed', 'On my palms the whole night –', 'Thinking of Chiyo-jo.']
+            ];
         }
-        return '<strong>Body of the placemark #' + (num + 1) + '</strong><br/>' + placemarkBodies[num % placemarkBodies.length];
+        return '<strong>Body of the placemark #' + (num + 1) + '</strong><br/>' + placemarkBodies[num % placemarkBodies.length]; 
     }
     clusterer.balloon.open(clusterer.getClusters()[0]);
 });

@@ -53,17 +53,16 @@ ymaps.modules.define('MultiRouteCustomView', [
         },
 
         processInit: function () {
-            return "Initialization ...";
+            return "Initializing ..."; 
         },
 
         processRequestSend: function () {
-            return "Requesting data ...";
+            return "Requesting data ..."; 
         },
 
         processSuccessRequest: function (multiRouteModel, e) {
             var routes = multiRouteModel.getRoutes(),
-                result = ["The data was received successfully.];"
-
+                result = ["The data was received successfully."]
             if (routes.length) {
                 result.push("Total routes: " + routes.length + ".");
                 for (var i = 0, l = routes.length; i < l; i++) {
@@ -86,31 +85,28 @@ ymaps.modules.define('MultiRouteCustomView', [
         },
 
         processDrivingRoute: function (route) {
-            var result = ["Car route.];"
-
+            var result = ["Car route."]
             result.push(this.createCommonRouteOutput(route));
             return result.join("<br/>");
         },
 
         processMasstransitRoute: function (route) {
-            var result = ["Route on public transport.];"
-
+            var result = ["Examples. Route on public transport."]
             result.push(this.createCommonRouteOutput(route));
             result.push("The route description: <ul>" + this.createMasstransitRouteOutput(route) + "</ul>");
             return result.join("<br/>");
         },
 
         processPedestrianRoute: function (route) {
-            var result = ["The walking route.];"
-
+            var result = ["The walking route."]
             result.push(this.createCommonRouteOutput(route));
             return result.join("<br/>");
         },
 
         // A method that creates a common part of the description for all types of routes.
         createCommonRouteOutput: function (route) {
-            return "The length of the route: " + route.properties.get("distance").text + "<br/>" +
-                "Time to travel: " + route.properties.get("duration").text;
+            return "The length of the route: " + route.properties.get("distance").text + "<br/>" + 
+                "Travel time: " + route.properties.get("duration").text;
         },
 
         /**

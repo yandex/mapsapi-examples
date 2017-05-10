@@ -16,17 +16,17 @@ function init() {
      * The route should pass through Arbatskaya station.
      */
     ymaps.route([
-        'Smolenskaya metro stations, Moscow',
+        'Moscow, Smolenskaya metro station',
         {
             /**
              * Metro Arbatskaya is a through point (passing through this point,
              * but not stopping at it).
-             */
+             ]
             type: 'viaPoint',
-            point: 'Moscow, Arbatskaya metro station'
+            point: 'Moscow, metro Arbatskaya'
         },
         // Metro Tretyakovskaya.
-        [55.74062, 37.62561]
+        [55.744568, 37.60118*/
     ], {
         // Automatically positioning the map.
         mapStateAutoApply: true
@@ -35,14 +35,24 @@ function init() {
         button.click(function () {
             if (startEditing = !startEditing) {
                 // Turning on the editor.
-                route.editor.start({ addWayPoints: true });
-                button.val('Disable the route editor');
+                route.editor.start({addWayPoints: true, removeWayPoints: true});
+                button.text('Disable the route editor');
             } else {
                 // Turning off the editor.
                 route.editor.stop();
-                button.val('Enable the route editor');
+                button.text('Enable the route editor');
             }
         });
+        route.editor.events.add(["waypointadd", "waypointremove", "start"], function () {
+            if (route.getWayPoints().getLength() >= 10) {
+                // Disabling adding new points if the map has more than 9 waypoints.
+                route.editor.start({addWayPoints: false, removeWayPoints: true});
+            }
+            else {
+                // Enabling adding new points.
+                route.editor.start({addWayPoints: true, removeWayPoints: true});
+            }
+        })
     }, function (error) {
         alert("An error occurred: " + error.message);
     });

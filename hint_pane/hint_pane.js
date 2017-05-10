@@ -35,5 +35,5 @@ function init () {
     myMap.controls.add(fitPaneButton, { float: 'left' });
     myMap.controls.add(paneButton, { float: 'right' });
 
-    myMap.hint.open(null, 'This is an incredibly long hint that nobody would ever put here.');
+    myMap.hint.open(null, 'This is an incredibly long hint that nobody would write.');
 }

@@ -16,17 +16,17 @@ function init() {
      * as a string, as an object, or as an array of geocoordinates.
      */
     ymaps.route([
-        'Krylatsky Hills st., Moscow',
+        'Moscow, Krilatskiye Holmi street,',
         {
-            point: 'Moscow, Molodezhnaya metro station,',
+            point: 'Moscow, metro Molodezhnaya',
             /**
-             * Metro "Molodezhnaya" is a through point
+             * "Molodezhnaya" metro station - a throughpoint
              * (passing through this point, but not stopping at it).
-             */
+             ]
             type: 'viaPoint'
         },
-        [55.731272, 37.447198], // "Kuntsevskaya" metro station.
-        'Pionerskaya metro station, Moscow'
+        [55.731272, 37.447198*/
+        'Moscow, metro Pionerskaya'
     ]).then(function (route) {
         myMap.geoObjects.add(route);
         /**
@@ -56,7 +56,7 @@ function init() {
          * 2) from "Kuntsevskaya" station to "Pionerskaya".
          */
 
-        var moveList = 'Here we go,</br>',
+        var moveList = 'Let's go,</br>',
             way,
             segments;
         // Getting an array of paths.
@@ -65,7 +65,7 @@ function init() {
             segments = way.getSegments();
             for (var j = 0; j < segments.length; j++) {
                 var street = segments[j].getStreet();
-                moveList += ('Going ' + segments[j].getHumanAction() + (street ? ' to ' + street : '') + ', passing ' + segments[j].getLength() + ' m.,'),
+                moveList += ('Going ' + segments[j].getHumanAction() + (street ? ' to ' + street : '') + ', passing through ' + segments[j].getLength() + ' m.,');
                 moveList += '</br>'
             }
         }

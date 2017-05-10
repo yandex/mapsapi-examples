@@ -5,20 +5,19 @@ function init () {
       */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: ["Moscow", "Tver"]
-
     }, {
         // A type of intermediate points that can be added
-        // when editing.
+when editing.
         editorMidPointsType: "via",
         // In the mode for adding new waypoints, we do not allow putting points on top of the map objects.
         editorDrawOver: false
     });
 
     var buttonEditor = new ymaps.control.Button({
-        data: { content: "`The editing mode" }
+        data: { content: "Editing mode" }
     });
-
-    buttonEditor.events.add("select", function () {
+    
+buttonEditor.events.add("select", function () {
         /**
          * Enabling edit mode.
          * As options, you can pass an object with fields:

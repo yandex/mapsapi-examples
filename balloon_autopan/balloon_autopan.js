@@ -133,7 +133,7 @@ ymaps.ready(function () {
 
     // Creating a placemark with a custom balloon layout.
         myPlacemark = window.myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-            balloonHeader: 'Balloon title',
+            balloonHeader: 'Balloon header',
             balloonContent: 'Balloon content'
         }, {
             balloonShadow: false,

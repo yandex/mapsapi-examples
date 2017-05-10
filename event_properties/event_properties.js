@@ -19,7 +19,7 @@ function init () {
         if (!myMap.balloon.isOpen()) {
             var coords = e.get('coords');
             myMap.balloon.open(coords, {
-                contentHeader:'Event!,',
+                contentHeader:'Event!',
                 contentBody:'<p>Someone clicked on the map.</p>' +
                     '<p>Click coordinates: ' + [
                     coords[0].toPrecision(6),

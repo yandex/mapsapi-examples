@@ -20,7 +20,7 @@ function init() {
          * Describing the properties of the circle.
          * The contents of the balloon.
          */
-        balloonContent: "The radius of the circle is 10 km",
+        balloonContent: "Radius of the circle: 10 km",
         // The contents of the hint.
         hintContent: "Move me"
     }, {

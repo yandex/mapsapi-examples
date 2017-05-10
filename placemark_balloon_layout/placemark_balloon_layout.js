@@ -25,7 +25,7 @@ function init () {
              * on a counter button when creating the layout.
              */
             build: function () {
-                // First, we call the build method of the parent class.
+                // First, we call the "build" method of the parent class.
                 BalloonContentLayout.superclass.build.call(this);
                 // Then we perform additional steps.
                 $('#counter-button').bind('click', this.onCounterClick);

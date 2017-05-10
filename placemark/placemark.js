@@ -18,7 +18,7 @@ function init() {
             // Properties.
             properties: {
                 // The placemark content.
-                iconContent: 'I am draggable',
+                iconContent: 'I'm draggable',
                 hintContent: 'Come on, drag already!'
             }
         }, {
@@ -33,27 +33,27 @@ function init() {
         myPieChart = new ymaps.Placemark([
             55.847, 37.6
         ], {
-            // Data for creating a diagram.
+            // Data for generating a diagram.
             data: [
-                {weight: 8, color: '#224080'},
-                {weight: 6, color: '#408022'},
-                {weight: 4, color: '#802240'}
+                {weight: 8, color: '#0E4779'},
+                {weight: 6, color: '#1E98FF'},
+                {weight: 4, color: '#82CDFF'}
             ],
             iconCaption: "Diagram"
         }, {
             // Defining a custom placemark layout.
             iconLayout: 'default#pieChart',
-            // Radius in pixels for the chart.
+            // Radius of the diagram, in pixels.
             iconPieChartRadius: 30,
-            // Radius of the central part of the layout.
+            // The radius of the central part of the layout.
             iconPieChartCoreRadius: 10,
-            // Fill style for the center area.
+            // Fill style for the core.
             iconPieChartCoreFillStyle: '#ffffff',
-            // Style for the lines separating sections and the outline of the chart.
+            // The style for lines between sectors and the outline of the diagram.
             iconPieChartStrokeStyle: '#ffffff',
-            // Width of the lines separating sections and the outline of the chart.
+            // Width of the sector dividing lines and diagram outline.
             iconPieChartStrokeWidth: 3,
-            // Maximum width of the placemark label.
+            // Maximum width of the placemark caption.
             iconPieChartCaptionMaxWidth: 200
         });
 
@@ -96,14 +96,14 @@ function init() {
             iconColor: '#3b5998'
         }))
         .add(new ymaps.Placemark([55.694843, 37.435023], {
-            balloonContent: "the color of a <strong>crocodile's nose</strong>",
-            iconCaption: 'Very long but, of course, very interesting text'
+            balloonContent: '<strong>crocodile's nose</strong> color',
+            iconCaption: 'Really, really long but super interesting text'
         }, {
             preset: 'islands#greenDotIconWithCaption'
         }))
         .add(new ymaps.Placemark([55.790139, 37.814052], {
             balloonContent: '<strong>blue</strong> color',
-            iconCaption: 'Very long but, of course, very interesting text'
+            iconCaption: 'Really, really long but super interesting text'
         }, {
             preset: 'islands#blueCircleDotIconWithCaption',
             iconCaptionMaxWidth: '50'

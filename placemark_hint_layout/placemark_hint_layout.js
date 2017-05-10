@@ -39,8 +39,8 @@ function init () {
         );
 
     var myPlacemark = new ymaps.Placemark([55.764286, 37.581408], {
-        address: "Moscow, St. Zoologicheskaya, 13, page 2,",
-        object: "Contemporary art center"
+        address: "Moscow, Zoologicheskaya Street, 13u2",
+        object: "Contemporary Art Center"
     }, {
         hintLayout: HintLayout
     });

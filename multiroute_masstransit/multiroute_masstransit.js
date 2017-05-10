@@ -6,7 +6,7 @@ function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [
             [55.749, 37.524],
-            "7 Uspenskiy st., Moscow"
+            "Moscow, Uspensky Lane, 7"
         ],
         params: {
             routingMode: 'masstransit'

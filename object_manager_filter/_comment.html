@@ -1,0 +1,21 @@
+<div id="references">
+    <sa href="ObjectManager"/>,
+    <sa href="control.ListBox"/>,
+    <sa href="control.ListBoxItem"/>,
+    <sa href="map.GeoObjects"/>,
+    <sa href="layout.PieChart"/>
+</div>
+<p>
+    <sa href="ObjectManager"/> - A class for adding a large number of objects to the map
+    without needing to create placemarks and add them to the map individually.
+</p>
+<p>
+    You can filter the objects added to the ObjectManager using the <a href="/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/#setFilter">setFilter</a> method. The method sets the filter function for objects. It accepts a single object added to the ObjectManager. If the function returns true, the object will be processed. If false, the object will be excluded from further processing. You can also pass a string as the filter.  The following keywords are available in the filter string:
+    <ul>
+        <li>options – Accessing the object's options.</li>
+        <li>properties – Accessing the object's data.</li>
+        <li>geometry – Accessing the object's geometry.</li>
+        <li>id – Accessing the object's id.</li>
+    </ul>
+    You can also specify as the filter an expression that returns true or false.
+</p>

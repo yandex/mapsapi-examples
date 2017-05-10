@@ -12,7 +12,7 @@ function init () {
     myMap.geoObjects.add(objectManager);
 
     $.ajax({
-        // The data.json file defines the geometry, options, and data for placemarks.
+        // The data.json file describes geometry, options and contents of placemarks.
         url: "data.json"
     }).done(function(data) {
         objectManager.add(data);

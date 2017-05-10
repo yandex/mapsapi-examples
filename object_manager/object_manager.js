@@ -11,7 +11,8 @@ function init () {
             // Setting an option to make placemarks start clusterizing.
             clusterize: true,
             // ObjectManager accepts the same options as the clusterer.
-            gridSize: 32
+            gridSize: 32,
+            clusterDisableClickZoom: true
         });
 
     /**

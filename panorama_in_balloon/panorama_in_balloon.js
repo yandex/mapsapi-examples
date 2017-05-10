@@ -43,7 +43,7 @@ ymaps.ready(function () {
                  * when making the layout.
                  */
                 build: function () {
-                    // First, we call the build method of the parent class.
+                    // First, we call the "build" method of the parent class.
                     BalloonContentLayout.superclass.build.call(this);
                     // Adding the panorama player to the balloon content.
                     this._openPanorama();
@@ -90,7 +90,7 @@ ymaps.ready(function () {
             // Panorama type (aerial or land).
             panoLayer = placemark.properties.get('panoLayer');
 
-        placemark.properties.set('balloonContent', "Checking for a panorama...");
+        placemark.properties.set('balloonContent', "Checking for panoramas...");
 
         // Requesting the panorama object.
         ymaps.panorama.locate(coords, {
@@ -105,12 +105,12 @@ ymaps.ready(function () {
                      * If a panorama wasn't found, we define
                      * a basic text in the balloon content.
                      */
-                    placemark.properties.set('balloonContent', "There aren't any panoramas for this point.");
+                    placemark.properties.set('balloonContent', "No panoramas at this point.");
                 }
             },
             function (err) {
                 placemark.properties.set('balloonContent',
-                    "An error occurred when opening the panorama: " + err.toString());
+                    "Error occurred when opening the panorama: " + err.toString());
             }
         );
     }
@@ -136,21 +136,26 @@ ymaps.ready(function () {
     /**
      function onDragEnd (e) {
          var placemark = e.get('target');
-
-          // As soon as the user moved the placemark to a different point,
-          // we delete the previously set balloon layout.
+         /**
+          * As soon as the user moved the placemark to another point,
+          * we're deleting the balloon layout specified earlier.
+          */
          placemark.options.unset('balloonContentLayout');
-         // We also delete the balloon content text.
+         // Also we'll remove the text content of the balloon.
          placemark.properties.unset('balloonContent');
 
-         // Subscribing to the balloon open event again.
-         // We'll only listen for this event once.
+         /**
+          * Subscribing again to the event of the balloon opening.
+          * We will listen to this event only once.
+          */
          placemark.events.once('balloonopen', requestForPanorama);
      }
 
-      // Listening for the 'dragend' event on placemarks. When this event occurs,
-      // we delete the balloon layout from the old panorama, then
-      // check whether there is a panorama at the new point.
+     /**
+      * Listening to the placemark event 'dragend'. When it is fired, 
+      * we will delete the balloon layout with the old panorama, and then 
+      * check if the panorama exists at the new point.
+      */
      myPlacemark1.events.add('dragend', onDragEnd);
      myPlacemark2.events.add('dragend', onDragEnd);
      */

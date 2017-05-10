@@ -5,7 +5,7 @@
       "type": "Feature",
       "id": 0,
       "options": {"fillColor": "#255F06", "strokeColor": "#255F06", "opacity": 0.5},
-      "properties": {"balloonContent": "Содержимое балуна", "hintContent": "Текст подсказки"},
+      "properties": {"balloonContent": "Balloon content", "hintContent": "Text of the hint"},
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -38,7 +38,7 @@
       "type": "Feature",
       "id": 1,
       "options": {"strokeWidth": 3},
-      "properties": {"balloonContent": "Содержимое балуна", "hintContent": "Текст подсказки"},
+      "properties": {"balloonContent": "Balloon content", "hintContent": "Text of the hint"},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -101,7 +101,7 @@
       "type": "Feature",
       "id": 2,
       "options": {"fillColor": "#66ff99", "strokeColor": "#55aa99", "opacity": 0.5},
-      "properties": {"balloonContent": "Содержимое балуна", "hintContent": "Текст подсказки"},
+      "properties": {"balloonContent": "Balloon content", "hintContent": "Text of the hint"},
       "geometry": {
         "type": "Polygon",
         "coordinates": [

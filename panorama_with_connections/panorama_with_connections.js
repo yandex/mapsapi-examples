@@ -5,10 +5,10 @@ ymaps.ready(function () {
         return;
     }
     /**
-     * Creating an object containing data for three connected panoramas.
-     * We created the first two panoramas ourselves, and the third one is a Yandex panorama.
-     * We can set transitions between the first two panoramas using the standard arrows,
-     * and set the transition from the first one to the Yandex panorama via a transition marker.
+     * Creating an object that contains the data of three connected panoramas.
+     * The first two are custom panoramas we have created ourselves, and the third  is a Yandex panorama.
+     * We'll use standard connection arrows to connect the first two panoramas,
+     * and a custom connection marker to connect the first panorama to the Yandex panorama.
      */
     var panoData = {
         // Data for the first panorama.
@@ -32,12 +32,12 @@ ymaps.ready(function () {
                     return [512, 256];
                 }
             }],
-            // Transitions on the panorama using the standard arrow.
-            thoroughfares: [{
+            // Standard connection arrows on the panorama.
+            connectionArrows: [{
                 panoID: 'secondPano',
                 direction: [-45, 0]
             }],
-            // Transitions on the panorama using markers.
+            // Custom connection markers on the panorama.
             markerConnections: [{
                 panoID: 'thirdPano',
                 iconSrc: {
@@ -68,8 +68,8 @@ ymaps.ready(function () {
                     return [512, 256];
                 }
             }],
-            // Adding a reverse transition back to the first panorama.
-            thoroughfares: [{
+            // Adding a reverse connection back to the first panorama.
+            connectionArrows: [{
                 panoID: 'firstPano',
                 direction: [90, 0]
             }, {
@@ -79,22 +79,22 @@ ymaps.ready(function () {
             markerConnections: []
         },
         /**
-         * Yandex panorama.
-         * We'll get the rest of the information about the panorama from Yandex servers
+         * Yandex.Panorama.
+         * We will receive information about the panorama from the Yandex servers
          * using the ymaps.panorama.locate function.
          */
         thirdPano: {
             type: 'yandex',
-            // Coordinates of the point to open the Yandex panorama at.
+            // The coordinates of the point where the panorama should be opened.
             coords: [55.733643, 37.588437]
         }
     };
 
-    // Function for extracting data for the necessary panorama from the panoData object.
+    // A function to extract data of the required panorama from the panoData object.
     function getConnectedPanoramaData(panoID) {
         return panoData[panoID];
     }
-    // Function for downloading the marker image from the server.
+    // A function that downloads the marker image from the server.
     function loadImage(src) {
         return new ymaps.vow.Promise(function (resolve) {
             var image = new Image();
@@ -106,20 +106,20 @@ ymaps.ready(function () {
         });
     }
 
-    // Creating a class that describes the transition between panoramas using the standard arrow.
-    function Thoroughfare(currentPanorama, direction, nextPanorama) {
+    // Creating a class that describes the connection from one panorama to another using a standard arrow.
+    function ConnectionArrow(currentPanorama, direction, nextPanorama) {
         this.properties = new ymaps.data.Manager();
         this._currentPanorama = currentPanorama;
         this._direction = direction;
         this._connectedPanorama = nextPanorama;
     }
 
-    ymaps.util.defineClass(Thoroughfare, {
+    ymaps.util.defineClass(ConnectionArrow, {
         getConnectedPanorama: function () {
             /**
-             * If the transition is to a custom panorama,
-             * we create the MyPanorama panorama object.
-             * If we need to transition to a Yandex panorama, we use the 
+             * If the connection leads to a custom panorama,
+             * create the MyPanorama panorama object.
+             * To connect to a Yandex panorama, use the
              * ymaps.panorama.locate function to get the panorama object.
              */
             if (this._connectedPanorama.type == 'custom') {
@@ -130,23 +130,23 @@ ymaps.ready(function () {
                         if (panoramas.length) {
                             return panoramas[0];
                         }  else {
-                            return ymaps.vow.reject(new Error('The panorama not found.'));
+                            return ymaps.vow.reject(new Error('No panorama found.'));
                         }
                     }
                 );
             }
         },
-        // Directing the view at the panorama that we are transitioning to.
+        // Directing the view at the panorama that we are connecting to.
         getDirection: function () {
             return this._direction;
         },
-        // Link to the current panorama that we are transitioning out of.
+        // Link to the current panorama that the connection leads out of.
         getPanorama: function () {
             return this._currentPanorama;
         }
     })
 
-    // Creating a class that describes the transition marker.
+    // Creating a class that describes the connection marker.
     function MarkerConnection(currentPanorama, imgSrc, position, nextPanorama) {
         // The properties field must be defined in the class.
         this.properties = new ymaps.data.Manager();
@@ -174,7 +174,7 @@ ymaps.ready(function () {
                 };
             });
         },
-        // The current panorama that we are transitioning out of.
+        // The current panorama that the connection leads out of.
         getPanorama: function () {
             return this._panorama;
         },
@@ -183,7 +183,7 @@ ymaps.ready(function () {
             return this._position;
         },
         /**
-         * In order to transition to another panorama when the marker is clicked,
+         * In order to switch to another panorama when the marker is clicked,
          * we implement the getConnectedPanorama method.
          */
         getConnectedPanorama: function () {
@@ -195,7 +195,7 @@ ymaps.ready(function () {
                         if (panoramas.length) {
                             return panoramas[0];
                         } else {
-                            return ymaps.vow.reject(new Error('Panorama not found.'));
+                            return ymaps.vow.reject(new Error('No panorama found.'));
                         }
                     }
                 );
@@ -211,23 +211,24 @@ ymaps.ready(function () {
         this._tileSize = obj.tileSize;
         this._tileLevels = obj.tileLevels;
         /**
-         * Getting an array of class instances that describe the arrow transition
-         * from one panorama to another.
+         * Getting an array of class instances that describe switching
+         * from one panorama 
+to another using the standard connection arrow.
          */
-        this._thoroughfares = obj.thoroughfares.map(function (thoroughfare) {
-            return new Thoroughfare(
+        this._connectionArrows = obj.connectionArrows.map(function (connectionArrow) {
+            return new ConnectionArrow(
                 this, // The current panorama.
-                thoroughfare.direction, // Directing the view to the panorama that we are transitioning to.
-                getConnectedPanoramaData(thoroughfare.panoID) // Data of the panorama that we are transitioning to.
+ Directing the view to the panorama that we are connecting to.
+ Data of the panorama that we are connecting to.
             );
         }, this);
-        // Getting an array of transition markers.
-        this._connections = obj.markerConnections.map(function (marker) {
+        // Getting an array of connection markers.
+        this._connectionMarkers = obj.markerConnections.map(function (marker) {
             return new MarkerConnection(
                 this, // The current panorama.
-                marker.iconSrc,  // The marker image.
-                marker.iconPosition, // The marker position.
-                getConnectedPanoramaData(marker.panoID) // Data of the panorama that we are transitioning to.
+ The marker image.
+ The marker position.
+ Data of the panorama that we are connecting to.
             );
         }, this);
 
@@ -235,18 +236,18 @@ ymaps.ready(function () {
 
     ymaps.util.defineClass(MyPanorama, ymaps.panorama.Base, {
         /**
-         * To add standard transition arrows to the panorama,
-         * implement the getThoroughfares method.
+         * To add standard connection arrows to the panorama,
+         * implement the getConnectionArrows method.
          */
-        getThoroughfares: function () {
-            return this._thoroughfares;
+        getConnectionArrows: function () {
+            return this._connectionArrows;
         },
         /**
          * To add transition markers to the panorama,
          * implement the getConnections method.
          */
-        getConnections: function () {
-            return this._connections;
+        getConnectionMarkers: function () {
+            return this._connectionMarkers;
         },
         getAngularBBox: function () {
             return this._angularBBox;
@@ -267,7 +268,7 @@ ymaps.ready(function () {
 
     var panorama = new MyPanorama(panoData.firstPano);
 
-    // Displaying the panorama on a page.
+    // Displaying a panorama on a page.
     var player = new ymaps.panorama.Player('player', panorama, {
         direction: [25, 0]
     });

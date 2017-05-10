@@ -34,8 +34,8 @@ ymaps.ready(function () {
                 content: 'How to get there'
             },
             items: [
-                new ymaps.control.ListBoxItem('By car'),
-                new ymaps.control.ListBoxItem('By transport'),
+                new ymaps.control.ListBoxItem('Driving'),
+                new ymaps.control.ListBoxItem('Public transit'),
                 new ymaps.control.ListBoxItem('Walking')
             ],
             options: {
@@ -80,7 +80,7 @@ ymaps.ready(function () {
 
     function onMapClick (e) {
         clearSourcePoint();
-        sourcePoint = new ymaps.Placemark(e.get('coords'), { iconContent: '/From here' }, { preset: 'islands#greenStretchyIcon' });
+        sourcePoint = new ymaps.Placemark(e.get('coords'), { iconContent: 'From here' }, { preset: 'islands#greenStretchyIcon' });
         myMap.geoObjects.add(sourcePoint);
         createRoute();
     }

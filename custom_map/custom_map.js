@@ -5,7 +5,7 @@ ymaps.ready(function () {
         TILES_PATH = 'images/tiles'; // The directory containing tiles.
 
     /**
-     * A constructor that creates its own layer.
+     * A constructor that creates a custom layer.
      */
     var Layer = function () {
         var layer = new ymaps.Layer(TILES_PATH + '/%z/%x-%y.jpeg', {

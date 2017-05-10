@@ -10,7 +10,7 @@ function init () {
         });
 
     // Loading geocoding results.
-    ymaps.geoXml.load("geocode-maps.yandex.ru/1.x/?geocode=poselok Ray")//http:
+    ymaps.geoXml.load("http://geocode-maps.yandex.ru/1.x/?geocode=poselok Ray")
         .then(function (res) {
             res.geoObjects.each(function (item) {
                 // Boundaries of the map area that contains the found object.

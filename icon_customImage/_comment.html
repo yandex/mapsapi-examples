@@ -2,7 +2,8 @@
     <sa href="ready"/>,
     <sa href="Map"/>,
     <sa href="Placemark"/>,
-    <sa href="layout.Image"/>
+    <sa href="layout.Image"/>,
+    <sa href="layout.ImageWithContent"/>
 </div>
 <p>
     The API provides the ability to set custom images for placemarks.
@@ -15,6 +16,17 @@
     </ul>
 </p>
 <p>
-    You can also set the options iconImageSize (width and height of the image in pixels), iconImageOffset (the offset of the icon's upper-left corner relative to the anchor point), and iconImageClipRect (coordinates of the displayed area of the source image, in pixels).
+    To set the image with the content specify the following placemark options:
+<ul>
+    <li>iconLayout: "default#imageWithContent";</li>
+    <li>iconImageHref: {URL of the graphic file}.</li>
+</ul>
+    And also specify the content of the geo object icon:
+<ul>
+    <li>iconContent: 'content';</li>
+</ul>
+</p>
+<p>
+    You can also set the options iconImageSize (width and height of the image in pixels), iconImageOffset (the offset of the icon's upper-left corner relative to the anchor point),  iconImageClipRect (coordinates of the displayed area of the source image, in pixels), iconContentOffset (the offset of the text relative to the placemark's anchor point) and iconContentLayout (content layout).
 
 </p>

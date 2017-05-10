@@ -19,13 +19,13 @@ ymaps.modules.define('plugin.PlacemarkCounterControlLayout', [
 
 /**
  * Creating a second custom module.
- * This module provides its own control, which is based on a button.
+ * This module provides its own control, which is based on the buttons.
  */
 ymaps.modules.define('plugin.PlacemarkCounterControl', [
     'control.Button',
     'util.extend',
     'util.augment',
-    // The second module requests the first one in the dependencies.
+    // The second module in the dependencies requests the first one.
     'plugin.PlacemarkCounterControlLayout'
 ], 
 function (provide, Button, extend, augment, PlacemarkCounterControlLayout) {
@@ -74,7 +74,7 @@ ymaps.ready(function () {
     // Requesting our custom control in the module system.
     ymaps.modules.require(['plugin.PlacemarkCounterControl'])
         .spread(function (PlacemarkCounterControl) {
-            // Creating an instance of the custom button and adding it to the map.
+            // Creating an instance of your custom button and adding it to the map.
             myMap.controls.add(
                 new PlacemarkCounterControl()
             );

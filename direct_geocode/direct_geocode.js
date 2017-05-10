@@ -28,6 +28,10 @@ function init() {
                 // The viewport of the geo object.
                 bounds = firstGeoObject.properties.get('boundedBy');
 
+            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            // Getting the address string and displaying it in the geo object icon.
+            firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+
             // Adding first found geo object to the map.
             myMap.geoObjects.add(firstGeoObject);
             // Scaling the map to the geo object viewport.
@@ -62,7 +66,16 @@ function init() {
             console.log('Type of geo object: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
             console.log('Object name: %s', firstGeoObject.properties.get('name'));
             console.log('Object description: %s', firstGeoObject.properties.get('description'));
-            console.log('Full object description: %s', firstGeoObject.properties.get('text'));
+            console.log(Full object description: %s', firstGeoObject.properties.get('text'));
+            /**
+            * Direct methods for working with the geocoding results.
+            * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
+             */
+            console.log('\nState: %s', firstGeoObject.getCountry());
+            console.log('Municipality: %s', firstGeoObject.getLocalities().join(', '));
+            console.log('Address of the object: %s', firstGeoObject.getAddressLine());
+            console.log('Name of the building: %s', firstGeoObject.getPremise() || '-');
+            console.log('Building number: %s', firstGeoObject.getPremiseNumber() || '-');
 
             /**
              * To add a placemark with its own styles and balloon content at the coordinates found by the geocoder, create a new placemark at the coordinates of the found placemark and add it to the map in place of the found one.
@@ -70,11 +83,11 @@ function init() {
             /**
              var myPlacemark = new ymaps.Placemark(coords, {
              iconContent: 'my placemark',
-             balloonContent: 'The contents of the <strong>my placemark</strong> balloon'
+             balloonContent: 'Content of the <strong>my placemark</strong> balloon'
              }, {
              preset: 'islands#violetStretchyIcon'
              });
-             
+
              myMap.geoObjects.add(myPlacemark);
              */
         });

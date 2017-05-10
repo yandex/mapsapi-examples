@@ -7,14 +7,14 @@ ymaps.ready(function () {
         }),
         objectManager = new ymaps.ObjectManager();
 
-    // Loading a GeoJSON file exported from the Map Constructor.
+    // Loading a GeoJSON file exported from the maps constructor
     $.getJSON('geoObjects.geojson')
         .done(function (geoJson) {
 
             geoJson.features.forEach(function (obj) {
-                // Setting balloon content.
+                // Setting the balloon content.
                 obj.properties.balloonContent = obj.properties.name;
-                // Defining the preset for placemarks with the iconCaption field.
+                // Setting a preset for placemarks with the iconCaption field.
                 if (obj.properties.iconCaption) {
                     obj.options = {
                         preset: "islands#greenDotIconWithCaption"

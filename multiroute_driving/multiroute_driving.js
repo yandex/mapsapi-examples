@@ -10,7 +10,7 @@ function init () {
         // The description of the reference points on the multi-stop route.
         referencePoints: [
             [55.734876, 37.59308],
-            "Masnitskaya st., Moscow"
+            "Moscow, Myasnitskaya Street"
         ],
         // Routing options.
         params: {
@@ -47,7 +47,7 @@ function init () {
 
     viaPointButton.events.add('select', function () {
         var referencePoints = multiRoute.model.getReferencePoints();
-        referencePoints.splice(1, 0, "7 Solyanka st., Moscow");
+        referencePoints.splice(1, 0, "Moscow, Solyanka Street, 7");
         /**
          * Adding a throughpoint to the multiroute model.
          * Note that throughpoints can only be placed between two waypoints.

@@ -1,4 +1,4 @@
-// Initializing as soon as the API is loaded and the DOM is ready
+// As soon as the API is loaded and DOM is ready, let's perform the initialization
 ymaps.ready(init);
 
 // Initialization and destruction of the map when the button is clicked.
@@ -14,7 +14,7 @@ function init () {
                 }, {
                     searchControlProvider: 'yandex#search'
                 });
-                $("#toggle").attr('value', 'Hide the map');
+                $("#toggle").attr('value', 'Hide map');
             }
             else {
                 myMap.destroy();// Destructor of the map

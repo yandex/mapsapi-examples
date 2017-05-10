@@ -1,10 +1,10 @@
 ymaps.ready(['util.dom.className'], function () {
     var balloonPosition = [55.83866, 37.712326], // The position of the balloon.
         Layout = ymaps.templateLayoutFactory.createClass([
-            'Centered<br>',
-            '<button type="button" class="no-margin">without offsets</button>',
-            '<button type="button" class="with-margin">with offsets</button>',
-        ].join(''), {
+            'Centering<br>', '<button type="button" class="no-margin">without margings</button>', '<button type="button" class="with-margin">considering margins</button>',            
+            
+
+        ]
             build: function () {
                 Layout.superclass.build.call(this, arguments);
                 var container = this.getElement();
@@ -97,7 +97,7 @@ ymaps.ready(['util.dom.className'], function () {
     map.controls.add(toggleAreaBtn);
 
     var toggleMarginBtn = new ymaps.control.Button({
-            data: {content: 'Show margins', title: 'Show map margins),'},
+            data: {content: 'Show margins', title: 'Show map margins'},
             options: {
                 /**
                  * Allowing the control to automatically add its own dimensions to the margins manager.

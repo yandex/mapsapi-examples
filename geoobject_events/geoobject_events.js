@@ -8,7 +8,7 @@ function init () {
             controls: ['zoomControl']
         }),
         myCircle = new ymaps.Circle([myMap.getCenter(), 1000000], {
-            balloonContentBody: 'Balloon,',
+            balloonContentBody: 'Balloon',
             hintContent: 'Hint'
         }, {
             draggable: true
@@ -29,7 +29,7 @@ function init () {
 function setupControls(map, geoObject) {
     var btnProperty = new ymaps.control.Button('Property: balloonHeader'),
         btnOption = new ymaps.control.Button('Option: geodesic'),
-        btnRadius = new ymaps.control.Button('Change the radius');
+        btnRadius = new ymaps.control.Button('Change radius');
 
     btnProperty.options.set('maxWidth', 200);
     btnOption.options.set('maxWidth', 200);

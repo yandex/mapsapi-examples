@@ -1,7 +1,7 @@
 function init() {
-    // Setting points on a multiroute.
+    // Setting points of the multi-stop route.
     var pointA = [55.749, 37.524],
-        pointB = "Red Square, Moscow",
+        pointB = "Moscow, Red square",
         /**
          * Creating a multiroute.
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
@@ -12,7 +12,7 @@ function init() {
                 pointB
             ],
             params: {
-                //Routing type - pedestrian routing.
+                //The routing type - pedestrian.
                 routingMode: 'pedestrian'
             }
         }, {
@@ -22,7 +22,7 @@ function init() {
 
     // Creating a button.
     var changePointsButton = new ymaps.control.Button({
-        data: {content: "Switching the positions of points A and B"},
+        data: {content: "Swap points A and B"},
         options: {selectOnClick: true}
     });
 

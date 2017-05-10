@@ -10,7 +10,7 @@ var groups = [
                 },
                 {
                     center: [50.45351, 30.516489],
-                    name: "Monument to &quot;Bogdan Khmelnitsky&quot;"
+                    name: "Monument &quot;Bogdan Khmelnitsky&quot;"
                 },
                 {
                     center: [50.454433, 30.529874],
@@ -18,12 +18,12 @@ var groups = [
                 }
             ]},
         {
-            name: "Pokushaiki,",
+            name: "Pokushaiki",
             style: "islands#greenIcon",
             items: [
                 {
                     center: [50.50955, 30.60791],
-                    name: "Restaurant &quot;Kalinka Malinka&quot;"
+                    name: "Restaurant &quot;Kalinka-Malinka&quot;"
                 },
                 {
                     center: [50.429083, 30.521708],
@@ -31,7 +31,7 @@ var groups = [
                 },
                 {
                     center: [50.450843, 30.498271],
-                    name: "Absinthe bar &quot;Palata No. 6&quot;"
+                    name: "Absinthe bar  &quot;Palata No. 6&quot;"
                 },
                 {
                     center: [50.454834, 30.516498],
@@ -39,7 +39,7 @@ var groups = [
                 }
             ]},
         {
-            name: "Original museums,",
+            name: "Original museums",
             style: "islands#orangeIcon",
             items: [
                 {
@@ -56,7 +56,7 @@ var groups = [
                 }
             ]},
         {
-            name: "Goodies,",
+            name: "Goodies",
             style: "islands#blueIcon",
             items: [
                 {
@@ -65,7 +65,7 @@ var groups = [
                 },
                 {
                     center: [50.445049, 30.528598],
-                    name: "&quot;the House with chimeras&quot;"
+                    name: "&quot;House with chimeras&quot;"
                 },
                 {
                     center: [50.449156, 30.511809],

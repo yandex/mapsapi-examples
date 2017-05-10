@@ -21,6 +21,16 @@ function init() {
     }).then(function (res) {
             // Setting the image for placemark icons.
             res.geoObjects.options.set('preset', 'islands#redCircleIcon');
+            res.geoObjects.events
+                // Displaying the hint with the name of the metro station when you hover over the placemark.
+                .add('mouseenter', function (event) {
+                    var geoObject = event.get('target');
+                    myMap.hint.open(geoObject.geometry.getCoordinates(), geoObject.getPremise());
+                })
+                // Hiding the hint when the cursor goes off the placemark.
+                .add('mouseleave', function (event) {
+                    myMap.hint.close(true);
+                });
             // Adding a collection of found geo objects to the map.
             myMap.geoObjects.add(res.geoObjects);
             // Zooming the map to the collection's viewport.

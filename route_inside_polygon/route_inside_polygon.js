@@ -14,7 +14,7 @@ function init() {
         // If we do not want the outline to be visible, we set the appropriate option.
         moscowPolygon.options.set('visible', false);
         /**
-         * To have geometric operations performed correctly on the projected polygon,
+         * To correctly carried out geometric operations on the projected polygon,
          * you must add it to the map.
          */
         myMap.geoObjects.add(moscowPolygon);

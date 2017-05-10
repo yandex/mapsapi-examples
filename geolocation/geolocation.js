@@ -24,9 +24,9 @@ function init() {
         });
         myMap.geoObjects.add(result.geoObjects);
     });
-
-    geolocation.get({
-        provider: 'browser',
+    
+        geolocation.get({
+provider: 'browser',
         mapStateAutoApply: true
     }).then(function (result) {
         /**

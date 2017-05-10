@@ -1,90 +1,7 @@
-ymaps.ready(init);
-
-function init () {
-    var regionControlLayout = ymaps.templateLayoutFactory.createClass(optionsTemplate, {
-            build: function () {
-                regionControlLayout.superclass.build.call(this);
-
-                $(this.getParentElement).on('click', 'li', function (e) {
-                    var $target = $(this),
-                        changed = false;
-
-                    if (!$target.hasClass('active')) {
-                        changed = true;
-                        $target.siblings().removeClass('active');
-                        $target.addClass('active');
-
-                        $target.parents('.btn-group').find('.value').html(': ' + $target.find('a').attr('data-id'));
-                    }
-
-                    if (changed) {
-                        updateMap();
-                    }
-                })
-            },
-            clear: function () {
-                $(this.getParentElement).off('click', 'li');
-                regionControlLayout.superclass.clear.call(this);
-            }
-        }),
-        regionControl = new ymaps.control.Button({
-            data: options,
-            options: {
-                layout: regionControlLayout
-            },
-            float: 'left',
-            maxWidth: [300]
-        }),
-        map = new ymaps.Map('map', {
-            center: [50, 30],
-            zoom: 3,
-            controls: ['typeSelector']
-        });
-
-    map.controls.get('typeSelector').options.set('size', 'small');
-    map.controls.add(regionControl);
-    
-    var args = ['region', 'lang', 'quality'];
-    function updateMap () {
-        var res = args.reduce(function (res, arg) {
-            var $active = $('.' + arg + ' li.active a');
-            if ($active.length) {
-                res.params[arg] = $active.attr('data-id');
-            } else {
-                res.ready = false;
-            }
-            return res;
-        }, { params: {}, ready: true });
-
-        if (res.ready) {
-            getRegions(res.params);
-        }
-    }
-
-    var regions;
-    function getRegions (params) {
-        $('#regions-params').find('button').attr('disabled', 'disabled');
-
-        if (regions) {
-            map.geoObjects.remove(regions);
-        }
-
-        ymaps.regions.load(params.region, {
-            lang: params.lang,
-            quality: params.quality
-        }).then(function (result) {
-                map.geoObjects.add(regions = result.geoObjects);
-                $('#regions-params').find('button').attr('disabled', null);
-            }, function (e) {
-                alert('No data');
-                $('#regions-params').find('button').attr('disabled', null);
-            });
-    }
-}
-
-var options = {
-        region: [
-            {
+var REGIONS_DATA = {
+        region: {
+            title: 'Region',
+            items: [{
                 id: '001',
                 title: 'World countries'
             }, {
@@ -102,10 +19,11 @@ var options = {
             }, {
                 id: 'UA',
                 title: 'Ukraine'
-            }
-        ],
-        lang: [
-            {
+            }]
+        },
+        lang: {
+            title: 'Language',
+            items: [{
                 id: 'en',
                 title: 'English'
             }, {
@@ -123,41 +41,161 @@ var options = {
             }, {
                 id: 'uk',
                 title: 'Ukrainian'
-            }
-        ]
+            }]
+        },
+        quality: {
+            title: 'Precision of boundaries',
+            items: [{
+                id: '0',
+                title: '0'
+            }, {
+                id: '1',
+                title: '1'
+            }, {
+                id: '2',
+                title: '2'
+            }, {
+                id: '3',
+                title: '3'
+            }]
+        }
     },
-    optionsTemplate = ['<div style="line-height: 34px; background-color: #80808080;" id="regions-params">',
+    // Template for HTML content for layouts.
+    optionsTemplate = [
+        '<div style="line-height: 34px; background-color: #80808080;" id="regions-params">',
+        '{% for paramName, param in data.params %}',
+        '{% for key, value in state.values %}',
+        '{% if key == paramName %}',
         '<div class="btn-group btn-group-xs">',
-        '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Region</span><span class="value"></span>&nbsp;<span class="caret"></span>',
+        '<button{% if state.enabled %}{% else %} disabled{% endif %} type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
+        '<span>{{ param.title }}</span>',
+        '<span class="value">: {{ value }}</span>',
+        '&nbsp;<span class="caret"></span>',
         '</button>',
-        '<ul class="dropdown-menu region">',
-        '{% for region in data.region %}',
-        '<li><a href="javascript:void(0)" data-id="{{ region.id }}">{{ region.title }}</a></li>',
+        '<ul class="dropdown-menu {{ paramName }}">',
+        '{% for item in param.items %}',
+        '<li{% if item.id == value %} class="active"{% endif %}>',
+        '<a href="#" data-param="{{ paramName }}" data-id="{{ item.id }}">',
+        '{{ item.title }}',
+        '</a>',
+        '</li>',
         '{% endfor %}',
         '</ul>',
-        '</div>',
-        '&nbsp;',
-        '<div class="btn-group btn-group-xs">',
-        '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Language</span><span class="value"></span>&nbsp;<span class="caret"></span>',
-        '</button>',
-        '<ul class="dropdown-menu lang">',
-        '{% for lang in data.lang %}',
-        '<li><a href="javascript:void(0)" data-id="{{ lang.id }}">{{ lang.title }}</a></li>',
+        '</div>&nbsp;',
+        '{% endif %}',
         '{% endfor %}',
-        '</ul>',
-        '</div>',
-        '&nbsp;',
-        '<div class="btn-group btn-group-xs">',
-        '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">',
-        '<span>Accuracy of borders</span><span class="value">: 1</span>&nbsp;<span class="caret"></span>',
-        '</button>',
-        '<ul class="dropdown-menu quality">',
-        '<li><a href="javascript:void(0)" data-id="0">0</a></li>',
-        '<li class="active"><a href="javascript:void(0)" data-id="1">1</a></li>',
-        '<li><a href="javascript:void(0)" data-id="2">2</a></li>',
-        '<li><a href="javascript:void(0)" data-id="3">3</a></li>',
-        '</ul>',
-        '</div>',
-        '</div>'].join('');
+        '{% endfor %}',
+        '</div>'
+    ].join('');
+
+ymaps.ready(init);
+
+function init() {
+    // Creating a custom RegionControl layout.
+    var RegionControlLayout = ymaps.templateLayoutFactory.createClass(optionsTemplate, {
+            build: function () {
+                RegionControlLayout.superclass.build.call(this);
+                this.handleClick = ymaps.util.bind(this.handleClick, this);
+                $(this.getParentElement)
+                    .on('click', 'a', this.handleClick);
+            },
+            clear: function () {
+                $(this.getParentElement)
+                    .off('click', 'a', this.handleClick);
+                RegionControlLayout.superclass.clear.call(this);
+            },
+            handleClick: function (e) {
+                e.preventDefault();
+                var $target = $(e.currentTarget);
+                var state = this.getData().state;
+                var newValues = ymaps.util.extend({}, state.get('values'));
+                if (!$target.hasClass('active')) {
+                    newValues[$target.data('param')] = $target.data('id');
+                    state.set('values', newValues);
+                }
+            }
+        }),
+        // Inheriting our control class from ymaps.control.Button.
+        RegionControl = ymaps.util.defineClass(function (parameters) {
+            RegionControl.superclass.constructor.call(this, parameters);
+            this.regions = new ymaps.GeoObjectCollection();
+        }, ymaps.control.Button, /** @lends ymaps.control.Button */{
+            onAddToMap: function (map) {
+                RegionControl.superclass.onAddToMap.call(this, map);
+                map.geoObjects.add(this.regions);
+                this.setupStateMonitor();
+                this.loadRegions(this.state.get('values'));
+            },
+
+            onRemoveFromMap: function (map) {
+                map.geoObjects.remove(this.regions);
+                this.clearStateMonitor();
+                RegionControl.superclass.onRemoveFromMap.call(this, map);
+            },
+
+            setupStateMonitor: function () {
+                this.stateMonitor = new ymaps.Monitor(this.state);
+                this.stateMonitor.add('values', this.handleStateChange, this);
+            },
+
+            clearStateMonitor: function () {
+                this.stateMonitor.removeAll();
+            },
+
+            handleStateChange: function (params) {
+                this.loadRegions(params);
+            },
+
+            handleRegionsLoaded: function (res) {
+                this.regions
+                    .removeAll()
+                    .add(res.geoObjects);
+                this.getMap().setBounds(
+                    this.regions.getBounds(),
+                    {checkZoomRange: true}
+                );
+            },
+
+            loadRegions: function (params) {
+                this.disable();
+                return ymaps.regions.load(params.region, params)
+                    .then(this.handleRegionsLoaded, this)
+                    .always(this.enable, this);
+            }
+        }),
+
+        map = new ymaps.Map('map', {
+            center: [50, 30],
+            zoom: 3,
+            controls: ['typeSelector']
+        }, {
+            typeSelectorSize: 'small'
+        }),
+
+        // Creating a RegionControl instance.
+        regionControl = new RegionControl({
+            state: {
+                enabled: true,
+                values: {
+                    region: 'RU',
+                    lang: 'ru',
+                    quality: '1'
+                }
+            },
+            data: {
+                params: REGIONS_DATA
+            },
+            options: {
+                layout: RegionControlLayout
+            },
+            float: 'left',
+            maxWidth: [300]
+        });
+
+    // Adding the control to the map.
+    map.controls.add(regionControl);
+    // You can track changes in the RegionControl parameters as follows.
+    regionControl.events.add('statechange', function (e) {
+        console.log(e.get('target').get('values'));
+    });
+}

@@ -5,28 +5,28 @@ ymaps.ready(function () {
         return;
     }
     /**
-     * Creating an object that contains the panorama data.
-     * The vertical viewing angle on the panorama is only partial.
+     * Creating an object containing the data of the panorama.
+     * The panorama has a partial angle of view vertically.
      */
     var panoData = {
             angularBBox: [0.35, 8 * Math.PI/3, -0.61, 2 * Math.PI/3],
             position: [0, 0, 0],
             tileSize: [512, 512],
             tileLevels: [{
-                // URL of tiles for the high-detail level.
+                // URL of tiles for the highest zoom level.
                 getTileUrl: function (x, y) {
                     return 'tiles/hq/' + x + '-' + y + '.jpg';
                 },
-                // Image size for the high-detail level.
+                // The size of the image for the highest zoom level.
                 getImageSize: function () {
                     return [10752, 1658];
                 }
             }, {
-                // URL of tiles for the low-detail level.
+                // URL of tiles for the lowest zoom level.
                 getTileUrl: function (x, y) {
                     return 'tiles/lq/' + x + '-' + y + '.jpg';
                 },
-                // Image size for the low-detail level.
+                // The size of the image for the lowest zoom level.
                 getImageSize: function () {
                     return [1024, 158];
                 }
@@ -46,7 +46,7 @@ ymaps.ready(function () {
         };
 
     /**
-     * The function returns a Promise object that is resolved
+     * The function returns a Promise that is resolved
      * by the HTMLImageElement object.
      */
     function loadImage(src) {
@@ -101,7 +101,7 @@ ymaps.ready(function () {
                         offset: [0, 0]
                     },
                     expanded: {
-                        image: renderImage("JavaScript books"),
+                        image: renderImage("Books on JavaScript"),
                         offset: [0, -10]
                     }
                 };
@@ -150,7 +150,7 @@ ymaps.ready(function () {
 
     var panorama = new MyPanorama(panoData.angularBBox, panoData.position, panoData.tileSize, panoData.tileLevels);
 
-    // Displaying the panorama on a page.
+    // Displaying the panorama on the page.
     var player = new ymaps.panorama.Player('player', panorama, {
         direction: [240, 0],
         span: [50, 50]

@@ -1,14 +1,15 @@
 ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
     'util.defineClass',
     'util.math.cycleRestrict',
-    'coordSystem.geo'
-], function (provide, defineClass, cycleRestrict, CoordSystemGeo) {
+    'coordSystem.geo',
+    'meta'
+], function (provide, defineClass, cycleRestrict, CoordSystemGeo, meta) {
     /**
      * @fileOverview
      * Azimuth projection.
      */
 
-    var latLongOrder = ymaps.meta.coordinatesOrder != 'longlat';
+    var latLongOrder = meta.coordinatesOrder != 'longlat';
 
     /**
      * Creates a polar azimuthal equidistant projection.
@@ -21,7 +22,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
      * @param {Number[]} [center=[128, 128]] Array of pixel coordinates for the map center (the north or south geographical pole).
      * @param {Number}  [latRatio=0.71111111111111] Number of latitude degrees contained in one pixel at the 0 zoom.
      * @param {Number}  [offsetAngle=0] Positive angle of offset from the zero meridian on the map, clockwise.
-     * @param {Boolean}  [southPole=false] North or south geographical pole. Set false if north.
+     * @param {Boolean}  [southPole=false] North or south geographical pole. Set true if south.
      */
     function AzimuthalPolarEquidistant(center, latRatio, offsetAngle, southPole) {
         if (ymaps.meta.debug) {
@@ -59,7 +60,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
                 radius = ((southPole ? -90 : 90) - latitude) * Math.pow(2, zoom) * latRatio,
-                x = centerX + radius * Math.sin(longitude * Math.PI / 180),
+                x = centerX + radius * Math.sin(longitude * Math.PI / 180) * (southPole ? -1 : 1),
                 y = centerY + radius * Math.cos(longitude * Math.PI / 180);
             return [x, y];
         },
@@ -73,7 +74,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
                 offsetAngle = this._offsetAngle,
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
-                longitude = cycleRestrict(Math.atan2(x - centerX, y - centerY) * 180 / Math.PI + offsetAngle, -180, 180),
+                longitude = cycleRestrict((southPole ? 180 : 0) + Math.atan2(x - centerX, y - centerY) * (southPole ? -180 : 180) / Math.PI + offsetAngle, -180, 180),
                 latitude = 90 - ( Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / (Math.pow(2, zoom) * latRatio)),
                 latitude = (southPole ? -latitude : latitude);
             return latLongOrder ? [latitude, longitude] : [longitude, latitude];

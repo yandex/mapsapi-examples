@@ -2,7 +2,7 @@ function init () {
     // Creating a multiroute model.
     var multiRouteModel = new ymaps.multiRouter.MultiRouteModel([
             [55.734876, 37.59308],
-            "Masnitskaya st., Moscow"
+            "Myasnitskaya Street, Moscow"
         ], {
             /**
              * Waypoints can be dragged.
@@ -18,7 +18,7 @@ function init () {
                 content: 'How to get there'
             },
             items: [
-                new ymaps.control.ListBoxItem({data: {content: "Auto"},state: {selected: true}}),
+                new ymaps.control.ListBoxItem({data: {content: "Car"},state: {selected: true}}),
                 new ymaps.control.ListBoxItem({data: {content: "Transport"}}),
                 new ymaps.control.ListBoxItem({data: {content: "Walk"}})
             ],

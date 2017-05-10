@@ -24,7 +24,7 @@ function init () {
     });
 
     // Showing the hint on the map (without binding to the geo object).
-    myMap.hint.open(myMap.getCenter(), "Single hint without a placemark", {
+    myMap.hint.open(myMap.getCenter(), "Lone hint without a placemark", {
         // Option: delay before opening.
         openTimeout: 1500
     });

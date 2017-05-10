@@ -9,8 +9,8 @@ function init () {
         }),
         // A placemark with balloon contents loaded using AJAX.
         placemark = new ymaps.Placemark([55.8, 37.72], {
-            iconContent: "To know the address",
-            hintContent: "Drag the placemark and click it to know the address"
+            iconContent: "Get the address",
+            hintContent: "Drag the placemark and click to see the address"
         }, {
             // Disabling the replacement of the conventional balloon with the balloon panel.
             balloonPanelMaxMapArea: 0,
@@ -25,7 +25,7 @@ function init () {
      * begin loading data, then updating its contents.
      */
     placemark.events.add('balloonopen', function (e) {
-        placemark.properties.set('balloonContent', "loading data...");
+        placemark.properties.set('balloonContent', "Loading data...");
 
         // Imitating a delay when loading data (for demonstration purposes).
         setTimeout(function () {
@@ -34,7 +34,7 @@ function init () {
             }).then(function (res) {
                 var newContent = res.geoObjects.get(0) ?
                         res.geoObjects.get(0).properties.get('name') :
-                        "Couldn't determine address.";
+                        'Couldn't detect address.';
 
                 // Setting the new content of the balloon in the corresponding placemark property.
                 placemark.properties.set('balloonContent', newContent);

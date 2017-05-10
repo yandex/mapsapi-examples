@@ -1,4 +1,4 @@
-ymaps.ready(['DeliveryCalculator']).then(function init () {
+ymaps.ready(['DeliveryCalculator']).then(function init() {
     var myMap = new ymaps.Map('map', {
             center: [60.906882, 30.067233],
             zoom: 9,
@@ -23,22 +23,29 @@ ymaps.ready(['DeliveryCalculator']).then(function init () {
                 placeholderContent: 'Address of the destination point',
                 size: 'large',
                 float: 'none',
-                position: { left: 10, top: 44 }
+                position: {left: 10, top: 44}
             }
         }),
-        calculator = new ymaps.DeliveryCalculator(myMap);
+        calculator = new ymaps.DeliveryCalculator(myMap),
+        routeButton = new ymaps.control.Button({
+            data: {content: 'Moscow-St. Petersburg'},
+            options: {selectOnClick: false, maxWidth: 200}
+        });
 
-    myMap.controls.add(searchStartPoint);
-    myMap.controls.add(searchFinishPoint);
+    myMap.controls.add(searchStartPoint)
+        .add(searchFinishPoint)
+        .add(routeButton, {float: 'none', position: {left: 10, bottom: 40}});
 
     searchStartPoint.events
         .add('resultselect', function (e) {
             var results = searchStartPoint.getResultsArray(),
                 selected = e.get('index'),
-                point = results[selected].geometry.getCoordinates();
+                point = results[selected].geometry.getCoordinates(),
+                balloonContent = results[selected].properties.get("balloonContent");
 
             // Setting the start of the route.
-            calculator.setStartPoint(point);
+            calculator.setPoint("start", point, balloonContent);
+
         })
         .add('load', function (event) {
             /**
@@ -54,10 +61,11 @@ ymaps.ready(['DeliveryCalculator']).then(function init () {
         .add('resultselect', function (e) {
             var results = searchFinishPoint.getResultsArray(),
                 selected = e.get('index'),
-                point = results[selected].geometry.getCoordinates();
+                point = results[selected].geometry.getCoordinates(),
+                balloonContent = results[selected].properties.get("balloonContent");
 
             // Setting the route destination.
-            calculator.setFinishPoint(point);
+            calculator.setPoint("finish", point, balloonContent);
         })
         .add('load', function (event) {
             /**
@@ -67,5 +75,10 @@ ymaps.ready(['DeliveryCalculator']).then(function init () {
             if (!event.get('skip') && searchFinishPoint.getResultsCount()) {
                 searchFinishPoint.showResult(0);
             }
+        });
+
+    routeButton.events
+        .add('click', function () {
+            calculator.setRoute([59.939095, 30.315868], [55.757026, 37.615032])
         });
 });

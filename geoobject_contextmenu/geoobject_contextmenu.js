@@ -35,7 +35,7 @@ function init () {
                         <li>Balloon: <br /> <input type="text" name="balloon_text" /></li>\
                     </ul>\
                 <div align="center"><input type="submit" value="Save" /></div>\
-                </div>';
+                </div> ';
 
             // Putting a context menu on the page
             $('body').append(menuContent);

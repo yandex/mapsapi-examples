@@ -49,7 +49,7 @@ function init() {
             }, {
                 type: 'Feature',
                 properties: {
-                    balloonContent: 'Brick cafe - strong coffee for strong guys.'
+                    balloonContent: 'Brick cafe: strong coffee for strong guys.'
                 },
                 geometry: {
                     type: 'Point',

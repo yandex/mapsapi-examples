@@ -1,6 +1,6 @@
 ymaps.ready(init);
 
-function init () {
+function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.751574, 37.573856],
             zoom: 9,
@@ -9,8 +9,8 @@ function init () {
 
         // Creating a custom layout for the zoom slider.
         ZoomLayout = ymaps.templateLayoutFactory.createClass("<div>" +
-                "<div id='zoom-in' class='btn'><i class='icon-plus'></i></div><br>" +
-                "<div id='zoom-out' class='btn'><i class='icon-minus'></i></div>" +
+            "<div id='zoom-in' class='btn'><i class='icon-plus'></i></div><br>" +
+            "<div id='zoom-out' class='btn'><i class='icon-minus'></i></div>" +
             "</div>", {
 
             /**
@@ -44,25 +44,15 @@ function init () {
 
             zoomIn: function () {
                 var map = this.getData().control.getMap();
-                /**
-                 * Generating an event, in response to which the control
-                 * will change the map zoom.
-                 */
-                this.events.fire('zoomchange', {
-                    oldZoom: map.getZoom(),
-                    newZoom: map.getZoom() + 1
-                });
+                map.setZoom(map.getZoom() + 1, {checkZoomRange: true});
             },
 
             zoomOut: function () {
                 var map = this.getData().control.getMap();
-                this.events.fire('zoomchange', {
-                    oldZoom: map.getZoom(),
-                    newZoom: map.getZoom() - 1
-                });
+                map.setZoom(map.getZoom() - 1, {checkZoomRange: true});
             }
         }),
-        zoomControl = new ymaps.control.ZoomControl({ options: { layout: ZoomLayout } });
+        zoomControl = new ymaps.control.ZoomControl({options: {layout: ZoomLayout}});
 
     myMap.controls.add(zoomControl);
 }
