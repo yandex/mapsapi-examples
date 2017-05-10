@@ -75,7 +75,7 @@ ymaps.modules.define('projection.AzimuthalPolarEquidistant', [
                 centerX = mapPixelCenter[0] * Math.pow(2, zoom),
                 centerY = mapPixelCenter[1] * Math.pow(2, zoom),
                 longitude = cycleRestrict((southPole ? 180 : 0) + Math.atan2(x - centerX, y - centerY) * (southPole ? -180 : 180) / Math.PI + offsetAngle, -180, 180),
-                latitude = 90 - ( Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / (Math.pow(2, zoom) * latRatio)),
+                latitude = 90 - ( Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / (Math.pow(2, zoom) * latRatio));
                 latitude = (southPole ? -latitude : latitude);
             return latLongOrder ? [latitude, longitude] : [longitude, latitude];
         },
