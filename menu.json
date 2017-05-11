@@ -88,7 +88,7 @@
         "Map behavior": "behaviors",
         "Subscribing to the DOM element events": "dom_event_manager",
         "Event properties. Click coordinates": "event_properties",
-        "Using the dragger.": "dragger"
+        "Using the dragger": "dragger"
     },
     "Search on a map": {
         "Direct geocoding": "direct_geocode",
