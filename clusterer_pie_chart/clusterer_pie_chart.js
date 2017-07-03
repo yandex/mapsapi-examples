@@ -18,7 +18,9 @@ ymaps.ready(function () {
             // Радиус центральной части макета.
             clusterIconPieChartCoreRadius: 10,
             // Ширина линий-разделителей секторов и внешней обводки диаграммы.
-            clusterIconPieChartStrokeWidth: 3
+            clusterIconPieChartStrokeWidth: 3,
+            // Определяет наличие поля balloon.
+            hasBalloon: false
         }),
         points = [
             [55.831903, 37.411961], [55.763338, 37.565466], [55.763338, 37.565466], [55.744522, 37.616378],
