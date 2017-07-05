@@ -16,8 +16,14 @@ ymaps.ready(['util.calculateArea']).then(function () {
     // Подписываемся на изменение координат.
     polygon.geometry.events.add('change', function () {
         // Вычисляем площадь многоугольника.
-        var area = Math.round(ymaps.util.calculateArea(polygon)) + ' кв.м',
+        var area = Math.round(ymaps.util.calculateArea(polygon)),
             center;
+        // Если площадь превышает 1 000 000 кв. м, то приводим её к кв. км
+        if (area <= 1e6) {
+            area += ' кв. м'
+        } else {
+            area = (area / 1e6).toFixed(3) + ' кв. км'
+        }
         // Проверяем, что пользователь поставил первую точку полигона.
         if (polygon.geometry.get(0)[0]) {
             // Вычисляем центр для добавления метки.
