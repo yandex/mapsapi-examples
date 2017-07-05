@@ -20,9 +20,9 @@ ymaps.ready(['util.calculateArea']).then(function () {
             center;
         // Если площадь превышает 1 000 000 кв. м, то приводим её к кв. км
         if (area <= 1e6) {
-            area += ' кв. м'
+            area += ' м²';
         } else {
-            area = (area / 1e6).toFixed(3) + ' кв. км'
+            area = (area / 1e6).toFixed(3) + ' км²';
         }
         // Проверяем, что пользователь поставил первую точку полигона.
         if (polygon.geometry.get(0)[0]) {
