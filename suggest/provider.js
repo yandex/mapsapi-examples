@@ -731,8 +731,9 @@ var arr = [
 var provider = {
     suggest: function (request, options) {
         var res = find(arr, request),
-            arrayResult = [];
-        for (var i = 0; i < options.results; i++) {
+            arrayResult = [],
+            results = Math.min(options.results, res.length);
+        for (var i = 0; i < results; i++) {
             arrayResult.push({displayName: res[i], value: res[i]})
         }
         return ymaps.vow.resolve(arrayResult);
