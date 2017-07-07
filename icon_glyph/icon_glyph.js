@@ -87,5 +87,4 @@ function init () {
             iconGlyphColor: '#3caa3c',
             iconColor: '#3caa3c'
         }));
-   console.log(glyphNames[Math.floor(Math.random() * glyphNames.length)]);
 }
