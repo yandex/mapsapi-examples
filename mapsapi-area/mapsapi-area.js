@@ -1,6 +1,6 @@
 ymaps.ready(['util.calculateArea']).then(function () {
     var myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
+            center: [37.64, 55.76],
             zoom: 18,
             controls: ['searchControl', 'zoomControl']
         }, {
@@ -15,6 +15,27 @@ ymaps.ready(['util.calculateArea']).then(function () {
 
     // Подписываемся на изменение координат.
     polygon.geometry.events.add('change', function () {
+        // Проверяем, что пользователь поставил первую точку полигона.
+        if (polygon.geometry.get(0)[0]) {
+            // Вычисляем центр для добавления метки.
+            center = ymaps.util.bounds.getCenter(polygon.geometry.getBounds());
+        }
+        // Обратите внимание, что модуль не умеет обсчитывать полигоны с самопересечениями.
+        // Находим количество самопересечений.
+        var kinks = turf.kinks({
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": polygon.geometry.getCoordinates()
+            }
+        });
+        // Если количество самопересечений больше нуля, то сообщаем об этом пользователю.
+        if (kinks.features.length > 0){
+            placemark.geometry.setCoordinates(center);
+            placemark.properties.set('iconCaption', 'Невозможно вычислить площадь');
+            return
+        }
         // Вычисляем площадь многоугольника.
         var area = Math.round(ymaps.util.calculateArea(polygon)),
             center;
@@ -23,11 +44,6 @@ ymaps.ready(['util.calculateArea']).then(function () {
             area += ' м²';
         } else {
             area = (area / 1e6).toFixed(3) + ' км²';
-        }
-        // Проверяем, что пользователь поставил первую точку полигона.
-        if (polygon.geometry.get(0)[0]) {
-            // Вычисляем центр для добавления метки.
-            center = ymaps.util.bounds.getCenter(polygon.geometry.getBounds());
         }
         if (center) {
             if (!placemark) {
