@@ -18,7 +18,7 @@ ymaps.ready(['util.calculateArea']).then(function () {
         // Вычисляем площадь многоугольника.
         var area = Math.round(ymaps.util.calculateArea(polygon)),
             center;
-        // Если площадь превышает 1 000 000 м², то приводим её к км²
+        // Если площадь превышает 1 000 000 м², то приводим ее к км²
         if (area <= 1e6) {
             area += ' м²';
         } else {

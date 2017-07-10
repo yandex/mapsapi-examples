@@ -13,9 +13,9 @@ function init() {
             build: function () {
                 // Вызываем метод build родительского класса перед выполнением дополнительных действий.
                 myClusterBalloonContentLayout.superclass.build.call(this);
-                // Сохраняем массив объектов, входящих в состав кластера на котором открыт балун.
+                // Сохраняем массив объектов, входящих в состав кластера, на котором открыт балун.
                 var geoObjects = this.getData().properties.get('geoObjects'),
-                    // Сохраняем id объектов, которые ещё не были загружены.
+                    // Сохраняем id объектов, которые еще не были загружены.
                     ids = geoObjects
                         .filter(function (geoObject) {
                             return !geoObject.properties.loaded
@@ -36,7 +36,7 @@ function init() {
             }
         }),
         // Создание макета с информацией о геообъекте.
-        // Макет создается с помощью фабрики макетов с помощью текстового шаблона.
+        // Макет создается через фабрику макетов с использованием текстового шаблона.
         myClusterBalloonItemContentLayout = ymaps.templateLayoutFactory.createClass([
             '{% if properties.loaded %}',
             '{% include "cluster#balloonTwoColumnsItemContent" %}',
@@ -45,7 +45,7 @@ function init() {
             '{% endif %}'
         ].join('')),
         // Создание макета содержимого балуна геообъекта.
-        // Макет создается с помощью фабрики макетов с помощью текстового шаблона.
+        // Макет создается через фабрику макетов с использованием текстового шаблона.
         myGeoObjectBalloonContentLayout = ymaps.templateLayoutFactory.createClass([
             '{% if properties.loaded %}',
             '{{ properties.balloonContent }}',
