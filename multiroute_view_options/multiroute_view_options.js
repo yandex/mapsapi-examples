@@ -14,7 +14,8 @@ function init() {
         params: {viaIndexes: viaIndexes}
     }, {
         // Внешний вид путевых точек.
-        wayPointStartIconColor: "#000000",
+        wayPointStartIconColor: "#333",
+        wayPointStartIconFillColor: "#B3B3B3",
         // Задаем собственную картинку для последней путевой точки.
         wayPointFinishIconLayout: "default#image",
         wayPointFinishIconImageHref: "images/sokolniki.png",
@@ -35,7 +36,7 @@ function init() {
 
         // Внешний вид точечных маркеров под путевыми точками.
         pinIconFillColor: "#000088",
-        pinActiveIconFillColor: "#E63E92",
+        pinActiveIconFillColor: "#B3B3B3",
         // Позволяет скрыть точечные маркеры путевых точек.
         // pinVisible:false,
 
@@ -62,7 +63,7 @@ function init() {
             options: {selectOnClick: true}
         }),
         routingModeButton = new ymaps.control.Button({
-            data: {content: "Тип маршрута"},
+            data: {content: "Пешком"},
             options: {selectOnClick: true}
         });
 
