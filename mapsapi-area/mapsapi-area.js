@@ -7,7 +7,7 @@ ymaps.ready(['util.calculateArea']).then(function () {
         }, {
             searchControlProvider: 'yandex#search'
         }),
-        // Создаем многоугольник, круг и прямоугольник.
+    // Создаем многоугольник, круг и прямоугольник.
         polygon = new ymaps.GeoObject({
             geometry: {
                 type: "Polygon", coordinates: [[
@@ -22,20 +22,26 @@ ymaps.ready(['util.calculateArea']).then(function () {
         rectangle = new ymaps.Rectangle([
             [55.973805634187, 37.81389007567776],
             [55.87510965298843, 37.95396575927215]
-        ]);
-    // Добавляем геообъекты на карту.
-    myMap.geoObjects.add(polygon).add(circle).add(rectangle);
+        ]),
+        collection = new ymaps.GeoObjectCollection();
+    // Добавляем геообъекты в коллекцию.
+    collection.add(polygon).add(circle).add(rectangle);
+    // Добавляем коллекцию на карту.
+    myMap.geoObjects.add(collection);
 
-    myMap.geoObjects.events.add('click', function (e) {
-        var geoObject = e.get('target');
+    collection.each(function (obj) {
         // Вычисляем площадь геообъекта.
-        var area = Math.round(ymaps.util.calculateArea(geoObject));
+        var area = Math.round(ymaps.util.calculateArea(obj)),
+        // Вычисляем центр для добавления метки.
+            center = ymaps.util.bounds.getCenter(obj.geometry.getBounds());
         // Если площадь превышает 1 000 000 м², то приводим ее к км².
         if (area <= 1e6) {
             area += ' м²';
         } else {
             area = (area / 1e6).toFixed(3) + ' км²';
         }
-        geoObject.properties.set('balloonContent', area);
+        obj.properties.set('balloonContent', area);
+
+        myMap.geoObjects.add(new ymaps.Placemark(center, {'iconCaption': area}, {preset: 'islands#greenDotIconWithCaption'}));
     });
 });
