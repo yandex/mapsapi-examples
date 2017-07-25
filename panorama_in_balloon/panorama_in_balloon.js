@@ -35,7 +35,7 @@ ymaps.ready(function () {
     function setBalloonContentLayout (placemark, panorama) {
         // Создание макета содержимого балуна.
         var BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-            '<div id="panorama" style="width:250px;height:150px"/>', {
+            '<div id="panorama" style="width:256px;height:156px"/>', {
                 // Переопределяем функцию build, чтобы при формировании макета
                 // создавать в нем плеер панорам.
                 build: function () {
