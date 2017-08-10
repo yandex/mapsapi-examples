@@ -18,7 +18,7 @@ function init () {
                 "Расстояние: " +
                 "<i>{{ properties.distance.text }}</i>,<br />" +
                 "Время в пути: " +
-                "<i>{{ properties.duration.text }} (без учета пробок) </i>." +
+                "<i>{{ properties.duration.text }} (без учета пробок) </i>" +
                 "</div>"
         ),
         /**
