@@ -9,7 +9,7 @@ ymaps.modules.define('plugin.PlacemarkCounterControlLayout', [
     // Вызов provide-функции может быть отложен во времени. К примеру, для загрузки каких-либо данных.
     // Последующие аргументы - это запрошенные в зависимостях модули. 
     provide(
-        templateLayoutFactory.createClass('<div class=placemark_counter>{{ data.placemark_count }}</div>')
+        templateLayoutFactory.createClass('<div id=placemark_counter>{{ data.placemark_count }}</div>')
     );
 });
 
