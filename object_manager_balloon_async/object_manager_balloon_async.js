@@ -37,14 +37,16 @@ function init () {
     }
 
     objectManager.objects.events.add('click', function (e) {
-        var objectId = e.get('objectId');
+        var objectId = e.get('objectId'),
+            obj = objectManager.objects.getById(objectId);
         if (hasBalloonData(objectId)) {
             objectManager.objects.balloon.open(objectId);
         } else {
+            obj.properties.balloonContent = "Идет загрузка данных...";
+            objectManager.objects.balloon.open(objectId);
             loadBalloonData(objectId).then(function (data) {
-                var obj = objectManager.objects.getById(objectId);
                 obj.properties.balloonContent = data;
-                objectManager.objects.balloon.open(objectId);
+                objectManager.objects.balloon.setData(obj);
             });
         }
     });
