@@ -1,4 +1,4 @@
-function init () {
+function init() {
     var myMap = new ymaps.Map('map', {
             center: [55.752625, 37.59810],
             zoom: 14,
@@ -9,17 +9,31 @@ function init () {
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
          */
         balloonLayout = ymaps.templateLayoutFactory.createClass(
-                "<div class='my-balloon'>" +
-                "<u>Маршрут {% if properties.type == 'driving' %}" +
-                "на автомобиле<br/>" +
-                "{% else %}" +
-                "на общественном транспорте" +
-                "{% endif %}</u><br />" +
-                "Расстояние: " +
-                "<i>{{ properties.distance.text }}</i>,<br />" +
-                "Время в пути: " +
-                "<i>{{ properties.duration.text }} (без учета пробок) </i>" +
-                "</div>"
+            "<div class='my-balloon'>" +
+            '<a class="close" href="#">&times;</a>' +
+            "<b>Маршрут {% if properties.type == 'driving' %}" +
+            "на автомобиле<br/>" +
+            "{% else %}" +
+            "на общественном транспорте" +
+            "{% endif %}</b><br />" +
+            "Расстояние: " +
+            "<i>{{ properties.distance.text }}</i>,<br />" +
+            "Время в пути: " +
+            "<i>{{ properties.duration.text }} (без учета пробок) </i>" +
+            "</div>", {
+
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+                    this._$element = $('.my-balloon', this.getParentElement());
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                onCloseClick: function (e) {
+                    e.preventDefault();
+                    this.events.fire('userclose');
+                }
+            }
         ),
         /**
          * Создание мультимаршрута.
