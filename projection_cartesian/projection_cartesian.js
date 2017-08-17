@@ -4,7 +4,7 @@ ymaps.ready(function () {
         MAP_TYPE_NAME = 'user#customMap',
     // Директория с тайлами.
         TILES_PATH = 'images/tiles',
-    /* Для того чтобы высчитать координаты левого нижнего и правого верхнего углов прямоугольной координатной
+    /* Для того чтобы вычислить координаты левого нижнего и правого верхнего углов прямоугольной координатной
      * области, нам необходимо знать максимальный зум, ширину и высоту изображения в пикселях на максимальном зуме.
      */
         MAX_ZOOM = 7,
@@ -38,7 +38,7 @@ ymaps.ready(function () {
     // Сохраняем тип в хранилище типов.
     ymaps.mapType.storage.add(MAP_TYPE_NAME, mapType);
 
-    // Высчитываем размер карты.
+    // Вычисляем размер карты.
     var worldSize = Math.pow(2, MAX_ZOOM) * 256,
         /**
          * Создаем карту, указав свой новый тип карты.
@@ -49,21 +49,23 @@ ymaps.ready(function () {
                 controls: ['zoomControl'],
                 type: MAP_TYPE_NAME
             }, {
-            // Задаем в качестве проекции Декартову. При данном расчёте центр изображения будет лежать
-            // в координатах [0, 0].
-                projection: new ymaps.projection.Cartesian([[PIC_HEIGHT / 2 - worldSize, -PIC_WIDTH / 2], [PIC_HEIGHT / 2, worldSize - PIC_WIDTH / 2]], [false, false])
+
+            // Задаем в качестве проекции Декартову. При данном расчёте центр изображения будет лежать в координатах [0, 0].
+                projection: new ymaps.projection.Cartesian([[PIC_HEIGHT / 2 - worldSize, -PIC_WIDTH / 2], [PIC_HEIGHT / 2, worldSize - PIC_WIDTH / 2]], [false, false]),
+            // Устанавливаем область просмотра карты так, чтобы пользователь не смог выйти за пределы изображения.
+                restrictMapArea: [[-PIC_HEIGHT / 2, -PIC_WIDTH / 2], [PIC_HEIGHT / 2, PIC_WIDTH / 2]]
 
             // При данном расчёте, в координатах [0, 0] будет находиться левый нижний угол изображения,
-            // правый верхний будет находиться в координатах [PIC_HEIGHT, PIC_WIDTH]
-            // projection: new ymaps.projection.Cartesian([[PIC_HEIGHT - worldSize, 0], [PIC_HEIGHT, worldSize]], [false, false])
+            // правый верхний будет находиться в координатах [PIC_HEIGHT, PIC_WIDTH].
+            // projection: new ymaps.projection.Cartesian([[PIC_HEIGHT - worldSize, 0], [PIC_HEIGHT, worldSize]], [false, false]),
+            // restrictMapArea: [[0, 0], [PIC_HEIGHT, PIC_WIDTH]]
             });
 
-    // Координаты карты совпадают с пикселями изображения.
-    var point = new ymaps.Placemark([PIC_HEIGHT / 2, PIC_WIDTH / 2]);
-    var point1 = new ymaps.Placemark([0, 0], undefined, {
+    // Ставим метку в центр координат.
+    var point = new ymaps.Placemark([0, 0], undefined, {
         preset: 'islands#dotIcon',
         iconColor: 'yellow'
     });
 
-    map.geoObjects.add(point).add(point1);
+    map.geoObjects.add(point);
 });
