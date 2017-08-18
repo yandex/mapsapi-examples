@@ -65,7 +65,7 @@ ymaps.ready(function () {
             // restrictMapArea: [[0, 0], [PIC_HEIGHT, PIC_WIDTH]]
         });
 
-    // Ставим метку в центр координат.
+    // Ставим метку в центр координат. Обратите внимание, координаты метки задаются в порядке [y, x].
     var point = new ymaps.Placemark([0, 0], {
         balloonContent: 'Координаты метки: [0, 0]'
     }, {
