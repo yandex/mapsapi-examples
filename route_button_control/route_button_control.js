@@ -2,13 +2,13 @@ ymaps.ready(function () {
     var myMap = new ymaps.Map('map', {
         center: [55.753994, 37.622093],
         zoom: 9,
-        // Добавим кнопку для построения маршрутов на карту.
+        // Добавим кнопку для построения маршрутов.
         controls: ['routeButtonControl']
     });
 
     var control = myMap.controls.get('routeButtonControl');
 
-    // Зададим состояние панели контрола маршрутов.
+    // Зададим состояние панели для построения машрутов.
     control.routePanel.state.set({
         // Тип маршрутизации.
         type: 'auto',
@@ -22,7 +22,7 @@ ymaps.ready(function () {
         //to: 'Петербург'
     });
 
-    // Зададим опции панели контрола маршрутов.
+    // Зададим опции панели для построения машрутов.
     control.routePanel.options.set({
         // Запрещаем показ кнопки, позволяющей менять местами начальную и конечную точки маршрута.
         allowSwitch: false,
@@ -33,7 +33,7 @@ ymaps.ready(function () {
     // Откроем панель маршрута.
     control.state.set('expanded', true);
 
-    // Создаем кнопку, для того чтобы разрешить пользователю менять местами начальную и конечную точки маршрута.
+    // Создаем кнопку, с помощью которой пользователи смогут менять местами начальную и конечную точки маршрута.
     var switchPointsButton = new ymaps.control.Button({
         data: {content: "Поменять точки местами"},
         options: {selectOnClick: false, maxWidth: 300}
