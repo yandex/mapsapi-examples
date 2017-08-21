@@ -92,7 +92,6 @@ function init() {
             placemark.geometry.setCoordinates(state.center);
             placemark.properties.set({iconCaption: caption, balloonContent: caption});
         }
-
     }
 
     function message(message) {
