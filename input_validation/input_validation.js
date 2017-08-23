@@ -1,7 +1,7 @@
 ymaps.ready(init);
 
 function init() {
-    // Привязываем саджест к инпуту.
+    // Подключаем поисковые подсказки к полю ввода.
     var suggestView = new ymaps.SuggestView('suggest'),
         map,
         placemark;
@@ -12,58 +12,75 @@ function init() {
     });
 
     function geocode() {
-        // Забираем запрос из инпута.
+        // Забираем запрос из поля ввода.
         var request = $('#suggest').val();
         // Геокодируем введённые данные.
         ymaps.geocode(request).then(function (res) {
             var obj = res.geoObjects.get(0),
-            // Сохраняем точность ответа геокодера.
-                precision = obj ? obj.properties.get('metaDataProperty.GeocoderMetaData.precision') : '';
-            // Если результат ответа геокодера пустой или неточный, то показываем ошибку
-            if (!obj || obj.properties.get('metaDataProperty.GeocoderMetaData.precision') != 'exact') {
-                if (precision == 'number' || precision == 'near' || precision == 'range') {
-                    message('Неточный адрес, требуется уточнение');
-                    showErrorMessage('Уточните номер дома');
-                } else if (precision == 'street') {
-                    message('Неполный адрес, требуется уточнение');
-                    showErrorMessage('Уточните номер дома');
-                } else if (precision == 'other') {
-                    message('Неполный адрес, требуется уточнение');
-                    showErrorMessage('Уточните адрес');
-                } else {
-                    message('Адрес не найден');
-                    showErrorMessage('Уточните адрес');
+                error, hint;
+
+            if (obj) {
+                // Об оценке точности ответа геокодера можно прочитать тут: https://tech.yandex.ru/maps/doc/geocoder/desc/reference/precision-docpage/
+                switch (obj.properties.get('metaDataProperty.GeocoderMetaData.precision')) {
+                    case 'exact':
+                        break;
+                    case 'number':
+                    case 'near':
+                    case 'range':
+                        error = 'Неточный адрес, требуется уточнение';
+                        hint = 'Уточните номер дома';
+                        break;
+                    case 'street':
+                        error = 'Неполный адрес, требуется уточнение';
+                        hint = 'Уточните номер дома';
+                        break;
+                    case 'other':
+                    default:
+                        error = 'Неточный адрес, требуется уточнение';
+                        hint = 'Уточните адрес';
                 }
             } else {
-                // Удаляем сообщение об ошибке если результат геокодера точный.
-                $('#suggest').removeClass('input_error');
-                $('#notice').css('display', 'none');
+                error = 'Адрес не найден';
+                hint = 'Уточните адрес';
+            }
 
-                var mapContainer = $('#map'),
-                    bounds = obj.properties.get('boundedBy'),
-                // Рассчитываем видимую область для текущего положения пользователя.
-                    mapState = ymaps.util.bounds.getCenterAndZoom(
-                        bounds,
-                        [mapContainer.width(), mapContainer.height()]
-                    ),
-                // Сохраняем полный адрес для сообщения под картой.
-                    address = [obj.getCountry(), obj.getAddressLine()].join(', '),
-                // Сохраняем укороченный адрес для подписи метки.
-                    shortAddress = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
-                // Убираем контролы с карты.
-                mapState.controls = [];
-                // Создаём карту.
-                createMap(mapState, shortAddress);
-                // Выводим сообщение под картой.
-                message(address);
-
+            // Если геокодер возвращает пустой массив или неточный результат, то показываем ошибку.
+            if (error) {
+                showError(error);
+                showMessage(hint);
+            } else {
+                showResult(obj);
             }
         }, function (e) {
             console.log(e)
         })
+
+    }
+    function showResult(obj) {
+        // Удаляем сообщение об ошибке, если найденный адрес совпадает с поисковым запросом.
+        $('#suggest').removeClass('input_error');
+        $('#notice').css('display', 'none');
+
+        var mapContainer = $('#map'),
+            bounds = obj.properties.get('boundedBy'),
+        // Рассчитываем видимую область для текущего положения пользователя.
+            mapState = ymaps.util.bounds.getCenterAndZoom(
+                bounds,
+                [mapContainer.width(), mapContainer.height()]
+            ),
+        // Сохраняем полный адрес для сообщения под картой.
+            address = [obj.getCountry(), obj.getAddressLine()].join(', '),
+        // Сохраняем укороченный адрес для подписи метки.
+            shortAddress = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
+        // Убираем контролы с карты.
+        mapState.controls = [];
+        // Создаём карту.
+        createMap(mapState, shortAddress);
+        // Выводим сообщение под картой.
+        showMessage(address);
     }
 
-    function showErrorMessage(message) {
+    function showError(message) {
         $('#notice').text(message);
         $('#suggest').addClass('input_error');
         $('#notice').css('display', 'block');
@@ -75,7 +92,7 @@ function init() {
     }
 
     function createMap(state, caption) {
-        // Если карты нет, то создаём новую карту и добавляем метку с адресом на карту
+        // Если карта еще не была создана, то создадим ее и добавим метку с адресом.
         if (!map) {
             map = new ymaps.Map('map', state);
             placemark = new ymaps.Placemark(
@@ -86,7 +103,7 @@ function init() {
                     preset: 'islands#redDotIconWithCaption'
                 });
             map.geoObjects.add(placemark);
-            // Если карта есть, то выставляем новый центр карты и меняем местоположение и данные метки.
+            // Если карта есть, то выставляем новый центр карты и меняем данные и позицию метки в соответствии с найденным адресом.
         } else {
             map.setCenter(state.center, state.zoom);
             placemark.geometry.setCoordinates(state.center);
@@ -94,7 +111,7 @@ function init() {
         }
     }
 
-    function message(message) {
+    function showMessage(message) {
         $('#messageHeader').text('Данные получены:');
         $('#message').text(message);
     }
