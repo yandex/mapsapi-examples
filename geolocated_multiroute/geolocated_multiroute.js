@@ -6,15 +6,11 @@ ymaps.ready(function () {
         controls: ['routeButtonControl']
     });
 
-    // Определяем местоположение пользователя.
-    ymaps.geolocation.get().then(function (res) {
-        // Координаты текущего местоположения пользователя.
-        var coords = res.geoObjects.get(0).geometry.getCoordinates(),
-            control = myMap.controls.get('routeButtonControl');
+    var control = myMap.controls.get('routeButtonControl');
 
-        // Зададим координаты пункта отправления.
-        control.routePanel.state.set('from', coords);
-        // Откроем панель маршрута.
-        control.state.set('expanded', true);
-    });
+    // Зададим координаты пункта отправления с помощью геолокации.
+    control.routePanel.geolocate('from');
+
+    // Откроем попап кнопки для построения маршрутов.
+    control.state.set('expanded', true);
 });
