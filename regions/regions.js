@@ -75,7 +75,7 @@ var REGIONS_DATA = {
         '<ul class="dropdown-menu {{ paramName }}">',
         '{% for item in param.items %}',
         '<li{% if item.id == value %} class="active"{% endif %}>',
-        '<a href="#" data-param="{{ paramName }}" data-id="{{ item.id }}">',
+        '<a id="regions" href="#" data-param="{{ paramName }}" data-id="{{ item.id }}">',
         '{{ item.title }}',
         '</a>',
         '</li>',
@@ -97,11 +97,11 @@ function init() {
                 RegionControlLayout.superclass.build.call(this);
                 this.handleClick = ymaps.util.bind(this.handleClick, this);
                 $(this.getParentElement)
-                    .on('click', 'a', this.handleClick);
+                    .on('click', 'a#regions', this.handleClick);
             },
             clear: function () {
                 $(this.getParentElement)
-                    .off('click', 'a', this.handleClick);
+                    .off('click', 'a#regions', this.handleClick);
                 RegionControlLayout.superclass.clear.call(this);
             },
             handleClick: function (e) {
