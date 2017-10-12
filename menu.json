@@ -72,7 +72,8 @@
         "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion",
         "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel",
         "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout",
-        "Макет в виде круговой диаграммы": "clusterer_pie_chart"
+        "Макет в виде круговой диаграммы": "clusterer_pie_chart",
+        "Динамическая загрузка содержимого балуна кластера": "cluster_balloon_ajax"
     },
     "GeoQuery": {
         "Попадание точек в окружность": "placemarks_in_circle",
