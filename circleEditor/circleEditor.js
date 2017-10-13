@@ -33,24 +33,4 @@ function init() {
 
     // Включаем редактирование круга.
     myCircle.editor.startEditing();
-
-    // Создаем кнопку.
-    var drawingStartButton = new ymaps.control.Button({
-        data: {content: "Включить рисование"},
-        options: {selectOnClick: true, maxWidth: 300}
-    });
-
-    // Объявляем обработчики для кнопки.
-    drawingStartButton.events.add('select', function () {
-        myCircle.editor.startDrawing();
-        drawingStartButton.data.set("content", "Выключить редактирование");
-    });
-
-    drawingStartButton.events.add('deselect', function () {
-        myCircle.editor.stopEditing();
-        drawingStartButton.data.set("content", "Включить рисование");
-    });
-
-    // Добавляем кнопку на карту.
-    myMap.controls.add(drawingStartButton);
 }
