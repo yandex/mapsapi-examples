@@ -73,8 +73,7 @@
         "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion",
         "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel",
         "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout",
-        "Макет в виде круговой диаграммы": "clusterer_pie_chart",
-        "Динамическая загрузка содержимого балуна кластера": "cluster_balloon_ajax"
+        "Макет в виде круговой диаграммы": "clusterer_pie_chart"
     },
     "GeoQuery": {
         "Попадание точек в окружность": "placemarks_in_circle",
@@ -151,7 +150,8 @@
         "Добавление на карту объектов с разной геометрией": "object_manager_spatial",
         "Добавление в ObjectManager меток с разнообразными опциями и данными": "object_manager_options",
         "Добавление на карту GeoJSON файла из Конструктора карт": "object_manager_geojson",
-        "Фильтрация объектов": "object_manager_filter"
+        "Фильтрация объектов": "object_manager_filter",
+        "Динамическая загрузка содержимого балуна": "object_manager_balloon_ajax"
     },
     "Модульная система": {
         "Загрузка определенных модулей при инициализации": "load_modules",
