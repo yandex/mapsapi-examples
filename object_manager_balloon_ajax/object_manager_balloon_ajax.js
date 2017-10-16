@@ -54,14 +54,15 @@ ymaps.ready(function () {
                         // Содержимое балуна берем из данных, полученных от сервера.
                         // Сервер возвращает массив объектов вида:
                         // [ {"balloonContent": "Содержимое балуна"}, ...]
-                        geoObject.properties.balloonContent = data[index].balloonContent;
-                        // Оповещаем балун, что нужно применить новые данные.
-                        if (isCluster) {
-                            objectManager.clusters.balloon.setData(objectManager.clusters.balloon.getData());
-                        } else {
-                            objectManager.objects.balloon.setData(objectManager.objects.balloon.getData());
-                        }
+                        geoObject.properties.balloonContent = data[geoObject.id].balloonContent;
                     });
+
+                    // Оповещаем балун, что нужно применить новые данные.
+                    if (isCluster) {
+                        objectManager.clusters.balloon.setData(objectManager.clusters.balloon.getData());
+                    } else {
+                        objectManager.objects.balloon.setData(objectManager.objects.balloon.getData());
+                    }
                 }, 1000)
             }, function (jqXHR, textStatus, errorThrown) {
                 jQuery.each(geoObjects, function (index, geoObject) {
