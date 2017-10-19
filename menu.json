@@ -142,7 +142,8 @@
         "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
     },
     "GeoXML": {
-        "Отображение GPX и KML": "geoxml_display"
+        "Отображение GPX и KML": "geoxml_display",
+        "Сравнение треков для GPX и KML": "tracks_compare"
     },
     "ObjectManager": {
         "Добавление объектов на карту через ObjectManager": "object_manager",
