@@ -49,7 +49,7 @@ ymaps.ready(function () {
                     coords = [position[0], position[1]];
                 // Найдём метку в коллекции по координатам и удалим её.
                 collection.each(function (obj) {
-                    if (obj.geometry.getCoordinates()[0] == coords[0] && obj.geometry.getCoordinates()[1] == coords[1]) {
+                    if (ymaps.util.math.areEqual(obj.geometry.getCoordinates(), coords)) {
                         collection.remove(obj);
                     }
                 });
