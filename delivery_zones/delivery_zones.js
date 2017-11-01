@@ -30,12 +30,12 @@ function init() {
             obj.properties.set('balloonContentHeader', 'Стоимость доставки: ' + obj.properties.get('price') + ' р.')
         });
 
-        // При поиске вызываем функцию выделения зоны доставки.
+        // Проверим попадание результата поиска в одну из зон доставки.
         searchControl.events.add('resultshow', function () {
             highlightResult(searchControl.getResultsArray()[0]);
         });
 
-        // После геолокации вызываем функцию выделения зоны доставки.
+        // Проверим попадание метки геолокации в одну из зон доставки.
         myMap.controls.get('geolocationControl').events.add('locationchange', function (e) {
             highlightResult(e.get('geoObjects').get(0));
         });
@@ -46,7 +46,7 @@ function init() {
             deliveryPoint.options.set('iconColor', 'black');
         });
 
-        // По окончанию перемещения метки вызываем функцию выделения зоны доставки.
+        // По окончании перемещения метки вызываем функцию выделения зоны доставки.
         deliveryPoint.events.add('dragend', function () {
             highlightResult(deliveryPoint);
         });
@@ -54,11 +54,11 @@ function init() {
         function highlightResult(obj) {
             // Сохраняем координаты переданного объекта.
             var coords = obj.geometry.getCoordinates(),
-            // Находим полигон в который входят переданные координаты.
+            // Находим полигон, в который входят переданные координаты.
                 polygon = deliveryZones.searchContaining(coords).get(0);
 
             if (polygon) {
-                // Уменьшаем прозрачность всех полигонов кроме того в который входят переданные координаты.
+                // Уменьшаем прозрачность всех полигонов, кроме того, в который входят переданные координаты.
                 deliveryZones.setOptions('fillOpacity', 0.4);
                 polygon.options.set('fillOpacity', 0.8);
                 // Перемещаем метку с подписью в переданные координаты и перекрашиваем её в цвет полигона.

@@ -27,9 +27,9 @@ ymaps.ready(function () {
             });
             // При клике по свернутому маркеру добавим метку в коллекцию на карте.
             player.events.add('markerexpand', function (e) {
-                // Получим координаты дома по которому кликнул пользователь.
+                // Получим координаты дома, по которому кликнул пользователь.
                 var position = e.get('marker').getPosition(),
-                    coords = [position[0], position[1]];
+                    coords = position.slice(0, 2);
 
                 // Добавим в коллекцию метку с координатами дома.
                 collection.add(new ymaps.Placemark(coords, {}, {
@@ -44,9 +44,9 @@ ymaps.ready(function () {
             });
             // При клике по раскрытому маркеру удалим метку из коллекции на карте.
             player.events.add('markercollapse', function (e) {
-                // Получим координаты дома по которому кликнул пользователь.
+                // Получим координаты дома, по которому кликнул пользователь.
                 var position = e.get('marker').getPosition(),
-                    coords = [position[0], position[1]];
+                    coords = position.slice(0, 2);
                 // Найдём метку в коллекции по координатам и удалим её.
                 collection.each(function (obj) {
                     if (ymaps.util.math.areEqual(obj.geometry.getCoordinates(), coords)) {

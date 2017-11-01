@@ -143,7 +143,7 @@
     },
     "GeoXML": {
         "Отображение GPX и KML": "geoxml_display",
-        "Сравнение треков для GPX и KML": "tracks_compare"
+        "Сравнение маршрутов для GPX и KML": "tracks_compare"
     },
     "ObjectManager": {
         "Добавление объектов на карту через ObjectManager": "object_manager",
@@ -167,7 +167,7 @@
         "Добавление маркеров на панораму": "panorama_with_markers",
         "Создание переходов между своими панорамами": "panorama_with_connections",
         "Отображение панорамы в балуне": "panorama_in_balloon",
-        "Обработка клика на маркер панорамы": "panorama_events"
+        "Обработка клика на маркере панорамы": "panorama_events"
     },
     "Внешние модули": {
         "Тепловая карта с камерами видеонаблюдения": "security_cameras",
