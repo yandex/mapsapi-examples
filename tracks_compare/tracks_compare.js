@@ -62,7 +62,7 @@ function init() {
                         comparableGeometry.get(i)
                     ]));
                 } else if (isPreviousNotEqual) {
-                    // Добавим участок пути от предыдущей точки(которая не совпадает с запланированным маршрутом) до текущей в коллекцию.
+                    // Добавим участок пути от предыдущей точки (которая не совпадает с запланированным маршрутом) до текущей в коллекцию.
                     collection.add(new ymaps.Polyline([
                         comparableGeometry.get(i - 1),
                         comparableGeometry.get(i)
