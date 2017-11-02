@@ -6,7 +6,7 @@ ymaps.ready(function () {
             type: 'yandex#map',
             controls: ['typeSelector']
         }),
-    // Создаём коллекцию в которой будем хранить точки на карте.
+    // Создаём коллекцию, в которой будем хранить точки на карте.
         collection = new ymaps.GeoObjectCollection();
     // Добавляем коллекцию на карту.
     myMap.geoObjects.add(collection);
@@ -17,7 +17,7 @@ ymaps.ready(function () {
         manager.enableLookup();
         // Открываем плеер панорам.
         manager.openPlayer(myMap.getCenter());
-        // Подпишемся на событие открытие плеера панорам.
+        // Подпишемся на событие открытия плеера панорам.
         manager.events.add('openplayer', function () {
             // Получим текущий плеер панорам.
             var player = manager.getPlayer();
