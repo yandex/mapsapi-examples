@@ -31,8 +31,8 @@ function init() {
         });
 
         // Проверим попадание результата поиска в одну из зон доставки.
-        searchControl.events.add('resultshow', function () {
-            highlightResult(searchControl.getResultsArray()[0]);
+        searchControl.events.add('resultshow', function (e) {
+            highlightResult(searchControl.getResultsArray()[e.get('index')]);
         });
 
         // Проверим попадание метки геолокации в одну из зон доставки.
@@ -66,22 +66,13 @@ function init() {
                 deliveryPoint.options.set('iconColor', polygon.options.get('fillColor'));
                 // Задаем подпись для метки.
                 if (typeof(obj.getThoroughfare) === 'function') {
-                    var address = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
-                    deliveryPoint.properties.set({iconCaption: address, balloonContent: address});
+                    setData(obj);
                 } else {
                     // Если вы не хотите, чтобы при каждом перемещении метки отправлялся запрос к геокодеру,
                     // закомментируйте код ниже.
                     ymaps.geocode(coords, {results: 1}).then(function (res) {
-                        var obj = res.geoObjects.get(0),
-                            address = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
-                        if (address.trim() == '') {
-                            address = obj.getAddressLine();
-                        }
-                        deliveryPoint.properties.set({
-                            iconCaption: address,
-                            balloonContent: address,
-                            balloonContentHeader: '<b>Стоимость доставки: ' + polygon.properties.get('price') + ' р.</b>'
-                        });
+                        var obj = res.geoObjects.get(0);
+                        setData(obj);
                     });
                 }
             } else {
@@ -98,11 +89,23 @@ function init() {
                 // Перекрашиваем метку в чёрный цвет.
                 deliveryPoint.options.set('iconColor', 'black');
             }
+
+            function setData(obj){
+                var address = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
+                if (address.trim() == '') {
+                    address = obj.getAddressLine();
+                }
+                deliveryPoint.properties.set({
+                    iconCaption: address,
+                    balloonContent: address,
+                    balloonContentHeader: '<b>Стоимость доставки: ' + polygon.properties.get('price') + ' р.</b>'
+                });
+            }
         }
     }
 
     $.ajax({
-        url: 'zones.geojson',
+        url: 'zones.json',
         dataType: 'json',
         success: onZonesLoad
     });
