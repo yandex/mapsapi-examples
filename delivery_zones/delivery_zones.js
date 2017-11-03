@@ -105,7 +105,7 @@ function init() {
     }
 
     $.ajax({
-        url: 'zones.json',
+        url: 'data.json',
         dataType: 'json',
         success: onZonesLoad
     });
