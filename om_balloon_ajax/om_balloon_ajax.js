@@ -45,10 +45,11 @@ ymaps.ready(function () {
             // вернет JSON-объект, содержащий текст балуна для
             // заданных меток.
             ymaps.vow.resolve($.ajax({
-                    contentType: 'application/json',
-                    url: 'getBalloonContent.json',
-                    type: 'POST',
-                    data: JSON.stringify(ids),
+                    // Обратите внимание, что серверную часть необходимо реализовать самостоятельно.
+                    //contentType: 'application/json',
+                    //type: 'POST',
+                    //data: JSON.stringify(ids),
+                    url: 'content.json',
                     dataType: 'json',
                     processData: false
                 })).then(function (data) {

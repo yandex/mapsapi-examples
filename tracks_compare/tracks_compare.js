@@ -84,7 +84,7 @@ function init() {
             // Получим сколько процентов пройдено вне запланированного пути.
                 diffDistanceRatio = Math.abs(100 * diffDistance / comparableDistance).toFixed(1),
             // Сформируем текст для балуна.
-                content = "Красные участки — отклонения от запланированного пути. <br> Вне запланированного пути пройдено %k м (%m %).";
+                content = "Красные участки - отклонения от запланированного пути. <br> Вне запланированного пути пройдено %k м (%m %).";
             content = content.replace('%k', diffDistance)
                 .replace('%m', diffDistanceRatio);
             // Добавим новый текст для балунов всех путей.

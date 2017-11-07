@@ -23,7 +23,7 @@ function init() {
         var deliveryZones = ymaps.geoQuery(json).addToMap(myMap);
         // Задаём цвет и контент балунов полигонов.
         deliveryZones.each(function (obj) {
-            var color = obj.options.get('fillColor'),
+            var color = obj.options.get('fillColor');
                 color = color.substring(0, color.length - 2);
             obj.options.set({fillColor: color, fillOpacity: 0.4});
             obj.properties.set('balloonContent', obj.properties.get('name'));
@@ -92,7 +92,7 @@ function init() {
 
             function setData(obj){
                 var address = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
-                if (address.trim() == '') {
+                if (address.trim() === '') {
                     address = obj.getAddressLine();
                 }
                 deliveryPoint.properties.set({
