@@ -35,8 +35,8 @@ function init() {
 
     // Если вы хотите задать неизменяемую точку "откуда", раскомментируйте код ниже.
     /*routePanelControl.routePanel.state.set({
-     fromEnabled: false,
-     from: 'Москва, Льва Толстого 16'
+        fromEnabled: false,
+        from: 'Москва, Льва Толстого 16'
      });*/
 
     myMap.controls.add(routePanelControl).add(zoomControl);
@@ -53,17 +53,17 @@ function init() {
                 var length = route.getActiveRoute().properties.get("distance"),
                 // Вычислим стоимость доставки.
                     price = calculate(Math.round(length.value / 1000)),
-                // Создаём макет содержимого балуна маршрута.
+                // Создадим макет содержимого балуна маршрута.
                     balloonContentLayout = ymaps.templateLayoutFactory.createClass(
                         '<span>Расстояние: ' + length.text + '.</span><br/>' +
                         '<span style="font-weight: bold; font-style: italic">Стоимость доставки: ' + price + ' р.</span>');
-                // Задаём макет содержимого балуна маршрута.
+                // Зададим этот макет для содержимого балуна.
                 route.options.set('routeBalloonContentLayout', balloonContentLayout);
             }
         });
 
     });
-    // Вычисляем стоимость доставки.
+    // Функция, вычисляющая стоимость доставки.
     function calculate(routeLength) {
         return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
     }
