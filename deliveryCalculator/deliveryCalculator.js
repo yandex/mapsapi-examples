@@ -59,6 +59,8 @@ function init() {
                         '<span style="font-weight: bold; font-style: italic">Стоимость доставки: ' + price + ' р.</span>');
                 // Зададим этот макет для содержимого балуна.
                 route.options.set('routeBalloonContentLayout', balloonContentLayout);
+                // Откроем балун.
+                activeRoute.balloon.open();
             }
         });
 
