@@ -64,7 +64,7 @@ ymaps.ready(['polylabel.create']).then(function () {
                 // Допустимая погрешность в рассчете вместимости подписи в полигон.
                 labelPermissibleInaccuracyOfVisibility: 4
             });
-            // В свойство regionName кладем название файла с гербом.
+            // В свойство regionName кладем название региона.
             polygon.properties.set({
                 regionName: regions[i]
             });
@@ -104,21 +104,17 @@ ymaps.ready(['polylabel.create']).then(function () {
 
     // Обновляем у всех полигонов макет.
     function updateLabels(type) {
-        var layout, HintLayout;
+        var layout, hintLayout;
         if (type === 'text') {
             layout = textLayout;
-            HintLayout = ymaps.templateLayoutFactory.createClass(
-                '{{properties.hintContent}}'
-            );
+            hintLayout = ymaps.templateLayoutFactory.createClass(textLayout);
         } else {
             layout = imgLayout;
-            HintLayout = ymaps.templateLayoutFactory.createClass(
-                '<img src="img/{{properties.regionName}}.png" height="50px"/>'
-            );
+            hintLayout = ymaps.templateLayoutFactory.createClass(imgLayout);
         }
         // Меняем хинт в зависимости от макета.
         objectManager.objects.options.set({
-            hintContentLayout: HintLayout
+            hintContentLayout: hintLayout
         });
         objectManager.objects.each(function (polygon) {
             objectManager.objects.setObjectOptions(polygon.id, {labelLayout: layout});
