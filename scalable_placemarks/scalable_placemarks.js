@@ -1,38 +1,6 @@
-var createChipsLayout = function (templateLayoutFactory, calculateSize) {
-    // По умолчанию при задании своего HTML макета фигура активной области не задается, и её нужно задать самостоятельно.
-    // Создадим фигуру активной области "Круг".
-    var getPixelCircle = function (diameter) {
-        var radius = diameter / 2;
-        return {type: 'Circle', coordinates: [0, 0], radius: radius};
-    };
-    // Зададим размер метки.
-    var setSize = function (element, zoom, layout) {
-        var options = layout.getData().options,
-        // Получим размер метки в зависимости от уровня зума.
-            size = calculateSize(zoom);
-        // Зададим высоту и ширину метки.
-        element.style.width = element.style.height = size + 'px';
-        // Зададим смещение.
-        element.style.marginLeft = element.style.marginTop = -size / 2 + 'px';
-        // Зададим фигуру активной области.
-        options.set('shape', getPixelCircle(size));
-    };
-
-    var init = function (map, layout) {
-        // Получим текущий уровень зума.
-        var zoom = map.getZoom();
-        // Подпишемся на событие "Окончание плавного движения карты".
-        map.events.add('actionend', function () {
-            // Запустим перестраивание макета при изменении уровня зума.
-            var currentZoom = map.getZoom();
-            if (currentZoom != zoom) {
-                zoom = currentZoom;
-                layout.rebuild();
-            }
-        });
-    };
-    // Создадим макет метки.
-    var Chips = templateLayoutFactory.createClass(
+var createChipsLayout = function (calculateSize) {
+// Создадим макет метки.
+    var Chips = ymaps.templateLayoutFactory.createClass(
         '<div class="placemark"></div>',
         {
             build: function () {
@@ -40,18 +8,34 @@ var createChipsLayout = function (templateLayoutFactory, calculateSize) {
                 var map = this.getData().geoObject.getMap();
                 if (!this.inited) {
                     this.inited = true;
-                    init(map, this);
+                    // Получим текущий уровень зума.
+                    var zoom = map.getZoom();
+                    // Подпишемся на событие изменения области просмотра карты.
+                    map.events.add('boundschange', function () {
+                        // Запустим перестраивание макета при изменении уровня зума.
+                        var currentZoom = map.getZoom();
+                        if (currentZoom != zoom) {
+                            zoom = currentZoom;
+                            this.rebuild();
+                        }
+                    }, this);
                 }
-                setSize(this.getParentElement(), map.getZoom(), this);
-            },
-            clear: function () {
-                Chips.superclass.clear.call(this);
-            },
-            rebuild: function () {
-                Chips.superclass.rebuild.call(this);
+                var options = this.getData().options,
+                    // Получим размер метки в зависимости от уровня зума.
+                    size = calculateSize(map.getZoom()),
+                    element = this.getParentElement().getElementsByClassName('placemark')[0],
+                    // По умолчанию при задании своего HTML макета фигура активной области не задается,
+                    // и её нужно задать самостоятельно.
+                    // Создадим фигуру активной области "Круг".
+                    circleShape = {type: 'Circle', coordinates: [0, 0], radius: size / 2};
+                // Зададим высоту и ширину метки.
+                element.style.width = element.style.height = size + 'px';
+                // Зададим смещение.
+                element.style.marginLeft = element.style.marginTop = -size / 2 + 'px';
+                // Зададим фигуру активной области.
+                options.set('shape', circleShape);
             }
-        },
-        {}
+        }
     );
 
     return Chips;
@@ -67,7 +51,7 @@ ymaps.ready(function () {
         balloonContent: 'Линейная зависимость размера метки от уровня зума',
         hintContent: 'Линейная зависимость'
     }, {
-        iconLayout: createChipsLayout(ymaps.templateLayoutFactory, function (zoom) {
+        iconLayout: createChipsLayout(function (zoom) {
             // Минимальный размер метки будет 8px, а максимальный мы ограничивать не будем.
             // Размер метки будет расти с линейной зависимостью от уровня зума.
             return 4 * zoom + 8;
@@ -78,7 +62,7 @@ ymaps.ready(function () {
         balloonContent: 'Квадратичная зависимость размера метки от уровня зума',
         hintContent: 'Квадратичная зависимость'
     }, {
-        iconLayout: createChipsLayout(ymaps.templateLayoutFactory, function (zoom) {
+        iconLayout: createChipsLayout(function (zoom) {
             // Минимальный размер метки будет 8px, а максимальный 200px.
             // Размер метки будет расти с квадратичной зависимостью от уровня зума.
             return Math.min(Math.pow(zoom, 2) + 8, 200);
