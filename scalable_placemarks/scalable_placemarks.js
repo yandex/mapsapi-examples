@@ -1,5 +1,6 @@
 var createChipsLayout = function (templateLayoutFactory, calculateSize) {
-    // Получим фигуру активной области "Круг".
+    // По умолчанию при задании своего HTML макета фигура активной области не задается, и её нужно задать самостоятельно.
+    // Создадим фигуру активной области "Круг".
     var getPixelCircle = function (diameter) {
         var radius = diameter / 2;
         return {type: 'Circle', coordinates: [0, 0], radius: radius};
