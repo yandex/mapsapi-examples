@@ -13,10 +13,18 @@
 </p>
 <p>
     Модуль позволяет добавлять подписи внутри полигонов на карте, автоматически выбирая подходящее положение.
-    Для использования модуля необходимо скачать исходный код <a href="https://github.com/yandex/mapsapi-area/blob/master/build/util.calculateArea.min.js">модуля для расчета площади</a>, <a href="https://github.com/yandex/polylabel/releases/download/v0.0.1/polylabel.min.js">модуля для подписи полигонов</a> и положить в директорию вашего сайта.
+    Для того, чтобы добавить подпись полигону необходимо:</p>
+<ul>
+    <li>Скачать исходный код <a href="https://github.com/yandex/mapsapi-area/blob/master/build/util.calculateArea.min.js">модуля для расчета площади</a>, <a href="https://github.com/yandex/polylabel/releases/download/v0.0.1/polylabel.min.js">модуля для подписи полигонов</a> и положить в директорию вашего сайта.</li>
+    <li>Добавить на карту <a href="/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/">менеджер объектов</a> или <a href="/maps/doc/jsapi/2.1/ref/reference/GeoObjectCollection-docpage/">коллекцию геообъектов</a>.</li>
+    <li>Добавить полигону макет подписи в опции labelLayout.</li>
+    <li>Дождаться получения модуля 'polylabel.create' и выполнить метод 'polylabel.create()'.</li>
+</ul>
+<p>
+    Так выглядит минимальный <a href="https://github.com/yandex/polylabel#example-shows-how-to-create-label-for-one-polygon">пример</a>.
 </p>
 <p>
-    Для многоугольника создаются две подписи: маленькая точка и полноразмерная подпись. Если полноразмерная подпись не может вписаться в многоугольник, модуль пытается разместить маленькую точку.
+    Модуль создает две подписи: маленькая точка и полноразмерная подпись. Если полноразмерная подпись не может вписаться в многоугольник, модуль пытается разместить маленькую точку.
     Если маленькая точка не помещается, то ничего не отображается.
 </p>
 <p>
