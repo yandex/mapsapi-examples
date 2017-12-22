@@ -1,16 +1,21 @@
 ymaps.ready(['polylabel.create']).then(function () {
     // Создадим два макета подписей полигонов: с текстом и с картинкой.
-    var textLayout = '<div>{{properties.hintContent}}</div>',
-        // В свойстве regionName содержится название региона.
-        imgLayout = '<img src="img/{{properties.regionName}}.png" height="50px"/>';
-
+    var textLayouts = {
+            label: '<div>{{properties.hintContent}}</div>',
+            hint: ymaps.templateLayoutFactory.createClass('<div>{{properties.hintContent}}</div>')
+        };
+    var imgLayouts = {
+            // В свойстве regionName содержится название региона.
+            label: '<img src="img/{{properties.regionName}}.png" height="50px"/>',
+            hint: ymaps.templateLayoutFactory.createClass('<img src="img/{{properties.regionName}}.png" height="50px"/>')
+        };
     var map = new ymaps.Map('map', {
-            center: [62, 100],
-            zoom: 4,
-            controls: []
-        }, {
-            maxZoom: 18,
-            minZoom: 4
+                center: [62, 100],
+                zoom: 4,
+                controls: []
+            }, {
+                maxZoom: 18,
+                minZoom: 4
         });
 
     // Создадим переключатель вида подписей.
@@ -49,7 +54,7 @@ ymaps.ready(['polylabel.create']).then(function () {
                 // Стандартный вид текста будет темный с белой обводкой.
                 labelDefaults: 'dark',
                 // Макет подписи.
-                labelLayout: textLayout,
+                labelLayout: textLayouts.label,
                 // Цвет заливки.
                 fillColor: 'rgba(27, 125, 190, 0.7)',
                 // Цвет обводки.
@@ -89,11 +94,11 @@ ymaps.ready(['polylabel.create']).then(function () {
         // Подписываемся на события подписей.
         objectManager.events.add(['labelmouseenter', 'labelmouseleave'], function (event) {
             // Получаем полигон, на котором произошло событие.
-            var polygon = objectManager.objects.getById(event.get('objectId')),
+            var polygon = objectManager.objects.getById(event.get('objectId'));
                 // Получаем состояние подписи.
-                state = polylabel.getLabelState(polygon),
+            var state = polylabel.getLabelState(polygon);
                 // Получаем проекцию позиции подписи, чтобы показать на этом месте всплывающую подсказку.
-                centerProj = map.options.get('projection').toGlobalPixels(state.get('center'), map.getZoom());
+            var centerProj = map.options.get('projection').toGlobalPixels(state.get('center'), map.getZoom());
             if (event.get('type') === 'labelmouseenter' && state.get('currentVisibility') === 'dot') {
                 objectManager.objects.hint.open(polygon.id, centerProj);
             } else {
@@ -104,20 +109,13 @@ ymaps.ready(['polylabel.create']).then(function () {
 
     // Функция, которая обновляет у всех полигонов макет.
     function updateLabels(type) {
-        var layout, hintLayout;
-        if (type === 'text') {
-            layout = textLayout;
-            hintLayout = ymaps.templateLayoutFactory.createClass(textLayout);
-        } else {
-            layout = imgLayout;
-            hintLayout = ymaps.templateLayoutFactory.createClass(imgLayout);
-        }
+        var layouts = type === 'text' ? textLayouts : imgLayouts;
         // Меняем всплывающую подсказку в зависимости от макета.
         objectManager.objects.options.set({
-            hintContentLayout: hintLayout
+            hintContentLayout: layouts.hint
         });
         objectManager.objects.each(function (polygon) {
-            objectManager.objects.setObjectOptions(polygon.id, {labelLayout: layout});
+            objectManager.objects.setObjectOptions(polygon.id, {labelLayout: layouts.label});
         });
     }
 });
