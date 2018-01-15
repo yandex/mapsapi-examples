@@ -1,0 +1,15 @@
+<div id="references">
+    <sa href="Placemark"/>,
+    <sa href="templateLayoutFactory"/>
+</div>
+<p>
+    В данном примере показано, как управлять размером метки в зависимости от уровня зума на карте.
+    Размер первой метки будет линейно зависеть от текущего уровня зума, а размер второй метки - квадратично.
+</p>
+<p>
+    Создание своего макета метки происходит при помощи <a href="/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory-docpage/">фабрики макетов</a>.
+</p>
+<p>
+    Для того чтобы узнать, в какой момент нам необходимо изменять размер метки, мы подписываемся на событие
+    <a href="/maps/doc/jsapi/2.1/ref/reference/Map-docpage/#event-actionend">actionend</a>.
+</p>
