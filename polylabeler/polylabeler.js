@@ -10,12 +10,12 @@ ymaps.ready(['polylabel.create']).then(function () {
             hint: ymaps.templateLayoutFactory.createClass('<img src="img/{{properties.regionName}}.png" height="50px"/>')
         };
     var map = new ymaps.Map('map', {
-                center: [62, 100],
+                center: [58, 40],
                 zoom: 4,
                 controls: []
             }, {
                 maxZoom: 18,
-                minZoom: 4
+                minZoom: 2
         });
 
     // Создадим переключатель вида подписей.
