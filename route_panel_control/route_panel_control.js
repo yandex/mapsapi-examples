@@ -35,7 +35,7 @@ ymaps.ready(function () {
 
     // Создаем кнопку, с помощью которой пользователи смогут менять местами начальную и конечную точки маршрута.
     var switchPointsButton = new ymaps.control.Button({
-        data: {content: "Поменять точки местами", title: "Поменять точки местами"},
+        data: {content: "Поменять местами", title: "Поменять точки местами"},
         options: {selectOnClick: false, maxWidth: 160}
     });
     // Объявляем обработчик для кнопки.
