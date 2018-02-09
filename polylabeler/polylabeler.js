@@ -11,7 +11,7 @@ ymaps.ready(['polylabel.create']).then(function () {
         };
     var map = new ymaps.Map('map', {
                 center: [58, 40],
-                zoom: 4,
+                zoom: 5,
                 controls: []
             }, {
                 maxZoom: 18,
@@ -27,18 +27,34 @@ ymaps.ready(['polylabel.create']).then(function () {
                 new ymaps.control.ListBoxItem({data: {content: 'Текст'}, state: {selected: true}}),
                 new ymaps.control.ListBoxItem({data: {content: 'Изображение'}})
             ]
+        }),
+        zoomControl = new ymaps.control.ZoomControl({
+            options: {
+                size: 'small',
+                float: 'none',
+                position: {
+                    bottom: 145,
+                    right: 10
+                }
+            }
         });
     typeList.get(0).events.add('click', function () {
         typeList.get(1).state.set('selected', false);
         // Устанавливаем всем подписям текстовый макет.
         updateLabels('text');
+        // Закрываем список.
+        typeList.collapse();
     });
     typeList.get(1).events.add('click', function () {
         typeList.get(0).state.set('selected', false);
         // Устанавливаем всем подписям макет с картинкой.
         updateLabels('img');
+        // Закрываем список.
+        typeList.collapse();
     });
-    map.controls.add(typeList, {floatIndex: 0});
+    map.controls
+        .add(typeList, {floatIndex: 0})
+        .add(zoomControl);
 
     // Создадим менеджер объектов.
     var objectManager = new ymaps.ObjectManager();
