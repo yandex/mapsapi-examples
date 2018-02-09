@@ -44,6 +44,9 @@ function init() {
     // Получим ссылку на маршрут.
     routePanelControl.routePanel.getRouteAsync().then(function (route) {
 
+        // Зададим максимально допустимое число маршрутов, возвращаемых мультимаршрутизатором.
+        route.model.setParams({results: 1}, true);
+
         // Повесим обработчик на событие построения маршрута.
         route.model.events.add('requestsuccess', function () {
 
