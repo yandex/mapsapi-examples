@@ -59,14 +59,11 @@ ymaps.ready(['polylabel.create']).then(function () {
     // Создадим менеджер объектов.
     var objectManager = new ymaps.ObjectManager();
     // Загрузим регионы.
-    ymaps.regions.load('RU', {
+    ymaps.borders.load('RU', {
         lang: 'ru',
         quality: 2
     }).then(function (result) {
-        var i = 0;
-        // Присваиваем регионам опции, нужные для модуля подписей полигонов.
-        result.geoObjects.each(function (polygon) {
-            polygon.options.set({
+            var options = {
                 // Стандартный вид текста будет темный с белой обводкой.
                 labelDefaults: 'dark',
                 // Макет подписи.
@@ -84,24 +81,16 @@ ymaps.ready(['polylabel.create']).then(function () {
                 labelDotCursor: 'pointer',
                 // Допустимая погрешность в расчете вместимости подписи в полигон.
                 labelPermissibleInaccuracyOfVisibility: 4
-            });
-            // В свойство regionName запишем название региона.
-            polygon.properties.set({
-                regionName: regions[i]
-            });
-            // Добавляем полигон в менеджер объектов.
-            objectManager.add({
-                type: 'Feature',
-                id: i,
-                geometry: {
-                    type: polygon.geometry.getType(),
-                    coordinates: polygon.geometry.getCoordinates()
-                },
-                options: polygon.options.getAll(),
-                properties: polygon.properties.getAll()
-            });
-            i++;
-        });
+            };
+            // Добавляем полигоны в менеджер объектов.
+            objectManager.add(result.features.map(function (feature) {
+                feature.id = feature.properties.iso3166;
+                // В свойство regionName запишем название региона.
+                feature.properties.regionName = feature.properties.iso3166;
+                // Присваиваем регионам опции, нужные для модуля подписей полигонов.
+                feature.options = options;
+                return feature;
+            }));
         map.geoObjects.add(objectManager);
 
         // Запускаем модуль подписей.

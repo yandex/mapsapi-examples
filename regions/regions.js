@@ -118,11 +118,9 @@ function init() {
         // Наследуем класс нашего контрола от ymaps.control.Button.
         RegionControl = ymaps.util.defineClass(function (parameters) {
             RegionControl.superclass.constructor.call(this, parameters);
-            this.regions = new ymaps.GeoObjectCollection();
         }, ymaps.control.Button, /** @lends ymaps.control.Button */{
             onAddToMap: function (map) {
                 RegionControl.superclass.onAddToMap.call(this, map);
-                map.geoObjects.add(this.regions);
                 this.setupStateMonitor();
                 this.loadRegions(this.state.get('values'));
             },
@@ -147,9 +145,18 @@ function init() {
             },
 
             handleRegionsLoaded: function (res) {
+                if(this.regions){
+                    map.geoObjects.remove(this.regions);
+                }
+
+                this.regions = new ymaps.ObjectManager();
                 this.regions
-                    .removeAll()
-                    .add(res.geoObjects);
+                    .add(res.features.map(function (feature) {
+                        feature.id = feature.properties.iso3166;
+                        return feature;
+                    }));
+
+                map.geoObjects.add(this.regions);
                 this.getMap().setBounds(
                     this.regions.getBounds(),
                     {checkZoomRange: true}
@@ -158,7 +165,7 @@ function init() {
 
             loadRegions: function (params) {
                 this.disable();
-                return ymaps.regions.load(params.region, params)
+                return ymaps.borders.load(params.region, params)
                     .then(this.handleRegionsLoaded, this)
                     .always(this.enable, this);
             }

@@ -71,10 +71,10 @@ ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
         });
     regionsButton.events
         .add('select', function () {
-            map.geoObjects.add(regions.geoObjects);
+            map.geoObjects.add(regions);
         })
         .add('deselect', function () {
-            map.geoObjects.remove(regions.geoObjects);
+            map.geoObjects.remove(regions);
         });
 
     var typeButton = new ymaps.control.Button({
@@ -93,10 +93,13 @@ ymaps.ready(['projection.AzimuthalPolarEquidistant']).then(function init() {
             typeButton.data.set("content", "Антарктика");
         });
     map.controls.add(typeButton);
-    ymaps.regions.load('001', {
+    ymaps.borders.load('001', {
             lang: 'ru'
         }).then(function (result) {
-            regions = result;
+            regions = new ymaps.GeoObjectCollection();
+            for (var i = 0; i < result.features.length; i++) {
+                regions.add(new ymaps.GeoObject(result.features[i]));
+            }
             map.controls.add(regionsButton);
         });
 });
