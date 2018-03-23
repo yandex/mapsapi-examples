@@ -25,13 +25,13 @@ window.onload = function () {
         script = document.createElement('script');
         script.type = 'text/javascript';
         script.charset = 'utf-8';
-        // Запишем ссылку на JS API Яндекс Карт с выбранным языков в атрибут 'src'.
+        // Запишем ссылку на JS API Яндекс.Карт с выбранным языком в атрибут 'src'.
         script.src = 'https://api-maps.yandex.ru/2.1/?onload=init&lang=' + language + '_RU';
         // Добавим элемент 'script' на страницу.
         head.appendChild(script);
     };
-    // Назначим обработчик события выбора языка из списка.
+    // Назначим обработчик для события выбора языка из списка.
     document.getElementById('language').addEventListener("change", select.createMap);
-    // Создадим карту с языком выбранным по умолчанию.
+    // Создадим карту и зададим для нее язык, который был выбран по умолчанию.
     select.createMap();
 };
