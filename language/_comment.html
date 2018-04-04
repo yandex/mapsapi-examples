@@ -1,0 +1,19 @@
+<div id="references">
+    <sa href="Map"/>
+</div>
+<p>API позволяет отображать карты, локализованные на различных языках с учётом специфики отдельных стран. Для того чтобы управлять локализацией, необходимо в HTTP-запросе передать локаль.</p>
+<p>Локаль задается  параметром lang:<pre><code>lang=language_region</code></pre></p>
+<p></p><ul>
+    <li><span class="tag">language</span> — двузначный код языка в формате <a target="_blank" href="https://ru.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>. Задает язык объектов на карте (топонимов, элементов управления).</li>
+    <li><span class="tag">region</span> — двузначный код страны в формате <a target="_blank" href="https://ru.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a>. Определяет региональные особенности, например единицу измерения (для обозначения расстояния между объектами или скорости движения по маршруту). <p></p><em>Примечание.&nbsp;</em>Для регионов RU, UA и TR расстояние показывается в километрах, для US — в милях. </p></li>
+</ul><p></p>
+<p>На данный момент поддерживаются следующие локали:</p>
+<ul>
+    <li>lang=ru_RU;</li>
+    <li>lang=en_US;</li>
+    <li>lang=en_RU;</li>
+    <li>lang=ru_UA;</li>
+    <li>lang=uk_UA;</li>
+    <li>lang=tr_TR.</li>
+</ul>
+<p>Подробней можно <a target="_blank" href="https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/">прочитать тут</a>.</p>
