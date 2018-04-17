@@ -40,7 +40,8 @@
         "Смена значка метки при наведении": "event_rollover",
         "Задание фигуры активной области HTML макету метки": "placemark_shape",
         "Настройка размера метки на разных зумах": "scalable_placemarks",
-        "Подписи полигонов": "polylabeler"
+        "Подписи полигонов": "polylabeler",
+        "Анимация линии": "polyline_animation"
     },
     "Балун и хинт": {
         "Балун и хинт": "balloon_and_hint",
