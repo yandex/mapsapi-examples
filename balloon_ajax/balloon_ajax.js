@@ -10,7 +10,7 @@ function init () {
             iconContent: "Узнать адрес",
             hintContent: "Перетащите метку и кликните, чтобы узнать адрес"
         }, {
-            draggable: "true",
+            draggable: true,
             preset: "twirl#blueStretchyIcon",
             // Заставляем балун открываться даже если в нем нет содержимого.
             openEmptyBalloon: true
