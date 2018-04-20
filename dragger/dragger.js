@@ -62,8 +62,17 @@ function init () {
         // Проверяем, что завершение работы драггера произошло в видимой области карты.
         if (containsPoint(mapGlobalPixelBounds, markerGlobalPosition)) {
             // Теперь переводим глобальные пиксельные координаты в геокоординаты с учетом текущего уровня масштабирования карты.
-            var geoPosition = map.options.get('projection').fromGlobalPixels(markerGlobalPosition, map.getZoom());
-            alert(geoPosition.join(' '));
+            var geoPosition = map.options.get('projection').fromGlobalPixels(markerGlobalPosition, map.getZoom()),
+            // Получаем уровень зума карты.
+                zoom = map.getZoom(),
+            // Получаем координаты тайла.
+                tileCoordinates = getTileCoordinate(markerGlobalPosition, zoom, 256);
+            alert([
+                'Координаты: ' + geoPosition,
+                'Уровень зума: ' + zoom,
+                'Глобальные пиксельные координаты: ' + markerGlobalPosition,
+                'Координаты тайла: ' + tileCoordinates
+            ].join(' '));
         }
     }
 
@@ -85,5 +94,12 @@ function init () {
     function containsPoint (bounds, point) {
         return point[0] >= bounds[0][0] && point[0] <= bounds[1][0] &&
                point[1] >= bounds[0][1] && point[1] <= bounds[1][1];
+    }
+
+    function getTileCoordinate(coords, zoom, tileSize){
+        return [
+            Math.floor(coords[0] * zoom / tileSize),
+            Math.floor(coords[1] * zoom / tileSize)
+        ];
     }
 }
