@@ -9,10 +9,11 @@
     Анимировать путь между точками можно с помощью изменения длины линии. Для этого необходимо добавлять новые точки, не меняя всю линию целиком.
 </p>
 <p>
-    Для того, чтобы добавить новые точки в <a href="/maps/doc/jsapi/2.1/ref/reference/geometry.LineString-docpage/">геометрию ломанной линии</a> можно использовать метод <a href="/maps/doc/jsapi/2.1/ref/reference/ILineStringGeometryAccess-docpage/#set">set</a>, который принимает на вход индекс точки(которую надо поменять) и новые координаты.
+    Чтобы добавить новые точки в <a href="/maps/doc/jsapi/2.1/ref/reference/geometry.LineString-docpage/">геометрию ломаной линии</a>, будем использовать метод <a href="/maps/doc/jsapi/2.1/ref/reference/ILineStringGeometryAccess-docpage/#set">set</a>.  
+    На вход методу будем передавать индекс новой точки и ее координаты.
 </p>
 <p>
-    Также геометрию ломанной линии можно поменять целиком с помощью метода <a href="/maps/doc/jsapi/2.1/ref/reference/ILineStringGeometryAccess-docpage/#setCoordinates">setCoordinates</a>.
+    Также геометрию ломаной линии можно поменять целиком с помощью метода <a href="/maps/doc/jsapi/2.1/ref/reference/ILineStringGeometryAccess-docpage/#setCoordinates">setCoordinates</a>.
 </p>
 <p>
     В примере показано, как на основе класса линии <sa href="Polyline"/> создать модуль для анимирования линии на карте. Для этого достаточно создать экземпляр класса AnimatedLine и задать длительность анимации через опцию animationTime.
