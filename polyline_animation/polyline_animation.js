@@ -8,7 +8,7 @@ function init(ymaps) {
     }, {
         searchControlProvider: 'yandex#search'
     });
-    // Создаем ломанные линии.
+    // Создаем ломаные линии.
     var firstAnimatedLine = new ymaps.AnimatedLine([
         [55.76028460519329, 37.57704491961252],
         [55.76068242105497, 37.57704760182153],
