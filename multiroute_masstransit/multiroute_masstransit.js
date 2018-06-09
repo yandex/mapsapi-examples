@@ -18,7 +18,7 @@ function init () {
 
     // Создаем кнопку.
     var changeLayoutButton = new ymaps.control.Button({
-        data: { content: "Показывать время для пеших сегментов"},
+        data: { content: "Изменить макет подписи для пеших сегментов"},
         options: { selectOnClick: true }
     });
 
@@ -41,7 +41,7 @@ function init () {
         zoom: 12,
         controls: [changeLayoutButton]
     }, {
-        buttonMaxWidth: 300
+        buttonMaxWidth: 350
     });
 
     // Добавляем мультимаршрут на карту.
