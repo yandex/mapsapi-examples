@@ -129,7 +129,7 @@
         "Редактирование маршрута": "router_editor",
         "Расчёт стоимости доставки": "deliveryCalculator",
         "Маршрут от точки на карте": "route_panel_control",
-        "Добавить вызов Такси": "multiroute_taxi"
+        "Добавить вызов такси": "multiroute_taxi"
     },
     "YMapsML": {
         "Изменение типа карты": "ymapsml_maptype",
