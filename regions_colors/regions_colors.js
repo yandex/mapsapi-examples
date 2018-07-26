@@ -6,11 +6,11 @@ function init() {
         center: [48.704272, 65.602030],
         zoom: 4,
         type: 'yandex#map',
-        controls: ['fullscreenControl']
+        controls: ['zoomControl']
     });
     var objectManager = new ymaps.ObjectManager();
     // Загрузим регионы.
-    ymaps.borders.load('001', {
+    ymaps.borders.load('KZ', {
         lang: 'ru',
         quality: 2
     }).then(function (result) {
