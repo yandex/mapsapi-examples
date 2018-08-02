@@ -10,6 +10,7 @@ function init() {
         // Ограничим минимальный зум.
         minZoom: 6
     });
+    map.controls.get('zoomControl').options.set({size: 'small'});
 
     // Загрузим регионы.
     ymaps.borders.load('001', {
