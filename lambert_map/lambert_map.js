@@ -4,7 +4,7 @@ ymaps.ready(['projection.LambertConformalConic']).then(function init() {
     var LAMBERT_PROJECTION = new ymaps.projection.LambertConformalConic();
 
     // Создаём карту.
-    var map = myMap = new ymaps.Map('map', {
+    var map = new ymaps.Map('map', {
         center: [60, 100],
         zoom: 1,
         type: null,
@@ -13,7 +13,7 @@ ymaps.ready(['projection.LambertConformalConic']).then(function init() {
         // Задаем проекцию Ламберта.
         projection: LAMBERT_PROJECTION
     });
-    myMap.controls.get('zoomControl').options.set({size: 'small'});
+    map.controls.get('zoomControl').options.set({size: 'small'});
 
     // Добавляем фон.
     var pane = new ymaps.pane.StaticPane(map, {
