@@ -8,6 +8,8 @@ function init() {
         type: 'yandex#map',
         controls: ['zoomControl']
     });
+    map.controls.get('zoomControl').options.set({size: 'small'});
+
     var objectManager = new ymaps.ObjectManager();
     // Загрузим регионы.
     ymaps.borders.load('KZ', {
