@@ -8,6 +8,7 @@ function init() {
         type: null,
         controls: ['zoomControl']
     });
+    map.controls.get('zoomControl').options.set({size: 'small'});
     // Добавим заливку цветом.
     var pane = new ymaps.pane.StaticPane(map, {
         zIndex: 100, css: {
