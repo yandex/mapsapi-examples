@@ -76,7 +76,10 @@ function init() {
             }
         }
         // Добавим регионы на карту.
-        result.features = Object.values(regions);
+        result.features = [];
+        for (var reg in regions) {
+            result.features.push(regions[reg]);
+        }
         objectManager.add(result);
         map.geoObjects.add(objectManager);
     })
