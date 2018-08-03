@@ -7,6 +7,8 @@ function init() {
         zoom: 2,
         type: null,
         controls: ['zoomControl']
+    },{
+        restrictMapArea: [[10, 10], [85,-160]]
     });
     map.controls.get('zoomControl').options.set({size: 'small'});
 
