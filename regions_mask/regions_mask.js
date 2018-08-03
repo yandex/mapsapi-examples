@@ -7,8 +7,8 @@ function init() {
         type: 'yandex#hybrid',
         controls: ['zoomControl']
     }, {
-        // Ограничим минимальный зум.
-        minZoom: 6
+        // Ограничим область карты.
+        restrictMapArea: [[46, 9], [53, 22]]
     });
     map.controls.get('zoomControl').options.set({size: 'small'});
 
