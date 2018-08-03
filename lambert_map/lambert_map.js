@@ -10,6 +10,7 @@ ymaps.ready(['projection.LambertConformalConic']).then(function init() {
         type: null,
         controls: ['zoomControl']
     }, {
+        minZoom: 1,
         // Задаем проекцию Ламберта.
         projection: LAMBERT_PROJECTION
     });
