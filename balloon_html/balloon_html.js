@@ -13,7 +13,7 @@ function init() {
         // Зададим содержимое заголовка балуна.
         balloonContentHeader: '<a href = "#">Рога и копыта</a><br>' +
             '<span class="description">Сеть кинотеатров</span>',
-        // Зададим содержимое основой части балуна.
+        // Зададим содержимое основной части балуна.
         balloonContentBody: '<img src="img/cinema.jpg" height="150" width="200"> <br/> ' +
             '<a href="tel:+7-123-456-78-90">+7 (123) 456-78-90</a><br/>' +
             '<b>Ближайшие сеансы</b> <br/> Сеансов нет.',
