@@ -1,4 +1,4 @@
-// Опции полигона.
+// Опции многоугольника.
 var polygonOptions = {
     strokeColor: '#0000ff',
     fillColor: '#8080ff',
@@ -6,7 +6,7 @@ var polygonOptions = {
     opacity: 0.7,
     draggable: true
 };
-// Стили канваса.
+// Стили canvas-элемента.
 var canvasOptions = {
     strokeStyle: '#0000ff',
     lineWidth: 4,
@@ -23,7 +23,7 @@ ymaps.ready(['Map', 'Polygon']).then(function () {
     });
     var polygon = null;
 
-    // Создадим кнопку рисования и добавляем её на карту.
+    // Создадим кнопку рисования и добавим её на карту.
     var drawButton = new ymaps.control.Button({
         data: {content: 'Нарисовать область'},
         options: {maxWidth: 150}
@@ -35,30 +35,33 @@ ymaps.ready(['Map', 'Polygon']).then(function () {
 
         drawLineOverMap(map)
             .then(function (coordinates) {
-                // Переводим координаты в географические.
+                // Переводим координаты курсора мыши в географические координаты.
                 var bounds = map.getBounds();
                 coordinates = coordinates.map(function (x) {
                     return [
                         // Широта (latitude).
-                        // Y переворачивается, т.к. на canvas'е он направлен вниз.
+                        // Y переворачивается, т.к. на canvas-элементе он направлен вниз.
                         bounds[0][0] + (1 - x[1]) * (bounds[1][0] - bounds[0][0]),
                         // Долгота (longitude).
                         bounds[0][1] + x[0] * (bounds[1][1] - bounds[0][1])
                     ];
                 });
 
-                // Нам нужно симплифицировать линию.
+                // Так как в процессе рисования у нас будет создаваться много близкостоящих точек, то нам нужно упростить контур.
                 // Для простоты реализации мы будем оставлять только каждую третью координату.
+                // Вы можете придумать свой способ упрощения контура.
                 coordinates = coordinates.filter(function (_, index) {
                     return index % 3 === 0;
                 });
 
-                // Удаляем старый полигон.
+                // Когда мы повторно нажимаем кнопку "Нарисовать область" и начинаем рисовать новый многоугольник,
+                // то предыдущий многоугольник удаляется.
+                // Если вы хотите оставлять предыдущий многоугольник на карте, то удалите код ниже.
                 if (polygon) {
                     map.geoObjects.remove(polygon);
                 }
 
-                // Создаем новый полигон и добавляем его на карту.
+                // Создаем новый многоугольник и добавляем его на карту.
                 polygon = new ymaps.Polygon([coordinates], {}, polygonOptions);
                 map.geoObjects.add(polygon);
 
@@ -74,7 +77,7 @@ function drawLineOverMap(map) {
     var drawing = false;
     var coordinates = [];
 
-    // Задаем размеры канвасу как у карты.
+    // Задаем размеры canvas-элементу, как у карты.
     var rect = map.container.getParentElement().getBoundingClientRect();
     canvas.style.width = rect.width + 'px';
     canvas.style.height = rect.height + 'px';
@@ -89,10 +92,10 @@ function drawLineOverMap(map) {
     // Очищаем холст.
     ctx2d.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Показываем канвас. Он будет сверху карты из-за position: absolute.
+    // Показываем canvas-элемент. Он будет сверху карты из-за position: absolute.
     canvas.style.display = 'block';
 
-    // При нажатии кнопки мыши запоминаем, что мы начали рисовать и координаты.
+    // Когда пользователь зажимает правую кнопку мыши, начинаем запоминать координаты.
     canvas.onmousedown = function (e) {
         drawing = true;
         coordinates.push([e.offsetX, e.offsetY]);
@@ -112,7 +115,7 @@ function drawLineOverMap(map) {
     };
 
     return new Promise(function (resolve) {
-        // При отпускании кнопки мыши запоминаем координаты и скрываем канвас.
+        // При отпускании кнопки мыши запоминаем координаты и скрываем canvas-элемент.
         canvas.onmouseup = function (e) {
             coordinates.push([e.offsetX, e.offsetY]);
             canvas.style.display = 'none';
