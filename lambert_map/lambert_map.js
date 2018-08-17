@@ -1,9 +1,9 @@
 ymaps.ready(['projection.LambertConformalConic']).then(function init() {
 
-    // Создаём проекцию Ламберта.
+    // Создаем проекцию Ламберта.
     var LAMBERT_PROJECTION = new ymaps.projection.LambertConformalConic();
 
-    // Создаём карту.
+    // Создаем карту.
     var map = new ymaps.Map('map', {
         center: [60, 100],
         zoom: 1,

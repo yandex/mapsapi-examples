@@ -22,7 +22,7 @@ ymaps.modules.define('projection.LambertConformalConic', [
     function LambertConformalConic() {
         if (ymaps.meta.debug) {
             if (!center[0] || !center[1]) {
-                throw new Error("projection.AzimuthalPolarEquidistant: Некорректные значения параметра center.");
+                throw new Error("projection.LambertConformalConic: Некорректные значения параметра center.");
             }
         }
 
@@ -30,7 +30,7 @@ ymaps.modules.define('projection.LambertConformalConic', [
             return point * Math.PI / 180;
         };
 
-        // Широта и долгота точки, которая служит началом координат в декартовой системе проекции
+        // Широта и долгота точки, которая служит началом координат в декартовой системе проекции.
         this._fi0 = this._degToRad(0);
         this._l0 = this._degToRad(-2);
 
@@ -43,10 +43,10 @@ ymaps.modules.define('projection.LambertConformalConic', [
         toGlobalPixels: function (point, zoom) {
             if (ymaps.meta.debug) {
                 if (!point) {
-                    throw new Error("AzimuthalPolarEquidistant.toGlobalPixels: не передан параметр point");
+                    throw new Error("LambertConformalConic.toGlobalPixels: не передан параметр point");
                 }
                 if (typeof zoom == "undefined") {
-                    throw new Error("AzimuthalPolarEquidistant.toGlobalPixels: не передан параметр zoom");
+                    throw new Error("LambertConformalConic.toGlobalPixels: не передан параметр zoom");
                 }
             }
 
@@ -68,8 +68,8 @@ ymaps.modules.define('projection.LambertConformalConic', [
 
             return [x, y];
         },
-        // Если вам необходимо переводить глобальные пиксельные координаты в широту и долготу, то вам необходимо
-        // реализовать этот метод. Например, это может понадобиться если вы захотите воспользоваться линейкой.
+        // Если вам нужно переводить глобальные пиксельные координаты в широту и долготу, необходимо реализовать
+        // метод fromGlobalPixels. Это может понадобиться, например, если вы захотите воспользоваться линейкой.
         fromGlobalPixels: function (point, zoom) {
             return [0, 0];
         },
