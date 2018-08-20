@@ -22,7 +22,7 @@ function init() {
     // Каждый регион мы будем относить к одной из 4-x групп
     // в зависимости от населения, проживающего на его территории.
     var percents = [0.3, 1.0, 2.0, 15];
-    // Зададим изображения которые будут использоваться для этих групп.
+    // Зададим изображения, которые будут использоваться для этих групп.
     var images = [
         'images/1.png',
         'images/2.png',
@@ -35,7 +35,7 @@ function init() {
         lang: 'ru',
         quality: 2
     }).then(function (result) {
-        // Подготовим данные для object manager.
+        // Подготовим данные для objectManager.
         result.features.map(function (feature) {
             // Добавим iso код региона в качестве feature.id для objectManager.
             var iso = feature.properties.iso3166;
