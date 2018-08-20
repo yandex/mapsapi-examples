@@ -45,7 +45,7 @@ function init() {
         lang: 'ru',
         quality: 2
     }).then(function (result) {
-        // Создадим объект в котором будут храниться коллеции с нашими регионами.
+        // Создадим объект, в котором будут храниться коллекции с нашими регионами.
         var districtCollections = {};
         // Для каждого федерального округа создадим коллекцию.
         for (var district in districtColors) {
@@ -74,12 +74,12 @@ function init() {
             districtCollections[district].properties.set('balloonContent', districtBalloonContent + name + '<br>');
 
         });
-        // Создадим переменную в которую будем сохранять выделенный в данный момент федеральный округ.
+        // Создадим переменную, в которую будем сохранять выделенный в данный момент федеральный округ.
         var highlightedDistrict;
         for (var districtName in districtCollections) {
             // Добавим коллекцию на карту.
             map.geoObjects.add(districtCollections[districtName]);
-            // При наведении будем выделять федеральный округ.
+            // При наведении курсора мыши будем выделять федеральный округ.
             districtCollections[districtName].events.add('mouseenter', function (event) {
                 var district = event.get('target').getParent();
                 district.options.set({fillOpacity: 1});
@@ -99,7 +99,7 @@ function init() {
                 if (highlightedDistrict) {
                     highlightedDistrict.options.set({fillOpacity: 0.3})
                 }
-                // Откроем балун в котором покажем все регионы, которые входят в тот федеральный округ
+                // Откроем балун в точке клика. В балуне будут перечислены регионы того федерального округа,
                 // по которому кликнул пользователь.
                 var balloonContent = district.properties.get('balloonContent');
                 target.properties.set('balloonContent', balloonContent);
