@@ -18,7 +18,7 @@ function init() {
         quality: 2
     }).then(function (result) {
 
-        // Создадим многоугольник который будет скрывать все страны кроме заданной.
+        // Создадим многоугольник, который будет скрывать все страны, кроме заданной.
         var background = new ymaps.Polygon([
             [
                 [85, -179.99],
@@ -42,8 +42,8 @@ function init() {
         var query = ymaps.geoQuery(result);
         var region = query.search('properties.iso3166 == "CZ"').get(0);
 
-        // Добавим координаты этой страны в полигон который накрывает весь мир.
-        // В полигоне образуется "дырка" через которую будет видно заданную страну.
+        // Добавим координаты этой страны в полигон, который накрывает весь мир.
+        // В полигоне образуется полость, через которую будет видно заданную страну.
         var masks = region.geometry.getCoordinates();
         masks.forEach(function(mask){
             background.geometry.insert(1, mask);
