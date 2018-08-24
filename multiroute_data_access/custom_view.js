@@ -107,7 +107,7 @@ ymaps.modules.define('MultiRouteCustomView', [
                 "Время в пути: " + route.properties.get("duration").text;
         },
 
-        // Метод строящий список текстовых описаний для
+        // Метод, строящий список текстовых описаний для
         // всех сегментов маршрута на общественном транспорте.
         createMasstransitRouteOutput: function (route) {
             var result = [];
