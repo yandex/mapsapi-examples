@@ -14,9 +14,6 @@ function init() {
             title: 'Вызов такси',
             // Пользователь сможет построить только маршрут на такси.
             routePanelTypes: {taxi: true}
-        },
-        state: {
-            routePanelType: "pedestrian"
         }
     });
     // Зададим тип маршрутизации по умолчанию.
