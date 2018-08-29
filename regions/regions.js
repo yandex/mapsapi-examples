@@ -165,7 +165,7 @@ function init() {
                     }));
                 map.geoObjects.add(this.regions);
 
-                this.paintedRegion = '';
+                this.selectedRegionId = '';
                 this.regions.events
                     .add('mouseenter', function (e) {
                         var id = e.get('objectId');
@@ -173,20 +173,20 @@ function init() {
                     }, this)
                     .add('mouseleave', function (e) {
                         var id = e.get('objectId');
-                        if (this.paintedRegion !== id) {
+                        if (this.selectedRegionId !== id) {
                             this.regions.objects.setObjectOptions(id, {strokeWidth: 1});
                         }
                     }, this)
                     .add('click', function (e) {
                         var id = e.get('objectId');
-                        if (this.paintedRegion) {
-                            this.regions.objects.setObjectOptions(this.paintedRegion, {
+                        if (this.selectedRegionId) {
+                            this.regions.objects.setObjectOptions(this.selectedRegionId, {
                                 strokeWidth: 1,
                                 fillColor: '#6961b0'
                             });
                         }
                         this.regions.objects.setObjectOptions(id, {strokeWidth: 2, fillColor: '#3B3781'});
-                        this.paintedRegion = id;
+                        this.selectedRegionId = id;
                     }, this);
                 this.getMap().setBounds(
                     this.regions.getBounds(),
