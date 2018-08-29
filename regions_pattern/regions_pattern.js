@@ -14,11 +14,12 @@ function init() {
 
     // Добавим заливку цветом.
     var pane = new ymaps.pane.StaticPane(map, {
-        zIndex: 100, css: {
+        zIndex: 100,
+        css: {
             width: '100%', height: '100%', backgroundColor: '#f7f7f7'
         }
     });
-    map.panes.append('greyBackground', pane);
+    map.panes.append('background', pane);
     // Каждый регион мы будем относить к одной из 4-x групп
     // в зависимости от населения, проживающего на его территории.
     var percents = [0.3, 1.0, 2.0, 15];
@@ -36,11 +37,12 @@ function init() {
         quality: 2
     }).then(function (result) {
         // Подготовим данные для objectManager.
-        result.features.map(function (feature) {
+        result.features.forEach(function (feature) {
             // Добавим iso код региона в качестве feature.id для objectManager.
             var iso = feature.properties.iso3166;
             feature.id = iso;
             // Получим процент населения, проживающего на данной территории.
+            // Данные лежат в файле data.js.
             var name = feature.properties.name;
             var population = populationData[name].percent;
             // Зададим изображение в зависимости от количества проживающего населения.
@@ -54,7 +56,6 @@ function init() {
                     break;
                 }
             }
-            return feature;
         });
         // Добавим регионы на карту.
         objectManager.add(result);
