@@ -62,7 +62,7 @@ var REGIONS_DATA = {
     },
     // Шаблон html-содержимого макета.
     optionsTemplate = [
-        '<div style="line-height: 34px; background-color: #80808080;" id="regions-params">',
+        '<div style="line-height: 34px;" id="regions-params">',
         '{% for paramName, param in data.params %}',
         '{% for key, value in state.values %}',
         '{% if key == paramName %}',
@@ -153,10 +153,41 @@ function init() {
                 this.regions
                     .add(res.features.map(function (feature) {
                         feature.id = feature.properties.iso3166;
+                        feature.options = {
+                            strokeColor: '#ffffff',
+                            strokeOpacity: 0.4,
+                            fillColor: '#6961b0',
+                            fillOpacity: 0.8,
+                            hintCloseTimeout: 0,
+                            hintOpenTimeout: 0
+                        };
                         return feature;
                     }));
-
                 map.geoObjects.add(this.regions);
+
+                this.selectedRegionId = '';
+                this.regions.events
+                    .add('mouseenter', function (e) {
+                        var id = e.get('objectId');
+                        this.regions.objects.setObjectOptions(id, {strokeWidth: 2});
+                    }, this)
+                    .add('mouseleave', function (e) {
+                        var id = e.get('objectId');
+                        if (this.selectedRegionId !== id) {
+                            this.regions.objects.setObjectOptions(id, {strokeWidth: 1});
+                        }
+                    }, this)
+                    .add('click', function (e) {
+                        var id = e.get('objectId');
+                        if (this.selectedRegionId) {
+                            this.regions.objects.setObjectOptions(this.selectedRegionId, {
+                                strokeWidth: 1,
+                                fillColor: '#6961b0'
+                            });
+                        }
+                        this.regions.objects.setObjectOptions(id, {strokeWidth: 2, fillColor: '#3B3781'});
+                        this.selectedRegionId = id;
+                    }, this);
                 this.getMap().setBounds(
                     this.regions.getBounds(),
                     {checkZoomRange: true}
@@ -184,8 +215,8 @@ function init() {
             state: {
                 enabled: true,
                 values: {
-                    region: 'RU',
-                    lang: 'ru',
+                    region: 'TR',
+                    lang: 'tr',
                     quality: '1'
                 }
             },
