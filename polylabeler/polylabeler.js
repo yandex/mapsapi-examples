@@ -48,7 +48,7 @@ ymaps.ready(['polylabel.create']).then(function () {
     typeList.get(1).events.add('click', function () {
         typeList.get(0).state.set('selected', false);
         // Устанавливаем всем подписям макет с картинкой.
-        updateLabels('img');
+        updateLabels('image');
         // Закрываем список.
         typeList.collapse();
     });
