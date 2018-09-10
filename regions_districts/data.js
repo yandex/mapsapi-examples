@@ -1,4 +1,4 @@
-var data = {
+var districtByIso = {
     'RU-BEL': 'cfo',
     'RU-BRY': 'cfo',
     'RU-VLA': 'cfo',

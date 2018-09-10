@@ -40,6 +40,9 @@ function init() {
         sfo: 'СФО',
         dfo: 'ДФО'
     };
+    // Создадим балун.
+    var districtBalloon = new ymaps.Balloon(map);
+    districtBalloon.options.setParent(map.options);
     // Загрузим регионы.
     ymaps.borders.load('RU', {
         lang: 'ru',
@@ -58,20 +61,19 @@ function init() {
                 hintOpenTimeout: 0
             });
             // Создадим свойство в коллекции, которое позже наполним названиями субъектов РФ.
-            districtCollections[district].properties.set('balloonContent', '');
+            districtCollections[district].properties.districts = [];
         }
 
         result.features.forEach(function (feature) {
             var iso = feature.properties.iso3166;
             var name = feature.properties.name;
-            var district = data[iso];
+            var district = districtByIso[iso];
             // Для каждого субъекта РФ зададим подсказку с названием федерального округа, которому он принадлежит.
             feature.properties.hintContent = districtsHints[district];
             // Добавим субъект РФ в соответствующую коллекцию.
             districtCollections[district].add(new ymaps.GeoObject(feature));
-            // Добавим имя субъекта РФ в балун.
-            var districtBalloonContent = districtCollections[district].properties.get('balloonContent');
-            districtCollections[district].properties.set('balloonContent', districtBalloonContent + name + '<br>');
+            // Добавим имя субъекта РФ в массив.
+            districtCollections[district].properties.districts.push(name);
 
         });
         // Создадим переменную, в которую будем сохранять выделенный в данный момент федеральный округ.
@@ -101,9 +103,7 @@ function init() {
                 }
                 // Откроем балун в точке клика. В балуне будут перечислены регионы того федерального округа,
                 // по которому кликнул пользователь.
-                var balloonContent = district.properties.get('balloonContent');
-                target.properties.set('balloonContent', balloonContent);
-                target.balloon.open();
+                districtBalloon.open(event.get('coords'), district.properties.districts.join('<br>'));
                 // Выделим федеральный округ.
                 district.options.set({fillOpacity: 1});
                 // Сохраним ссылку на выделенный федеральный округ.
