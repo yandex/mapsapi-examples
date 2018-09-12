@@ -1,0 +1,15 @@
+<div id="references">
+    <a href="/maps/doc/jsapi/2.1/ref/reference/ready.xml">ready</a>,
+    <a href="/maps/doc/jsapi/2.1/ref/reference/Map.xml">Map</a>,
+    <a href="/maps/doc/jsapi/2.1/ref/reference/collection.Item.xml">collection.Item</a>,
+    <a href="/maps/doc/jsapi/2.1/ref/reference/IControl-docpage/">IControl</a>
+</div>
+<p>
+    В примере показано, как добавить боковую панель на карту. Боковая панель не зависит от меток и в неё можно добавлять любой контент с помощью метода setContent().
+</p>
+<p>
+    Боковая панель создаётся на основе собственного элемента управления. Для ускорения разработки, можно отнаследовать класс элемента управления от класса <a href="/maps/doc/jsapi/2.1/ref/reference/collection.Item.xml">collection.Item</a>.
+</p>.
+<p>
+    В данном примере мы слушаем событие клика на метках, добавленных на карту. При клике по метке мы добавляем в боковую панель информацию, которая содержится в балуне этой метки.
+</p>
