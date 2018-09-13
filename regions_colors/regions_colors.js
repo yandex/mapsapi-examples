@@ -9,6 +9,9 @@ function init() {
         controls: ['zoomControl']
     });
     map.controls.get('zoomControl').options.set({size: 'small'});
+    // Зададим цвета для раскрашивания.
+    // Обратите внимание, для раскраски более крупных карт нужно задавать пятый цвет.
+    var colors = ['#F0F075', '#FB6C3F', '#3D4C76', '#49C0B5'];
 
     var objectManager = new ymaps.ObjectManager();
     // Загрузим регионы.
@@ -35,6 +38,7 @@ function init() {
 
         // Функция, которая раскрашивает регион и добавляет всех нераскрасшенных соседей в очередь на раскраску.
         function paint(iso) {
+            var allowedColors = colors.slice();
             // Получим ссылку на раскрашиваемый регион и на его соседей.
             var region = regions[iso];
             var neighbors = region.properties.neighbors;
@@ -42,18 +46,15 @@ function init() {
             if (region.options.fillColor) {
                 return;
             }
-            // Зададим цвета для раскрашивания.
-            // Обратите внимание, для раскраски более крупных карт нужно задавать пятый цвет.
-            var сolours = ['#F0F075', '#FB6C3F', '#3D4C76', '#49C0B5'];
             // Если у региона есть соседи, то нужно проверить, какие цвета уже заняты.
             if (neighbors.length !== 0) {
                 neighbors.forEach(function (neighbor) {
                     var fillColor = regions[neighbor].options.fillColor;
                     // Если регион раскрашен, то исключаем его цвет.
                     if (fillColor) {
-                        var index = сolours.indexOf(fillColor);
+                        var index = allowedColors.indexOf(fillColor);
                         if (index != -1) {
-                            сolours.splice(index, 1);
+                            allowedColors.splice(index, 1);
                         }
                         // Если регион не раскрашен, то добавляем его в очередь на раскраску.
                     } else if (queue.indexOf(neighbor) === -1) {
@@ -62,7 +63,7 @@ function init() {
                 });
             }
             // Раскрасим регион в первый доступный цвет.
-            region.options.fillColor = сolours[0];
+            region.options.fillColor = allowedColors[0];
         }
 
         for (var iso in regions) {
