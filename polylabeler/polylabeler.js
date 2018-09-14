@@ -6,8 +6,8 @@ ymaps.ready(['polylabel.create']).then(function () {
         };
     var imgLayouts = {
             // В свойстве regionName содержится название региона.
-            label: '<img src="img/{{properties.regionName}}.png" height="50px"/>',
-            hint: ymaps.templateLayoutFactory.createClass('<img src="img/{{properties.regionName}}.png" height="50px"/>')
+            label: '<img src="images/{{properties.regionName}}.png" height="50px"/>',
+            hint: ymaps.templateLayoutFactory.createClass('<img src="images/{{properties.regionName}}.png" height="50px"/>')
         };
     var map = new ymaps.Map('map', {
                 center: [58, 40],
