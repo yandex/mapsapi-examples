@@ -71,7 +71,9 @@ ymaps.modules.define('projection.LambertConformalConic', [
         // Если вам нужно переводить глобальные пиксельные координаты в широту и долготу, необходимо реализовать
         // метод fromGlobalPixels. Это может понадобиться, например, если вы захотите воспользоваться линейкой.
         fromGlobalPixels: function (point, zoom) {
-            console.log('projection.LambertConformalConic#fromGlobalPixels не имплементировано');
+            if (ymaps.meta.debug) {
+                console.log('projection.LambertConformalConic#fromGlobalPixels не имплементировано');
+            }
             return [0, 0];
         },
 
