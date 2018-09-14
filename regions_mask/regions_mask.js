@@ -8,7 +8,7 @@ function init() {
         controls: ['zoomControl']
     }, {
         // Ограничим область карты.
-        restrictMapArea: [[46, 9], [53, 22]]
+        restrictMapArea: [[48, 11], [51.5, 20]]
     });
     map.controls.get('zoomControl').options.set({size: 'small'});
 
