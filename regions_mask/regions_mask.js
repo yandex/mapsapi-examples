@@ -35,9 +35,6 @@ function init() {
             coordRendering: 'straightPath'
         });
 
-        // Добавим многоугольник на карту.
-        map.geoObjects.add(background);
-
         // Найдём страну по её iso коду.
         var region = result.features.filter(function (feature) { return feature.properties.iso3166 == 'CZ'; })[0];
 
@@ -47,5 +44,8 @@ function init() {
         masks.forEach(function(mask){
             background.geometry.insert(1, mask);
         });
+
+        // Добавим многоугольник на карту.
+        map.geoObjects.add(background);
     })
 }
