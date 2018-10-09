@@ -14,9 +14,14 @@
     </style>
 
     <script src="https://yastatic.net/jquery/2.2.3/jquery.min.js"></script>
-    <!-- Обратите внимание, что для добавления на карту geojson файла, эскпортированного из Конструктора карт,
-    необходимо при подключении API передать параметр coordorder со значением longlat.-->
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat"></script>
+    <!--
+        Обратите внимание, что для добавления на карту geojson файла, эскпортированного из Конструктора карт,
+        необходимо при подключении API передать параметр coordorder со значением longlat.
+
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=<ваш API-ключ>"></script>
     <script src="object_manager_geojson.js"></script>
 </head>
 <body>
