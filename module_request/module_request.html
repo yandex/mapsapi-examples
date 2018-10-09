@@ -3,8 +3,13 @@
     <head>
         <title>An example of loading only necessary modules</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <!-- You can use GET for the 'load' parameter to list the necessary Yandex.Maps API modules. -->
-        <script src="https://api-maps.yandex.ru/2.1/?load=Map,control.Button&amp;lang=en_RU" type="text/javascript"></script>
+        <!--
+            You can use GET for the 'load' parameter to list the necessary Yandex.Maps API modules.
+
+            Set your own API-key. Testing key is not valid for other web-sites and services.
+            Get your API-key on the Developer Dashboard: https://developer.tech.yandex.ru/keys/
+        -->
+        <script src="https://api-maps.yandex.ru/2.1/?load=Map,control.Button&amp;lang=en_RU&amp;apikey=<your API-key>" type="text/javascript"></script>
         <script src="module_request.js" type="text/javascript"></script>
 	<style>
             html, body, #map {

@@ -14,9 +14,15 @@
     </style>
 
     <script src="https://yastatic.net/jquery/2.2.3/jquery.min.js"></script>
-    <!-- Note that the object coordinates are set in the order "longitude, latitude". Since the API uses "latitude, longitude" by default,
-    the "coordorder" parameter with the "lotlang" value must be passed when enabling the API.-->
-    <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;coordorder=longlat"></script>
+    <!--
+        Note that the object coordinates are set in the order "longitude, latitude".
+        Since the API uses "latitude, longitude" by default, the "coordorder" parameter with the "longlat" value
+        must be passed when enabling the API.
+
+        Set your own API-key. Testing key is not valid for other web-sites and services.
+        Get your API-key on the Developer Dashboard: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=<your API-key>&amp;coordorder=longlat"></script>
     <script src="object_manager_geojson.js"></script>
 </head>
 <body>
