@@ -6,8 +6,12 @@
         <title>Примеры. Отображение YMapsML, KML на карте</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <!-- Обратите внимание на подключение пакета package.geoXml -->
-        <script src="//api-maps.yandex.ru/2.0/?load=package.map,package.controls,package.geoXml&lang=ru-RU" type="text/javascript"></script>
-        <script src="//yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+        <!--
+            Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+            Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+        -->
+        <script src="https://api-maps.yandex.ru/2.0/?load=package.map,package.controls,package.geoXml&amp;lang=ru-RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+        <script src="https://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     
 	<script src="geoxml_display.js" type="text/javascript"></script>
 </head>

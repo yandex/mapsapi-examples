@@ -5,8 +5,12 @@
 <head>
     <title>Примеры. Добавление на карту кластеризатора меток</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="//yandex.st/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//api-maps.yandex.ru/2.0/?lang=ru-RU&load=package.standard,package.clusters" type="text/javascript"></script>
+    <link href="https://yandex.st/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.0/?lang=ru-RU&amp;load=package.standard,package.clusters&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
 
 	<script src="clusterer_create.js" type="text/javascript"></script>
 </head>
