@@ -43,8 +43,7 @@ function init() {
             feature.id = iso;
             // Получим процент населения, проживающего на данной территории.
             // Данные лежат в файле data.js.
-            var name = feature.properties.name;
-            var population = populationData[name].percent;
+            var population = populationData[iso].percent;
             // Зададим изображение в зависимости от количества проживающего населения.
             for (var i = 0; i < percents.length; i++) {
                 if (population < percents[i]) {
