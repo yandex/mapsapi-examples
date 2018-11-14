@@ -11,14 +11,22 @@ function init() {
         options: {
             // Добавим заголовок панели.
             showHeader: true,
+            // Зададим текст заголовка панели.
             title: 'Вызов такси',
             // Пользователь сможет построить только маршрут на такси.
-            routePanelTypes: {taxi: true}
+            routePanelTypes: {taxi: true},
+            // Зададим ширину панели.
+            maxWidth: '210px'
         }
     });
     // Зададим тип маршрутизации по умолчанию.
     routePanelControl.routePanel.state.set({
-        type: "taxi"
+        // Зададим тип маршрутизации - такси.
+        type: "taxi",
+        // Зададим адрес пункта назначения.
+        to: 'Павелецкий вокзал',
+        // Отключим возможность задавать пункт отправления в поле ввода.
+        toEnabled: false
     });
     var zoomControl = new ymaps.control.ZoomControl({
         options: {
@@ -32,4 +40,6 @@ function init() {
     });
 
     myMap.controls.add(routePanelControl).add(zoomControl);
+    // Зададим местоположение пользователя в качестве начальной точки маршрута.
+    routePanelControl.routePanel.geolocate('from');
 }
