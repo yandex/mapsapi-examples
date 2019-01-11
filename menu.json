@@ -3,7 +3,7 @@
         "Собственное изображение для&nbsp;метки": "icon_customImage",
         "Оптимальное добавление множества меток": "object_manager",
         "Маршрут от&nbsp;точки на&nbsp;карте": "route_panel_control",
-        "Поиск организаций": "search_control_ppo",
+        "Поиск организаций и&nbsp;геопоиск": "search_control_ppo",
         "Расчёт стоимости доставки": "deliveryCalculator",
         "Геоссылка": "geolink",
         "Проверка адреса на&nbsp;попадание в&nbsp;зону доставки": "delivery_zones"
@@ -23,7 +23,7 @@
     },
     "Геообъекты": {
         "Метка": "placemark",
-        "Задание собственного изображения для&nbsp;метки": "icon_customImage",
+        "Собственное изображение для&nbsp;метки": "icon_customImage",
         "Задание изображений для&nbsp;меток с&nbsp;использованием CSS-спрайтов": "icon_sprites",
         "Ломаная": "polyline",
         "Прямоугольник": "rectangle",
@@ -94,7 +94,7 @@
         "Добавление на&nbsp;карту объектов, попадающих в&nbsp;область видимости": "show_visible_objects",
         "Пересечение маршрута с&nbsp;многоугольником на&nbsp;примере МКАД": "route_inside_polygon",
         "Фильтрация объектов на&nbsp;карте по&nbsp;различным признакам": "geoobjects_menu",
-        "Позиционирование карты для&nbsp;показа результатов геокодирования и их кластеризация": "apply_bounds_and_clusterize",
+        "Кластеризация результатов геокодирования средствами&nbsp;geoQuery": "apply_bounds_and_clusterize",
         "Загрузка данных с&nbsp;помощью JQuery и добавление их на&nbsp;карту": "data_load_jquery",
         "Проверка адреса на&nbsp;попадание в&nbsp;зону доставки": "delivery_zones"
     },
@@ -108,7 +108,7 @@
         "Прямое геокодирование": "direct_geocode",
         "Обратное геокодирование": "reverse_geocode",
         "Определение адреса клика на&nbsp;карте с&nbsp;помощью обратного геокодирования": "event_reverse_geocode",
-        "Поиск по&nbsp;организациям": "search_control_ppo",
+        "Поиск организаций и&nbsp;геопоиск": "search_control_ppo",
         "Поиск по&nbsp;своим объектам": "custom_search",
         "Собственное отображение результатов поиска": "custom_search_results",
         "Поисковые подсказки по&nbsp;своим данным": "suggest",
@@ -159,7 +159,7 @@
         "Сравнение маршрутов для&nbsp;GPX и KML": "tracks_compare"
     },
     "ObjectManager": {
-        "Добавление объектов на&nbsp;карту через&nbsp;ObjectManager": "object_manager",
+        "Оптимальное добавление множества меток": "object_manager",
         "Обработка событий на&nbsp;объектах в&nbsp;ObjectManager": "object_manager_events",
         "Открытие балуна на&nbsp;метке в&nbsp;ObjectManager": "object_manager_balloon",
         "Загрузка данных для&nbsp;балуна метки по&nbsp;требованию": "object_manager_balloon_async",
