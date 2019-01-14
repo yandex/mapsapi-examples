@@ -1,4 +1,6 @@
-<div id="references">
+<div id="references" 
+     data-title="Кластеризация результатов геокодирования средствами geoQuery"
+     data-description="Пример, как с помощью API Карт найти адреса и отобразить на карте средствами geoQuery. Объекты можно кластеризовать.">
     <sa href="ready"/>,
     <sa href="Map"/>,
     <sa href="GeoObject"/>,
@@ -7,8 +9,12 @@
     <sa href="geocode"/>
 </div>
 <p>
-    Пример иллюстрирует, как добавлять результаты геокодирования в выборку <sa href="GeoQueryResult"/>.
-    С помощью метода <sa href="GeoQueryResult#applyBoundsToMap">applyBoundsToMap</sa> можно устанавливать
-    область картографирования так, чтобы в нее попадали все объекты выборки.
+    В выборку <sa href="GeoQueryResult"/> можно добавить результаты геокодирования и поиска по адресам. 
+    Далее можно использовать стандартные методы <sa href="GeoQueryResult"/>, например чтобы определить, попадает ли адрес в заданную область,
+    или найти ближайший объект к точке.
+</p>
+<p>
+    Пример показывает, как с помощью <sa href="GeoQueryResult#applyBoundsToMap">applyBoundsToMap</sa> установить границы видимой области карты,
+    чтобы в нее попали все объекты выборки.
     С помощью метода <sa href="GeoQueryResult#clusterize">clusterize</sa> объекты можно добавлять в кластеризатор.
 </p>

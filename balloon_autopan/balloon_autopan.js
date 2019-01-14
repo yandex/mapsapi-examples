@@ -8,7 +8,7 @@ ymaps.ready(function () {
             searchControlProvider: 'yandex#search'
         }),
 
-    // Создание макета балуна на основе Twitter Bootstrap.
+        // Создание макета балуна на основе Twitter Bootstrap.
         MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
             '<div class="popover top">' +
                 '<a class="close" href="#">&times;</a>' +
@@ -125,13 +125,13 @@ ymaps.ready(function () {
                 }
             }),
 
-    // Создание вложенного макета содержимого балуна.
+        // Создание вложенного макета содержимого балуна.
         MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
             '<h3 class="popover-title">$[properties.balloonHeader]</h3>' +
                 '<div class="popover-content">$[properties.balloonContent]</div>'
         ),
 
-    // Создание метки с пользовательским макетом балуна.
+        // Создание метки с пользовательским макетом балуна.
         myPlacemark = window.myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
             balloonHeader: 'Заголовок балуна',
             balloonContent: 'Контент балуна'

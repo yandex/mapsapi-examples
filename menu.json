@@ -1,62 +1,68 @@
 {
     "Популярные примеры": {
-        "Собственное изображение для метки": "icon_customImage",
+        "Добавление метки с&nbsp;собственным изображением": "icon_customImage",
         "Оптимальное добавление множества меток": "object_manager",
-        "Маршрут от точки на карте": "route_panel_control",
-        "Поиск организаций": "search_control_ppo",
+        "Маршрут от&nbsp;точки на&nbsp;карте": "route_panel_control",
+        "Поиск организаций и&nbsp;геопоиск": "search_control_ppo",
         "Расчёт стоимости доставки": "deliveryCalculator",
         "Геоссылка": "geolink",
-        "Проверка адреса на попадание в зону доставки": "delivery_zones"
+        "Проверка адреса на&nbsp;попадание в&nbsp;зону доставки": "delivery_zones"
     },
     "Карта": {
         "Создание и удаление": "mapbasics",
-        "Размещение в скрытом контейнере": "hiddendiv",
+        "Размещение в&nbsp;скрытом контейнере": "hiddendiv",
         "Основные параметры": "mapparams",
-        "Создание карты по требованию": "request_map",
+        "Использование опции ограничения области просмотра карты": "restrict_map_area",
+        "Создание карты по&nbsp;требованию": "request_map",
         "Изменение размера карты": "fillcontainer",
         "Создание собственной карты": "custom_map",
         "Менеджер отступов": "margin_manager",
         "Полярная азимутальная эквидистантная проекция": "azimuthal_map",
-        "Изменение языка карты": "language"
+        "Изменение языка карты": "language",
+        "Контурная карта России без искажений": "lambert_map",
+        "Вырезать часть карты": "regions_mask"
     },
     "Геообъекты": {
-        "Метка": "placemark",
-        "Задание собственного изображения для метки": "icon_customImage",
-        "Задание изображений для меток с использованием CSS-спрайтов": "icon_sprites",
+        "Добавление метки на карту": "placemark",
+        "Добавление метки с&nbsp;собственным изображением": "icon_customImage",
+        "Задание изображений для&nbsp;меток с&nbsp;использованием CSS-спрайтов": "icon_sprites",
         "Ломаная": "polyline",
         "Прямоугольник": "rectangle",
         "Многоугольник": "polygon",
         "Заливка многоугольника изображением": "polygon_with_image",
-        "Задание изображений для редактора ломаной": "editor_icon_layout",
+        "Задание изображений для&nbsp;редактора ломаной": "editor_icon_layout",
         "Круг": "circle",
         "Редактор круга": "circleEditor",
         "Стрелка на карте": "arrow",
         "Множественная обводка": "multystroke",
-        "Добавление геообъектов в коллекцию": "geo_object_collection",
+        "Добавление геообъектов в&nbsp;коллекцию": "geo_object_collection",
         "Редактор ломаной": "polylineEditor",
         "Редактор многоугольника": "polygonEditor",
+        "Редактор прямоугольника": "rectangle_editor",
         "Вывод списка объектов карты": "object_list",
         "События геообъекта": "geoobject_events",
         "Изменение параметров метки": "geoobject_contextmenu",
-        "Смена значка метки при наведении": "event_rollover",
+        "Смена значка метки при&nbsp;наведении": "event_rollover",
         "Задание фигуры активной области HTML макету метки": "placemark_shape",
-        "Настройка размера метки на разных зумах": "scalable_placemarks",
+        "Настройка размера метки на&nbsp;разных зумах": "scalable_placemarks",
         "Подписи полигонов": "polylabeler",
         "Анимация линии": "polyline_animation"
     },
     "Балун и хинт": {
         "Балун и хинт": "balloon_and_hint",
-        "Балун, выходящий за пределы карты": "balloon_out_of_map",
+        "Балун, выходящий за&nbsp;пределы карты": "balloon_out_of_map",
         "Динамическая загрузка содержимого балуна": "balloon_ajax",
         "Метка и балун-панель": "placemark_balloon",
         "Макет хинта метки": "placemark_hint_layout",
-        "Макет балуна метки": "placemark_balloon_layout",
-        "Пользовательский макет балуна с поддержкой автопозиционирования": "balloon_autopan"
+        "Настройка макета балуна метки": "placemark_balloon_layout",
+        "Пользовательский макет балуна с&nbsp;поддержкой автопозиционирования": "balloon_autopan",
+        "Собственный html-контент балуна метки": "balloon_html",
+        "Боковая панель на карте": "sidebar"
     },
     "Элементы управления": {
         "Стандартный набор элементов управления": "default_controls",
         "Добавление отдельных элементов управления": "customSet_controls",
-        "Добавление кнопки на карту": "button",
+        "Добавление кнопки на&nbsp;карту": "button",
         "Произвольный макет кнопки": "button_layout",
         "Произвольный макет элемента изменения масштаба": "zoom_layout",
         "Произвольный макет выпадающего списка": "list_box_layout",
@@ -66,116 +72,119 @@
         "Слой активных областей": "hotspot_layer"
     },
     "Регионы": {
-        "Пример работы модуля \"Регионы\"": "regions"
+        "Добавление стран или регионов страны на карту": "regions",
+        "Карта регионов России": "regions_districts",
+        "Раскраска карты регионов (политическая&nbsp;карта)": "regions_colors",
+        "Выделить регионы штриховкой": "regions_pattern"
     },
     "Кластеризация": {
         "Создание кластеризатора": "clusterer_create",
-        "Создание кластеризатора с произвольными иконками": "clusterer_custom_icon",
-        "Изменение цвета кластеров и меток при наведении": "clusterer_icon_hover",
-        "Открытие балуна кластера с выбранным объектом": "clusterer_balloon_open",
+        "Создание кластеризатора с&nbsp;произвольными иконками": "clusterer_custom_icon",
+        "Изменение цвета кластеров и меток при&nbsp;наведении": "clusterer_icon_hover",
+        "Открытие балуна кластера с&nbsp;выбранным объектом": "clusterer_balloon_open",
         "Изменение размера ячейки кластеризатора": "clusterer_gridSize",
         "Макета балуна кластера \"Две колонки\"": "cluster_balloon_twoColumns",
         "Макет балуна кластера \"Аккордеон\"": "cluster_balloon_accordion",
         "Макета балуна кластера \"Карусель\"": "cluster_balloon_carousel",
         "Собственный макет балуна кластера": "cluster_custom_balloon_content_layout",
-        "Макет в виде круговой диаграммы": "clusterer_pie_chart"
+        "Макет в&nbsp;виде круговой диаграммы": "clusterer_pie_chart"
     },
     "GeoQuery": {
-        "Попадание точек в окружность": "placemarks_in_circle",
+        "Попадание точек в&nbsp;окружность": "placemarks_in_circle",
         "Поиск ближайшего объекта": "find_closest_object",
-        "Добавление на карту объектов, попадающих в область видимости": "show_visible_objects",
-        "Пересечение маршрута с многоугольником на примере МКАД": "route_inside_polygon",
-        "Фильтрация объектов на карте по различным признакам": "geoobjects_menu",
-        "Позиционирование карты для показа результатов геокодирования и их кластеризация": "apply_bounds_and_clusterize",
-        "Загрузка данных с помощью JQuery и добавление их на карту": "data_load_jquery",
-        "Проверка адреса на попадание в зону доставки": "delivery_zones"
+        "Добавление на&nbsp;карту объектов, попадающих в&nbsp;область видимости": "show_visible_objects",
+        "Пересечение маршрута с&nbsp;многоугольником на&nbsp;примере МКАД": "route_inside_polygon",
+        "Фильтрация объектов на&nbsp;карте по&nbsp;различным признакам": "geoobjects_menu",
+        "Кластеризация результатов геокодирования средствами&nbsp;geoQuery": "apply_bounds_and_clusterize",
+        "Загрузка данных с&nbsp;помощью JQuery и добавление их на&nbsp;карту": "data_load_jquery",
+        "Проверка адреса на&nbsp;попадание в&nbsp;зону доставки": "delivery_zones"
     },
     "Поведения и события": {
         "Поведения карты": "behaviors",
-        "Подписка на события dom-элемента": "dom_event_manager",
+        "Подписка на&nbsp;события dom-элемента": "dom_event_manager",
         "Свойства события. Координаты щелчка": "event_properties",
         "Использование драггера": "dragger"
     },
     "Поиск по карте": {
         "Прямое геокодирование": "direct_geocode",
-        "Обратное геокодирование": "reverse_geocode",
-        "Определение адреса клика на карте с помощью обратного геокодирования": "event_reverse_geocode",
-        "Поиск по организациям": "search_control_ppo",
-        "Поиск по своим объектам": "custom_search",
+        "Поиск по координатам — обратное геокодирование": "reverse_geocode",
+        "Определение адреса клика на&nbsp;карте с&nbsp;помощью обратного геокодирования": "event_reverse_geocode",
+        "Поиск организаций и&nbsp;геопоиск": "search_control_ppo",
+        "Поиск по&nbsp;своим объектам": "custom_search",
         "Собственное отображение результатов поиска": "custom_search_results",
-        "Поисковые подсказки по своим данным": "suggest",
-        "Проверка при вводе адреса доставки": "input_validation"
+        "Поисковые подсказки по&nbsp;своим данным": "suggest",
+        "Проверка при&nbsp;вводе адреса доставки": "input_validation"
     },
     "Пробки": {
         "Элемент управления \"Пробки\"": "traffic_control",
-        "Слой пробок на карте без добавления кнопки": "traffic_provider"
+        "Слой пробок на&nbsp;карте без&nbsp;добавления кнопки": "traffic_provider"
     },
     "Местоположение пользователя": {
         "Определение местоположения пользователя": "geolocation",
         "Добавление кнопки \"Геолокация\"": "geolocation_control",
-        "Создание карты с местоположением пользователя": "geolocated_map",
-        "Маршрут от местоположения пользователя": "geolocated_multiroute"
+        "Создание карты с&nbsp;местоположением пользователя": "geolocated_map",
+        "Маршрут от&nbsp;местоположения пользователя": "geolocated_multiroute"
     },
     "Маршрутизация": {
         "Построение автомобильного мультимаршрута": "multiroute_driving",
-        "Построение мультимаршрута на общественном транспорте": "multiroute_masstransit",
+        "Построение мультимаршрута на&nbsp;общественном транспорте": "multiroute_masstransit",
         "Построение пешеходного мультимаршрута": "multiroute_pedestrian",
         "Настройка отображения мультимаршрута": "multiroute_view_options",
         "Задание собственного макета балуна мультимаршрута": "multiroute_custom_balloon_layout",
-        "Работа с данными и событиями мультимаршрута": "multiroute_view_access",
-        "Работа с данными и событиями модели мультимаршрута": "multiroute_data_access",
+        "Работа с&nbsp;данными и событиями мультимаршрута": "multiroute_view_access",
+        "Работа с&nbsp;данными и событиями модели мультимаршрута": "multiroute_data_access",
         "Редактирование мультимаршрута": "multiroute_edit",
         "Получение сегментов маршрута": "router",
         "Редактирование маршрута": "router_editor",
         "Расчёт стоимости доставки": "deliveryCalculator",
-        "Маршрут от точки на карте": "route_panel_control",
+        "Маршрут от&nbsp;точки на&nbsp;карте": "route_panel_control",
         "Добавить вызов такси": "multiroute_taxi"
     },
     "YMapsML": {
         "Изменение типа карты": "ymapsml_maptype",
-        "Добавление метки на карту": "ymapsml_simpleobject",
+        "Добавление метки на&nbsp;карту": "ymapsml_simpleobject",
         "Смена значка метки": "ymapsml_styleobject",
         "Ломаная":  "ymapsml_linestring",
         "Замкнутая ломаная": "ymapsml_linearring",
         "Многоугольник": "ymapsml_polygon",
         "Задание стиля объектов": "ymapsml_setstyle",
         "Наследование стилей": "ymapsml_parentstyle",
-        "Подгрузка стилей из отдельного файла": "ymapsml_loadstyles",
+        "Подгрузка стилей из&nbsp;отдельного файла": "ymapsml_loadstyles",
         "Изменение шаблона содержимого балуна": "ymapsml_ballooncontentstyle",
         "Отображение результатов геокодирования": "ymapsml_showhttpgeocoderresult",
-        "Создание меню для отображения групп объектов": "ymapsml_menu",
-        "Преобразование в YMapsML из GeoRSS": "ymapsml_georss"
+        "Создание меню для&nbsp;отображения групп объектов": "ymapsml_menu",
+        "Преобразование в&nbsp;YMapsML из&nbsp;GeoRSS": "ymapsml_georss"
     },
     "GeoXML": {
         "Отображение GPX и KML": "geoxml_display",
-        "Сравнение маршрутов для GPX и KML": "tracks_compare"
+        "Сравнение маршрутов для&nbsp;GPX и KML": "tracks_compare"
     },
     "ObjectManager": {
-        "Добавление объектов на карту через ObjectManager": "object_manager",
-        "Обработка событий на объектах в ObjectManager": "object_manager_events",
-        "Открытие балуна на метке в ObjectManager": "object_manager_balloon",
-        "Загрузка данных для балуна метки по требованию": "object_manager_balloon_async",
-        "Добавление на карту объектов с разной геометрией": "object_manager_spatial",
-        "Добавление в ObjectManager меток с разнообразными опциями и данными": "object_manager_options",
-        "Добавление на карту GeoJSON файла из Конструктора карт": "object_manager_geojson",
+        "Оптимальное добавление множества меток": "object_manager",
+        "Обработка событий на&nbsp;объектах в&nbsp;ObjectManager": "object_manager_events",
+        "Открытие балуна на&nbsp;метке в&nbsp;ObjectManager": "object_manager_balloon",
+        "Загрузка данных для&nbsp;балуна метки по&nbsp;требованию": "object_manager_balloon_async",
+        "Добавление на&nbsp;карту объектов с&nbsp;разной геометрией": "object_manager_spatial",
+        "Добавление в&nbsp;ObjectManager меток с&nbsp;разнообразными опциями и данными": "object_manager_options",
+        "Добавление на&nbsp;карту GeoJSON файла из&nbsp;Конструктора карт": "object_manager_geojson",
         "Фильтрация объектов": "object_manager_filter",
         "Динамическая загрузка содержимого балуна": "om_balloon_ajax"
     },
     "Модульная система": {
-        "Загрузка определенных модулей при инициализации": "load_modules",
-        "Загрузка модуля по требованию": "module_request",
+        "Загрузка определенных модулей при&nbsp;инициализации": "load_modules",
+        "Загрузка модуля по&nbsp;требованию": "module_request",
         "Создание своего модуля": "custom_module"
     },
     "Панорамы": {
-        "Вставка на страницу панорам Яндекса": "panorama_basics",
+        "Вставка на&nbsp;страницу панорам Яндекса": "panorama_basics",
         "Создание своей панорамы": "panorama_custom",
-        "Добавление маркеров на панораму": "panorama_with_markers",
+        "Добавление маркеров на&nbsp;панораму": "panorama_with_markers",
         "Создание переходов между своими панорамами": "panorama_with_connections",
-        "Отображение панорамы в балуне": "panorama_in_balloon",
-        "Обработка клика на маркере панорамы": "panorama_events"
+        "Отображение панорамы в&nbsp;балуне": "panorama_in_balloon",
+        "Обработка клика на&nbsp;маркере панорамы": "panorama_events"
     },
     "Внешние модули": {
-        "Тепловая карта с камерами видеонаблюдения": "security_cameras",
+        "Тепловая карта с&nbsp;камерами видеонаблюдения": "security_cameras",
         "Расчет площади многоугольника": "mapsapi-area",
         "Подписи полигонов": "polylabeler"
     }

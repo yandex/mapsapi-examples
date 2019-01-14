@@ -38,7 +38,7 @@ function init() {
                 comparableGeometry = comparableTrack.geometry,
             // Счётчик количества точек, которые не совпали с запланированным маршрутом.
                 diffPoints = 0;
-            // Увеличим толщину и цвет путей и добавим их на карту.
+            // Изменим толщину и цвет путей, после чего добавим их на карту.
             originalTrack.options.set({strokeWidth: 3, strokeColor: '#4585E6'});
             comparableTrack.options.set({strokeWidth: 3, strokeColor: '#4585E6'});
             myMap.geoObjects.add(originalTrack).add(comparableTrack);
@@ -56,13 +56,15 @@ function init() {
                     isPreviousNotEqual = true;
                     // Пропускаем одну итерацию в случае несовпадения начальных точек.
                     if (i === 0) continue;
-                    // Добавим участок пути от предыдущей точки до текущей (которая не совпадает с запланированным маршрутом) в коллекцию.
+                    // Добавим в коллекцию участок пути от предыдущей точки до текущей точки, которая не лежит
+                    // на запланированном маршруте.
                     collection.add(new ymaps.Polyline([
                         comparableGeometry.get(i - 1),
                         comparableGeometry.get(i)
                     ]));
                 } else if (isPreviousNotEqual) {
-                    // Добавим участок пути от предыдущей точки (которая не совпадает с запланированным маршрутом) до текущей в коллекцию.
+                    // Добавим в коллекцию участок пути от предыдущей точки, которая не лежит на запланированном маршруте,
+                    // до текущей точки.
                     collection.add(new ymaps.Polyline([
                         comparableGeometry.get(i - 1),
                         comparableGeometry.get(i)
