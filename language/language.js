@@ -11,7 +11,7 @@ function init(ymaps) {
 }
 
 window.onload = function () {
-    // Получим ссылки на элементы с тегом 'head' и 'select'.
+    // Получим ссылки на элементы с тегом 'head' и id 'language'.
     var head = document.getElementsByTagName('head')[0];
     var select = document.getElementById('language');
     select.createMap = function () {
