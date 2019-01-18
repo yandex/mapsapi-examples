@@ -18,13 +18,13 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
 
     var currentIndex = 0;
 
-    // Создадим кнопку выбора типа рисуемой фигуры.
+    // Создадим кнопку выбора типа рисуемого контура.
     var button = new ymaps.control.Button({data: {content: 'Polygon / Polyline'}, options: {maxWidth: 150}});
     map.controls.add(button);
 
     // Подпишемся на событие нажатия кнопки мыши.
     map.events.add('mousedown', function (e) {
-        // Если кнопка мыши была нажата с зажатой клавишей "alt", то начинаем рисование фигуры.
+        // Если кнопка мыши была нажата с зажатой клавишей "alt", то начинаем рисование контура.
         if (e.get('altKey')) {
             if (currentIndex == styles.length - 1) {
                 currentIndex = 0;
@@ -39,7 +39,7 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
     map.events.add('mouseup', function (e) {
         if (paintProcess) {
 
-            // Получаем координаты отрисованной фигуры.
+            // Получаем координаты отрисованного контура.
             var coordinates = paintProcess.finishPaintingAt(e);
             paintProcess = null;
             // В зависимости от состояния кнопки добавляем на карту многоугольник или линию с полученными координатам.

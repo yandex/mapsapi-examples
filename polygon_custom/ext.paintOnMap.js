@@ -22,7 +22,7 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
      * @function
      * @name ymaps.ext.paintOnMap.PaintingProcess#finishPaintingAt
      * @param {Number[]|ymaps.Event} [positionOrEvent] Координаты точки в пикселях относительно верхнего левого угла
-     * карты в которых рисование должно закончиться.
+     * карты, в которых рисование должно закончиться.
      * @return {Number[]} Координаты.
      */
 
@@ -31,11 +31,11 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
      * @name ymaps.ext.paintOnMap
      * @param {ymaps.Map} map
      * @param {Number[]|ymaps.Event} [positionOrEvent] Координаты точки в пикселях относительно верхнего левого угла
-     * карты в которых рисование должно закончиться.
+     * карты, в которых рисование должно закончиться.
      * @param {Object} [config]
-     * @param {String[]|null} [config.unwantedBehaviors] Список поведений карты которые должны быть выключены во время
+     * @param {String[]|null} [config.unwantedBehaviors] Список поведений карты, которые должны быть выключены во время
      * рисования. Перетаскивание карты и масштабирование карты колесом мыши выключены по-умолчанию.
-     * @param {Object} [config.style] Стили такие же как в ymaps.Polygon или ymaps.Polyline.
+     * @param {Object} [config.style] Стили такие же, как в ymaps.Polygon или ymaps.Polyline.
      * @param {String} [config.style.strokeColor='#0000ff'] Цвет линии или обводки.
      * @param {Number} [config.style.strokeWidth=1] Толщина линии или обводки.
      * @param {Number} [config.style.strokeOpacity=1] Прозрачность линии или обводки.
