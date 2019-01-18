@@ -1,7 +1,7 @@
 ymaps.ready(function () {
     var map = new ymaps.Map('map', {
-        center: [55.755249, 37.617437],
-        zoom: 4
+        center: [55.755, 37.617],
+        zoom: 10
     });
     // Создадим макет метки.
     var animatedLayout = ymaps.templateLayoutFactory.createClass(
@@ -39,7 +39,7 @@ ymaps.ready(function () {
             }
         }
     );
-    map.geoObjects.add(new ymaps.Placemark([55.755249, 36.317437], {}, {
+    map.geoObjects.add(new ymaps.Placemark([55.755, 37.617], {}, {
         iconLayout: animatedLayout,
         hasBalloon: false
     }));
