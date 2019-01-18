@@ -17,14 +17,14 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
      * @interface ymaps.ext.paintOnMap.PaintingProcess
      */
 
-     /**
-      * Отключает режим рисования.
-      * @function
-      * @name ymaps.ext.paintOnMap.PaintingProcess#finishPaintingAt
-      * @param {Number[]|ymaps.Event} [positionOrEvent] Координаты точки в пикселях относительно верхнего левого угла
-      * карты в которых рисование должно закончиться.
-      * @return {Number[]} Координаты.
-      */
+    /**
+     * Отключает режим рисования.
+     * @function
+     * @name ymaps.ext.paintOnMap.PaintingProcess#finishPaintingAt
+     * @param {Number[]|ymaps.Event} [positionOrEvent] Координаты точки в пикселях относительно верхнего левого угла
+     * карты в которых рисование должно закончиться.
+     * @return {Number[]} Координаты.
+     */
 
     /**
      * Включает режим рисования.
