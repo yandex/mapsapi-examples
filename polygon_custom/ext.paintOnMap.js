@@ -6,7 +6,7 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
     var EVENTS_PANE_ZINDEX = 500;
 
     var DEFAULT_UNWANTED_BEHAVIORS = ['drag', 'scrollZoom'];
-    var DEFAULT_STYLE = { strokeColor: '#0000ff', strokeWidth: 1, strokeOpacity: 1 };
+    var DEFAULT_STYLE = {strokeColor: '#0000ff', strokeWidth: 1, strokeOpacity: 1};
     var DEFAULT_TOLERANCE = 16;
 
     var badFinishPaintingCall = function () {
@@ -50,7 +50,7 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
             DEFAULT_UNWANTED_BEHAVIORS : config.unwantedBehaviors;
 
         var pane = new EventsPane(map, {
-            css: { position: 'absolute', width: '100%', height: '100%' },
+            css: {position: 'absolute', width: '100%', height: '100%'},
             zIndex: EVENTS_PANE_ZINDEX + 50,
             transparent: true
         });
@@ -130,13 +130,13 @@ ymaps.modules.define('ext.paintOnMap', ['meta', 'util.extend', 'pane.EventsPane'
         return paintingProcess;
     }
 
-    function toPosition (positionOrEvent) {
+    function toPosition(positionOrEvent) {
         return positionOrEvent instanceof Event ?
             [positionOrEvent.get('offsetX'), positionOrEvent.get('offsetY')] :
             positionOrEvent;
     }
 
-    function simplify (coordinates, tolerance) {
+    function simplify(coordinates, tolerance) {
         var toleranceSquared = tolerance * tolerance;
         var simplified = [coordinates[0]];
 

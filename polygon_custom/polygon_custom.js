@@ -9,21 +9,21 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
 
     // Опции многоугольника или линии.
     var styles = [
-        { strokeColor: '#ff00ff', strokeOpacity: 0.7, strokeWidth: 3, fillColor: '#ff00ff', fillOpacity: 0.4 },
-        { strokeColor: '#ff0000', strokeOpacity: 0.6, strokeWidth: 6, fillColor: '#ff0000', fillOpacity: 0.3 },
-        { strokeColor: '#00ff00', strokeOpacity: 0.5, strokeWidth: 3, fillColor: '#00ff00', fillOpacity: 0.2 },
-        { strokeColor: '#0000ff', strokeOpacity: 0.8, strokeWidth: 5, fillColor: '#0000ff', fillOpacity: 0.5 },
-        { strokeColor: '#000000', strokeOpacity: 0.6, strokeWidth: 8, fillColor: '#000000', fillOpacity: 0.3 },
+        {strokeColor: '#ff00ff', strokeOpacity: 0.7, strokeWidth: 3, fillColor: '#ff00ff', fillOpacity: 0.4},
+        {strokeColor: '#ff0000', strokeOpacity: 0.6, strokeWidth: 6, fillColor: '#ff0000', fillOpacity: 0.3},
+        {strokeColor: '#00ff00', strokeOpacity: 0.5, strokeWidth: 3, fillColor: '#00ff00', fillOpacity: 0.2},
+        {strokeColor: '#0000ff', strokeOpacity: 0.8, strokeWidth: 5, fillColor: '#0000ff', fillOpacity: 0.5},
+        {strokeColor: '#000000', strokeOpacity: 0.6, strokeWidth: 8, fillColor: '#000000', fillOpacity: 0.3},
     ];
 
     var currentIndex = 0;
 
     // Создадим кнопку выбора типа рисуемой фигуры.
-    var button = new ymaps.control.Button({ data: { content: 'Polygon / Polyline' }, options: { maxWidth: 150 } });
+    var button = new ymaps.control.Button({data: {content: 'Polygon / Polyline'}, options: {maxWidth: 150}});
     map.controls.add(button);
 
     // Подпишемся на событие нажатия кнопки мыши.
-    map.events.add('mousedown', function(e) {
+    map.events.add('mousedown', function (e) {
         // Если кнопка мыши была нажата с зажатой клавишей "alt", то начинаем рисование фигуры.
         if (e.get('altKey')) {
             if (currentIndex == styles.length - 1) {
@@ -31,12 +31,12 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
             } else {
                 currentIndex += 1;
             }
-            paintProcess = ymaps.ext.paintOnMap(map, e, { style: styles[currentIndex] });
+            paintProcess = ymaps.ext.paintOnMap(map, e, {style: styles[currentIndex]});
         }
     });
 
     // Подпишемся на событие отпускания кнопки мыши.
-    map.events.add('mouseup', function(e) {
+    map.events.add('mouseup', function (e) {
         if (paintProcess) {
 
             // Получаем координаты отрисованной фигуры.
