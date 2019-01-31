@@ -12,8 +12,8 @@ ymaps.ready(function () {
                 var element = this.getParentElement().getElementsByClassName('placemark')[0];
                 // Если метка выбрана, то увеличим её размер.
                 var size = this.isActive ? 60 : 34;
-                // По умолчанию при задании своего HTML макета фигура активной области не задается,
-                // и её нужно задать самостоятельно.
+                // При задании для метки своего HTML макета, фигуру активной области
+                // необходимо задать самостоятельно - иначе метка будет неинтерактивной.
                 // Создадим фигуру активной области "Круг".
                 var smallShape = {type: 'Circle', coordinates: [0, 0], radius: size / 2};
                 var bigShape = {type: 'Circle', coordinates: [0, -30], radius: size / 2};

@@ -18,7 +18,7 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
 
     var currentIndex = 0;
 
-    // Создадим кнопку выбора типа рисуемого контура.
+    // Создадим кнопку для выбора типа рисуемого контура.
     var button = new ymaps.control.Button({data: {content: 'Polygon / Polyline'}, options: {maxWidth: 150}});
     map.controls.add(button);
 
@@ -42,7 +42,7 @@ ymaps.ready(['ext.paintOnMap']).then(function () {
             // Получаем координаты отрисованного контура.
             var coordinates = paintProcess.finishPaintingAt(e);
             paintProcess = null;
-            // В зависимости от состояния кнопки добавляем на карту многоугольник или линию с полученными координатам.
+            // В зависимости от состояния кнопки добавляем на карту многоугольник или линию с полученными координатами.
             var geoObject = button.isSelected() ?
                 new ymaps.Polyline(coordinates, {}, styles[currentIndex]) :
                 new ymaps.Polygon([coordinates], {}, styles[currentIndex]);
