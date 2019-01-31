@@ -46,7 +46,9 @@
         "Задание фигуры активной области HTML макету метки": "placemark_shape",
         "Настройка размера метки на&nbsp;разных зумах": "scalable_placemarks",
         "Подписи полигонов": "polylabeler",
-        "Анимация линии": "polyline_animation"
+        "Анимация линии": "polyline_animation",
+        "Нарисовать произвольную область на карте": "polygon_custom",
+        "Анимация метки": "placemark_layout"
     },
     "Балун и хинт": {
         "Балун и хинт": "balloon_and_hint",
