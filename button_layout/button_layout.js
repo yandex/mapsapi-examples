@@ -11,7 +11,7 @@ function init() {
      * The button layout should display the 'data.content' field 
      * and change depending on whether the button was clicked or not.
      * The current size (small, medium, large) is calculated from the value of the 'maxWidth' option
-     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
+     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
       */
         ButtonLayout = ymaps.templateLayoutFactory.createClass([
             '<div title="{{ data.title }}" class="my-button ',

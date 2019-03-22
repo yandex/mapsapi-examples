@@ -1,7 +1,7 @@
 function init () {
     /**
      * Creating a multiroute.
-     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
       */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [

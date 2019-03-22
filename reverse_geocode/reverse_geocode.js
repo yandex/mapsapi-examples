@@ -12,7 +12,7 @@ function init() {
     ymaps.geocode(myMap.getCenter(), {
         /**
          * Request options
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/geocode.xml
           */
         // Only looking for a metro station.
         kind: 'metro',

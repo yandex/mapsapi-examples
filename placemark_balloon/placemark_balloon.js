@@ -16,7 +16,7 @@ ymaps.ready(function () {
             '<br/>',
             'Address: 119021, Moscow, Lva Tolstogo Street, 16',
             '<br/>',
-            'For more information, see: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>',
+            'For more information, see: <a href="https://company.yandex.com">https://company.yandex.com</a>',
             '</address>'
         ].join('')
     }, {

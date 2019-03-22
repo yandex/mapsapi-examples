@@ -12,7 +12,7 @@ function init () {
          * кнопка или нет.
          * Текущий размер (small, medium, large) рассчитывается
          * исходя из значения опции maxWidth
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/control.Button.xml#param-parameters
          */
         ButtonLayout = ymaps.templateLayoutFactory.createClass([
             '<div alt="{{ data.title }}" class="my-button ',

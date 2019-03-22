@@ -18,7 +18,7 @@ function init () {
 
     /**
      * Control layout.
-     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
+     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
      * @class
      * @name ControlLayout
       */
@@ -31,7 +31,7 @@ function init () {
 
                 /**
                  * Adding a handler for clicks on the control.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/domEvent.manager.xml
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/domEvent.manager.xml
                   */
                 this._layoutListeners = ymaps.domEvent.manager.group(this.getElement())
                     .add('click', this._onClick, this);
@@ -111,7 +111,7 @@ function init () {
 
         /**
          * Creating the layout of the control.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#constructor-summary
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#constructor-summary
           */
         this._layout = new ControlLayout({
             options: this.options,
@@ -150,7 +150,7 @@ function init () {
                     /**
                      * Getting from the parent the container that the control must be added to, and
                      * setting the parent element for the layout.
-                     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml#getChildElement
+                     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/control.Manager.xml#getChildElement
                      *                       */
                     parent.getChildElement(this).then(callback, this);
                 } else {

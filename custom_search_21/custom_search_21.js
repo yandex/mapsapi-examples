@@ -13,7 +13,7 @@ function init () {
      * Осуществляет поиск геообъектов в по массиву points.
      * Реализует интерфейс IGeocodeProvider.
      * @name CustomSearchProvider
-     * @param  {Object[]} points Array of points. @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IGeocodeProvider.xml
+     * @param  {Object[]} points Array of points. @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/IGeocodeProvider.xml
      *      *
      */
     function CustomSearchProvider (points) {
@@ -133,7 +133,7 @@ function init () {
 
     /**
      * Creating an instance of the ymaps.control.SearchControl class.
-     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/control.SearchControl.xml
+     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/control.SearchControl.xml
       */
     var mySearchControl = new ymaps.control.SearchControl({
         options: {

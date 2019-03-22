@@ -1,7 +1,7 @@
 function init () {
     /**
      * Creating a multiroute.
-     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+     * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
       */
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: ["Moscow", "Tver"]
@@ -29,7 +29,7 @@ buttonEditor.events.add("select", function () {
          * dragViaPoints - Allows dragging existing throughpoints. Default value: true.
          * removeViaPoints - Allows deleting throughpoints by double-clicking them. Default value: true.
          * addMidPoints - Allows adding intermediate points or waypoints by dragging the marker that appears when pointing the mouse at the active route. The type of points to add is set by the midPointsType option. Default value: true.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml#editor
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml#editor
           */
         multiRoute.editor.start({
             addWayPoints: true,

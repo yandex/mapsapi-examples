@@ -6,7 +6,7 @@ function init () {
         }),
         /**
          * Creating your own layout using the layout factory.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/templateLayoutFactory.xml
           */
         balloonLayout = ymaps.templateLayoutFactory.createClass(
                 "<div class='my-balloon'>" +
@@ -23,7 +23,7 @@ function init () {
         ),
         /**
          * Creating a multiroute.
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
           */
         multiRoute = new ymaps.multiRouter.MultiRoute({
             referencePoints: [
@@ -39,7 +39,7 @@ function init () {
         }, {
             /**
              * Geo object layout.
-             * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#param-options
+             * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/GeoObject.xml#param-options
               */
             balloonLayout: balloonLayout,
             // Disabling the panel mode for the balloon.

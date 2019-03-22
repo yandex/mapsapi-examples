@@ -100,7 +100,7 @@ function init() {
     function customizeSecondPoint() {
         /**
          * Waiting for the multiroute data to load and the views of the waypoints to be created.
-         * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel-docpage/#event-requestsuccess
+         * @see https://tech.yandex.com/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel-docpage/#event-requestsuccess
           */
         multiRoute.model.events.once("requestsuccess", function () {
             var yandexWayPoint = multiRoute.getWayPoints().get(1);

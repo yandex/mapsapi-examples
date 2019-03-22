@@ -10,7 +10,7 @@ function init() {
     ymaps.geocode('Nizhny Novgorod', {
         /**
          * Request options
-         * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
+         * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/geocode.xml
           */
         /**
          * Sorting the results from the center of the map window
@@ -46,22 +46,22 @@ function init() {
             console.log('All the geo object data: ', firstGeoObject.properties.getAll());
             /**
              * The metadata of the request and geocoder response.
-             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
+             * @see https://api.yandex.com/maps/doc/geocoder/desc/reference/GeocoderResponseMetaData.xml
               */
             console.log('The metadata of the geocoder response: ', res.metaData);
             /**
              * Metadata of the geocoder returned for the found object.
-             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
+             * @see https://api.yandex.com/maps/doc/geocoder/desc/reference/GeocoderMetaData.xml
               */
             console.log('Geocoder metadata: ', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData'));
             /**
              * The accuracy of the response (precision) is only returned for houses.
-             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/precision.xml
+             * @see https://api.yandex.com/maps/doc/geocoder/desc/reference/precision.xml
               */
             console.log('precision', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.precision'));
             /**
              * The type of found object (kind).
-             * @see https://api.yandex.ru/maps/doc/geocoder/desc/reference/kind.xml
+             * @see https://api.yandex.com/maps/doc/geocoder/desc/reference/kind.xml
               */
             console.log('Type of geo object: %s', firstGeoObject.properties.get('metaDataProperty.GeocoderMetaData.kind'));
             console.log('Object name: %s', firstGeoObject.properties.get('name'));
@@ -69,7 +69,7 @@ function init() {
             console.log('Full object description: %s', firstGeoObject.properties.get('text'));
             /**
             * Direct methods for working with the geocoding results.
-            * @see https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
+            * @see https://tech.yandex.com/maps/doc/jsapi/2.1/ref/reference/GeocodeResult-docpage/#getAddressLine
              */
             console.log('\nState: %s', firstGeoObject.getCountry());
             console.log('Municipality: %s', firstGeoObject.getLocalities().join(', '));

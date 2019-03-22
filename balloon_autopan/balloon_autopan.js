@@ -19,7 +19,7 @@ ymaps.ready(function () {
                 '</div>', {
                 /**
                  * Builds an instance of a layout based on a template and adds it to the parent HTML element.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
                  * @function
                  * @name build
                   */
@@ -36,7 +36,7 @@ ymaps.ready(function () {
 
                 /**
                  * Removes the layout contents from DOM.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
                  * @function
                  * @name clear
                   */
@@ -49,7 +49,7 @@ ymaps.ready(function () {
 
                 /**
                  * The method will be invoked by the API's template system when resizing the nested layout.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onSublayoutSizeChange
                   */
@@ -67,7 +67,7 @@ ymaps.ready(function () {
 
                 /**
                  * Moving the balloon so the "tail" points at the anchor point.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name applyElementOffset
                   */
@@ -80,7 +80,7 @@ ymaps.ready(function () {
 
                 /**
                  * Closes the balloon when the "x" is clicked, throwing the "userclose" event on the layout.
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
                  * @function
                  * @name onCloseClick
                   */
@@ -92,7 +92,7 @@ ymaps.ready(function () {
 
                 /**
                  * Used for autopositioning (balloonAutoPan).
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @see https://api.yandex.com/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
                  * @function
                  * @name getClientBounds
                  * @returns {Number[][]} The coordinates of the top left and bottom right corners of the template relative to the anchor point.
