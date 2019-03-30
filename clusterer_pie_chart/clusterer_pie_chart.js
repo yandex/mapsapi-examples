@@ -53,6 +53,6 @@ ymaps.ready(function () {
     });
 
     function getRandomColor() {
-        return placemarkColors[Math.round(Math.random() * placemarkColors.length)];
+        return placemarkColors[Math.floor(Math.random() * placemarkColors.length)];
     }
 });
