@@ -20,16 +20,20 @@ function init() {
 
     // Создадим 5 пунктов выпадающего списка.
     var listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар']
-        .map(function(title) {
-            return new ymaps.control.ListBoxItem({
-                data: {
-                    content: title
-                },
-                state: {
-                    selected: true
-                }
-            })
-        }),
+            .map(function (title) {
+                return new ymaps.control.ListBoxItem({
+                    data: {
+                        content: title
+                    },
+                    state: {
+                        selected: true
+                    }
+                })
+            }),
+        reducer = function (filters, filter) {
+            filters[filter.data.get('content')] = filter.isSelected();
+            return filters;
+        },
         // Теперь создадим список, содержащий 5 пунктов.
         listBoxControl = new ymaps.control.ListBox({
             data: {
@@ -40,16 +44,13 @@ function init() {
             state: {
                 // Признак, развернут ли список.
                 expanded: true,
-                filters: listBoxItems.reduce(function(filters, filter) {
-                    filters[filter.data.get('content')] = filter.isSelected();
-                    return filters;
-                }, {})
+                filters: listBoxItems.reduce(reducer, {})
             }
         });
     myMap.controls.add(listBoxControl);
 
     // Добавим отслеживание изменения признака, выбран ли пункт списка.
-    listBoxControl.events.add(['select', 'deselect'], function(e) {
+    listBoxControl.events.add(['select', 'deselect'], function (e) {
         var listBoxItem = e.get('target');
         var filters = ymaps.util.extend({}, listBoxControl.state.get('filters'));
         filters[listBoxItem.data.get('content')] = listBoxItem.isSelected();
@@ -57,13 +58,13 @@ function init() {
     });
 
     var filterMonitor = new ymaps.Monitor(listBoxControl.state);
-    filterMonitor.add('filters', function(filters) {
+    filterMonitor.add('filters', function (filters) {
         // Применим фильтр.
         objectManager.setFilter(getFilterFunction(filters));
     });
 
-    function getFilterFunction(categories){
-        return function(obj){
+    function getFilterFunction(categories) {
+        return function (obj) {
             var content = obj.properties.balloonContent;
             return categories[content]
         }
