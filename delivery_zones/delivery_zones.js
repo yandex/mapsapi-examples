@@ -23,11 +23,14 @@ function init() {
         var deliveryZones = ymaps.geoQuery(json).addToMap(myMap);
         // Задаём цвет и контент балунов полигонов.
         deliveryZones.each(function (obj) {
-            var color = obj.options.get('fillColor');
-                color = color.substring(0, color.length - 2);
-            obj.options.set({fillColor: color, fillOpacity: 0.4});
-            obj.properties.set('balloonContent', obj.properties.get('name'));
-            obj.properties.set('balloonContentHeader', 'Стоимость доставки: ' + obj.properties.get('price') + ' р.')
+            obj.options.set({
+                fillColor: obj.properties.get('fill'),
+                fillOpacity: obj.properties.get('fill-opacity'),
+                strokeColor: obj.properties.get('stroke'),
+                strokeWidth: obj.properties.get('stroke-width'),
+                strokeOpacity: obj.properties.get('stroke-opacity')
+            });
+            obj.properties.set('balloonContent', obj.properties.get('description'));
         });
 
         // Проверим попадание результата поиска в одну из зон доставки.
@@ -63,7 +66,7 @@ function init() {
                 polygon.options.set('fillOpacity', 0.8);
                 // Перемещаем метку с подписью в переданные координаты и перекрашиваем её в цвет полигона.
                 deliveryPoint.geometry.setCoordinates(coords);
-                deliveryPoint.options.set('iconColor', polygon.options.get('fillColor'));
+                deliveryPoint.options.set('iconColor', polygon.properties.get('fill'));
                 // Задаем подпись для метки.
                 if (typeof(obj.getThoroughfare) === 'function') {
                     setData(obj);
@@ -95,17 +98,19 @@ function init() {
                 if (address.trim() === '') {
                     address = obj.getAddressLine();
                 }
+                var price = polygon.properties.get('description');
+                price = price.match(/<strong>(.+)<\/strong>/)[1];
                 deliveryPoint.properties.set({
                     iconCaption: address,
                     balloonContent: address,
-                    balloonContentHeader: '<b>Стоимость доставки: ' + polygon.properties.get('price') + ' р.</b>'
+                    balloonContentHeader: price
                 });
             }
         }
     }
 
     $.ajax({
-        url: 'data.json',
+        url: 'data.geojson',
         dataType: 'json',
         success: onZonesLoad
     });
