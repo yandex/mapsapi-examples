@@ -153,7 +153,6 @@
         "Наследование стилей": "ymapsml_parentstyle",
         "Подгрузка стилей из&nbsp;отдельного файла": "ymapsml_loadstyles",
         "Изменение шаблона содержимого балуна": "ymapsml_ballooncontentstyle",
-        "Отображение результатов геокодирования": "ymapsml_showhttpgeocoderresult",
         "Создание меню для&nbsp;отображения групп объектов": "ymapsml_menu",
         "Преобразование в&nbsp;YMapsML из&nbsp;GeoRSS": "ymapsml_georss"
     },
