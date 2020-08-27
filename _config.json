@@ -1,12 +1,12 @@
 {
     "development": {
-        "main": "/?version=2.1&lang=en",
-        "example": "/?version=2.1&lang=en&id={id}",
+        "main": "/?version=2.1&lang=en&namespace={namespace}",
+        "example": "/?version=2.1&lang=en&namespace={namespace}&id={id}",
         "doc": "/doc/jsapi/2.1/ref/reference/{path}"
     },
     "production": {
-        "main": "/maps/jsbox/2.1",
-        "example": "/maps/jsbox/2.1/{id}",
+        "main": "{namespace}/maps/jsbox/2.1",
+        "example": "{namespace}/maps/jsbox/2.1/{id}",
         "doc": "/doc/jsapi/2.1/ref/reference/{path}"
     }
 }
