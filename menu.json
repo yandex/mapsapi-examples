@@ -149,7 +149,6 @@
         "Filtering objects": "object_manager_filter"
     },
     "Modular system": {
-        "Loading predefined modules during initialization": "load_modules",
         "Loading the module on demand": "module_request",
         "Creating your own module": "custom_module"
     },
