@@ -37,9 +37,9 @@ function init() {
         });
 
     myMap.controls.add(button, {
-		position: {
-			right: 5,
-			top: 5
-		}
+        position: {
+            right: 5,
+            top: 5
+        }
     });
 }
