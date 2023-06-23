@@ -60,9 +60,6 @@
     "Hotspots": {
         "Hotspot layer": "hotspot_layer"
     },
-    "Regions": {
-        "Example of how the \"Regions\" module works": "regions"
-    },
     "Clustering": {
         "Creating a clusterer": "clusterer_create",
         "Creating a clusterer with arbitrary icons": "clusterer_custom_icon",
