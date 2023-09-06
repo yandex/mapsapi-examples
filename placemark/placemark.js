@@ -6,7 +6,7 @@ function init() {
             zoom: 10
         }, {
             searchControlProvider: 'yandex#search'
-        }),
+        });
 
     // Creating a geo object with the "Point" geometry type.
         myGeoObject = new ymaps.GeoObject({
@@ -29,7 +29,7 @@ function init() {
             preset: 'islands#blackStretchyIcon',
             // The placemark can be dragged.
             draggable: true
-        }),
+        });
         myPieChart = new ymaps.Placemark([
             55.847, 37.6
         ], {
