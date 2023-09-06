@@ -6,7 +6,7 @@ function init() {
             zoom: 10
         }, {
             searchControlProvider: 'yandex#search'
-        });
+        }),
 
     // Создаем геообъект с типом геометрии "Точка".
         myGeoObject = new ymaps.GeoObject({
@@ -27,7 +27,7 @@ function init() {
             preset: 'islands#blackStretchyIcon',
             // Метку можно перемещать.
             draggable: true
-        });
+        }),
         myPieChart = new ymaps.Placemark([
             55.847, 37.6
         ], {
